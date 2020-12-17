@@ -1,0 +1,29 @@
+name: PowerDict
+
+channels:
+  - conda-forge
+  
+dependencies:
+  - python>=3.7
+  - pandas
+  - matplotlib
+  - jupyterlab
+  - xarray
+  - tabulate
+  - seaborn
+  - mkdocs-material
+  - twine
+  - dagster
+  - dagit
+  - mkdocs
+  - mkdocs-material
+  - pip
+  
+  - pip:
+      - nbdev
+      - ipypb
+      - feautils
+      - mkdocs-material-extensions
+      - mkdocstrings
+      - configparser
+      - junix

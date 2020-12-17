@@ -8,6 +8,8 @@ dependencies:
   - pandas
   - matplotlib
   - jupyterlab
+  - lxml
+  - beautifulsoup4
   - xarray
   - tabulate
   - seaborn
@@ -17,6 +19,8 @@ dependencies:
   - dagit
   - mkdocs
   - mkdocs-material
+  - geopandas
+  - descartes
   - pip
   
   - pip:

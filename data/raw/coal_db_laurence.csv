@@ -1,0 +1,299 @@
+eu_planet_id,capacity,lat,long,ecd_unit_id,gcpt_id,gcpt_unit_name,platts_id,ecd_plant_id,eutl_id,eu_planet_plant_name,ecd_unit_name,ecd_fuel_type,ecd_nameplate_capacityw,entsoe_country,entsoe_unit_name,entsoe_fuel_type
+1,1500,51.387312,-3.404664,UK-6-1,G100008,Aberthaw-B power station Unit 7,1100137,UK-6,GB 188,Aberthaw-B power station,Aberthaw 1,hard coal,574.63768115942,GB,ABTH7,Fossil Hard coal
+10,600,40.61933,21.682777,EL-2-1,G100186,Amyntaio 1,1102041,EL-2,GR 16,Amyntaio power station,Amintaio 1,lignite,300,GR,AMYNDEO1,Fossil Brown coal/Lignite
+100,107,48.847759,17.120129,NA,G112616,Hodonin 3,,NA,NA,Hodonin power station,NA,NA,NA,NA,NA,NA
+101,164,50.1042525,8.607319,NA,G103909,Hoechst 3,1119697,NA,NA,Hoechst power station,NA,NA,NA,NA,NA,NA
+102,50,47.147296,27.717157,NA,G104811,Iasi-2 power station Unit 2,1120755,NA,NA,Iasi-2 power station,NA,NA,NA,NA,NA,NA
+103,838,52.28579,7.74601,DE-140-1,G104819,Ibbenbüren-B power station Unit 1,1120780,DE-140,DE 1480,Ibbenbüren-B power station,Ibbenbueren B,hard coal,838,DE,Ibbenbüren B,Fossil Hard coal
+104,630,44.38763,23.718195,RO-11-7,G104909,Isalnita power station Unit 7,1110903,RO-11,RO 86,Isalnita power station,Isalnita 7,lignite,315,RO,Isalnita_ISAL7_CA,Fossil Brown coal/Lignite
+105,3210,51.835666,14.457808,DE-186-1,G104967,Janschwalde power station Unit A,1122246,DE-186,DE 1456,Janschwalde power station,Jaenschwalde A,lignite,535,DE,KW Jänschwalde Block A,Fossil Brown coal/Lignite
+106,140,50.213351,19.22806,PL-69-1,G104992,Jaworzno-2 power station Unit 1,1122339,PL-69,PL 11,Jaworzno-2 power station,NA,NA,NA,NA,NA,NA
+107,1345,50.207238,19.205311,PL-70-1,G104995,Jaworzno-3 power station Unit 1,1122346,PL-70,PL 9,Jaworzno-3 power station,Jaworzno 3 B1,hard coal,225,PL,Jaworzno 3 B1,Fossil Hard coal
+108,1250,40.410625,21.786145,EL-4-1,G105590,Kardia power station Unit 1,1124003,EL-4,GR 14,Kardia power station,Kardia 1,lignite,300,GR,KARDIA1,Fossil Brown coal/Lignite
+109,55,49.8232,18.47851389,CZ-17-1,G105604,Karvina,1159548,CZ-17,CZ 217,Karvina power station,NA,NA,NA,NA,NA,NA
+11,976,45.431161,12.246807,IT-24-1,G100196,Andrea Palladio power station Unit 1,1115905,IT-24,IT 275,Andrea Palladio power station,Fusina GR1,hard coal,165,IT,UP_FUSINA_T_1,Fossil Hard coal
+110,38,51.27925589,9.48336491,DE-150-1,G105614,Kassel Swew 1,1124206,DE-150,DE 1529,Kassel Swew power station,NA,NA,NA,NA,NA,NA
+111,135,50.28568,19.05438,PL-76-1,G105620,Katowice PKE power station Unit 1,1124297,PL-76,PL 64,Katowice PKE power station,Katowice B1,hard coal,135,PL,Katowice B1,Fossil Hard coal
+112,354,54.338671,10.176991,DE-152-1,G105733,Kiel-A power station,1125053,DE-152,DE 1210,Kiel power station,Kiel East,hard coal,354,DE,Kiel,Fossil Hard coal
+113,40,54.333333,10.133333,NA,G105734,Kiel-Wik 2,1125062,NA,NA,Kiel-Wik power station,NA,NA,NA,NA,NA,NA
+114,520,54.724522,-5.767263,UK-85-1,G105743,Kilroot power station Unit 1,1125171,UK-85,GB 578,Kilroot power station,NA,NA,NA,NA,NA,NA
+115,405,50.15348733,14.128268,CZ-18-3,G105793,Kladno TG4 ,1125484,CZ-18,CZ 401,Kladno power station,Kladno TG4 (unit 4),lignite,135.3,CZ,EECK_G4____,Fossil Brown coal/Lignite
+116,32,50.419167,18.123611,NA,G105810,Koksownicze 3,,NA,NA,Koksownicze power station,NA,NA,NA,NA,NA,NA
+117,192,50.522288,13.572102,CZ-24-1,G105840,Komorany II 4,,CZ-24,CZ 112,Komorany power station,NA,NA,NA,NA,NA,NA
+118,170,52.283657,18.269475,NA,G105845,Konin power station Unit 2,1125949,NA,NA,Konin power station,NA,NA,NA,NA,NA,NA
+119,121,48.698047,21.271726,SK-4-1,G105879,Kosice power station Unit 1,1126141,SK-4,SK 144,Kosice power station,NA,NA,NA,NA,NA,NA
+12,365,42.839264,-6.533279,ES-25-1,G100250,Anllares power station Unit 1,1102267,ES-25,ES 273,Anllares power station,Anllares 1,hard coal,365.2,ES,ANLLARES 1,Fossil Hard coal
+120,2840,51.667025,21.461976,PL-96-1,G105919,Kozienice power station Unit 1,1126349,PL-96,PL 4,Kozienice power station,Kozienice B1,hard coal,215,PL,Kozienice 1 B1,Fossil Hard coal
+121,460,50.054021,20.006018,NA,G105936,Krakow-Leg power station Unit 4,1126415,NA,NA,Krakow-Leg power station,NA,NA,NA,NA,NA,NA
+122,116,51.377382,6.65873,DE-215-4,G105963,Krefeld-Uerdingen 4,1162183,DE-215,DE 833,Krefeld-Uerdingen power station,NA,NA,NA,NA,NA,NA
+123,60,62.8925,27.678333,NA,G106028,Kuopio 1,,NA,NA,Kuopio power station,NA,NA,NA,NA,NA,NA
+124,31,58.41940985,15.62500017,NA,G106051,Kv Linkoping 1,1172584,NA,NA,Kv Linkoping power station,NA,NA,NA,NA,NA,NA
+125,50,60.75,26.823611,NA,G106065,Kymenso (Anjalankoski) 2,1179953,NA,NA,Kymenso (Anjalankoski) power station,NA,NA,NA,NA,NA,NA
+126,138,60.99176,25.720225,FI-16-1,G106066,Kymijarvi power station Unit 1,1127881,FI-16,FI 168,Kymijarvi power station,Kymijarvi 1,hard coal,211.95652173913,FI,Kymijärvi B1,Fossil Hard coal
+127,50,43.247303,-5.754558,NA,G106074,La Pereda Hunosa 1,1127555,NA,NA,La Pereda Hunosa power station,NA,NA,NA,NA,NA,NA
+128,620,42.791992,-5.634922,ES-19-1,G106075,La Robla Fenosa power station Unit 1,1127592,ES-19,ES 274,La Robla Fenosa power station,La Robla GR I,hard coal,284,ES,ROBLA 1,Fossil Hard coal
+129,600,44.112151,9.875047,IT-11-1,G106077,La Spezia power station Unit 5,1127617,IT-11,IT 88,La Spezia power station,La Spezia 3,hard coal,600,IT,UP_SPEZIA_CE_3,Fossil Hard coal
+13,100,46.222424,21.328771,NA,G100302,Arad-1 power station Unit 1,,NA,NA,Arad power station,NA,NA,NA,NA,NA,NA
+130,358,43.296361,-5.682542,NA,G106087,Lada III,1127725,NA,NA,Lada power station,NA,NA,NA,NA,NA,NA
+131,820,50.350163,19.143507,NA,G106095,Lagisza power station Unit 1,1127811,NA,NA,Lagisza power station,NA,NA,NA,NA,NA,NA
+132,1155,50.134526,18.844352,PL-107-1,G106197,Laziska power station Unit 1,1128498,PL-107,PL 12,Laziska power station,Laziska B1,hard coal,125,PL,Łaziska 2 B1,Fossil Hard coal
+133,122,-21.114444,55.5325,NA,G106203,Le Gol 1,,NA,NA,Le Gol power station,NA,NA,NA,NA,NA,NA
+134,600,49.475745,0.147462,NA,G106206,Le Havre-2 power station Unit 1,1128524,NA,NA,Le Havre power station,NA,NA,NA,NA,NA,NA
+135,38,16.3306,-61.3444,FR-87-1,G106209,Le Moule,,FR-87,FR 201340,Le Moule power station,NA,NA,NA,NA,NA,NA
+136,330,50.575909,13.779415,NA,G106211,Ledvice power station Unit 1,1128661,NA,NA,Ledvice power station,NA,NA,NA,NA,NA,NA
+137,37,47.976111,13.595556,NA,G106239,Lenzing Energy-I No T5,1217145,NA,NA,Lenzing Energy power station,NA,NA,NA,NA,NA,NA
+138,1866,51.184537,12.372852,DE-28-1,G106337,Lippendorf power station Unit R,1129333,DE-28,DE 1460,Lippendorf power station,Lippendorf R,lignite,933.6,DE,KW Lippendorf Block R,Fossil Brown coal/Lignite
+139,1100,36.978378,-1.904999,ES-10-1,G106342,Litoral de Almería power station Unit 1,1129366,ES-10,ES 43,Litoral de Almería power station,Litoral GR I,hard coal,577,ES,LITORAL 1,Fossil Hard coal
+14,1467,43.441395,-7.862578,ES-7-1,G100363,As Pontes power station Unit 1,1143836,ES-7,ES 647,As Pontes power station,As Pontes GR I,lignite,368.9,ES,P.G.RODR 1,Fossil Brown coal/Lignite
+140,124,46.057997,14.54466,SI-3-1,G106370,Ljubljana TE-TOL power station Unit 1,1129437,SI-3,SI 5,Ljubljana TE-TOL power station,NA,NA,NA,NA,NA,NA
+141,174,51.798357,19.420734,PL-114-1,G106375,Lodz-3 power station Unit 1,1129529,PL-114,PL 87,Lodz-3 power station,NA,NA,NA,NA,NA,NA
+142,215,51.745647,19.539635,PL-115-1,G106379,Lodz-4 power station Unit 1,1129533,PL-115,PL 88,Lodz-4 power station,NA,NA,NA,NA,NA,NA
+143,568,36.1828,-5.42,NA,G106425,Los Barrios power station Unit 2,,NA,NA,Los Barrios power station,NA,NA,NA,NA,NA,NA
+144,810,51.6143892,7.4642766,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+145,520,51.614042,7.481345,DE-163-6,G106474,Lünen-1 power station Unit 6,1124646,DE-163,DE 1313,Lünen power station (KSBG),Luenen 6,hard coal,170,DE,LUENEN_6,Fossil Hard coal
+146,420,55.20475,-1.520356,NA,G106521,Lynemouth power station Unit 1,1130248,NA,NA,Lynemouth power station,NA,NA,NA,NA,NA,NA
+147,1080,51.958734,4.027208,NA,G106536,Maasvlakte power station Unit 1,1130353,NA,NA,Maasvlakte power station,NA,NA,NA,NA,NA,NA
+148,1100,51.958734,4.027208,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+149,800,51.9439441,4.0717328,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+15,1052,55.661528,11.080892,DK-10-2,G100379,Asnaes power station Unit 2,1103061,DK-10,DK 48,Asnaes power station,Asnaes 2,hard coal,147,DK,Asnaesvaerket 2,Fossil Hard coal
+150,110,50.084967,14.525273,CZ-41-3,G106610,Malesice power station Unit 3,1251558,CZ-41,CZ 46,Malesice power station,NA,NA,NA,NA,NA,NA
+151,120,42.051942,25.623344,BG-3-3,G106668,Maritsa 3 power station,1161053,BG-3,BG 31,Maritsa 3 power station,Maritsa 3,lignite,120,BG,TPP_MARITSA_3_G1,Fossil Brown coal/Lignite
+152,1602,42.254053,26.134007,BG-8-1,G106669,Maritsa Itzok-2 power station Unit 1,1131603,BG-8,BG 50,Maritsa Itzok-2 power station,Maritsa East 2-1,lignite,177,BG,TPP_MI2_G1,Fossil Brown coal/Lignite
+153,908,42.14502,26.003009,BG-9-1,G106677,Maritsa Itzok-3 power station Unit 1,1131611,BG-9,BG 9,Maritsa Itzok-3 power station,ContourGlobal Maritsa East 3-1,lignite,227,BG,TPP_MI3_G1,Fossil Brown coal/Lignite
+154,670,42.1573,25.9084,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+155,80,60.2833,24.8364,FI-31-2,G106706,Martinlaakso 2,1131720,FI-31,FI 333,Martinlaakso power station,NA,NA,NA,NA,NA,NA
+156,32,49.059218,18.907019,NA,G106707,Martinska 2,,NA,NA,Martinska power station,NA,NA,NA,NA,NA,NA
+157,884,47.79027,20.06358,NA,G106737,Matra power station Unit 6,1133132,NA,NA,Matra power station,NA,NA,NA,NA,NA,NA
+158,600,37.417449,22.107892,NA,G106796,Megalopoli-A power station Unit 1,1132215,NA,NA,Megalopoli power station,NA,NA,NA,NA,NA,NA
+159,752,52.315108,10.093756,DE-130-1,G106802,Mehrum power station ,1132244,DE-130,DE 939,Mehrum power station,Mehrum 3,hard coal,750,DE,Block 3,Fossil Hard coal
+16,60,47.0956,17.558444,NA,G100447,Bakony 6,1100797,NA,NA,Bakony power station,NA,NA,NA,NA,NA,NA
+160,580,43.16744,-8.411278,ES-22-1,G106804,Meirama power station Unit 1,1132262,ES-22,ES 648,Meirama power station,Meirama 1,lignite,580.46,ES,MEIRAMA,Fossil Brown coal/Lignite
+161,246,46.90819,15.492306,AT-11-1,G106840,Mellach power station Unit 1,1132360,AT-11,AT 99,Mellach power station,Mellach 1,hard coal,246,AT,FHKW Mellach,Fossil Hard coal
+162,1050,50.413132,14.41582,NA,G106847,Melnik-1 power station Unit 5,1132378,NA,NA,Melnik power station,NA,NA,NA,NA,NA,NA
+163,560,61.63215,21.40473,FI-21-1,G106877,Meri-Pori 1,1132491,FI-21,FI 3,Meri-Pori power station,Meri-Pori 1,hard coal,614.130434782609,FI,Meri-Pori B1,Fossil Hard coal
+164,58,51.466667,7.55,DE-154-1,G106879,Merkenich (Nord) 3,1132507,DE-154,DE 1276,Merkenich (Nord) power station,NA,NA,NA,NA,NA,NA
+165,110,50.349073,18.841853,PL-20-1,G106906,Miechowice power station Unit 1,1132709,PL-20,PL 82,Miechowice power station,NA,NA,NA,NA,NA,NA
+166,865,45.912791,22.826129,NA,G106938,Mintia-Deva power station Unit 1,1132979,NA,NA,Mintia-Deva power station,NA,NA,NA,NA,NA,NA
+167,90,50.4125,14.904444,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+168,915,52.60795,-9.424255,IE-3-1,G106987,Moneypoint power station Unit 1,1133652,IE-3,IE 54,Moneypoint power station,Moneypoint 1,hard coal,305,IE,Moneypoint Unit 1,Fossil Hard coal
+169,336,45.7979,13.5455,NA,G106992,Monfalcone power station Unit 5,1224907,NA,NA,Monfalcone power station,NA,NA,NA,NA,NA,NA
+17,81,50.303889,19.137778,PL-4-1,G100691,Bedzin 1,1104888,PL-4,PL 29,Bedzin power station,NA,NA,NA,NA,NA,NA
+170,1730,53.49,9.951667,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+171,365,48.181171,11.639797,DE-217-1,G107101,München Nord power station Unit 1,1134401,DE-217,DE 741,München Nord power station,NA,NA,NA,NA,NA,NA
+172,70,48.783333,9.183333,NA,G107118,Munster Neubau 25,,NA,NA,Munster Neubau power station,NA,NA,NA,NA,NA,NA
+173,366,60.458081,22.05294,NA,G107154,Naantali CHP power station,,NA,NA,Naantali CHP power station,NA,NA,NA,NA,NA,NA
+174,530,43.292257,-6.393271,NA,G107283,Narcea power station Unit 1,1135302,NA,NA,Narcea power station,NA,NA,NA,NA,NA,NA
+175,2200,51.035808,6.6330385,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+176,2224,51.035808,6.6330385,DE-107-1,G107366,Neurath A,1135774,DE-107,DE 1606,Neurath power station,Grevenbroich-Neurath A,lignite,312,DE,Neurath A,Fossil Brown coal/Lignite
+177,3676,50.996883,6.667549,DE-13-1,G107422,Niederaussem power station Unit A,1135964,DE-13,DE 1649,Niederaussem power station,NA,NA,NA,NA,NA,NA
+178,716,57.073694,10.040779,DK-19-2,G107495,Nordjylland power station Unit 2,1155748,DK-19,DK 78,Nordjylland power station,Nordjylland 2,hard coal,305,DK,Nordjyllandsvaerket 2,Fossil Hard coal
+179,252,48.6988229,18.5334581,NA,G107533,Novaky-2 power station Unit 3,1136645,NA,NA,Novaky power station,NA,NA,NA,NA,NA,NA
+18,858,51.266389,19.330556,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+180,60,50.11129297,8.745392723,NA,G107614,Offenbach,1137139,NA,NA,Offenbach power station,NA,NA,NA,NA,NA,NA
+181,41,49.5708793,17.3041213,CZ-26-1,G107623,Olomouc 1,1137519,CZ-26,CZ 219,Olomouc power station,NA,NA,NA,NA,NA,NA
+182,363,50.126508,15.793312,CZ-33-1,G107643,Opatovice power station Unit 1,1137712,CZ-33,CZ 36,Opatovice power station,NA,NA,NA,NA,NA,NA
+183,1480,50.75182,17.88196,PL-16-1,G107649,Opole power station Unit 1,1137723,PL-16,PL 2,Opole power station,Opole  B1,hard coal,386,PL,Opole B1,Fossil Hard coal
+184,250,47.501741,18.271075,HU-8-1,G107677,Oroszlány power station Unit 1,1137840,HU-8,HU 205,Oroszlány power station,NA,NA,NA,NA,NA,NA
+185,37,55.1,14.7,NA,G107695,Ostkraft 6,1138100,NA,NA,Ostkraft power station,NA,NA,NA,NA,NA,NA
+186,681,53.103611,21.6125,PL-140-4,G107697,Ostroleka-A power station Unit 4,1138111,PL-140,PL 19,Ostroleka power station,NA,NA,NA,NA,NA,NA
+187,81,38.116667,13.366667,NA,G107739,Palermo (B),,NA,NA,Palermo power station,NA,NA,NA,NA,NA,NA
+188,30,61.066667,28.183333,NA,G107823,Pargas 1,1190814,NA,NA,Pargas power station,NA,NA,NA,NA,NA,NA
+189,150,43.172259,18.512728,RO-18-4,G107846,Paroseni power station Unit 4,1138924,RO-18,RO 209,Paroseni power station,Paroseni,hard coal,150,RO,CET_Paroseni_CA,Fossil Hard coal
+19,4440,51.266389,19.330556,PL-6-1,G100724,Belchatow-1 power station Unit 1,1105004,PL-6,PL 1,Belchatow power station,Belchatow B1,lignite,370,PL,Bełchatów B01,Fossil Brown coal/Lignite
+190,800,52.302,18.237,PL-90-1,G107864,Patnow power station Unit 7,1139119,PL-90,PL 21,Patnow power station,Patnow I B1,lignite,200,PL,Pątnów 1 B1,Fossil Brown coal/Lignite
+191,628,39.468174,-8.109231,PT-3-1,G107913,Pego power station Unit 1,1139315,PT-3,PT 23,Pego power station,Pego 1,hard coal,341.304347826087,PT,Pego - G1,Fossil Hard coal
+192,30,48.89726595,8.724529559,DE-188-1,G107958,Pforzheim-Iii No 1,1139726,DE-188,DE 1077,Pforzheim power station,NA,NA,NA,NA,NA,NA
+193,150,42.896993,12.538264,IT-10-1,G107978,Pietro Vannucci power station Unit 1,1104660,IT-10,IT 426,Pietro Vannucci power station,NA,NA,NA,NA,NA,NA
+194,46,49.368459,14.702139,CZ-36-2,G108022,Plana Nad Luznici Tg 3,1169777,CZ-36,CZ 307,Plana Nad Luznici power station,NA,NA,NA,NA,NA,NA
+195,335,45.136764,14.162702,HR-1-1,G108045,Plomin-B power station,1140270,HR-1,HR 203977,Plomin power station,NA,NA,NA,NA,NA,NA
+196,139,49.754333,13.398754,NA,G108050,Plzen CHP power station Unit 1,1148743,NA,NA,Plzen CHP power station,NA,NA,NA,NA,NA,NA
+197,63,49.73952909,13.34546117,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+198,1000,50.427446,13.677724,CZ-38-2,G108054,Pocerady-1 power station Unit 2,1140314,CZ-38,CZ 124,Pocerady power station,Pocerady I 2,lignite,200,CZ,EPC1_G2____,Fossil Brown coal/Lignite
+199,1575,50.437685,21.33769,NA,G108069,Polaniec power station Unit 8,1150987,NA,NA,Polaniec power station,NA,NA,NA,NA,NA,NA
+2,916,43.553557,-5.721851,ES-11-1,G100014,Aboño power station Unit 1,1100161,ES-11,ES 201,Aboño power station,Abono GRI,hard coal,360,ES,ABOÑO 1,Fossil Hard coal
+20,780,51.636678,7.620603,DE-14-1,G100765,Bergkamen power station Unit A,1105303,DE-14,DE 1399,Bergkamen power station,Bergkamen A,hard coal,780,DE,BERGKAMEN_A,Fossil Hard coal
+200,120,53.390996,14.524786,PL-198-1,G108077,Pomorzany power station Unit 1,1140495,PL-198,PL 17,Pomorzany power station,NA,NA,NA,NA,NA,NA
+201,165,50.572812,15.963992,CZ-53-1,G108081,Porici-2 power station Unit 1,1140733,CZ-53,CZ 125,Porici power station,NA,NA,NA,NA,NA,NA
+202,160,45.45,12.216667,NA,G108103,Porto Marghera Alsar power station Unit 1,1140930,NA,NA,Porto Marghera Alsar power station,NA,NA,NA,NA,NA,NA
+203,265,52.436416,16.988658,NA,G108125,Poznan Karolin power station Unit 3,1280024,NA,NA,Poznan Karolin power station,NA,NA,NA,NA,NA,NA
+204,41,49.44506111,17.428525,CZ-42-2,G108132,Prerov K1-3,1141212,CZ-42,CZ 220,Prerov power station,NA,NA,NA,NA,NA,NA
+205,600,43.469475,5.487544,NA,G108157,Provence power station Unit 4,1116246,NA,NA,Provence power station,NA,NA,NA,NA,NA,NA
+206,750,50.418,13.259,NA,G108159,Prunerov II Power Station Unit 26,1208580,NA,NA,Prunerov,NA,NA,NA,NA,NA,NA
+207,440,50.415122,13.255958,NA,G108166,Prunerov-2 power station Unit 1,1141342,NA,NA,Prunerov power station,NA,NA,NA,NA,NA,NA
+208,550,40.480491,21.72746,NA,G108181,Ptolemaïda power station Unit 1,1141395,NA,NA,Ptolemaïda power station,NA,NA,NA,NA,NA,NA
+209,324,38.110168,-4.935077,NA,G113465,Puente Nuevo GR I,,NA,NA,Puente Nuevo power station,NA,NA,NA,NA,NA,NA
+21,180,52.489993,13.495988,NA,G100766,Berlin-Klingenberg power station Unit 4,1125549,NA,NA,Berlin-Klingenberg power station,NA,NA,NA,NA,NA,NA
+210,92,51.457211,21.973811,NA,G108225,Pulawy ZAP Works power station Unit 1,1165405,NA,NA,Pulawy ZAP Works power station,NA,NA,NA,NA,NA,NA
+211,2000,52.866945,-1.256635,UK-57-1,G108479,Ratcliffe power station Unit 1,1142610,UK-57,GB 154,Ratcliffe power station,Ratcliffe 1,hard coal,543.478260869565,GB,RATS-1,Fossil Hard coal
+212,910,49.0125,8.302778,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+213,550,49.0125,8.302778,DE-148-5,G108503,RDK (Karlsruhe) power station,1142812,DE-148,DE 1457,RDK (Karlsruhe) power station,Karlsruhe 7,hard coal,550,DE,RDK 7,Fossil Hard coal
+214,110,42.607124,23.078699,BG-10-5,G108557,Republika 5,,BG-10,BG 4,Republika power station,NA,NA,NA,NA,NA,NA
+215,30,51.270833,16.720833,NA,G108611,Rokita 5,1167086,NA,NA,Rokita power station,NA,NA,NA,NA,NA,NA
+216,180,44.67513,22.686854,NA,G108613,Romag-Termo power station Unit 1,1112783,NA,NA,Romag-Termo power station,NA,NA,NA,NA,NA,NA
+217,553,54.142799,12.132865,DE-195-1,G108642,Rostock power station,1144064,DE-195,DE 1309,Rostock power station,Rostock,hard coal,553,DE,Kraftwerk Rostock,Fossil Hard coal
+218,1320,44.910633,23.134754,RO-15-3,G108645,Rovinari power station Unit 3,1144163,RO-15,RO 87,Rovinari power station,Rovinari 3,lignite,330,RO,CTE_Rovinari_ROVI3_CA,Fossil Brown coal/Lignite
+219,400,43.866654,26.010002,BG-11-1,G108664,Ruse Iztok power station Unit 1,1144150,BG-11,BG 52,Ruse Iztok power station,NA,NA,NA,NA,NA,NA
+22,140,52.53709,13.345787,DE-17-3,G100769,Berlin-Moabit power station Unit 3,1133382,DE-17,DE 1175,Berlin-Moabit power station,NA,NA,NA,NA,NA,NA
+220,1720,50.134064,18.521963,PL-178-1,G108681,Rybnik power station Unit 1,1144411,PL-178,PL 6,Rybnik power station,Rybnik B1,hard coal,225,PL,Rybnik B1,Fossil Hard coal
+221,46,48.150278,17.8775,NA,G108731,Sal'A Plant,1200279,NA,NA,Sal'A Plant power station,NA,NA,NA,NA,NA,NA
+222,160,60.165375,24.904517,FI-6-1,G108748,Salmisaari-B power station Unit 1,1145040,FI-6,FI 72,Salmisaari power station,Salmisaari B1,hard coal,177.173913043478,FI,Salmisaari SaB,Fossil Hard coal
+223,72,39.227778,9.111111,NA,G108804,Santa Gilla Cagliari 1,1145756,NA,NA,Santa Gilla Cagliari power station,NA,NA,NA,NA,NA,NA
+224,980,51.398462,11.95038465,DE-200-1,G108876,Schkopau A,1146344,DE-200,DE 1376,Schkopau power station,Schkopau A,lignite,490,DE,Schkopau A,Fossil Brown coal/Lignite
+225,740,51.60064,7.004609,NA,G108880,Scholven power station Unit D,1146359,NA,NA,Scholven power station,NA,NA,NA,NA,NA,NA
+226,1600,51.537855,14.353492,DE-206-1,G108885,Schwarze Pumpe power station Unit A,1146462,DE-206,DE 1459,Schwarze Pumpe power station,Schwarze Pumpe A,lignite,800,DE,KW Schwarze Pumpe Block A,Fossil Brown coal/Lignite
+227,31,50.583333,21.683333,NA,G109339,Siarkopol 3,1167134,NA,NA,Siarkopol power station,NA,NA,NA,NA,NA,NA
+228,132,51.0378134,17.1496931,PL-180-1,G109348,Siechnice power station Unit 1,1111145,PL-180,PL 90,Siechnice power station,NA,NA,NA,NA,NA,NA
+229,453,52.188327,21.088883,NA,G109351,Siekierki power station Unit 10,1199163,NA,NA,Siekierki power station,NA,NA,NA,NA,NA,NA
+23,160,52.532473,13.246593,DE-20-3,G100770,Berlin-Reuter power station Unit C,1143069,DE-20,DE 1181,Berlin-Reuter power station,Berlin-Reuter C,hard coal,132,DE,HKW Reuter Block C,Fossil Hard coal
+230,674,50.208043,19.460943,NA,G109359,Siersza power station Unit 4,1148272,NA,NA,Siersza power station,NA,NA,NA,NA,NA,NA
+231,1250,37.932427,-8.803858,PT-4-1,G109409,Sines power station Unit 1,1148458,PT-4,PT 100,Sines power station,Sines 1,hard coal,323.913043478261,PT,Sines - G1,Fossil Hard coal
+232,440,49.977425,19.805132,NA,G109470,Skawina power station Unit 1,1148690,NA,NA,Skawina power station,NA,NA,NA,NA,NA,NA
+233,30,42.654762,26.325853,NA,G109485,Sliven power station,,NA,NA,Sliven power station,NA,NA,NA,NA,NA,NA
+234,30,51.521,-0.627,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+235,945,46.372946,15.053262,NA,G109536,Sostanj power station Unit 1,1149201,NA,NA,Sostanj power station,NA,NA,NA,NA,NA,NA
+236,350,43.311717,-5.874,NA,G109542,Soto de Ribera power station Unit 1,1149212,NA,NA,Soto de Ribera power station,NA,NA,NA,NA,NA,NA
+237,250,50.553861,22.079104,NA,G109591,Stalowa Wola power station Unit 3,1149767,NA,NA,Stalowa Wola power station,NA,NA,NA,NA,NA,NA
+238,553,50.088361,8.952166,NA,G109620,Staudinger power station Unit 1,1149822,NA,NA,Staudinger power station,NA,NA,NA,NA,NA,NA
+239,144,50.461612,14.380003,NA,G109626,Steti Mondi power station Unit 1,1251662,NA,NA,Steti Mondi power station,NA,NA,NA,NA,NA,NA
+24,600,52.534601,13.244531,DE-21-1,G100771,Berlin-Reuter-West power station Unit A,1143073,DE-21,DE 1179,Berlin-Reuter-West power station,Berlin-Reuter West D,hard coal,300,DE,HKW Reuter West Block D,Fossil Hard coal
+240,50,48.783333,9.183333,NA,G109640,Sturovo Plant 1,1200287,NA,NA,Sturovo Plant power station,NA,NA,NA,NA,NA,NA
+241,96,48.81384218,9.219193159,NA,G109642,Stuttgart-Muenster ST15,,NA,NA,Stuttgart-Muenster,NA,NA,NA,NA,NA,NA
+242,590,39.195318,8.399915,IT-20-3,G109677,Sulcis power station Unit 2,1150271,IT-20,IT 573,Sulcis power station,Sulcis 2,hard coal,350,IT,UP_SULCIS_CEN_2,Fossil Hard coal
+243,170,60.148333,24.718333,FI-2-1,G109722,Suomenoja 1,1150532,FI-2,FI 26,Suomenoja power station,NA,NA,NA,NA,NA,NA
+244,113,53.393629,18.374224,NA,G109778,Swiecie Pulp Mill power station Unit 2,1167089,NA,NA,Swiecie Pulp Mill power station,NA,NA,NA,NA,NA,NA
+245,1102,40.997221,-0.380688,ES-6-1,G110027,Teruel power station Unit 1,1152310,ES-6,ES 173,Teruel power station,Andorra GR I,lignite,368,ES,TERUEL 1,Fossil Brown coal/Lignite
+246,180,53.526046,10.064258,DE-119-11,G110157,Tiefstack power station Unit 1,1152653,DE-119,DE 951,Tiefstack power station,Hamburg-Tiefstack,hard coal,205,DE,HKW Tiefstack Block 2,Fossil Hard coal
+247,283,50.149402,12.610338,NA,G110190,Tisova-1 power station Unit 1,1152846,NA,NA,Tisova power station,NA,NA,NA,NA,NA,NA
+248,74,43.353056,-4.045833,NA,G110296,Torrelavega Mill Unit S1,1172988,NA,NA,Torrelavega Mill power station,NA,NA,NA,NA,NA,NA
+249,1320,42.1269,11.7583,IT-7-1,G110298,Torrevaldaliga Nord power station Unit 1,1193907,IT-7,IT 439,Torrevaldaliga Nord power station,Torrevaldaliga Nord Sezione 2,hard coal,660,IT,UP_TORREVALN_2,Fossil Hard coal
+25,773,49.363454,7.237098,DE-24-2,G100773,Bexbach-C power station Unit 1,1105483,DE-24,DE 852,Bexbach-C power station,Bexbach,hard coal,780,DE,BEXBACH_A_GESAMT,Fossil Hard coal
+250,125,46.126132,15.061808,NA,G110308,Trbovlje power station Unit 4,1153730,NA,NA,Trbovlje power station,NA,NA,NA,NA,NA,NA
+251,162,49.831905,18.211305,CZ-29-1,G110310,Trebovice TG 15,1153743,CZ-29,CZ 209,Trebovice power station,NA,NA,NA,NA,NA,NA
+252,32,49.677778,18.672778,NA,G110319,Trinec-E3 No 3,1251597,NA,NA,Trinec-E3 power station,NA,NA,NA,NA,NA,NA
+253,534,50.64622167,13.98540938,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+254,1650,44.669722,23.407778,NA,G110362,Turceni power station New Unit 6,1154345,NA,NA,Turceni power station,NA,NA,NA,NA,NA,NA
+255,1305,50.947717,14.91171,NA,G110371,Turów power station Unit 10,1154385,NA,NA,Turów power station,NA,NA,NA,NA,NA,NA
+256,800,50.381868,13.339973,CZ-15-1,G110381,Tusimice-2 power station Unit 1,1154401,CZ-15,CZ 129,Tusimice power station,Tusimice 1,lignite,200,CZ,ETU2_G21___,Fossil Brown coal/Lignite
+257,50,50.121801,19.020002,NA,G113460,Tychy 2,,NA,NA,Tychy power station,NA,NA,NA,NA,NA,NA
+258,192,48.615945,21.194562,NA,G110415,U.S. Steel Kosice Works power station,1200295,NA,NA,U.S. Steel Kosice Works power station,NA,NA,NA,NA,NA,NA
+259,36,47.983333,7.85,NA,G110482,Universitat Freiburg,,NA,NA,Universitat Freiburg power station,NA,NA,NA,NA,NA,NA
+26,155,53.147965,23.169649,NA,G100840,Bialystok power station Unit 1,1105864,NA,NA,Bialystok power station,NA,NA,NA,NA,NA,NA
+260,80,59.58845395,16.51352224,NA,G110538,Vaesteras 1,1102769,NA,NA,Vaesteras power station,NA,NA,NA,NA,NA,NA
+261,120,59.353269,18.100901,SE-11-1,G110565,Värtaverket-2 power station Unit 1,1155587,SE-11,SE 45,Värtaverket power station,Vaertaverket II 1,hard coal,141.304347826087,SE,KVV6 Värtaverket,Fossil Hard coal
+262,238,63.09151,21.552176,FI-29-1,G110566,Vaskiluoto power station Unit 2,1155621,FI-29,FI 358,Vaskiluoto power station,Vaskiluoto 2,hard coal,250,FI,Vaskiluoto B2,Fossil Hard coal
+263,514,42.818529,-4.8547,ES-33-1,G110572,Velilla del Río Carrión power station Unit 1,1117790,ES-33,ES 271,Velilla del Río Carrión power station,Velilla I,hard coal,154.94,ES,GUARDO 1,Fossil Hard coal
+264,120,43.948363,22.850904,NA,G110587,Vidin Works power station Unit 1,1169447,NA,NA,Vidin Works power station,NA,NA,NA,NA,NA,NA
+265,440,48.5525,21.972625,NA,G110646,Vojany EVO I 1,1156387,NA,NA,Vojany I power station,NA,NA,NA,NA,NA,NA
+266,466,49.249374,6.880646,DE-220-1,G110652,Völklingen-Fenne-B power station Unit 1,1156422,DE-220,DE 851,Völklingen-Fenne power station,Voelklingen-Fenne model,hard coal,233,DE,VOELKLINGEN_MKV,Fossil Hard coal
+267,220,50.255816,12.695936,CZ-77-1,G110659,Vresova TPS power station Unit 1,1241351,CZ-77,CZ 117,Vresova TPS power station,Vresova 1,lignite,200,CZ,EPR2_G21___,Fossil Brown coal/Lignite
+268,90,50.616667,7.133333,DE-226-1,G110686,Wachtberg 1,1190648,DE-226,DE 1603,Wachtberg power station,Frechen/Wachtberg,lignite,128.260869565217,DE,Fabrik Frechen/Wachtberg,Fossil Brown coal/Lignite
+269,37,51.16631726,12.07639503,DE-131-1,G110687,Waehlitz 1,1156670,DE-131,DE 1131,Waehlitz power station,NA,NA,NA,NA,NA,NA
+27,135,49.811696,19.052943,NA,G112551,Bielsko-Biala power station Unit 1,,NA,NA,Bielsko-Biala power station,NA,NA,NA,NA,NA,NA
+270,32,50.755704,16.247113,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+271,267,49.01766953,9.157693253,DE-227-1,G110698,Walheim 1,1156798,DE-227,DE 1464,Walheim power station,NA,NA,NA,NA,NA,NA
+272,790,51.528611,6.711944,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+273,410,51.528611,6.711944,NA,G110702,Walsum power station Unit 7,1156824,NA,NA,Walsum power station,NA,NA,NA,NA,NA,NA
+274,289,53.566837,9.725696,DE-228-1,G110760,Wedel New power station Unit 1,1157011,DE-228,DE 952,Wedel power station,Wedel 1,hard coal,151,DE,HKW Wedel Block 1,Fossil Hard coal
+275,724,49.335278,7.030556,DE-192-3,G110779,Weiher-3 power station Unit 1,1157049,DE-192,DE 845,Weiher-3 power station,Quierschied-Weiher III,hard coal,724,DE,WEIHER_C,Fossil Hard coal
+276,1958,50.839578,6.322382,NA,G110849,Weisweiler power station Unit A,1157087,NA,NA,Weisweiler power station,NA,NA,NA,NA,NA,NA
+277,330,51.275736,7.707286,NA,G110886,Werdohl-Elverlingsen power station Unit 3,1157131,NA,NA,Werdohl-Elverlingsen power station,NA,NA,NA,NA,NA,NA
+278,140,52.433143,10.78735,DE-234-1,G110888,Werk Wolfsburg Nord power station Unit A,1172783,DE-234,DE 1527,Werk Wolfsburg Nord power station,NA,NA,NA,NA,NA,NA
+279,300,52.442154,10.765303,DE-236-1,G110890,Werk Wolfsburg West power station Unit A,1156588,DE-236,DE 1515,Werk Wolfsburg West power station,Wolfsburg West 1,hard coal,153,DE,HKW West Block 1,Fossil Hard coal
+28,165,50.355744,18.291242,NA,G100944,Blachownia 3,1106196,NA,NA,Blachownia power station,NA,NA,NA,NA,NA,NA
+280,665,51.673532,7.720513,DE-232-1,G110892,Werne Gerstein Block K power station Unit 1,1157172,DE-232,DE 1481,Werne Gerstein Block K power station,NA,NA,NA,NA,NA,NA
+281,1924,53.362719,-0.811836,UK-59-1,G110893,West Burton power station Unit 1,1157202,UK-59,GB 145,West Burton power station,West Burton 1,hard coal,546.739130434783,GB,WBUPS-1,Fossil Hard coal
+282,800,51.679297,7.971558,NA,G110908,Westfalen Unit D,1160107,NA,NA,Westfalen,NA,NA,NA,NA,NA,NA
+283,830,53.5748,8.137,DE-247-1,G110939,Wilhelmshaven Engie,1198219,DE-247,DE 205778,Wilhelmshaven Engie,Wilhelmshaven Engie,hard coal,794.565217391304,DE,DEWHV______1_____,Fossil Hard coal
+284,788,53.565866,8.146202,DE-233-1,G110940,Wilhelmshaven power station Unit 1,1157469,DE-233,DE 969,Wilhelmshaven power station,Wilhelmshaven 1,hard coal,788.1,DE,Wilhelmshaven,Fossil Hard coal
+285,66,54.5894,-1.1185,NA,G110949,Wilton Cogen-B No 1,1157498,NA,NA,Wilton Cogen power station,NA,NA,NA,NA,NA,NA
+286,32,51.533333,20.016667,NA,G110960,Wistom Works 6,1157572,NA,NA,Wistom Works power station,NA,NA,NA,NA,NA,NA
+287,140,52.43170255,10.78695738,NA,G110961,Wolfsburg North A,1172783,NA,NA,Wolfsburg North power station,NA,NA,NA,NA,NA,NA
+288,306,52.44154409,10.76507939,NA,G110963,Wolfsburg West 1,1156588,NA,NA,Wolfsburg West power station,NA,NA,NA,NA,NA,NA
+289,255,51.123715,17.02457,PL-234-1,G110973,Wroclaw power station Unit 1,1157750,PL-234,PL 91,Wroclaw power station,NA,NA,NA,NA,NA,NA
+29,630,42.285384,23.034163,BG-4-1,G100971,Bobov Dol power station Unit 1,1106328,BG-4,BG 11,Bobov Dol power station,Bobov Dol 1,lignite,210,BG,TPP_BOBOV_DOL_G1,Fossil Brown coal/Lignite
+290,102,51.248386,7.118781,DE-238-2,G111027,Wuppertal-Elberfeld power station Unit 2,1113762,DE-238,DE 883,Wuppertal-Elberfeld power station,NA,NA,NA,NA,NA,NA
+291,70,50.324928,18.785719,NA,G111518,Zabrze power station Unit 2,1158864,NA,NA,Zabrze power station,NA,NA,NA,NA,NA,NA
+292,64,53.574955,14.532863,NA,G113437,Zaklady Police Fertilizer power station Unit 4,,NA,NA,Zaklady Police Fertilizer power station,NA,NA,NA,NA,NA,NA
+293,135,52.294697,20.993335,NA,G111548,Zeran power station Unit 11,1191760,NA,NA,Zeran power station,NA,NA,NA,NA,NA,NA
+294,30,49.22539815,17.65382956,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+295,64,49.964162,18.6267936,NA,G111742,Zofiowka Mine 1,1159389,NA,NA,Zofiowka Mine power station,NA,NA,NA,NA,NA,NA
+296,37,49.942079,18.569813,NA,G111744,Zofiowka Moszczenica,,NA,NA,Zofiowka Moszczenica power station,NA,NA,NA,NA,NA,NA
+297,474,48.455287,11.799544,DE-243-5,G111745,Zolling power station Unit 5,1128710,DE-243,DE 963,Zolling power station,Zolling-Leininger 5,hard coal,474,DE,DEZOLLI____1_____,Fossil Hard coal
+298,105,50.347756,19.278159,NA,G111769,ZW Nowa power station Unit 5,1167075,NA,NA,ZW Nowa power station,NA,NA,NA,NA,NA,NA
+3,600,52.012307,18.546212,NA,G100025,Adamow power station Unit 1,1100358,NA,NA,Adamow power station,NA,NA,NA,NA,NA,NA
+30,108,48.9356,2.3539,NA,G100985,Bois-Rouge 3,1196917,NA,NA,Bois-Rouge power station,NA,NA,NA,NA,NA,NA
+31,675,51.418683,14.568425,NA,G101036,Boxberg Unit R,1191208,NA,NA,Boxberg,NA,NA,NA,NA,NA,NA
+32,2582,51.419696,14.575308,DE-32-13,G101032,Boxberg power station Unit N,1106827,DE-32,DE 1453,Boxberg power station,Boxberg N,lignite,500,DE,KW Boxberg Block N,Fossil Brown coal/Lignite
+33,65,45.662296,25.646845,NA,G101042,Brasov power station Unit 1,1106975,NA,NA,Brasov power station,NA,NA,NA,NA,NA,NA
+34,49,52.266667,10.516667,DE-33-1,G101044,Braunschweig Mitte 3,1133179,DE-33,DE 1622,Braunschweig Mitte power station,NA,NA,NA,NA,NA,NA
+35,350,53.202125,8.5161,DE-35-1,G101048,Bremen-Farge power station Unit 1,1114695,DE-35,DE 999,Bremen-Farge power station,Bremen-Farge,hard coal,380.434782608696,DE,DEFARGE____1_____,Fossil Hard coal
+36,75,45.516389,10.212222,IT-1-1,G101049,Brescia 3,1107095,IT-1,IT 159,Brescia power station,NA,NA,NA,NA,NA,NA
+37,250,42.154555,25.906814,NA,G101055,Brikel 5,,NA,NA,Brikel power station,NA,NA,NA,NA,NA,NA
+38,640,40.644119,17.980801,NA,G101057,Brindisi Nord power station Unit 1,1107163,NA,NA,Brindisi Nord power station,NA,NA,NA,NA,NA,NA
+39,2640,40.563636,18.032206,IT-2-1,G101061,Brindisi Sud power station Unit 1,1107167,IT-2,IT 521,Brindisi Sud power station,Brindisi Sud 1,hard coal,660,IT,UP_BRNDSSUDCE_1,Fossil Hard coal
+4,1595,40.394185,21.924886,EL-1-1,G100077,Agios Dimitrios power station Unit 1,1100574,EL-1,GR 15,Agios Dimitrios power station,Agios Dimitrios 1,lignite,300,GR,AG_DIMITRIOS1,Fossil Brown coal/Lignite
+40,72,49.21585934,16.60640497,NA,G101065,Brno 1,1107181,NA,NA,Brno power station,NA,NA,NA,NA,NA,NA
+41,80,47.4925,19.051389,NA,G101085,Budapest Thermo Color,1107466,NA,NA,Budapest Thermo Color power station,NA,NA,NA,NA,NA,NA
+42,70,51.602778,7.009444,DE-100-6,G101091,Buer 1,1107491,DE-100,DE 1205,Buer power station,NA,NA,NA,NA,NA,NA
+43,390,52.171764,10.977192,DE-126-1,G101134,Buschhaus power station Unit A,1107799,DE-126,DE 1419,Buschhaus power station,Helmstedt Buschhaus D,lignite,405,DE,Buschhaus,Fossil Brown coal/Lignite
+44,169,53.099586,18.087507,NA,G101145,Bydgoszcz-2 power station Unit 4,1107853,NA,NA,Bydgoszcz power station,NA,NA,NA,NA,NA,NA
+45,50,49.84425687,18.49604454,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+46,142,51.684575,7.099977,NA,G101376,Chemiepark Marl I 5,,NA,NA,Chemiepark Marl power station,NA,NA,NA,NA,NA,NA
+47,167,50.857778,12.923889,DE-43-1,G101378,Chemnitz Nord-2 power station Unit 2,1109477,DE-43,DE 1098,Chemnitz Nord power station,NA,NA,NA,NA,NA,NA
+48,203,51.022231,6.986313,DE-155-2,G101380,Chempark Leverkusen power station Unit 1,1126505,DE-155,DE 824,Chempark Leverkusen power station,NA,NA,NA,NA,NA,NA
+49,220,50.307464,18.969459,PL-23-1,G101557,Chorzow Elcho power station Unit 1,1170647,PL-23,PL 24,Chorzow Elcho power station,Chorzow 2 B1,hard coal,113,PL,Chorzów B1,Fossil Hard coal
+5,31,47.589167,8.129167,NA,G100112,Albbruck Mill New 1,1227298,NA,NA,Albbruck Mill power station,NA,NA,NA,NA,NA,NA
+50,820,50.028062,15.450504,CZ-6-1,G101573,Chvaletice power station Unit 1,1110147,CZ-6,CZ 120,Chvaletice power station,Chvaletice 1,lignite,205,CZ,ECHV_G1____,Fossil Brown coal/Lignite
+51,240,42.1,11.8,NA,G101594,Civitavecchia power station Unit 3,1110268,NA,NA,Civitavecchia power station,NA,NA,NA,NA,NA,NA
+52,45,43.34901,-4.04713,NA,G101643,Cogecan 1,1172988,NA,NA,Cogecan power station,NA,NA,NA,NA,NA,NA
+53,1050,42.612178,-6.564551,NA,G101682,Compostilla power station Unit 1,1110557,NA,NA,Compostilla power station,NA,NA,NA,NA,NA,NA
+54,1200,47.276707,-1.881559,FR-22-2,G101703,Cordemais power station Unit 4,1110697,FR-22,FR 560,Cordemais power station,Cordemais 4,hard coal,630.434782608696,FR,CORDEMAIS 4,Fossil Hard coal
+55,2000,53.304757,-0.781646,UK-15-1,G101712,Cottam power station Unit 1,1110823,UK-15,GB 202,Cottam power station,Cottam 1,hard coal,545.652173913043,GB,COTPS-1,Fossil Hard coal
+56,81,51.7627404,14.3453979,DE-48-1,G101716,Cottbus Chp S1,1110835,DE-48,DE 1524,Cottbus CHP power station,NA,NA,NA,NA,NA,NA
+57,150,44.345194,23.814897,RO-5-1,G101821,Craiova-2 power station Unit 1,1110895,RO-5,RO 3,Craiova II power station,Craiova II 1,lignite,150,RO,CetCraiova2_CRAI1_CA,Fossil Brown coal/Lignite
+58,64,50.8,19.116667,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+59,51,51.82763802,12.23055111,DE-51-1,G102323,Dessau,1169600,DE-51,DE 1588,Dessau power station,NA,NA,NA,NA,NA,NA
+6,510,39.810751,3.091411,ES-3-1,G100121,Alcúdia-2 power station Unit 1,1101404,ES-3,ES 680,Alcúdia power station,NA,NA,NA,NA,NA,NA
+60,800,49.907184,18.464559,CZ-7-1,G102324,Detmarovice power station Unit 1,1111933,CZ-7,CZ 118,Detmarovice power station,Detmarovice 1,hard coal,200,CZ,EDET_G1____,Fossil Hard coal
+61,50,51.116667,12.066667,NA,G102328,Deuben 2,1186054,NA,NA,Deuben power station,NA,NA,NA,NA,NA,NA
+62,53,43.1963539,27.6326752,BG-2-2,G102333,Deven Power Station Unit 2,,BG-2,BG 6,Deven,NA,NA,NA,NA,NA,NA
+63,121,43.1963539,27.6326752,BG-2-1,G102332,Deven power station,1225991,BG-2,BG 6,Deven power station,NA,NA,NA,NA,NA,NA
+64,200,45.000755,25.397194,NA,G102387,Doicesti power station Unit 7,1112435,NA,NA,Doicesti power station,NA,NA,NA,NA,NA,NA
+65,1290,53.205868,14.465425,NA,G102393,Dolna Odra power station Unit 3,1112464,NA,NA,Dolna Odra power station,NA,NA,NA,NA,NA,NA
+66,2640,53.737196,-0.999021,NA,G102462,Drax power station Unit 1,1112751,NA,NA,Drax power station,NA,NA,NA,NA,NA,NA
+67,352,48.32611,15.923333,NA,G102476,Duernrohr 1,1113055,NA,NA,Duernrohr power station,NA,NA,NA,NA,NA,NA
+68,1600,53.4355019,6.879276,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+69,618,49.153262,6.70146,NA,G102635,Emile-Huchet power station Unit 4,1113898,NA,NA,Emile-Huchet power station,NA,NA,NA,NA,NA,NA
+7,807,48.717185,9.37079,DE-8-4,G100137,Altbach-1 power station Unit 5,1101684,DE-8,DE 1450,Altbach power station,Altbach/Deizisau 1,hard coal,379,DE,HKW Altbach/Deizisau Block 1,Fossil Hard coal
+70,295,44.402696,8.904247,NA,G102638,Enel Genova power station Unit 3,1116505,NA,NA,Enel Genova power station,NA,NA,NA,NA,NA,NA
+71,430,49.292222,6.770833,NA,G102660,Ensdorf 1,1114023,NA,NA,Ensdorf power station,NA,NA,NA,NA,NA,NA
+72,407,55.454653,8.455244,DK-5-5,G102679,Esbjerg power station Unit 8,1114204,DK-5,DK 80,Esbjerg power station,Esbjerg 3,hard coal,407,DK,Esbjergvaerket 3,Fossil Hard coal
+73,2000,53.372865,-2.685797,UK-16-1,G102758,Fiddler's Ferry power station Unit 1,1114946,UK-16,GB 562,Fiddler's Ferry power station,Fiddler’s Ferry 1,hard coal,532.880434782609,GB,FIDL-1,Fossil Hard coal
+74,650,40.846447,8.307164,NA,G102765,Fiume Santo power station Unit 2,1201015,NA,NA,Fiume Santo power station,NA,NA,NA,NA,NA,NA
+75,100,54.804965,9.432424,NA,G102769,Flensburg power station Unit 8,1115127,NA,NA,Flensburg power station,NA,NA,NA,NA,NA,NA
+76,55,51.233333,6.783333,NA,G102771,Flingern 1 Rebuild,1169699,NA,NA,Flingern power station,NA,NA,NA,NA,NA,NA
+77,330,40.812251,21.602701,EL-3-1,G102777,Florina power station Unit 1,1115180,EL-3,GR 19,Florina power station,Melitis (Florina) 1,lignite,330,GR,MELITI,Fossil Brown coal/Lignite
+78,144,50.098779,8.655656,DE-89-2,G102785,Frankfurt Heizkraftwerk West power station Unit 2,1118045,DE-89,DE 1078,Frankfurt Heizkraftwerk West power station,NA,NA,NA,NA,NA,NA
+79,49,52.31822154,14.53151664,NA,G102787,Frankfurt Oder 1,,NA,NA,Frankfurt Oder power station,NA,NA,NA,NA,NA,NA
+8,263,55.686777,12.627702,NA,G100139,Amager power station Unit 1,1218784,NA,NA,Amager power station,NA,NA,NA,NA,NA,NA
+80,635,51.055469,6.57635,NA,G102789,Frimmersdorf power station Unit A,1115549,NA,NA,Frimmersdorf power station,NA,NA,NA,NA,NA,NA
+81,362,55.42941166,10.41021168,NA,G102873,Fyns 3,,NA,NA,Fyns power station,NA,NA,NA,NA,NA,NA
+82,211,54.378201,18.641284,PL-43-2,G102966,Gdansk-2 power station Unit 2,1116365,PL-43,PL 50,Gdansk-2 power station,NA,NA,NA,NA,NA,NA
+83,104,54.553355,18.480791,PL-46-1,G102970,Gdynia-3 power station Unit 1,1116373,PL-46,PL 51,Gdynia-3 power station,NA,NA,NA,NA,NA,NA
+84,155,44.403889,8.903056,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+85,300,52.420278,9.647508,DE-122-1,G103040,GKH Hannover power station Unit 1,1149986,DE-122,DE 1387,GKH Hannover power station,Hannover 1,hard coal,150,DE,Block 1,Fossil Hard coal
+86,912,49.445694,8.490444,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+87,1235,49.445694,8.490444,NA,G103043,GKM Mannheim power station Unit 3,1183849,NA,NA,GKM (Mannheim) power station,NA,NA,NA,NA,NA,NA
+88,32,50.3176821,18.6265469,NA,G103057,Gliwice Works 1,1171399,NA,NA,Gliwice Works power station,NA,NA,NA,NA,NA,NA
+89,62,52.7496,15.2687,NA,G103104,Gorzow 3,1117215,NA,NA,Gorzow power station,NA,NA,NA,NA,NA,NA
+9,600,51.709806,4.843661,NA,G100157,Amer power station Unit 9,1101928,NA,NA,Amer power station,NA,NA,NA,NA,NA,NA
+90,100,45.039047,24.287572,NA,G103108,Govora power station Unit 5,1117301,NA,NA,Govora power station,NA,NA,NA,NA,NA,NA
+91,477,53.124935,8.728692,NA,G103538,Hafen power station Unit 5,1127110,NA,NA,Hafen power station,NA,NA,NA,NA,NA,NA
+92,228,60.183678,24.971562,FI-5-1,G103596,Hanasaari-B power station Unit 1,1118497,FI-5,FI 65,Hanasaari power station,Hanasaari B 1,hard coal,114,FI,Hanasaari B3,Fossil Hard coal
+93,130,53.059155,8.873244,DE-37-1,G103681,Hastedt power station Unit 15,1118788,DE-37,DE 1253,Hastedt power station,NA,NA,NA,NA,NA,NA
+94,1066,49.175277,9.207428,NA,G103727,Heilbronn power station Unit 3,1118996,NA,NA,Heilbronn power station,NA,NA,NA,NA,NA,NA
+95,39,61.2,26.033333,NA,G103740,Heinola Plant 1,,NA,NA,Heinola Plant power station,NA,NA,NA,NA,NA,NA
+96,680,52.405403,4.847485,NL-1-1,G103753,Hemweg power station Unit 8,1119120,NL-1,NL 184,Hemweg power station,Hemweg 8,hard coal,684.782608695652,NL,Hemweg 8,Fossil Hard coal
+97,800,51.550673,7.187527,NA,G103847,Herne power station Unit 1,,NA,NA,Herne power station,NA,NA,NA,NA,NA,NA
+98,923,52.381609,8.998612,DE-187-4,G103862,Heyden power station Unit 4,1119268,DE-187,DE 1291,Heyden power station,Petershagen Heyden 4,hard coal,923,DE,Heyden,Fossil Hard coal
+99,64,50.1,8.8,DE-183-1,G103901,Hkw Offenbach 1,1137139,DE-183,DE 948,Hkw Offenbach power station,NA,NA,NA,NA,NA,NA

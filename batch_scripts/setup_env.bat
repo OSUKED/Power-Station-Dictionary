@@ -1,5 +1,5 @@
 call cd ..
 call conda env create -f environment.yml
-call conda activate PowerDictionary
-call ipython kernel install --user --name=PowerDictionary
+call conda activate PowerDict
+call ipython kernel install --user --name=PowerDict
 pause

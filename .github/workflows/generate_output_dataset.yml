@@ -24,3 +24,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
           dagster pipeline execute -m powerdict.pipeline -c pipeline_inputs.yaml
+      
+      - name: Saving changes to repo
+        uses: stefanzweifel/git-auto-commit-action@v4 

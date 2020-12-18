@@ -12,7 +12,7 @@ from dagster import execute_pipeline, pipeline, solid, Field
 # Cell
 @solid()
 def download_source_data(_, raw_data_dir: str):
-    download.download_opsd_power_plants_data()
+    download.download_opsd_power_plants_data(raw_data_dir)
 
     return
 

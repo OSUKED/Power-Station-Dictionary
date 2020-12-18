@@ -12,7 +12,9 @@ index = {"load_source_definitions": "03-database-construction.ipynb",
          "update_df_col": "03-database-construction.ipynb",
          "add_attr_cols": "03-database-construction.ipynb",
          "add_key_cols": "03-database-construction.ipynb",
-         "construct_output_df": "03-database-construction.ipynb"}
+         "construct_output_df": "03-database-construction.ipynb",
+         "filter_cols_for_one_to_many": "04-updates-and-cleaning.ipynb",
+         "apply_updates": "04-updates-and-cleaning.ipynb"}
 
 modules = ["construct.py",
            "update.py"]

@@ -6,6 +6,16 @@
 
 <br>
 
+Goals:
+
+We want to be able to construct a clean output power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. The `powerdict` module will construct this dataset from the files contained in three of the data directories:
+
+* *raw* - source datasets as csvs
+* *updates* - JSON mappings from an osuked_id to a new attribute value
+* *definitions* - JSON specification of how to process the raw sources
+
+<br>
+
 ### Installation
 
 To install the `powerdict` library please run:

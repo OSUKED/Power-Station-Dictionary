@@ -1,4 +1,4 @@
-osuked_id,bmu_root,fuel_type,sett_bmu_id,longitude,latitude
+osuked_id,esail_id,fuel_type,sett_bmu_id,longitude,latitude
 10000,MARK,biomass,"E_MARK-1, E_MARK-2",-3.6035160000000004,57.480403
 10001,DIDC,coal,"T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3",-1.26757,51.62363
 10002,ABTH,coal,"T_ABTH7, T_ABTH8, T_ABTH9",-3.404866,51.387312

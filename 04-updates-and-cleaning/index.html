@@ -343,8 +343,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-checks" class="md-nav__link">
-    Data Checks
+  <a href="#custom-data-checks" class="md-nav__link">
+    Custom Data Checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkingapplying-output-definitions" class="md-nav__link">
+    Checking/Applying Output Definitions
   </a>
   
 </li>
@@ -411,8 +418,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-checks" class="md-nav__link">
-    Data Checks
+  <a href="#custom-data-checks" class="md-nav__link">
+    Custom Data Checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checkingapplying-output-definitions" class="md-nav__link">
+    Checking/Applying Output Definitions
   </a>
   
 </li>
@@ -440,6 +454,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">typing</span>
 <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
 
 <span class="kn">from</span> <span class="nn">powerdict</span> <span class="kn">import</span> <span class="n">construct</span>
@@ -449,8 +464,9 @@
 <p><br></p>
 <h3 id="user-inputs">User Inputs<a class="headerlink" href="#user-inputs" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="n">intermediate_data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/intermediate&#39;</span>
-<span class="n">updates_data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/updates&#39;</span>
 <span class="n">definitions_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/definitions&#39;</span>
+<span class="n">updates_data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/updates&#39;</span>
+<span class="n">output_data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/output&#39;</span>
 </code></pre></div>
 <p><br></p>
 <h3 id="loading-in-intermediate-data">Loading in Intermediate Data<a class="headerlink" href="#loading-in-intermediate-data" title="Permanent link">&para;</a></h3>
@@ -537,7 +553,7 @@
 </div>
 
 <p><br></p>
-<h3 id="data-checks">Data Checks<a class="headerlink" href="#data-checks" title="Permanent link">&para;</a></h3>
+<h3 id="custom-data-checks">Custom Data Checks<a class="headerlink" href="#custom-data-checks" title="Permanent link">&para;</a></h3>
 <p>We'll start by confirming that none of the plants have multiple locations assigned to them</p>
 <div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
 <span class="k">def</span> <span class="nf">filter_cols_for_one_to_many</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">]):</span>
@@ -557,7 +573,9 @@
             <span class="n">update_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
         <span class="n">update_col</span> <span class="o">=</span> <span class="n">update_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.json&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">construct</span><span class="o">.</span><span class="n">update_df_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">update_col</span><span class="p">,</span> <span class="n">update_dict</span><span class="p">)</span>
+        <span class="n">update_values</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;new_value&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">update_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="n">df</span> <span class="o">=</span> <span class="n">construct</span><span class="o">.</span><span class="n">update_df_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">update_col</span><span class="p">,</span> <span class="n">update_values</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">df</span>
 </code></pre></div>
@@ -612,8 +630,8 @@
       <td>DIDC</td>
       <td>coal</td>
       <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.26757</td>
-      <td>51.62363</td>
+      <td>-1.267570</td>
+      <td>51.623630</td>
     </tr>
     <tr>
       <th>10002</th>
@@ -643,14 +661,160 @@
 </table>
 </div>
 
+<p><br></p>
+<h3 id="checkingapplying-output-definitions">Checking/Applying Output Definitions<a class="headerlink" href="#checkingapplying-output-definitions" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">definitions_dir</span><span class="si">}</span><span class="s1">/outputs.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">output_defs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="n">JSON</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+<span class="n">JSON</span><span class="p">(</span><span class="n">output_defs</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>&lt;IPython.core.display.JSON object&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># apply output def checks then apply dtypes</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="k">def</span> <span class="nf">check_output_col_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">):</span>
+    <span class="n">output_col_def</span> <span class="o">=</span> <span class="n">output_defs</span><span class="p">[</span><span class="n">output_col</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output_col_def</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">output_col_elems</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">output_col</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;, &#39;</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">:</span>
+                <span class="n">output_col_elems</span> <span class="o">+=</span> <span class="n">elem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">output_col_elems</span> <span class="o">+=</span> <span class="p">[</span><span class="n">elem</span><span class="p">]</span>
+
+        <span class="n">unexpected_col_elems</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">output_col_elems</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">output_col_def</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unexpected_col_elems</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The following list elements were not expected in </span><span class="si">{</span><span class="n">output_col</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">unexpected_col_elems</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">output_col</span> <span class="o">=</span> <span class="s1">&#39;fuel_type&#39;</span>
+
+<span class="n">check_output_col_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="k">def</span> <span class="nf">apply_output_col_types</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">):</span>
+    <span class="n">output_col_def</span> <span class="o">=</span> <span class="n">output_defs</span><span class="p">[</span><span class="n">output_col</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output_col_def</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">output_col_def</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">output_col_def</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="n">output_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">output_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">output_col</span> <span class="o">=</span> <span class="s1">&#39;longitude&#39;</span>
+
+<span class="n">apply_output_col_types</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">)[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dtype(&#39;float64&#39;)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="k">def</span> <span class="nf">check_and_apply_output_defs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">definitions_dir</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">definitions_dir</span><span class="si">}</span><span class="s1">/outputs.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">output_defs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">output_col</span> <span class="ow">in</span> <span class="n">output_defs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">output_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">output_col</span><span class="si">}</span><span class="s1"> was not found in the output dataset&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">check_output_col_values</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">apply_output_col_types</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">output_col</span><span class="p">,</span> <span class="n">output_defs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">check_and_apply_output_defs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">definitions_dir</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;ipython-input-15-424d1db4ecaf&gt;:7: UserWarning: plant_type was not found in the output dataset
+  warn(f&#39;{output_col} was not found in the output dataset&#39;)
+&lt;ipython-input-15-424d1db4ecaf&gt;:7: UserWarning: capacity was not found in the output dataset
+  warn(f&#39;{output_col} was not found in the output dataset&#39;)
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>esail_id</th>
+      <th>fuel_type</th>
+      <th>sett_bmu_id</th>
+      <th>longitude</th>
+      <th>latitude</th>
+    </tr>
+    <tr>
+      <th>osuked_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10000</th>
+      <td>MARK</td>
+      <td>biomass</td>
+      <td>E_MARK-1, E_MARK-2</td>
+      <td>-3.603516</td>
+      <td>57.480403</td>
+    </tr>
+    <tr>
+      <th>10001</th>
+      <td>DIDC</td>
+      <td>coal</td>
+      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+      <td>-1.267570</td>
+      <td>51.623630</td>
+    </tr>
+    <tr>
+      <th>10002</th>
+      <td>ABTH</td>
+      <td>coal</td>
+      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
+      <td>-3.404866</td>
+      <td>51.387312</td>
+    </tr>
+    <tr>
+      <th>10003</th>
+      <td>COTPS</td>
+      <td>coal</td>
+      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+      <td>-0.648193</td>
+      <td>53.245495</td>
+    </tr>
+    <tr>
+      <th>10004</th>
+      <td>DRAXX</td>
+      <td>coal, biomass</td>
+      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+      <td>-0.626221</td>
+      <td>53.748711</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># then start doing some matching with GPPDB</span>
 </code></pre></div>
                 
               

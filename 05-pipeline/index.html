@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#title" class="md-skip">
+        <a href="#end-to-end-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -318,9 +318,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Pipeline
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       Pipeline
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dagster-pipeline" class="md-nav__link">
+    Dagster Pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -347,6 +376,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dagster-pipeline" class="md-nav__link">
+    Dagster Pipeline
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -362,7 +406,146 @@
                   </a>
                 
                 
-                <h1 id="title">Title<a class="headerlink" href="#title" title="Permanent link">&para;</a></h1>
+                <h1 id="end-to-end-pipeline">End-to-End Pipeline<a class="headerlink" href="#end-to-end-pipeline" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="kn">from</span> <span class="nn">powerdict</span> <span class="kn">import</span> <span class="n">download</span><span class="p">,</span> <span class="n">construct</span><span class="p">,</span> <span class="n">update</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span> <span class="nn">dagster</span> <span class="kn">import</span> <span class="n">execute_pipeline</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">solid</span><span class="p">,</span> <span class="n">Field</span>
+</code></pre></div>
+<p><br></p>
+<h3 id="dagster-pipeline">Dagster Pipeline<a class="headerlink" href="#dagster-pipeline" title="Permanent link">&para;</a></h3>
+<p>We're now going to combine the dictionary generation steps into a pipeline using dagster, first we'll create the individual components.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="nd">@solid</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">download_source_data</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">raw_data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">download</span><span class="o">.</span><span class="n">download_opsd_power_plants_data</span><span class="p">(</span><span class="n">raw_data_dir</span><span class="p">)</span>
+
+    <span class="k">return</span> 
+
+<span class="nd">@solid</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">construct_intermediate_dataset</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">definitions_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw_data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">intermediate_data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">construct</span><span class="o">.</span><span class="n">construct_output_df</span><span class="p">(</span><span class="n">definitions_dir</span><span class="p">,</span> <span class="n">raw_data_dir</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">intermediate_data_dir</span><span class="si">}</span><span class="s1">/power_stations.csv&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="nd">@solid</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">update_dataset_updates</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">updates_data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">update</span><span class="o">.</span><span class="n">apply_updates</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">updates_data_dir</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="nd">@solid</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">clean_output_dataset</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">definitions_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">update</span><span class="o">.</span><span class="n">check_and_apply_output_defs</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">definitions_dir</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="nd">@solid</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">save_output_dataset</span><span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">output_data_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_data_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_data_dir</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">output_data_dir</span><span class="si">}</span><span class="s1">/power_stations.csv&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span>
+</code></pre></div>
+<p><br></p>
+<p>Then we'll combine them in a pipeline</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="nd">@pipeline</span>
+<span class="k">def</span> <span class="nf">generate_output_dataset_pipeline</span><span class="p">():</span>  
+    <span class="n">download_source_data</span><span class="p">()</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">construct_intermediate_dataset</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">update_dataset_updates</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">clean_output_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="n">save_output_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">run_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;solids&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;download_source_data&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;inputs&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;raw_data_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/raw&#39;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;construct_intermediate_dataset&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;inputs&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;definitions_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/definitions&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;raw_data_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/raw&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;intermediate_data_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/intermediate&#39;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;update_dataset_updates&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;inputs&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;updates_data_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/updates&#39;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;clean_output_dataset&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;inputs&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;definitions_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/definitions&#39;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;save_output_dataset&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;inputs&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;output_data_dir&#39;</span><span class="p">:</span> <span class="s1">&#39;../data/output&#39;</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">execute_pipeline</span><span class="p">(</span><span class="n">generate_output_dataset_pipeline</span><span class="p">,</span> <span class="n">run_config</span><span class="o">=</span><span class="n">run_config</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - ENGINE_EVENT - Starting initialization of resources [asset_store].
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - ENGINE_EVENT - Finished initialization of resources [asset_store].
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - PIPELINE_START - Started execution of pipeline &quot;generate_output_dataset_pipeline&quot;.
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - ENGINE_EVENT - Executing steps in process (pid: 23064)
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_START - Started execution of step &quot;construct_intermediate_dataset.compute&quot;.
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_INPUT - Got input &quot;definitions_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_INPUT - Got input &quot;raw_data_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_INPUT - Got input &quot;intermediate_data_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_OUTPUT - Yielded output &quot;result&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - OBJECT_STORE_OPERATION - Stored intermediate object for output result in memory object store using pickle.
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - construct_intermediate_dataset.compute - STEP_SUCCESS - Finished execution of step &quot;construct_intermediate_dataset.compute&quot; in 196ms.
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - download_source_data.compute - STEP_START - Started execution of step &quot;download_source_data.compute&quot;.
+[32m2020-12-18 14:38:01[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - download_source_data.compute - STEP_INPUT - Got input &quot;raw_data_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - download_source_data.compute - STEP_OUTPUT - Yielded output &quot;result&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - download_source_data.compute - OBJECT_STORE_OPERATION - Stored intermediate object for output result in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - download_source_data.compute - STEP_SUCCESS - Finished execution of step &quot;download_source_data.compute&quot; in 1.02s.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - STEP_START - Started execution of step &quot;update_dataset_updates.compute&quot;.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - OBJECT_STORE_OPERATION - Retrieved intermediate object for input df in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - STEP_INPUT - Got input &quot;df&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - STEP_INPUT - Got input &quot;updates_data_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - STEP_OUTPUT - Yielded output &quot;result&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - OBJECT_STORE_OPERATION - Stored intermediate object for output result in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - update_dataset_updates.compute - STEP_SUCCESS - Finished execution of step &quot;update_dataset_updates.compute&quot; in 5.94ms.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - STEP_START - Started execution of step &quot;clean_output_dataset.compute&quot;.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - OBJECT_STORE_OPERATION - Retrieved intermediate object for input df in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - STEP_INPUT - Got input &quot;df&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - STEP_INPUT - Got input &quot;definitions_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - STEP_OUTPUT - Yielded output &quot;result&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - OBJECT_STORE_OPERATION - Stored intermediate object for output result in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - clean_output_dataset.compute - STEP_SUCCESS - Finished execution of step &quot;clean_output_dataset.compute&quot; in 4.9ms.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - STEP_START - Started execution of step &quot;save_output_dataset.compute&quot;.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - OBJECT_STORE_OPERATION - Retrieved intermediate object for input df in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - STEP_INPUT - Got input &quot;df&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - STEP_INPUT - Got input &quot;output_data_dir&quot; of type &quot;String&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - STEP_OUTPUT - Yielded output &quot;result&quot; of type &quot;Any&quot;. (Type check passed).
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - OBJECT_STORE_OPERATION - Stored intermediate object for output result in memory object store using pickle.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - save_output_dataset.compute - STEP_SUCCESS - Finished execution of step &quot;save_output_dataset.compute&quot; in 7.25ms.
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - ENGINE_EVENT - Finished steps in process (pid: 23064) in 1.27s
+[32m2020-12-18 14:38:02[0m - dagster - [34mDEBUG[0m - generate_output_dataset_pipeline - c2197f8e-bb11-4d57-8ced-c5a3d2a9d9dd - 23064 - PIPELINE_SUCCESS - Finished execution of pipeline &quot;generate_output_dataset_pipeline&quot;.
+
+
+
+
+
+&lt;dagster.core.execution.results.PipelineExecutionResult at 0x1f33bf5afd0&gt;
+</code></pre></div>
                 
               
               

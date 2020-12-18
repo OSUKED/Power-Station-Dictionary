@@ -1,6 +1,7 @@
 # Power Station Dictionary
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab) [![DOI](https://zenodo.org/badge/322407102.svg)](https://zenodo.org/badge/latestdoi/322407102) [![PyPI version](https://badge.fury.io/py/powerdict.svg)](https://badge.fury.io/py/powerdict)
+
 
 <br>
 

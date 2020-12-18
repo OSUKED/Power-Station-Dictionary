@@ -21,6 +21,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url=setup_kwargs['git_url'],
     packages=setuptools.find_packages(),
+    install_requires=setup_kwargs['requirements']
     classifiers=[
         "Programming Language :: Python :: 3",
     ],

@@ -1,5 +1,7 @@
 # Power Station Dictionary
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab)
+
 <br>
 
 > This repository exposes a power station dictionary that enables mapping between various naming conventions and associated plant metadata, it also explains how you can help contribute to this open-source project.
@@ -11,6 +13,10 @@ The core output of this project is a clean output power plant dataset that inclu
 * *raw* - source datasets as csvs
 * *updates* - JSON mappings from an osuked_id to a new attribute value
 * *definitions* - JSON specification of how to process the raw sources
+
+<br>
+
+The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv)
 
 <br>
 <br>

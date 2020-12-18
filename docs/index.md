@@ -13,6 +13,10 @@ The core output of this project is a clean output power plant dataset that inclu
 * *definitions* - JSON specification of how to process the raw sources
 
 <br>
+
+The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv)
+
+<br>
 <br>
 
 ### Installation

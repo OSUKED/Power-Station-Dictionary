@@ -19,11 +19,19 @@ index = {"retrieve_opsd_power_plants_page": "01-source-data.ipynb",
          "filter_cols_for_one_to_many": "04-updates-and-cleaning.ipynb",
          "apply_updates": "04-updates-and-cleaning.ipynb",
          "check_output_col_values": "04-updates-and-cleaning.ipynb",
-         "apply_output_col_types": "04-updates-and-cleaning.ipynb"}
+         "apply_output_col_types": "04-updates-and-cleaning.ipynb",
+         "check_and_apply_output_defs": "04-updates-and-cleaning.ipynb",
+         "download_source_data": "05-pipeline.ipynb",
+         "construct_intermediate_dataset": "05-pipeline.ipynb",
+         "update_dataset_updates": "05-pipeline.ipynb",
+         "clean_output_dataset": "05-pipeline.ipynb",
+         "save_output_dataset": "05-pipeline.ipynb",
+         "generate_output_dataset_pipeline": "05-pipeline.ipynb"}
 
 modules = ["download.py",
            "construct.py",
-           "update.py"]
+           "update.py",
+           "pipeline.py"]
 
 doc_url = "https://OSUKED.github.io/Power-Station-Dictionary/"
 

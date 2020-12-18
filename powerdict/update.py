@@ -26,7 +26,9 @@ def apply_updates(df, updates_data_dir):
             update_dict = json.load(f)
 
         update_col = update_file.replace('.json', '')
-        df = construct.update_df_col(df, update_col, update_dict)
+        update_values = {k: v['new_value'] for k, v in update_dict.items()}
+
+        df = construct.update_df_col(df, update_col, update_values)
 
     return df
 

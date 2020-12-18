@@ -1,4 +1,4 @@
-# Exploring the Input Data
+# Downloading & Exploring the Input Data
 
 
 
@@ -585,4 +585,135 @@ for ax in axs:
 
 
 ![png](img/nbs/output_26_0.png)
+
+
+<br>
+
+We'll also look at the detail to which they go in for energy sources
+
+```python
+df_OPSD[['energy_source_level_1', 'energy_source_level_2', 'energy_source_level_3']].drop_duplicates()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>energy_source_level_1</th>
+      <th>energy_source_level_2</th>
+      <th>energy_source_level_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Fossil fuels</td>
+      <td>Natural gas</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Fossil fuels</td>
+      <td>Oil</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Renewable energy</td>
+      <td>Bioenergy</td>
+      <td>Biomass and biogas</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Renewable energy</td>
+      <td>Hydro</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Nuclear</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Fossil fuels</td>
+      <td>Non-renewable waste</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Fossil fuels</td>
+      <td>Mixed fossil fuels</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>Fossil fuels</td>
+      <td>Hard coal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>Other or unspecified energy sources</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>313</th>
+      <td>Fossil fuels</td>
+      <td>Lignite</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>538</th>
+      <td>Renewable energy</td>
+      <td>Bioenergy</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1430</th>
+      <td>Fossil fuels</td>
+      <td>Other fossil fuels</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4792</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5962</th>
+      <td>Other</td>
+      <td>Other fuels</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6008</th>
+      <td>Other or unspecified energy sources</td>
+      <td>Waste</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 

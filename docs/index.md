@@ -1,9 +1,18 @@
-# Welcome to the Power Station Dictionary
+# Welcome to the Power Station Dictionary!
 
 <br>
 
 > This site exposes a power station dictionary that enables mapping between various naming conventions and associated plant metadata, it also explains how you can help contribute to this open-source project.
 
+<br>
+
+The core output of this project is a clean output power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. The `powerdict` module will construct this dataset from the files contained in three of the data directories:
+
+* *raw* - source datasets as csvs
+* *updates* - JSON mappings from an osuked_id to a new attribute value
+* *definitions* - JSON specification of how to process the raw sources
+
+<br>
 <br>
 
 ### Installation

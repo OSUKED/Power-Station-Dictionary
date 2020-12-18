@@ -24,6 +24,7 @@ dependencies:
   - pip
   
   - pip:
+      - -e .
       - nbdev
       - ipypb
       - feautils

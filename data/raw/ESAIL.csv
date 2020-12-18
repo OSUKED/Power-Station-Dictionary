@@ -84,7 +84,7 @@ E_AESB-1,,AESB,Barry (Under AES Ownership),gas,ccgt,-3.228712,51.408134
 E_BRGG-1,BRGG-1,BRGG,Brigg,gas,ccgt,-0.32959,53.442264
 T_CARR-1,CARR-1,CARR,Carrington Unit 1,gas,ccgt,-2.504883,53.455349
 T_CARR-2,CARR-2,CARR,Carrington Unit 2,gas,ccgt,-2.504883,53.455349
-2__MPGEN002,YEP-PGU02,MPGEN,Castleford CCGT,gas,ccgt,-1.343039,53.73191
+2__MPGEN002,YEP-PGU02,MPGEN002,Castleford CCGT,gas,ccgt,-1.343039,53.73191
 T_CNQPS-1,CNQPS-1,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871
 T_CNQPS-2,CNQPS-2,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871
 T_CNQPS-3,CNQPS-3,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871
@@ -135,7 +135,7 @@ T_STAY-4,STAY-4,STAY,Staythorpe Unit 4,gas,ccgt,-0.98877,53.041213
 T_SUTB-1,SUTB-1,SUTB,Sutton Bridge,gas,ccgt,0.098877,52.62306
 T_TESI-1,TESI-1,TESI,Teesside,gas,ccgt,-1.130216,54.573479
 T_TESI-2,TESI-2,TESI,Teesside,gas,ccgt,-1.130216,54.573479
-2__MPGEN001,YEP-PGU03,MPGEN,Thornhill CCGT,gas,ccgt,-1.655244,53.677086
+2__MPGEN001,YEP-PGU03,MPGEN001,Thornhill CCGT,gas,ccgt,-1.655244,53.677086
 T_WBURB-1,WBURB-1,WBURB,West Burton B Unit 1,gas,ccgt,-0.53833,53.363665
 T_WBURB-2,WBURB-2,WBURB,West Burton B Unit 2,gas,ccgt,-0.53833,53.363665
 T_WBURB-3,WBURB-3,WBURB,West Burton B Unit 3,gas,ccgt,-0.53833,53.363665
@@ -149,10 +149,10 @@ T_GRAI-8,GRAI-8,GRAI,Grain CHP,gas,chp,0.703125,51.47454
 T_GRMO-1,GRMO-1,GRMO,Grangemouth CHP Ltd,gas,chp,-3.032227,55.930741
 E_HYTHE,,HYTHE,Hythe CHP,gas,chp,,
 T_HUMR-1,HUMR-1,HUMR,Immingham CHP,gas,chp,0,53.690201
-2__DPGEN001,MNW-PGU02,DPGEN,Sandbach CHP,gas,chp,-2.405816,53.165426
+2__DPGEN001,MNW-PGU02,DPGEN001,Sandbach CHP,gas,chp,-2.405816,53.165426
 E_SHOT-1,SHOT-1,SHOT,Shotton CHP,gas,chp,-3.03265,53.23375
 E_SLOUG,,SLOUG,Slough,gas,chp,-0.626267,51.523953
-2__DPGEN002,MNW-PGU03,DPGEN,Stoke CHP,gas,chp,-2.190333,52.990359
+2__DPGEN002,MNW-PGU03,DPGEN002,Stoke CHP,gas,chp,-2.190333,52.990359
 T__DICI002,,DICI,Weaver Power Station,gas,chp,-2.72541,53.31544
 T__DICI001,,DICI,Weston Point Power Station,gas,chp,-2.72541,53.31544
 E_ALDMG-1,,ALDMG,Aldershot Military Generator,fuel_oil,diesel,0.7598,51.2599
@@ -336,8 +336,8 @@ E_BRNLW-1,BRNLW-1,BRNLW,Brownieleys Windfarm,wind,wind,-2.374558,56.844014
 E_BURBO,BURBW-1,BURBO,Burbo Bank Offshore Windfarm,wind,wind,-3.19582,53.487739
 T_BRBEO-1,BRBEO-1,BRBEO,Burbo Bank Wind Farm Extension,wind,wind,-3.273,53.484
 E_BNWKW-1,BNWKW-1,BNWKW,Burn of Whilk Windfarm,wind,wind,-3.21433,58.351973
-2__PSTAT001,CAIRW-2,PSTAT,Cairn Uish / Rothes Windfarm Extension,wind,wind,-3.063895,57.504968
-2__PPGEN003,CMSTW-1,PPGEN,Camster Wind Farm,wind,wind,-3.270129,58.406935
+2__PSTAT001,CAIRW-2,PSTAT001,Cairn Uish / Rothes Windfarm Extension,wind,wind,-3.063895,57.504968
+2__PPGEN003,CMSTW-1,PPGEN003,Camster Wind Farm,wind,wind,-3.270129,58.406935
 T_CRGHW-1,CRGHW-1,CRGHW,Carraig Gheal Wind Farm,wind,wind,-4.790039,56.389584
 E_CLFLW-1,CLFLW-1,CLFLW,Clachan Flats Windfarm,wind,wind,-4.957855,56.283062
 E_CLDRW-1,CLDRW-1,CLDRW,Clashindarroch Wind Farm,wind,wind,-2.922363,57.308724
@@ -411,7 +411,7 @@ T_LARYW-2,LARYO-2,LARYW,London Array Windfarm Unit 2,wind,wind,1.362305,51.64529
 T_LARYW-3,LARYO-3,LARYW,London Array Windfarm Unit 3,wind,wind,1.362305,51.645294
 T_LARYW-4,LARYO-4,LARYW,London Array Windfarm Unit 4,wind,wind,1.362305,51.645294
 T_MKHLW-1,MKHLW-1,MKHLW,Mark Hill Windfarm,wind,wind,-4.822998,55.160043
-2__PSTAT002,MDHLW-1,PSTAT,Mid Hill Windfarm,wind,wind,-2.482026,56.964685
+2__PSTAT002,MDHLW-1,PSTAT002,Mid Hill Windfarm,wind,wind,-2.482026,56.964685
 T_MILWW-1,MILWW-1,MILWW,Millennium Wind Farm,wind,wind,-4.866943,57.219608
 T_MYGPW-1,MYGPW-1,MYGPW,Minnygap Wind Farm,wind,wind,-3.514802,55.248768
 E_MINSW-1,MINSW-1,MINSW,Minsca Wind Farm,wind,wind,-3.47168,55.040614
@@ -420,7 +420,7 @@ E_MOYEW-1,MOYEW-1,MOYEW,Moy Windfarm,wind,wind,-4.052356,57.390994
 E_OMNDW-1,OMNDW-1,OMNDW,Ormonde Windfarm,wind,wind,-3.4,54.1
 E_OMNDD-1,OMNDD-1,OMNDD,Ormonde Windfarm Demand,wind,wind,-3.4,54.1
 T_OMNDW-1,OMNDO-1,OMNDW,Ormonde Windfarm Unit 1,wind,wind,-3.4,54.1
-2__PPGEN002,PAUHW-1,PPGEN,Pauls Hill Windfarm,wind,wind,-3.458196,57.451933
+2__PPGEN002,PAUHW-1,PPGEN002,Pauls Hill Windfarm,wind,wind,-3.458196,57.451933
 T_PNYCW-1,PNYCW-1,PNYCW,Pen y Cymoedd Wind Farm,wind,wind,-3.561358,51.710658
 T_RCBKO-1,RCBKO-1,RCBKO,Race Bank Offshore Wind Farm Unit 1,wind,wind,0.841,53.276
 T_RCBKO-2,RCBKO-2,RCBKO,Race Bank Offshore Wind Farm Unit 2,wind,wind,0.841,53.276
@@ -428,7 +428,7 @@ T_RMPNO-1,RMPNO-1,RMPNO,Rampion Offshore Windfarm 1,wind,wind,-0.27,50.67
 T_RMPNO-2,RMPNO-2,RMPNO,Rampion Offshore Windfarm 2,wind,wind,-0.27,50.67
 T_RREW-1,RREW-1,RREW,Robin Rigg East,wind,wind,-3.716667,54.75
 T_RRWW-1,RRWW-1,RRWW,Robin Rigg West,wind,wind,-3.716667,54.75
-2__PPGEN001,CAIRW-1,PPGEN,Rothes (Cairn Uish) Wind Farm,wind,wind,-3.063895,57.504968
+2__PPGEN001,CAIRW-1,PPGEN001,Rothes (Cairn Uish) Wind Farm,wind,wind,-3.063895,57.504968
 T_SANQW-1,SANQW-1,SANQW,Sanquhar Community Wind Farm Generation,wind,wind,-4.023363,55.322673
 E_SHRSW-1,SHRSW-1,SHRSW,Sheringham Shoals Windfarm Unit 1,wind,wind,1.147,53.135
 T_SHRSW-1,SHRSO-1,SHRSW,Sheringham Shoals Windfarm Unit 1,wind,wind,1.147,53.135

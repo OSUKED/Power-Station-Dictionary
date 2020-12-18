@@ -14,9 +14,7 @@ The core output of this project is a clean output power plant dataset that inclu
 * *updates* - JSON mappings from an osuked_id to a new attribute value
 * *definitions* - JSON specification of how to process the raw sources
 
-<br>
-
-The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv)
+CI/CD is set-up so that any changes in this repository will trigger a reconstruction of the output dataset, additionally a new GitHub releases will automatically trigger a new release on Zenodo and produce an updated DOI. The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv).
 
 <br>
 <br>
@@ -54,18 +52,3 @@ pypi_publish
 When prompted you should enter your PyPi username and password
 
 After this you will be able to install the latest version of powerdict using `pip install powerdict`
-
-<br>
-<br>
-
-=================================================================
-
-<br>
-<br>
-
-To Do:
-- [ ] Corrections/additions should be able to be specified through JSON alone with clear instructions of where edits can be made
-- [ ] Should carry out both standard and spatial merging of datasets
-- [ ] All retreival, cleaning, and merging functions should be exported to a module
-- [ ] The module should include pipelines that combine the processing steps for easy dispatch
-- [ ] The pipelines should be set-up with GitHub actions to run every week or so in case of new updates

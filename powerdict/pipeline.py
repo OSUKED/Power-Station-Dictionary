@@ -40,7 +40,7 @@ def clean_output_dataset(_, df: Any, definitions_dir: str) -> Any:
 @solid()
 def save_output_dataset(_, df: Any, output_data_dir: str):
     if not os.path.exists(output_data_dir):
-        os.mkdirs(output_data_dir)
+        os.makedirs(output_data_dir)
 
     df.to_csv(f'{output_data_dir}/power_stations.csv')
 

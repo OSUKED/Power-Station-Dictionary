@@ -1,7 +1,7 @@
 solids:
   download_source_data:
     inputs:
-      data_dir: "data/raw"
+      rawdata_dir: "data/raw"
   construct_intermediate_dataset:
     inputs:
       definitions_dir: "data/definitions"

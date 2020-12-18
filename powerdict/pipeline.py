@@ -6,7 +6,9 @@ __all__ = ['download_source_data', 'construct_intermediate_dataset', 'update_dat
 # Cell
 from powerdict import download, construct, update
 
+import os
 from typing import Any
+
 from dagster import execute_pipeline, pipeline, solid, Field
 
 # Cell
@@ -37,6 +39,9 @@ def clean_output_dataset(_, df: Any, definitions_dir: str) -> Any:
 
 @solid()
 def save_output_dataset(_, df: Any, output_data_dir: str):
+    if not os.path.exists(output_data_dir):
+        os.mkdirs(output_data_dir)
+
     df.to_csv(f'{output_data_dir}/power_stations.csv')
 
     return

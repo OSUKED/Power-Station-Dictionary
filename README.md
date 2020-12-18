@@ -1,6 +1,6 @@
 # Power Station Dictionary
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab) [![DOI](https://zenodo.org/badge/322407102.svg)](https://zenodo.org/badge/latestdoi/322407102) [![PyPI version](https://badge.fury.io/py/powerdict.svg)](https://badge.fury.io/py/powerdict)
 
 <br>
 
@@ -10,9 +10,9 @@
 
 The core output of this project is a clean output power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. The `powerdict` module will construct this dataset from the files contained in three of the data directories:
 
-* *raw* - source datasets as csvs
-* *updates* - JSON mappings from an osuked_id to a new attribute value
-* *definitions* - JSON specification of how to process the raw sources
+- _raw_ - source datasets as csvs
+- _updates_ - JSON mappings from an osuked_id to a new attribute value
+- _definitions_ - JSON specification of how to process the raw sources
 
 CI/CD is set-up so that any changes in this repository will trigger a reconstruction of the output dataset, additionally a new GitHub releases will automatically trigger a new release on Zenodo and produce an updated DOI. The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv).
 

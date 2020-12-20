@@ -90,7 +90,7 @@ def get_input_key_to_attr(df_input, key_input_col, input_col):
 
     # Creating one-to-one mapping
     input_key_to_attr = (df_key_input_non_duped
-                         [~df_key_input_non_duped['bmu_root'].isin(one_to_many_input_keys)]
+                         [~df_key_input_non_duped[key_input_col].isin(one_to_many_input_keys)]
                          .set_index(key_input_col)
                          [input_col]
                          .to_dict()

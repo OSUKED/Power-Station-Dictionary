@@ -3,12 +3,16 @@
 
 
 ```python
+#exports
 import pandas as pd
-import geopandas as gpd
 import numpy as np
 
 import requests
 from bs4 import BeautifulSoup as bs
+```
+
+```python
+import geopandas as gpd
 
 import matplotlib.pyplot as plt
 import FEAutils as hlp
@@ -282,7 +286,7 @@ ax.legend(frameon=False, bbox_to_anchor=(1, 0.75))
 
 
 
-![png](img/nbs/output_12_1.png)
+![png](img/nbs/output_13_1.png)
 
 
 <br>
@@ -292,10 +296,16 @@ ax.legend(frameon=False, bbox_to_anchor=(1, 0.75))
 We want to make sure that we're always downloading the latest available dataset from OPSD so we'll identify which csv that is from their website
 
 ```python
-opsd_root = 'https://data.open-power-system-data.org'
-page_url = f'{opsd_root}/conventional_power_plants/2020-10-01'
+#exports
+def retrieve_opsd_power_plants_page(opsd_root='https://data.open-power-system-data.org'):
+    page_url = f'{opsd_root}/conventional_power_plants/2020-10-01'
+    r = requests.get(page_url)
 
-r = requests.get(page_url)
+    return r
+```
+
+```python
+r = retrieve_opsd_power_plants_page()
 
 r
 ```
@@ -312,9 +322,16 @@ r
 From this we can search for the csv and then extract the url that it refers to using `BeautifulSoup`
 
 ```python
-soup = bs(r.content)
+#exports
+def extract_EU_power_plants_csv_url(r, opsd_root='https://data.open-power-system-data.org'):
+    soup = bs(r.content)
+    csv_url = opsd_root + '/' + soup.find('a', string='conventional_power_plants_EU.csv')['href']
+    
+    return csv_url
+```
 
-csv_url = opsd_root + '/' + soup.find('a', string='conventional_power_plants_EU.csv')['href']
+```python
+csv_url = extract_EU_power_plants_csv_url(r)
 release_date = csv_url.split('/')[-2]
 
 release_date
@@ -519,6 +536,24 @@ df_OPSD.to_csv('../data/raw/OPSD.csv', index=False)
 
 <br>
 
+We'll also wrap all of these steps in a single function
+
+```python
+#exports
+def download_opsd_power_plants_data(raw_data_dir='../data/raw'):
+    r = retrieve_opsd_power_plants_page()
+    csv_url = extract_EU_power_plants_csv_url(r)
+
+    df_OPSD = pd.read_csv(csv_url)
+    df_OPSD.to_csv(f'{raw_data_dir}/OPSD.csv', index=False)
+```
+
+```python
+download_opsd_power_plants_data()
+```
+
+<br>
+
 We can see that there's roughly half the number of entries in the OPSD database for UK plants. However, its worth remembering that were ~2 entries per physcial location in the ESAIL dataset due to some plants having multiple BM units.
 
 ```python
@@ -584,7 +619,7 @@ for ax in axs:
 ```
 
 
-![png](img/nbs/output_26_0.png)
+![png](img/nbs/output_32_0.png)
 
 
 <br>

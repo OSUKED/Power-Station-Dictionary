@@ -118,13 +118,14 @@ def get_primary_key_to_attr(source, input_col, source_definitions, raw_data_dir)
     df_input = pd.read_csv(f"{raw_data_dir}/{filename}")
 
     if value_map is not None:
-        df_input[input_col].isin(value_map.keys()).mean()==1, f'A mapping was provided for {input_col} but did not contain all of the values found within it'
+        assert df_input[input_col].isin(value_map.keys()).mean()==1, f'A mapping was provided for {input_col} but did not contain all of the values found within it'
         df_input[input_col] = df_input[input_col].map(value_map)
 
     input_key_to_attr = get_input_key_to_attr(df_input, key_input_col, input_col)
 
     primary_key_to_attr = (pd.Series(key_map)
                            .map(input_key_to_attr)
+                           .dropna()
                            .to_dict())
 
     return primary_key_to_attr

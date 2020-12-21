@@ -366,3 +366,13 @@ df_OPSD[['energy_source_level_1', 'energy_source_level_2', 'energy_source_level_
 | 6008 | Other or unspecified energy sources | Waste                   | nan                     |</div>
 
 
+
+<br>
+
+### *OPSD* Dataset
+
+The Open Power System Data (OPSD) group started in 2015 with the aim of providing open source datasets that could support the work of the Open Energy Modelling Initiative, as part of this they've produced a data package listing conventional power plants in Germany and European countries (thankfully the current phase of the OPSD project finishes at the end of December 2020 rather than January 2021).
+
+```python
+# should match on the name, then get the capacity, commission_year and EIC code attributes
+```

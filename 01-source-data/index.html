@@ -472,6 +472,9 @@
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">FEAutils</span> <span class="k">as</span> <span class="nn">hlp</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">JSON</span>
+<span class="kn">from</span> <span class="nn">ipypb</span> <span class="kn">import</span> <span class="n">track</span>
 </code></pre></div>
 <p><br></p>
 <h3 id="esail-dataset"><em>ESAIL</em> Dataset<a class="headerlink" href="#esail-dataset" title="Permanent link">&para;</a></h3>
@@ -481,94 +484,84 @@
 
 <span class="n">df_ESAIL</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sett_bmu_id</th>
-      <th>ngc_bmu_id</th>
-      <th>bmu_root</th>
-      <th>name</th>
-      <th>primary_fuel_type</th>
-      <th>detailed_fuel_type</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>E_MARK-1</td>
-      <td>MARK-1</td>
-      <td>MARK</td>
-      <td>Rothes Bio-Plant CHP 1</td>
-      <td>biomass</td>
-      <td>bone</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>E_MARK-2</td>
-      <td>MARK-2</td>
-      <td>MARK</td>
-      <td>Rothes Bio-Plant CHP 2</td>
-      <td>biomass</td>
-      <td>bone</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>T_DIDC1</td>
-      <td>DIDC1</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 1</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>T_DIDC2</td>
-      <td>DIDC2</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 2</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>T_DIDC4</td>
-      <td>DIDC4</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 4</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">sett_bmu_id</th>
+<th align="left">ngc_bmu_id</th>
+<th align="left">bmu_root</th>
+<th align="left">name</th>
+<th align="left">primary_fuel_type</th>
+<th align="left">detailed_fuel_type</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">common_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="left">E_MARK-1</td>
+<td align="left">MARK-1</td>
+<td align="left">MARK</td>
+<td align="left">Rothes Bio-Plant CHP 1</td>
+<td align="left">biomass</td>
+<td align="left">bone</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="left">E_MARK-2</td>
+<td align="left">MARK-2</td>
+<td align="left">MARK</td>
+<td align="left">Rothes Bio-Plant CHP 2</td>
+<td align="left">biomass</td>
+<td align="left">bone</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="left">T_DIDC1</td>
+<td align="left">DIDC1</td>
+<td align="left">DIDC</td>
+<td align="left">Didcot A (G) 1</td>
+<td align="left">coal</td>
+<td align="left">coalgas_opt_out</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">Didcot A (G)</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">T_DIDC2</td>
+<td align="left">DIDC2</td>
+<td align="left">DIDC</td>
+<td align="left">Didcot A (G) 2</td>
+<td align="left">coal</td>
+<td align="left">coalgas_opt_out</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">Didcot A (G)</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="left">T_DIDC4</td>
+<td align="left">DIDC4</td>
+<td align="left">DIDC</td>
+<td align="left">Didcot A (G) 4</td>
+<td align="left">coal</td>
+<td align="left">coalgas_opt_out</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">Didcot A (G)</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <p><br></p>
 <p>We can see how many entries we have</p>
 <div class="highlight"><pre><span></span><code><span class="n">df_ESAIL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -585,12 +578,12 @@ coal               74
 fuel_oil           60
 nuclear            34
 run_of_river       31
+aggregator         16
 pumped_storage     16
-aggregator         14
-other              10
+other               8
 rgt                 7
-battery             3
 biomass             3
+battery             3
 Name: primary_fuel_type, dtype: int64
 </code></pre></div>
 <p><br></p>
@@ -599,7 +592,7 @@ Name: primary_fuel_type, dtype: int64
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The average number of BMU ids per location is </span><span class="si">{</span><span class="n">avg_num_BMUs_per_loc</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>The average number of BMU ids per location is 2.01
+<div class="highlight"><pre><span></span><code>The average number of BMU ids per location is 1.70
 </code></pre></div>
 <p><br></p>
 <p>Its always useful to visualise this kind of data spatially so we'll load in a basemap with separate zones for each grid supply point</p>
@@ -685,7 +678,7 @@ Name: primary_fuel_type, dtype: int64
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;matplotlib.legend.Legend at 0x22c0f861b20&gt;
+<div class="highlight"><pre><span></span><code>&lt;matplotlib.legend.Legend at 0x241a1eca4c0&gt;
 </code></pre></div>
 <p><img alt="png" src="../img/nbs/output_13_1.png" /></p>
 <p><br></p>

@@ -532,6 +532,11 @@
 <h3 id="output-definitions">Output Definitions<a class="headerlink" href="#output-definitions" title="Permanent link">&para;</a></h3>
 <p>Before we collate the data sources into a single dataset we want to first define the attribute sets we want to have in our outputs, for attributes that are not categorical we will specify <code>None</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">outputs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;capacity_mw&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
     <span class="s1">&#39;fuel_type&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s1">&#39;gas&#39;</span><span class="p">,</span>
         <span class="s1">&#39;coal&#39;</span><span class="p">,</span>
@@ -560,11 +565,7 @@
         <span class="s1">&#39;battery&#39;</span><span class="p">,</span>
         <span class="s1">&#39;biomass&#39;</span><span class="p">,</span>
         <span class="s1">&#39;other&#39;</span> <span class="c1"># ideally no plants should come under this, the preference is to create a new category</span>
-    <span class="p">],</span>
-    <span class="s1">&#39;capacity&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 
 <span class="n">JSON</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
@@ -579,7 +580,7 @@
 <p><br></p>
 <h3 id="source-definitions">Source Definitions<a class="headerlink" href="#source-definitions" title="Permanent link">&para;</a></h3>
 <h4 id="esail">ESAIL<a class="headerlink" href="#esail" title="Permanent link">&para;</a></h4>
-<p>We'll start by loading the dataset in</p>
+<p>We'll start by loading the ESAIL dataset in</p>
 <div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;ESAIL.csv&#39;</span>
 
 <span class="n">df_ESAIL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">raw_data_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -612,6 +613,7 @@
       <th>detailed_fuel_type</th>
       <th>longitude</th>
       <th>latitude</th>
+      <th>common_name</th>
     </tr>
   </thead>
   <tbody>
@@ -625,6 +627,7 @@
       <td>bone</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>Rothes Bio-Plant CHP</td>
     </tr>
     <tr>
       <th>1</th>
@@ -636,6 +639,7 @@
       <td>bone</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>Rothes Bio-Plant CHP</td>
     </tr>
     <tr>
       <th>2</th>
@@ -647,6 +651,7 @@
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
     <tr>
       <th>3</th>
@@ -658,6 +663,7 @@
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
     <tr>
       <th>4</th>
@@ -669,6 +675,7 @@
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
   </tbody>
 </table>
@@ -701,6 +708,26 @@
 <p><br></p>
 <p>We'll also define how we want to extract data from the attribute columns, specifically we provide the name of the new output column, the rank of the source in regards to this column, and the value mapping necessary for that columns content to match the desired output.</p>
 <div class="highlight"><pre><span></span><code><span class="n">attr_cols</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;common_name&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">},</span>
     <span class="s1">&#39;primary_fuel_type&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;fuel_type&#39;</span><span class="p">,</span>
         <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># rank to determine which input to use when multiple are provided, 0 is highest</span>
@@ -718,22 +745,7 @@
             <span class="s1">&#39;biomass&#39;</span><span class="p">:</span> <span class="s1">&#39;biomass&#39;</span><span class="p">,</span> 
             <span class="s1">&#39;battery&#39;</span><span class="p">:</span> <span class="s1">&#39;other&#39;</span>
         <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;sett_bmu_id&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
-    <span class="p">},</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><br></p>
@@ -757,7 +769,489 @@
 </code></pre></div>
 <p><br></p>
 <h4 id="gppdb">GPPDB<a class="headerlink" href="#gppdb" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="c1"># </span>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;GPPDB.csv&#39;</span>
+
+<span class="n">df_GPPDB</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">raw_data_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">df_GPPDB</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>country_long</th>
+      <th>name</th>
+      <th>gppd_idnr</th>
+      <th>capacity_mw</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>primary_fuel</th>
+      <th>other_fuel1</th>
+      <th>other_fuel2</th>
+      <th>...</th>
+      <th>geolocation_source</th>
+      <th>wepp_id</th>
+      <th>year_of_capacity_data</th>
+      <th>generation_gwh_2013</th>
+      <th>generation_gwh_2014</th>
+      <th>generation_gwh_2015</th>
+      <th>generation_gwh_2016</th>
+      <th>generation_gwh_2017</th>
+      <th>generation_data_source</th>
+      <th>estimated_generation_gwh</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>Kajaki Hydroelectric Power Plant Afghanistan</td>
+      <td>GEODB0040538</td>
+      <td>33.0</td>
+      <td>32.322</td>
+      <td>65.1190</td>
+      <td>Hydro</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>GEODB</td>
+      <td>1009793</td>
+      <td>2017.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>Kandahar DOG</td>
+      <td>WKS0070144</td>
+      <td>10.0</td>
+      <td>31.670</td>
+      <td>65.7950</td>
+      <td>Solar</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Wiki-Solar</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>Kandahar JOL</td>
+      <td>WKS0071196</td>
+      <td>10.0</td>
+      <td>31.623</td>
+      <td>65.7920</td>
+      <td>Solar</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>Wiki-Solar</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>Mahipar Hydroelectric Power Plant Afghanistan</td>
+      <td>GEODB0040541</td>
+      <td>66.0</td>
+      <td>34.556</td>
+      <td>69.4787</td>
+      <td>Hydro</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>GEODB</td>
+      <td>1009795</td>
+      <td>2017.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>Naghlu Dam Hydroelectric Power Plant Afghanistan</td>
+      <td>GEODB0040534</td>
+      <td>100.0</td>
+      <td>34.641</td>
+      <td>69.7170</td>
+      <td>Hydro</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>GEODB</td>
+      <td>1009797</td>
+      <td>2017.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 25 columns</p>
+</div>
+
+<p><br></p>
+<p>First we need to filter this down to plants in the UK.</p>
+<p>N.b. the GPPDB uses United Kingdom and GBR interchangeably which is particularly confusing when they're using separate networks - in this work we are currently focusing on GBR only.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df_GPPDB_UK</span> <span class="o">=</span> <span class="n">df_GPPDB</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;country==&quot;GBR&quot;&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">df_GPPDB_UK</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> power plant entries for the UK&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>There are 2603 power plant entries for the UK
+</code></pre></div>
+<p><br></p>
+<p>Looking at the sources we can see that most of these come from the renewable energy planning database which includes a large number of relatively small plants</p>
+<div class="highlight"><pre><span></span><code><span class="n">df_GPPDB_UK</span><span class="p">[</span><span class="s1">&#39;geolocation_source&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>UK Renewable Energy Planning Database    2413
+Wiki-Solar                                 67
+GEODB                                      57
+CARMA                                      50
+GEO                                         9
+WRI                                         7
+Name: geolocation_source, dtype: int64
+</code></pre></div>
+<p><br></p>
+<p>Looking at the average capacity of each source makes this clearer</p>
+<div class="highlight"><pre><span></span><code><span class="n">df_GPPDB_UK</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_GPPDB_UK</span><span class="p">[</span><span class="s1">&#39;geolocation_source&#39;</span><span class="p">])[</span><span class="s1">&#39;capacity_mw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>geolocation_source
+GEODB                                    800.640351
+WRI                                      475.957143
+GEO                                      413.444444
+CARMA                                     50.699000
+UK Renewable Energy Planning Database     13.341912
+Wiki-Solar                                 7.889552
+Name: capacity_mw, dtype: float64
+</code></pre></div>
+<p><br></p>
+<p>Sorting by capacity gives us a good basis for selecting which plants to start manually matching ids with</p>
+<div class="highlight"><pre><span></span><code><span class="n">df_GPPDB_UK_focused_sorted</span> <span class="o">=</span> <span class="n">df_GPPDB_UK</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;capacity_mw&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s1">&#39;gppd_idnr&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;capacity_mw&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;primary_fuel&#39;</span><span class="p">,</span> <span class="s1">&#39;other_fuel1&#39;</span><span class="p">]]</span>
+
+<span class="n">df_GPPDB_UK_focused_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gppd_idnr</th>
+      <th>name</th>
+      <th>capacity_mw</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>primary_fuel</th>
+      <th>other_fuel1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23794</th>
+      <td>GBR1000372</td>
+      <td>Pembroke</td>
+      <td>2180.0</td>
+      <td>51.6850</td>
+      <td>-4.9900</td>
+      <td>Gas</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24421</th>
+      <td>GBR1000143</td>
+      <td>West Burton</td>
+      <td>2012.0</td>
+      <td>53.3604</td>
+      <td>-0.8102</td>
+      <td>Coal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22534</th>
+      <td>GBR1000142</td>
+      <td>Cottam</td>
+      <td>2008.0</td>
+      <td>53.3040</td>
+      <td>-0.7815</td>
+      <td>Coal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23888</th>
+      <td>GBR1000496</td>
+      <td>Ratcliffe</td>
+      <td>2000.0</td>
+      <td>52.8653</td>
+      <td>-1.2550</td>
+      <td>Coal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>22663</th>
+      <td>GBR0000174</td>
+      <td>Drax</td>
+      <td>1980.0</td>
+      <td>53.7356</td>
+      <td>-0.9911</td>
+      <td>Coal</td>
+      <td>Biomass</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><br></p>
+<p>These were then manually matched to the BMU ids in the ESAIL dataset, confirming matches based on fuel, location and capacity (checked on NETA-Reports)</p>
+<div class="highlight"><pre><span></span><code><span class="n">BMU_root_to_gppd_idnr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;HEYM2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000055&#39;</span><span class="p">,</span> <span class="c1"># Heysham 2 - complicated one, need to have HEYM1 and HEYM2 for the BMU root</span>
+    <span class="s1">&#39;HEYM1&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000054&#39;</span><span class="p">,</span> <span class="c1"># Heysham 1</span>
+    <span class="s1">&#39;WHILW1&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003489&#39;</span><span class="p">,</span> <span class="c1"># WHILW-1, see GBR0003981 for details on separation</span>
+    <span class="s1">&#39;WHILW2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003981&#39;</span><span class="p">,</span> <span class="c1"># This is the extension so should be separated from WHILW-1 like the HEYM group</span>
+    <span class="s1">&#39;WLNYW1&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002500&#39;</span><span class="p">,</span> <span class="c1"># WLNYW1</span>
+    <span class="s1">&#39;WLNYW2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002506&#39;</span><span class="p">,</span> <span class="c1"># WLNYW2 - Whilst GPPDB has Walney 1 &amp; 2 it doesnt have the extension included </span>
+    <span class="s1">&#39;GNFSW0&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002488&#39;</span><span class="p">,</span> <span class="c1"># change to GNFSW0</span>
+    <span class="s1">&#39;GNFSW1&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002490&#39;</span><span class="p">,</span> <span class="c1"># change to GNFSW1</span>
+    <span class="s1">&#39;GNFSW2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002489&#39;</span><span class="p">,</span> <span class="c1"># change to GNFSW2</span>
+    <span class="s1">&#39;CRYRW2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003440&#39;</span><span class="p">,</span> <span class="c1"># change to CRYRW2 - Crystal Rig Wind Farm - Phase 2</span>
+    <span class="s1">&#39;CRYRW3&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004215&#39;</span><span class="p">,</span> <span class="c1"># change to CRYRW3 - Crystal Rig III Wind Farm</span>
+    <span class="s1">&#39;BLLA1&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003116&#39;</span><span class="p">,</span> <span class="c1"># change to BLLA1</span>
+    <span class="s1">&#39;BLLA2&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004253&#39;</span><span class="p">,</span> <span class="c1"># change to BLLA2</span>
+    <span class="s1">&#39;WDNSO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002519&#39;</span><span class="p">,</span> <span class="c1"># West of Duddon Sands - how to handle OFTO and farm? only WDNSO has data on BMRS</span>
+    <span class="s1">&#39;THNTO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002499&#39;</span><span class="p">,</span> <span class="c1"># could only see FPN for THNTO on BMRS, seems like O is for offtake which is where measurements are made</span>
+    <span class="s1">&#39;BRYP&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000125&#39;</span><span class="p">,</span> <span class="c1"># There&#39;s also AESB from when it was under AES ownership but no data </span>
+<span class="c1">#    [&#39;CLDCW&#39;, &#39;CLDNW&#39;, &#39;CLDSW&#39;]: &#39;GBR0004178&#39;, # The GPPDB only includes the extension at 173 MW but this doesnt match to any of these BMU capacities as shown on netareports</span>
+    <span class="s1">&#39;PEMB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000372&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WBUPS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000143&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;COTPS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000142&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RATS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000496&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DRAXX&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0000174&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;EGGPS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000147&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DINO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000151&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;STAY&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000373&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ABTH&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000374&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DIDCB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000369&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GRAI&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000495&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CNQPS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000492&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WBURB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000141&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SHBA&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000074&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HUMR&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000517&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SCCL&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000263&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SIZB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000058&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TORN&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000059&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HRTL&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000053&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PEHEG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000723&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DNGB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000052&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HUNB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000057&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HINB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000056&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LAGA&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000073&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CARR&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000124&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SPLN&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0006165&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SVRP&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000313&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MRWD&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000311&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SUTB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000518&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SEAB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000806&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ROCK&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000212&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DAMC&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000465&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;COSO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000211&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LBAR&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000371&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RYHPS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000466&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MEDP&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000437&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LARYW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002511&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KILNS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000500&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GYMRW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002543&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BAGE&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000312&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DEEP&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000262&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GRGBW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002510&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GYAR&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000370&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SHOS&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000769&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SEAB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000480&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;EECL&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000494&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CORB&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000077&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CDCL&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000493&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FFES&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000152&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SHRSW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002512&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FOYE&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000657&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RCBKO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002515&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LNCSW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002513&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BRBEO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002539&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PETEM&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000128&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;USKM&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000811&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PNYCW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004595&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HMGTO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002544&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WTMSO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002545&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GRIFW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004028&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FELL&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000317&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SLOY&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000404&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BRGG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR2000126&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OMNDW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002509&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FALGW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004059&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TAYLG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000499&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;INDQ&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000150&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;COWE&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000376&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HRSTW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004119&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ARCHW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003258&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HADHW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003109&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BHLAW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004640&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DIDCG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000377&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GLNDO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0000388&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FARR&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004676&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BOWLW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002546&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RREW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002496&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RRWW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002497&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BURBO&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002487&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BEINW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003787&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;FERRG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0000116&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PSTAT002&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004627&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DRAXXG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000112&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BRDUW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003119&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GORDW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003662&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CGTHW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004664&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LCLTW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004123&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DRSLW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004269&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;STRNW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004625&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KILBW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002673&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BRYBW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004261&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GLWSW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004368&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MILWW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002723&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PPGEN002&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004687&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;TESI&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0002514&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WISTW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004431&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CASCLU&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000405&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;AKGLW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004332&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MOYEW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003647&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PSTAT002&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004667&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GRAIG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000497&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DPGEN001&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000114&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MKHLW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003260&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MPGEN002&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000113&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RHEI&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003552&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BABAW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004021&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HBHDW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004225&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ABTHG&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000375&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PPGEN001&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003534&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PSTAT001&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003951&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MPGEN001&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000115&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PPGEN003&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004006&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HLTWW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004014&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KILBW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003202&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CRMLW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004120&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CRGHW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004619&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;BTUIW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004525&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ACHRW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004331&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PPGEN001&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0003534&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;EDINW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004674&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CLAC&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000401&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WBUGT&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR1000146&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MILWW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004682&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MINSW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004517&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CLDRW&#39;</span><span class="p">:</span> <span class="s1">&#39;GBR0004623&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><br></p>
+<p>We'll now convert the mapping from BMU id to GPPDB id into one from osuked id to GPPDB id</p>
+<div class="highlight"><pre><span></span><code><span class="n">key_map</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">BMU_root_to_gppd_idnr</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> 
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> 
+    <span class="ow">in</span> <span class="n">ESAIL_def</span><span class="p">[</span><span class="s1">&#39;key_map&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="n">v</span> 
+    <span class="ow">in</span> <span class="n">BMU_root_to_gppd_idnr</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_map</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">BMU_root_to_gppd_idnr</span><span class="p">),</span> <span class="s1">&#39;Not all of the GPPDB ids matched to BMU ids were mapped to osuked ids&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">key_input_col</span> <span class="o">=</span> <span class="s1">&#39;gppd_idnr&#39;</span>
+<span class="n">key_output_col</span> <span class="o">=</span> <span class="s1">&#39;gppd_idnr&#39;</span>
+
+<span class="n">attr_cols</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;capacity_mw&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;output_col&#39;</span><span class="p">:</span> <span class="s1">&#39;capacity_mw&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_rank&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;value_map&#39;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><br></p>
+<p>We'll now combine this into a single metadata object</p>
+<div class="highlight"><pre><span></span><code><span class="n">GPPDB_def</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filename</span><span class="p">,</span>
+    <span class="s1">&#39;key_input_col&#39;</span><span class="p">:</span> <span class="n">key_input_col</span><span class="p">,</span>
+    <span class="s1">&#39;key_output_col&#39;</span><span class="p">:</span> <span class="n">key_output_col</span><span class="p">,</span>
+    <span class="s1">&#39;key_map&#39;</span><span class="p">:</span> <span class="n">key_map</span><span class="p">,</span>
+    <span class="s1">&#39;attr_cols&#39;</span><span class="p">:</span> <span class="n">attr_cols</span>
+<span class="p">}</span>
+
+<span class="n">JSON</span><span class="p">(</span><span class="n">GPPDB_def</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;IPython.core.display.JSON object&gt;
+</code></pre></div>
+<p><br></p>
+<p>And finally save the source definition</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">definitions_dir</span><span class="si">}</span><span class="s1">/GPPDB.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">GPPDB_def</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </code></pre></div>
                 
               

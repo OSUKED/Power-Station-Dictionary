@@ -16,6 +16,9 @@ import geopandas as gpd
 
 import matplotlib.pyplot as plt
 import FEAutils as hlp
+
+from IPython.display import JSON
+from ipypb import track
 ```
 
 <br>
@@ -61,6 +64,7 @@ df_ESAIL.head()
       <th>detailed_fuel_type</th>
       <th>longitude</th>
       <th>latitude</th>
+      <th>common_name</th>
     </tr>
   </thead>
   <tbody>
@@ -74,6 +78,7 @@ df_ESAIL.head()
       <td>bone</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>Rothes Bio-Plant CHP</td>
     </tr>
     <tr>
       <th>1</th>
@@ -85,6 +90,7 @@ df_ESAIL.head()
       <td>bone</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>Rothes Bio-Plant CHP</td>
     </tr>
     <tr>
       <th>2</th>
@@ -96,6 +102,7 @@ df_ESAIL.head()
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
     <tr>
       <th>3</th>
@@ -107,6 +114,7 @@ df_ESAIL.head()
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
     <tr>
       <th>4</th>
@@ -118,6 +126,7 @@ df_ESAIL.head()
       <td>coalgas_opt_out</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>Didcot A (G)</td>
     </tr>
   </tbody>
 </table>
@@ -157,12 +166,12 @@ df_ESAIL['primary_fuel_type'].value_counts()
     fuel_oil           60
     nuclear            34
     run_of_river       31
+    aggregator         16
     pumped_storage     16
-    aggregator         14
-    other              10
+    other               8
     rgt                 7
-    battery             3
     biomass             3
+    battery             3
     Name: primary_fuel_type, dtype: int64
 
 
@@ -177,7 +186,7 @@ avg_num_BMUs_per_loc = df_ESAIL['sett_bmu_id'].nunique()/df_ESAIL['bmu_root'].nu
 print(f'The average number of BMU ids per location is {avg_num_BMUs_per_loc:.2f}')
 ```
 
-    The average number of BMU ids per location is 2.01
+    The average number of BMU ids per location is 1.70
     
 
 <br>
@@ -281,7 +290,7 @@ ax.legend(frameon=False, bbox_to_anchor=(1, 0.75))
 
 
 
-    <matplotlib.legend.Legend at 0x22c0f861b20>
+    <matplotlib.legend.Legend at 0x241a1eca4c0>
 
 
 

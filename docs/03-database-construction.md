@@ -147,6 +147,182 @@ JSON(inputs_for_output_cols)
 
 
 ```python
+pd.read_csv('https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/main/data/output/power_stations.csv')
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>osuked_id</th>
+      <th>esail_id</th>
+      <th>gppd_idnr</th>
+      <th>name</th>
+      <th>sett_bmu_id</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>fuel_type</th>
+      <th>capacity_mw</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10000</td>
+      <td>MARK</td>
+      <td>NaN</td>
+      <td>Rothes Bio-Plant CHP</td>
+      <td>E_MARK-1, E_MARK-2</td>
+      <td>-3.603516</td>
+      <td>57.480403</td>
+      <td>biomass</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10001</td>
+      <td>DIDC</td>
+      <td>NaN</td>
+      <td>Didcot A (G)</td>
+      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+      <td>-1.267570</td>
+      <td>51.623630</td>
+      <td>coal</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10002</td>
+      <td>ABTH</td>
+      <td>GBR1000374</td>
+      <td>Aberthaw B</td>
+      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
+      <td>-3.404866</td>
+      <td>51.387312</td>
+      <td>coal</td>
+      <td>1586.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10003</td>
+      <td>COTPS</td>
+      <td>GBR1000142</td>
+      <td>Cottam</td>
+      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+      <td>-0.648193</td>
+      <td>53.245495</td>
+      <td>coal</td>
+      <td>2008.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10004</td>
+      <td>DRAXX</td>
+      <td>GBR0000174</td>
+      <td>Drax</td>
+      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+      <td>-0.626221</td>
+      <td>53.748711</td>
+      <td>coal, biomass</td>
+      <td>1980.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>285</th>
+      <td>10285</td>
+      <td>ROOSB</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E_ROOSB-1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>other</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>286</th>
+      <td>10286</td>
+      <td>STLGW</td>
+      <td>NaN</td>
+      <td>Stronelairg Windfarm</td>
+      <td>T_STLGW-1, T_STLGW-2</td>
+      <td>-4.461346</td>
+      <td>57.099869</td>
+      <td>wind</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>287</th>
+      <td>10287</td>
+      <td>TDRVE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E_TDRVE-1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>gas</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>288</th>
+      <td>10288</td>
+      <td>TRFPK</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E_TRFPK-1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>gas</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>289</th>
+      <td>10289</td>
+      <td>WTRLN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E_WTRLN-1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>gas</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>290 rows × 9 columns</p>
+</div>
+
+
+
+```python
 #exports
 def get_input_key_to_attr(df_input, key_input_col, input_col):
     df_key_input_non_duped = df_input[[key_input_col, input_col]].drop_duplicates()
@@ -162,7 +338,7 @@ def get_input_key_to_attr(df_input, key_input_col, input_col):
 
     # Creating one-to-one mapping
     input_key_to_attr = (df_key_input_non_duped
-                         [~df_key_input_non_duped['bmu_root'].isin(one_to_many_input_keys)]
+                         [~df_key_input_non_duped[key_input_col].isin(one_to_many_input_keys)]
                          .set_index(key_input_col)
                          [input_col]
                          .to_dict()
@@ -193,7 +369,7 @@ input_key_to_attr = get_input_key_to_attr(df_input, key_input_col, input_col)
 JSON([input_key_to_attr])
 ```
 
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
     
@@ -216,13 +392,14 @@ def get_primary_key_to_attr(source, input_col, source_definitions, raw_data_dir)
     df_input = pd.read_csv(f"{raw_data_dir}/{filename}")
     
     if value_map is not None:
-        df_input[input_col].isin(value_map.keys()).mean()==1, f'A mapping was provided for {input_col} but did not contain all of the values found within it'
+        assert df_input[input_col].isin(value_map.keys()).mean()==1, f'A mapping was provided for {input_col} but did not contain all of the values found within it'
         df_input[input_col] = df_input[input_col].map(value_map)
     
     input_key_to_attr = get_input_key_to_attr(df_input, key_input_col, input_col)
 
     primary_key_to_attr = (pd.Series(key_map)
                            .map(input_key_to_attr)
+                           .dropna()
                            .to_dict())
     
     return primary_key_to_attr
@@ -237,7 +414,7 @@ primary_key_to_attr = get_primary_key_to_attr(source, input_col, source_definiti
 JSON([primary_key_to_attr])
 ```
 
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
     
@@ -275,16 +452,22 @@ df = add_attr_cols(df, source_definitions, raw_data_dir)
 df.head()
 ```
 
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. common_name, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. sett_bmu_id, a one to many relationship will therefore be used: ABTH, ABTHG, BAGE, BANGE, BLLA, BRWE, CARR, CNQPS, COCK, COTPS, COWE, CRUA, CRYRW, DDGNO, DICI, DIDC, DIDCB, DIDCG, DINO, DNGB, DRAXX, DRAXXG, DRKPS, DUNG, EGGPS, ERRO, FARR, FASN, FAWL, FAWLG, FERR, FERRG, FFES, FIDL, FIDLG, FIFO, FOYE, GANGE, GANW, GNFSW, GRAI, GRAIG, GRGBW, GRIFW, GYMR, GYMRW, HEYM, HINB, HMGTO, HMRPS, HRTL, HUNB, IRNPS, KILLPG, KINO, KINOG, LARYW, LITTD, LITTDG, LNCSW, LOAN, LYNE, MARK, OLDS, OMNDW, PEHE, PEHEG, PEMB, RATS, RATSGT, RCBKO, RHEI, RMPNO, RUGGT, RUGPS, SCCL, SEAB, SHBA, SHRSW, SIZB, SIZEA, SLOY, STAY, STLGW, SVRP, TAYLG, TESI, THNTO, THNTW, TILB, TILBG, TORN, TULWW, USKM, WBUGT, WBUPS, WBURB, WDNSO, WDNSW, WHILW, WLNYO, WLNYW, WYLF
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. sett_bmu_id, a one to many relationship will therefore be used: ABTH, ABTHG, BAGE, BANGE, BRWE, CARR, CNQPS, COCK, COTPS, COWE, CRUA, DDGNO, DIDC, DIDCB, DIDCG, DINO, DNGB, DRAXX, DRAXXG, DRKPS, DUNG, EGGPS, ERRO, FARR, FASN, FAWL, FAWLG, FERR, FERRG, FFES, FIDL, FIDLG, FIFO, FOYE, GANGE, GANW, GNFSW1, GNFSW2, GRAI, GRAIG, GRGBW, GRIFW, GYMR, GYMRW, HEYM1, HEYM2, HINB, HMGTO, HMRPS, HRTL, HUNB, IRNPS, KILLPG, KINO, KINOG, LARYW, LITTD, LITTDG, LNCSW, LOAN, LYNE, MARK, OLDS, OMNDW, PEHE, PEHEG, PEMB, RATS, RATSGT, RCBKO, RHEI, RMPNO, RUGGT, RUGPS, SCCL, SEAB, SHBA, SHRSW, SIZB, SIZEA, SLOY, STAY, STLGW, SVRP, TAYLG, TESI, THNTO, THNTW, TILB, TILBG, TORN, TULWW, USKM, WBUGT, WBUPS, WBURB, WDNSO, WDNSW, WLNYO, WYLF
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. longitude, a one to many relationship will therefore be used: 
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. longitude, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. latitude, a one to many relationship will therefore be used: 
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. latitude, a one to many relationship will therefore be used: 
+    
+      warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    
+      warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following gppd_idnr input keys were not unique w.r.t. capacity_mw, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
     
@@ -310,47 +493,59 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>fuel_type</th>
+      <th>name</th>
       <th>sett_bmu_id</th>
       <th>longitude</th>
       <th>latitude</th>
+      <th>fuel_type</th>
+      <th>capacity_mw</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>10000</th>
-      <td>biomass</td>
+      <td>Rothes Bio-Plant CHP</td>
       <td>E_MARK-1, E_MARK-2</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>biomass</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10001</th>
-      <td>coal</td>
+      <td>Didcot A (G)</td>
       <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>coal</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10002</th>
-      <td>coal</td>
+      <td>Aberthaw B</td>
       <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
       <td>-3.404866</td>
       <td>51.387312</td>
+      <td>coal</td>
+      <td>1586.0</td>
     </tr>
     <tr>
       <th>10003</th>
-      <td>coal</td>
+      <td>Cottam</td>
       <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
       <td>-0.648193</td>
       <td>53.245495</td>
+      <td>coal</td>
+      <td>2008.0</td>
     </tr>
     <tr>
       <th>10004</th>
-      <td>coal</td>
+      <td>Drax</td>
       <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
       <td>-0.626221</td>
       <td>53.748711</td>
+      <td>coal</td>
+      <td>1980.0</td>
     </tr>
   </tbody>
 </table>
@@ -398,28 +593,34 @@ df.head()
     <tr style="text-align: right;">
       <th></th>
       <th>esail_id</th>
+      <th>gppd_idnr</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>10000</th>
       <td>MARK</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10001</th>
       <td>DIDC</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10002</th>
       <td>ABTH</td>
+      <td>GBR1000374</td>
     </tr>
     <tr>
       <th>10003</th>
       <td>COTPS</td>
+      <td>GBR1000142</td>
     </tr>
     <tr>
       <th>10004</th>
       <td>DRAXX</td>
+      <td>GBR0000174</td>
     </tr>
   </tbody>
 </table>
@@ -449,16 +650,22 @@ df = construct_output_df(definitions_dir, raw_data_dir)
 df.head()
 ```
 
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. common_name, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. sett_bmu_id, a one to many relationship will therefore be used: ABTH, ABTHG, BAGE, BANGE, BLLA, BRWE, CARR, CNQPS, COCK, COTPS, COWE, CRUA, CRYRW, DDGNO, DICI, DIDC, DIDCB, DIDCG, DINO, DNGB, DRAXX, DRAXXG, DRKPS, DUNG, EGGPS, ERRO, FARR, FASN, FAWL, FAWLG, FERR, FERRG, FFES, FIDL, FIDLG, FIFO, FOYE, GANGE, GANW, GNFSW, GRAI, GRAIG, GRGBW, GRIFW, GYMR, GYMRW, HEYM, HINB, HMGTO, HMRPS, HRTL, HUNB, IRNPS, KILLPG, KINO, KINOG, LARYW, LITTD, LITTDG, LNCSW, LOAN, LYNE, MARK, OLDS, OMNDW, PEHE, PEHEG, PEMB, RATS, RATSGT, RCBKO, RHEI, RMPNO, RUGGT, RUGPS, SCCL, SEAB, SHBA, SHRSW, SIZB, SIZEA, SLOY, STAY, STLGW, SVRP, TAYLG, TESI, THNTO, THNTW, TILB, TILBG, TORN, TULWW, USKM, WBUGT, WBUPS, WBURB, WDNSO, WDNSW, WHILW, WLNYO, WLNYW, WYLF
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. sett_bmu_id, a one to many relationship will therefore be used: ABTH, ABTHG, BAGE, BANGE, BRWE, CARR, CNQPS, COCK, COTPS, COWE, CRUA, DDGNO, DIDC, DIDCB, DIDCG, DINO, DNGB, DRAXX, DRAXXG, DRKPS, DUNG, EGGPS, ERRO, FARR, FASN, FAWL, FAWLG, FERR, FERRG, FFES, FIDL, FIDLG, FIFO, FOYE, GANGE, GANW, GNFSW1, GNFSW2, GRAI, GRAIG, GRGBW, GRIFW, GYMR, GYMRW, HEYM1, HEYM2, HINB, HMGTO, HMRPS, HRTL, HUNB, IRNPS, KILLPG, KINO, KINOG, LARYW, LITTD, LITTDG, LNCSW, LOAN, LYNE, MARK, OLDS, OMNDW, PEHE, PEHEG, PEMB, RATS, RATSGT, RCBKO, RHEI, RMPNO, RUGGT, RUGPS, SCCL, SEAB, SHBA, SHRSW, SIZB, SIZEA, SLOY, STAY, STLGW, SVRP, TAYLG, TESI, THNTO, THNTW, TILB, TILBG, TORN, TULWW, USKM, WBUGT, WBUPS, WBURB, WDNSO, WDNSW, WLNYO, WYLF
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. longitude, a one to many relationship will therefore be used: 
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. longitude, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
-    <ipython-input-13-8cc5c70328b0>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. latitude, a one to many relationship will therefore be used: 
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. latitude, a one to many relationship will therefore be used: 
+    
+      warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following bmu_root input keys were not unique w.r.t. primary_fuel_type, a one to many relationship will therefore be used: FAWLG, GRAI
+    
+      warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
+    <ipython-input-13-ea4c39131cdc>:12: UserWarning: The following gppd_idnr input keys were not unique w.r.t. capacity_mw, a one to many relationship will therefore be used: 
     
       warn(f"The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {', '.join(one_to_many_input_keys)}\n")
     
@@ -485,13 +692,19 @@ df.head()
     <tr style="text-align: right;">
       <th></th>
       <th>esail_id</th>
-      <th>fuel_type</th>
+      <th>gppd_idnr</th>
+      <th>name</th>
       <th>sett_bmu_id</th>
       <th>longitude</th>
       <th>latitude</th>
+      <th>fuel_type</th>
+      <th>capacity_mw</th>
     </tr>
     <tr>
       <th>osuked_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -503,42 +716,57 @@ df.head()
     <tr>
       <th>10000</th>
       <td>MARK</td>
-      <td>biomass</td>
+      <td>NaN</td>
+      <td>Rothes Bio-Plant CHP</td>
       <td>E_MARK-1, E_MARK-2</td>
       <td>-3.603516</td>
       <td>57.480403</td>
+      <td>biomass</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10001</th>
       <td>DIDC</td>
-      <td>coal</td>
+      <td>NaN</td>
+      <td>Didcot A (G)</td>
       <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
       <td>-1.267570</td>
       <td>51.623630</td>
+      <td>coal</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <th>10002</th>
       <td>ABTH</td>
-      <td>coal</td>
+      <td>GBR1000374</td>
+      <td>Aberthaw B</td>
       <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
       <td>-3.404866</td>
       <td>51.387312</td>
+      <td>coal</td>
+      <td>1586.0</td>
     </tr>
     <tr>
       <th>10003</th>
       <td>COTPS</td>
-      <td>coal</td>
+      <td>GBR1000142</td>
+      <td>Cottam</td>
       <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
       <td>-0.648193</td>
       <td>53.245495</td>
+      <td>coal</td>
+      <td>2008.0</td>
     </tr>
     <tr>
       <th>10004</th>
       <td>DRAXX</td>
-      <td>coal</td>
+      <td>GBR0000174</td>
+      <td>Drax</td>
       <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
       <td>-0.626221</td>
       <td>53.748711</td>
+      <td>coal</td>
+      <td>1980.0</td>
     </tr>
   </tbody>
 </table>

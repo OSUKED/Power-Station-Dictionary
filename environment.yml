@@ -9,6 +9,7 @@ dependencies:
   - matplotlib
   - jupyterlab
   - lxml
+  - html5lib
   - beautifulsoup4
   - xarray
   - tabulate

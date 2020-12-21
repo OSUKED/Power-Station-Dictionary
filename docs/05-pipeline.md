@@ -72,6 +72,10 @@ def generate_output_dataset_pipeline():
     save_output_dataset(df)
 ```
 
+<br>
+
+Which we can then run with `execute_pipeline` whilst also specifying the run_config 
+
 ```python
 run_config = {
     'solids': {

@@ -493,8 +493,46 @@
 <h3 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h3>
 <p><br></p>
 <h3 id="inputoutput-definitions">Input/Output Definitions<a class="headerlink" href="#inputoutput-definitions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;GPPDB.csv&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;key_input_col&quot;</span><span class="p">:</span> <span class="s2">&quot;gppd_idnr&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;key_output_col&quot;</span><span class="p">:</span> <span class="s2">&quot;gppd_idnr&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;key_map&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;10002&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000374&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;10003&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000142&quot;</span><span class="p">,</span> 
+        <span class="err">...</span>
+        <span class="nt">&quot;10004&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR0000174&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;10005&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000147&quot;</span>
+    <span class="p">},</span> 
+    <span class="nt">&quot;attr_cols&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;capacity_mw&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;output_col&quot;</span><span class="p">:</span> <span class="s2">&quot;capacity_mw&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;output_rank&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="nt">&quot;value_map&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;sett_bmu_id&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;capacity_mw&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;fuel_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gas&quot;</span><span class="p">,</span> <span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="s2">&quot;wind&quot;</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="s2">&quot;biomass&quot;</span><span class="p">,</span> <span class="s2">&quot;other&quot;</span><span class="p">],</span> 
+    <span class="nt">&quot;plant_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ccgt&quot;</span><span class="p">,</span> <span class="s2">&quot;ocgt&quot;</span><span class="p">,</span> <span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="s2">&quot;battery&quot;</span><span class="p">,</span> <span class="s2">&quot;biomass&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><br></p>
 <h3 id="updatescorrections">Updates/Corrections<a class="headerlink" href="#updatescorrections" title="Permanent link">&para;</a></h3>
+<p>A collection of JSON files are stored within the <code>data/updates</code> directory, each one relating to a specific attribute column in the output dataset. Each file contains a mapping between the osuked_id of the plant to a key/value set of metadata which must contain <code>new_value</code> and <code>md_description</code> keys. Below we have included a sample from the <code>fuel_type.json</code> update file.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;10004&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;new_value&quot;</span><span class="p">:</span> <span class="s2">&quot;coal, biomass&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;md_description&quot;</span><span class="p">:</span> <span class="s2">&quot;Drax is currently converting its coal units to biomass before the 2024 coal ban - [evidence](https://www.drax.com/press_release/drax-closer-coal-free-future-fourth-biomass-unit-conversion/)&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><br></p>
 <h3 id="construction-steps">Construction Steps<a class="headerlink" href="#construction-steps" title="Permanent link">&para;</a></h3>
 <ol>

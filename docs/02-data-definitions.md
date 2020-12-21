@@ -105,99 +105,13 @@ df_ESAIL.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sett_bmu_id</th>
-      <th>ngc_bmu_id</th>
-      <th>bmu_root</th>
-      <th>name</th>
-      <th>primary_fuel_type</th>
-      <th>detailed_fuel_type</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>common_name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>E_MARK-1</td>
-      <td>MARK-1</td>
-      <td>MARK</td>
-      <td>Rothes Bio-Plant CHP 1</td>
-      <td>biomass</td>
-      <td>bone</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>Rothes Bio-Plant CHP</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>E_MARK-2</td>
-      <td>MARK-2</td>
-      <td>MARK</td>
-      <td>Rothes Bio-Plant CHP 2</td>
-      <td>biomass</td>
-      <td>bone</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>Rothes Bio-Plant CHP</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>T_DIDC1</td>
-      <td>DIDC1</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 1</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>Didcot A (G)</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>T_DIDC2</td>
-      <td>DIDC2</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 2</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>Didcot A (G)</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>T_DIDC4</td>
-      <td>DIDC4</td>
-      <td>DIDC</td>
-      <td>Didcot A (G) 4</td>
-      <td>coal</td>
-      <td>coalgas_opt_out</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>Didcot A (G)</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|    | sett_bmu_id   | ngc_bmu_id   | bmu_root   | name                   | primary_fuel_type   | detailed_fuel_type   |   longitude |   latitude | common_name          |
+|---:|:--------------|:-------------|:-----------|:-----------------------|:--------------------|:---------------------|------------:|-----------:|:---------------------|
+|  0 | E_MARK-1      | MARK-1       | MARK       | Rothes Bio-Plant CHP 1 | biomass             | bone                 |    -3.60352 |    57.4804 | Rothes Bio-Plant CHP |
+|  1 | E_MARK-2      | MARK-2       | MARK       | Rothes Bio-Plant CHP 2 | biomass             | bone                 |    -3.60352 |    57.4804 | Rothes Bio-Plant CHP |
+|  2 | T_DIDC1       | DIDC1        | DIDC       | Didcot A (G) 1         | coal                | coalgas_opt_out      |    -1.26757 |    51.6236 | Didcot A (G)         |
+|  3 | T_DIDC2       | DIDC2        | DIDC       | Didcot A (G) 2         | coal                | coalgas_opt_out      |    -1.26757 |    51.6236 | Didcot A (G)         |
+|  4 | T_DIDC4       | DIDC4        | DIDC       | Didcot A (G) 4         | coal                | coalgas_opt_out      |    -1.26757 |    51.6236 | Didcot A (G)         |</div>
 
 
 
@@ -328,172 +242,13 @@ df_GPPDB.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>country_long</th>
-      <th>name</th>
-      <th>gppd_idnr</th>
-      <th>capacity_mw</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>primary_fuel</th>
-      <th>other_fuel1</th>
-      <th>other_fuel2</th>
-      <th>...</th>
-      <th>geolocation_source</th>
-      <th>wepp_id</th>
-      <th>year_of_capacity_data</th>
-      <th>generation_gwh_2013</th>
-      <th>generation_gwh_2014</th>
-      <th>generation_gwh_2015</th>
-      <th>generation_gwh_2016</th>
-      <th>generation_gwh_2017</th>
-      <th>generation_data_source</th>
-      <th>estimated_generation_gwh</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>AFG</td>
-      <td>Afghanistan</td>
-      <td>Kajaki Hydroelectric Power Plant Afghanistan</td>
-      <td>GEODB0040538</td>
-      <td>33.0</td>
-      <td>32.322</td>
-      <td>65.1190</td>
-      <td>Hydro</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>GEODB</td>
-      <td>1009793</td>
-      <td>2017.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>AFG</td>
-      <td>Afghanistan</td>
-      <td>Kandahar DOG</td>
-      <td>WKS0070144</td>
-      <td>10.0</td>
-      <td>31.670</td>
-      <td>65.7950</td>
-      <td>Solar</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Wiki-Solar</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>AFG</td>
-      <td>Afghanistan</td>
-      <td>Kandahar JOL</td>
-      <td>WKS0071196</td>
-      <td>10.0</td>
-      <td>31.623</td>
-      <td>65.7920</td>
-      <td>Solar</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>Wiki-Solar</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>AFG</td>
-      <td>Afghanistan</td>
-      <td>Mahipar Hydroelectric Power Plant Afghanistan</td>
-      <td>GEODB0040541</td>
-      <td>66.0</td>
-      <td>34.556</td>
-      <td>69.4787</td>
-      <td>Hydro</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>GEODB</td>
-      <td>1009795</td>
-      <td>2017.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>AFG</td>
-      <td>Afghanistan</td>
-      <td>Naghlu Dam Hydroelectric Power Plant Afghanistan</td>
-      <td>GEODB0040534</td>
-      <td>100.0</td>
-      <td>34.641</td>
-      <td>69.7170</td>
-      <td>Hydro</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>GEODB</td>
-      <td>1009797</td>
-      <td>2017.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 25 columns</p>
-</div>
+|    | country   | country_long   | name                                             | gppd_idnr    |   capacity_mw |   latitude |   longitude | primary_fuel   |   other_fuel1 |   other_fuel2 | ...   | geolocation_source   |       wepp_id |   year_of_capacity_data |   generation_gwh_2013 |   generation_gwh_2014 |   generation_gwh_2015 |   generation_gwh_2016 |   generation_gwh_2017 |   generation_data_source |   estimated_generation_gwh |
+|---:|:----------|:---------------|:-------------------------------------------------|:-------------|--------------:|-----------:|------------:|:---------------|--------------:|--------------:|:------|:---------------------|--------------:|------------------------:|----------------------:|----------------------:|----------------------:|----------------------:|----------------------:|-------------------------:|---------------------------:|
+|  0 | AFG       | Afghanistan    | Kajaki Hydroelectric Power Plant Afghanistan     | GEODB0040538 |            33 |     32.322 |     65.119  | Hydro          |           nan |           nan | ...   | GEODB                |   1.00979e+06 |                    2017 |                   nan |                   nan |                   nan |                   nan |                   nan |                      nan |                        nan |
+|  1 | AFG       | Afghanistan    | Kandahar DOG                                     | WKS0070144   |            10 |     31.67  |     65.795  | Solar          |           nan |           nan | ...   | Wiki-Solar           | nan           |                     nan |                   nan |                   nan |                   nan |                   nan |                   nan |                      nan |                        nan |
+|  2 | AFG       | Afghanistan    | Kandahar JOL                                     | WKS0071196   |            10 |     31.623 |     65.792  | Solar          |           nan |           nan | ...   | Wiki-Solar           | nan           |                     nan |                   nan |                   nan |                   nan |                   nan |                   nan |                      nan |                        nan |
+|  3 | AFG       | Afghanistan    | Mahipar Hydroelectric Power Plant Afghanistan    | GEODB0040541 |            66 |     34.556 |     69.4787 | Hydro          |           nan |           nan | ...   | GEODB                |   1.0098e+06  |                    2017 |                   nan |                   nan |                   nan |                   nan |                   nan |                      nan |                        nan |
+|  4 | AFG       | Afghanistan    | Naghlu Dam Hydroelectric Power Plant Afghanistan | GEODB0040534 |           100 |     34.641 |     69.717  | Hydro          |           nan |           nan | ...   | GEODB                |   1.0098e+06  |                    2017 |                   nan |                   nan |                   nan |                   nan |                   nan |                      nan |                        nan |</div>
 
 
 
@@ -568,87 +323,13 @@ df_GPPDB_UK_focused_sorted.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>gppd_idnr</th>
-      <th>name</th>
-      <th>capacity_mw</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>primary_fuel</th>
-      <th>other_fuel1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>23794</th>
-      <td>GBR1000372</td>
-      <td>Pembroke</td>
-      <td>2180.0</td>
-      <td>51.6850</td>
-      <td>-4.9900</td>
-      <td>Gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>24421</th>
-      <td>GBR1000143</td>
-      <td>West Burton</td>
-      <td>2012.0</td>
-      <td>53.3604</td>
-      <td>-0.8102</td>
-      <td>Coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>22534</th>
-      <td>GBR1000142</td>
-      <td>Cottam</td>
-      <td>2008.0</td>
-      <td>53.3040</td>
-      <td>-0.7815</td>
-      <td>Coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>23888</th>
-      <td>GBR1000496</td>
-      <td>Ratcliffe</td>
-      <td>2000.0</td>
-      <td>52.8653</td>
-      <td>-1.2550</td>
-      <td>Coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>22663</th>
-      <td>GBR0000174</td>
-      <td>Drax</td>
-      <td>1980.0</td>
-      <td>53.7356</td>
-      <td>-0.9911</td>
-      <td>Coal</td>
-      <td>Biomass</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|       | gppd_idnr   | name        |   capacity_mw |   latitude |   longitude | primary_fuel   | other_fuel1   |
+|------:|:------------|:------------|--------------:|-----------:|------------:|:---------------|:--------------|
+| 23794 | GBR1000372  | Pembroke    |          2180 |    51.685  |     -4.99   | Gas            | nan           |
+| 24421 | GBR1000143  | West Burton |          2012 |    53.3604 |     -0.8102 | Coal           | nan           |
+| 22534 | GBR1000142  | Cottam      |          2008 |    53.304  |     -0.7815 | Coal           | nan           |
+| 23888 | GBR1000496  | Ratcliffe   |          2000 |    52.8653 |     -1.255  | Coal           | nan           |
+| 22663 | GBR0000174  | Drax        |          1980 |    53.7356 |     -0.9911 | Coal           | Biomass       |</div>
 
 
 

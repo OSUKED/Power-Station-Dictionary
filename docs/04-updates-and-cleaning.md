@@ -42,83 +42,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.26757</td>
-      <td>51.62363</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|   ('Unnamed: 0_level_0', 'osuked_id') | ('esail_id', 'Unnamed: 1_level_1')   | ('fuel_type', 'Unnamed: 2_level_1')   | ('sett_bmu_id', 'Unnamed: 3_level_1')             |   ('longitude', 'Unnamed: 4_level_1') |   ('latitude', 'Unnamed: 5_level_1') |
+|--------------------------------------:|:-------------------------------------|:--------------------------------------|:--------------------------------------------------|--------------------------------------:|-------------------------------------:|
+|                                 10000 | MARK                                 | biomass                               | E_MARK-1, E_MARK-2                                |                             -3.60352  |                              57.4804 |
+|                                 10001 | DIDC                                 | coal                                  | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                |                             -1.26757  |                              51.6236 |
+|                                 10002 | ABTH                                 | coal                                  | T_ABTH7, T_ABTH8, T_ABTH9                         |                             -3.40487  |                              51.3873 |
+|                                 10003 | COTPS                                | coal                                  | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        |                             -0.648193 |                              53.2455 |
+|                                 10004 | DRAXX                                | coal                                  | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... |                             -0.626221 |                              53.7487 |</div>
 
 
 
@@ -167,83 +97,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal, biomass</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|   ('Unnamed: 0_level_0', 'osuked_id') | ('esail_id', 'Unnamed: 1_level_1')   | ('fuel_type', 'Unnamed: 2_level_1')   | ('sett_bmu_id', 'Unnamed: 3_level_1')             |   ('longitude', 'Unnamed: 4_level_1') |   ('latitude', 'Unnamed: 5_level_1') |
+|--------------------------------------:|:-------------------------------------|:--------------------------------------|:--------------------------------------------------|--------------------------------------:|-------------------------------------:|
+|                                 10000 | MARK                                 | biomass                               | E_MARK-1, E_MARK-2                                |                             -3.60352  |                              57.4804 |
+|                                 10001 | DIDC                                 | coal                                  | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                |                             -1.26757  |                              51.6236 |
+|                                 10002 | ABTH                                 | coal                                  | T_ABTH7, T_ABTH8, T_ABTH9                         |                             -3.40487  |                              51.3873 |
+|                                 10003 | COTPS                                | coal                                  | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        |                             -0.648193 |                              53.2455 |
+|                                 10004 | DRAXX                                | coal, biomass                         | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... |                             -0.626221 |                              53.7487 |</div>
 
 
 
@@ -352,83 +212,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal, biomass</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|   ('Unnamed: 0_level_0', 'osuked_id') | ('esail_id', 'Unnamed: 1_level_1')   | ('fuel_type', 'Unnamed: 2_level_1')   | ('sett_bmu_id', 'Unnamed: 3_level_1')             |   ('longitude', 'Unnamed: 4_level_1') |   ('latitude', 'Unnamed: 5_level_1') |
+|--------------------------------------:|:-------------------------------------|:--------------------------------------|:--------------------------------------------------|--------------------------------------:|-------------------------------------:|
+|                                 10000 | MARK                                 | biomass                               | E_MARK-1, E_MARK-2                                |                             -3.60352  |                              57.4804 |
+|                                 10001 | DIDC                                 | coal                                  | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                |                             -1.26757  |                              51.6236 |
+|                                 10002 | ABTH                                 | coal                                  | T_ABTH7, T_ABTH8, T_ABTH9                         |                             -3.40487  |                              51.3873 |
+|                                 10003 | COTPS                                | coal                                  | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        |                             -0.648193 |                              53.2455 |
+|                                 10004 | DRAXX                                | coal, biomass                         | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... |                             -0.626221 |                              53.7487 |</div>
 
 
 

@@ -153,172 +153,19 @@ pd.read_csv('https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/m
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>osuked_id</th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10000</td>
-      <td>MARK</td>
-      <td>NaN</td>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10001</td>
-      <td>DIDC</td>
-      <td>NaN</td>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10002</td>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10003</td>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10004</td>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal, biomass</td>
-      <td>1980.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>285</th>
-      <td>10285</td>
-      <td>ROOSB</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_ROOSB-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>286</th>
-      <td>10286</td>
-      <td>STLGW</td>
-      <td>NaN</td>
-      <td>Stronelairg Windfarm</td>
-      <td>T_STLGW-1, T_STLGW-2</td>
-      <td>-4.461346</td>
-      <td>57.099869</td>
-      <td>wind</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>287</th>
-      <td>10287</td>
-      <td>TDRVE</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_TDRVE-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>288</th>
-      <td>10288</td>
-      <td>TRFPK</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_TRFPK-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>10289</td>
-      <td>WTRLN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_WTRLN-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>290 rows × 9 columns</p>
-</div>
+|     | osuked_id   | esail_id   | gppd_idnr   | name                 | sett_bmu_id                                       | longitude   | latitude   | fuel_type     | capacity_mw   |
+|:----|:------------|:-----------|:------------|:---------------------|:--------------------------------------------------|:------------|:-----------|:--------------|:--------------|
+| 0   | 10000       | MARK       | nan         | Rothes Bio-Plant CHP | E_MARK-1, E_MARK-2                                | -3.603516   | 57.480403  | biomass       | nan           |
+| 1   | 10001       | DIDC       | nan         | Didcot A (G)         | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                | -1.267570   | 51.623630  | coal          | nan           |
+| 2   | 10002       | ABTH       | GBR1000374  | Aberthaw B           | T_ABTH7, T_ABTH8, T_ABTH9                         | -3.404866   | 51.387312  | coal          | 1586.0        |
+| 3   | 10003       | COTPS      | GBR1000142  | Cottam               | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        | -0.648193   | 53.245495  | coal          | 2008.0        |
+| 4   | 10004       | DRAXX      | GBR0000174  | Drax                 | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... | -0.626221   | 53.748711  | coal, biomass | 1980.0        |
+| ... | ...         | ...        | ...         | ...                  | ...                                               | ...         | ...        | ...           | ...           |
+| 285 | 10285       | ROOSB      | nan         | nan                  | E_ROOSB-1                                         | nan         | nan        | other         | nan           |
+| 286 | 10286       | STLGW      | nan         | Stronelairg Windfarm | T_STLGW-1, T_STLGW-2                              | -4.461346   | 57.099869  | wind          | nan           |
+| 287 | 10287       | TDRVE      | nan         | nan                  | E_TDRVE-1                                         | nan         | nan        | gas           | nan           |
+| 288 | 10288       | TRFPK      | nan         | nan                  | E_TRFPK-1                                         | nan         | nan        | gas           | nan           |
+| 289 | 10289       | WTRLN      | nan         | nan                  | E_WTRLN-1                                         | nan         | nan        | gas           | nan           |</div>
 
 
 
@@ -475,81 +322,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal</td>
-      <td>1980.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|       | name                 | sett_bmu_id                                       |   longitude |   latitude | fuel_type   |   capacity_mw |
+|------:|:---------------------|:--------------------------------------------------|------------:|-----------:|:------------|--------------:|
+| 10000 | Rothes Bio-Plant CHP | E_MARK-1, E_MARK-2                                |   -3.60352  |    57.4804 | biomass     |           nan |
+| 10001 | Didcot A (G)         | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                |   -1.26757  |    51.6236 | coal        |           nan |
+| 10002 | Aberthaw B           | T_ABTH7, T_ABTH8, T_ABTH9                         |   -3.40487  |    51.3873 | coal        |          1586 |
+| 10003 | Cottam               | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        |   -0.648193 |    53.2455 | coal        |          2008 |
+| 10004 | Drax                 | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... |   -0.626221 |    53.7487 | coal        |          1980 |</div>
 
 
 
@@ -574,57 +353,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|       | esail_id   | gppd_idnr   |
+|------:|:-----------|:------------|
+| 10000 | MARK       | nan         |
+| 10001 | DIDC       | nan         |
+| 10002 | ABTH       | GBR1000374  |
+| 10003 | COTPS      | GBR1000142  |
+| 10004 | DRAXX      | GBR0000174  |</div>
 
 
 
@@ -673,104 +408,13 @@ df.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>NaN</td>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>NaN</td>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal</td>
-      <td>1980.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|   ('Unnamed: 0_level_0', 'osuked_id') | ('esail_id', 'Unnamed: 1_level_1')   | ('gppd_idnr', 'Unnamed: 2_level_1')   | ('name', 'Unnamed: 3_level_1')   | ('sett_bmu_id', 'Unnamed: 4_level_1')             |   ('longitude', 'Unnamed: 5_level_1') |   ('latitude', 'Unnamed: 6_level_1') | ('fuel_type', 'Unnamed: 7_level_1')   |   ('capacity_mw', 'Unnamed: 8_level_1') |
+|--------------------------------------:|:-------------------------------------|:--------------------------------------|:---------------------------------|:--------------------------------------------------|--------------------------------------:|-------------------------------------:|:--------------------------------------|----------------------------------------:|
+|                                 10000 | MARK                                 | nan                                   | Rothes Bio-Plant CHP             | E_MARK-1, E_MARK-2                                |                             -3.60352  |                              57.4804 | biomass                               |                                     nan |
+|                                 10001 | DIDC                                 | nan                                   | Didcot A (G)                     | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                |                             -1.26757  |                              51.6236 | coal                                  |                                     nan |
+|                                 10002 | ABTH                                 | GBR1000374                            | Aberthaw B                       | T_ABTH7, T_ABTH8, T_ABTH9                         |                             -3.40487  |                              51.3873 | coal                                  |                                    1586 |
+|                                 10003 | COTPS                                | GBR1000142                            | Cottam                           | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4        |                             -0.648193 |                              53.2455 | coal                                  |                                    2008 |
+|                                 10004 | DRAXX                                | GBR0000174                            | Drax                             | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_... |                             -0.626221 |                              53.7487 | coal                                  |                                    1980 |</div>
 
 
 

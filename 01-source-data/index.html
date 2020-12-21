@@ -600,64 +600,48 @@ Name: primary_fuel_type, dtype: int64
 
 <span class="n">gdf_GSP_locs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>RegionID</th>
-      <th>RegionName</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>149</td>
-      <td>Beddington (_J)</td>
-      <td>POLYGON ((543750.561 167428.882, 549430.486 13...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>150</td>
-      <td>Northfleet East</td>
-      <td>POLYGON ((571652.936 143992.711, 550968.129 13...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>155</td>
-      <td>Sellindge</td>
-      <td>POLYGON ((624923.598 137169.470, 624894.947 13...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>160</td>
-      <td>Richborough</td>
-      <td>POLYGON ((626375.397 137910.687, 623652.026 16...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>156</td>
-      <td>Chessington</td>
-      <td>POLYGON ((523319.962 166572.557, 526121.634 14...</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">RegionID</th>
+<th align="left">RegionName</th>
+<th align="left">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">149</td>
+<td align="left">Beddington (_J)</td>
+<td align="left">POLYGON ((543750.561 167428.882, 549430.486 13...</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">150</td>
+<td align="left">Northfleet East</td>
+<td align="left">POLYGON ((571652.936 143992.711, 550968.129 13...</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">155</td>
+<td align="left">Sellindge</td>
+<td align="left">POLYGON ((624923.598 137169.470, 624894.947 13...</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">160</td>
+<td align="left">Richborough</td>
+<td align="left">POLYGON ((626375.397 137910.687, 623652.026 16...</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">156</td>
+<td align="left">Chessington</td>
+<td align="left">POLYGON ((523319.962 166572.557, 526121.634 14...</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <p><br></p>
 <p>We'll then overlay this with the power plant locations.</p>
 <p>We can see trends such as run of river hydro in Scotland, as well as nuclear concentrated around the coast where there's easy access to cooling water. It also raises some potential errors, e.g. the fuel oil plant that is shown off the coast.</p>
@@ -719,173 +703,156 @@ Name: primary_fuel_type, dtype: int64
 
 <span class="n">df_OPSD</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>company</th>
-      <th>street</th>
-      <th>postcode</th>
-      <th>city</th>
-      <th>country</th>
-      <th>capacity</th>
-      <th>energy_source</th>
-      <th>technology</th>
-      <th>chp</th>
-      <th>...</th>
-      <th>type</th>
-      <th>lat</th>
-      <th>lon</th>
-      <th>eic_code</th>
-      <th>energy_source_level_1</th>
-      <th>energy_source_level_2</th>
-      <th>energy_source_level_3</th>
-      <th>additional_info</th>
-      <th>comment</th>
-      <th>source</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Marcinelle Energie (Carsid)</td>
-      <td>DIRECT ENERGIE</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BE</td>
-      <td>413.0</td>
-      <td>Natural gas</td>
-      <td>Combined cycle</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>50.41396</td>
-      <td>4.40645</td>
-      <td>22WMARCIN000179H</td>
-      <td>Fossil fuels</td>
-      <td>Natural gas</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://www.elia.be/en/grid-data/power-generat...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Aalst Syral GT</td>
-      <td>Electrabel</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BE</td>
-      <td>43.0</td>
-      <td>Natural gas</td>
-      <td>Gas turbine</td>
-      <td>Yes</td>
-      <td>...</td>
-      <td>CHP/IPP</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Fossil fuels</td>
-      <td>Natural gas</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://www.elia.be/en/grid-data/power-generat...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Aalst Syral ST</td>
-      <td>Electrabel</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BE</td>
-      <td>5.0</td>
-      <td>Natural gas</td>
-      <td>Steam turbine</td>
-      <td>Yes</td>
-      <td>...</td>
-      <td>CHP/IPP</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Fossil fuels</td>
-      <td>Natural gas</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://www.elia.be/en/grid-data/power-generat...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>AALTER TJ</td>
-      <td>Electrabel</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BE</td>
-      <td>18.0</td>
-      <td>Oil</td>
-      <td>Gas turbine</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Fossil fuels</td>
-      <td>Oil</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://www.elia.be/en/grid-data/power-generat...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Amercoeur 1 R TGV</td>
-      <td>Electrabel</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BE</td>
-      <td>451.0</td>
-      <td>Natural gas</td>
-      <td>Combined cycle</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>50.43004</td>
-      <td>4.39518</td>
-      <td>22WAMERCO000010Y</td>
-      <td>Fossil fuels</td>
-      <td>Natural gas</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>https://www.elia.be/en/grid-data/power-generat...</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">name</th>
+<th align="left">company</th>
+<th align="right">street</th>
+<th align="right">postcode</th>
+<th align="right">city</th>
+<th align="left">country</th>
+<th align="right">capacity</th>
+<th align="left">energy_source</th>
+<th align="left">technology</th>
+<th align="left">chp</th>
+<th align="left">...</th>
+<th align="left">type</th>
+<th align="right">lat</th>
+<th align="right">lon</th>
+<th align="left">eic_code</th>
+<th align="left">energy_source_level_1</th>
+<th align="left">energy_source_level_2</th>
+<th align="right">energy_source_level_3</th>
+<th align="right">additional_info</th>
+<th align="right">comment</th>
+<th align="left">source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="left">Marcinelle Energie (Carsid)</td>
+<td align="left">DIRECT ENERGIE</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">BE</td>
+<td align="right">413</td>
+<td align="left">Natural gas</td>
+<td align="left">Combined cycle</td>
+<td align="left">nan</td>
+<td align="left">...</td>
+<td align="left">nan</td>
+<td align="right">50.414</td>
+<td align="right">4.40645</td>
+<td align="left">22WMARCIN000179H</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Natural gas</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">https://www.elia.be/en/grid-data/power-generat...</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="left">Aalst Syral GT</td>
+<td align="left">Electrabel</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">BE</td>
+<td align="right">43</td>
+<td align="left">Natural gas</td>
+<td align="left">Gas turbine</td>
+<td align="left">Yes</td>
+<td align="left">...</td>
+<td align="left">CHP/IPP</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">nan</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Natural gas</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">https://www.elia.be/en/grid-data/power-generat...</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="left">Aalst Syral ST</td>
+<td align="left">Electrabel</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">BE</td>
+<td align="right">5</td>
+<td align="left">Natural gas</td>
+<td align="left">Steam turbine</td>
+<td align="left">Yes</td>
+<td align="left">...</td>
+<td align="left">CHP/IPP</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">nan</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Natural gas</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">https://www.elia.be/en/grid-data/power-generat...</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">AALTER TJ</td>
+<td align="left">Electrabel</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">BE</td>
+<td align="right">18</td>
+<td align="left">Oil</td>
+<td align="left">Gas turbine</td>
+<td align="left">nan</td>
+<td align="left">...</td>
+<td align="left">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">nan</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Oil</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">https://www.elia.be/en/grid-data/power-generat...</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="left">Amercoeur 1 R TGV</td>
+<td align="left">Electrabel</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">BE</td>
+<td align="right">451</td>
+<td align="left">Natural gas</td>
+<td align="left">Combined cycle</td>
+<td align="left">nan</td>
+<td align="left">...</td>
+<td align="left">nan</td>
+<td align="right">50.43</td>
+<td align="right">4.39518</td>
+<td align="left">22WAMERCO000010Y</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Natural gas</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">https://www.elia.be/en/grid-data/power-generat...</td>
+</tr>
+</tbody>
 </table>
-<p>5 rows × 21 columns</p>
-</div>
-
 <p><br></p>
 <p>We'll save this to our raw data directory before continuing</p>
 <div class="highlight"><pre><span></span><code><span class="n">df_OPSD</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/raw/OPSD.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -951,123 +918,108 @@ Name: energy_source, dtype: int64
 <p>We'll also look at the detail to which they go in for energy sources</p>
 <div class="highlight"><pre><span></span><code><span class="n">df_OPSD</span><span class="p">[[</span><span class="s1">&#39;energy_source_level_1&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_source_level_2&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_source_level_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>energy_source_level_1</th>
-      <th>energy_source_level_2</th>
-      <th>energy_source_level_3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Fossil fuels</td>
-      <td>Natural gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Fossil fuels</td>
-      <td>Oil</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Renewable energy</td>
-      <td>Bioenergy</td>
-      <td>Biomass and biogas</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Renewable energy</td>
-      <td>Hydro</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Nuclear</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>Fossil fuels</td>
-      <td>Non-renewable waste</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>Fossil fuels</td>
-      <td>Mixed fossil fuels</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>93</th>
-      <td>Fossil fuels</td>
-      <td>Hard coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>109</th>
-      <td>Other or unspecified energy sources</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>313</th>
-      <td>Fossil fuels</td>
-      <td>Lignite</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>538</th>
-      <td>Renewable energy</td>
-      <td>Bioenergy</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1430</th>
-      <td>Fossil fuels</td>
-      <td>Other fossil fuels</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4792</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5962</th>
-      <td>Other</td>
-      <td>Other fuels</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6008</th>
-      <td>Other or unspecified energy sources</td>
-      <td>Waste</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">energy_source_level_1</th>
+<th align="left">energy_source_level_2</th>
+<th align="left">energy_source_level_3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Natural gas</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Oil</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="left">Renewable energy</td>
+<td align="left">Bioenergy</td>
+<td align="left">Biomass and biogas</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="left">Renewable energy</td>
+<td align="left">Hydro</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="left">Nuclear</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Non-renewable waste</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">53</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Mixed fossil fuels</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">93</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Hard coal</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">109</td>
+<td align="left">Other or unspecified energy sources</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">313</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Lignite</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">538</td>
+<td align="left">Renewable energy</td>
+<td align="left">Bioenergy</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">1430</td>
+<td align="left">Fossil fuels</td>
+<td align="left">Other fossil fuels</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">4792</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">5962</td>
+<td align="left">Other</td>
+<td align="left">Other fuels</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">6008</td>
+<td align="left">Other or unspecified energy sources</td>
+<td align="left">Waste</td>
+<td align="left">nan</td>
+</tr>
+</tbody>
 </table>
-</div>
                 
               
               

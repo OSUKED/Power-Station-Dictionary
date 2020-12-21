@@ -565,173 +565,156 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/main/data/output/power_stations.csv&#39;</span><span class="p">)</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>osuked_id</th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10000</td>
-      <td>MARK</td>
-      <td>NaN</td>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10001</td>
-      <td>DIDC</td>
-      <td>NaN</td>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10002</td>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10003</td>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10004</td>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal, biomass</td>
-      <td>1980.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>285</th>
-      <td>10285</td>
-      <td>ROOSB</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_ROOSB-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>other</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>286</th>
-      <td>10286</td>
-      <td>STLGW</td>
-      <td>NaN</td>
-      <td>Stronelairg Windfarm</td>
-      <td>T_STLGW-1, T_STLGW-2</td>
-      <td>-4.461346</td>
-      <td>57.099869</td>
-      <td>wind</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>287</th>
-      <td>10287</td>
-      <td>TDRVE</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_TDRVE-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>288</th>
-      <td>10288</td>
-      <td>TRFPK</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_TRFPK-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>10289</td>
-      <td>WTRLN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>E_WTRLN-1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>gas</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">osuked_id</th>
+<th align="left">esail_id</th>
+<th align="left">gppd_idnr</th>
+<th align="left">name</th>
+<th align="left">sett_bmu_id</th>
+<th align="left">longitude</th>
+<th align="left">latitude</th>
+<th align="left">fuel_type</th>
+<th align="left">capacity_mw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">0</td>
+<td align="left">10000</td>
+<td align="left">MARK</td>
+<td align="left">nan</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="left">-3.603516</td>
+<td align="left">57.480403</td>
+<td align="left">biomass</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">10001</td>
+<td align="left">DIDC</td>
+<td align="left">nan</td>
+<td align="left">Didcot A (G)</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="left">-1.267570</td>
+<td align="left">51.623630</td>
+<td align="left">coal</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">10002</td>
+<td align="left">ABTH</td>
+<td align="left">GBR1000374</td>
+<td align="left">Aberthaw B</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="left">-3.404866</td>
+<td align="left">51.387312</td>
+<td align="left">coal</td>
+<td align="left">1586.0</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">10003</td>
+<td align="left">COTPS</td>
+<td align="left">GBR1000142</td>
+<td align="left">Cottam</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="left">-0.648193</td>
+<td align="left">53.245495</td>
+<td align="left">coal</td>
+<td align="left">2008.0</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">GBR0000174</td>
+<td align="left">Drax</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="left">-0.626221</td>
+<td align="left">53.748711</td>
+<td align="left">coal, biomass</td>
+<td align="left">1980.0</td>
+</tr>
+<tr>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+<td align="left">...</td>
+</tr>
+<tr>
+<td align="left">285</td>
+<td align="left">10285</td>
+<td align="left">ROOSB</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_ROOSB-1</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">other</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">286</td>
+<td align="left">10286</td>
+<td align="left">STLGW</td>
+<td align="left">nan</td>
+<td align="left">Stronelairg Windfarm</td>
+<td align="left">T_STLGW-1, T_STLGW-2</td>
+<td align="left">-4.461346</td>
+<td align="left">57.099869</td>
+<td align="left">wind</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">287</td>
+<td align="left">10287</td>
+<td align="left">TDRVE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_TDRVE-1</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">gas</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">288</td>
+<td align="left">10288</td>
+<td align="left">TRFPK</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_TRFPK-1</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">gas</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="left">289</td>
+<td align="left">10289</td>
+<td align="left">WTRLN</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_WTRLN-1</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">gas</td>
+<td align="left">nan</td>
+</tr>
+</tbody>
 </table>
-<p>290 rows × 9 columns</p>
-</div>
-
 <div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
 <span class="k">def</span> <span class="nf">get_input_key_to_attr</span><span class="p">(</span><span class="n">df_input</span><span class="p">,</span> <span class="n">key_input_col</span><span class="p">,</span> <span class="n">input_col</span><span class="p">):</span>
     <span class="n">df_key_input_non_duped</span> <span class="o">=</span> <span class="n">df_input</span><span class="p">[[</span><span class="n">key_input_col</span><span class="p">,</span> <span class="n">input_col</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -865,82 +848,66 @@
 
   warn(f&quot;The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {&#39;, &#39;.join(one_to_many_input_keys)}\n&quot;)
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal</td>
-      <td>1980.0</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">name</th>
+<th align="left">sett_bmu_id</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">fuel_type</th>
+<th align="right">capacity_mw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+<td align="left">biomass</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">Didcot A (G)</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">Aberthaw B</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+<td align="left">coal</td>
+<td align="right">1586</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">Cottam</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+<td align="left">coal</td>
+<td align="right">2008</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">Drax</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+<td align="left">coal</td>
+<td align="right">1980</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
 <span class="k">def</span> <span class="nf">add_key_cols</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">source_definitions</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">source_definitions</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -955,58 +922,42 @@
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">esail_id</th>
+<th align="left">gppd_idnr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">nan</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">GBR1000374</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">GBR1000142</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">GBR0000174</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
 <span class="k">def</span> <span class="nf">construct_output_df</span><span class="p">(</span><span class="n">definitions_dir</span><span class="p">,</span> <span class="n">raw_data_dir</span><span class="p">):</span>
     <span class="n">source_definitions</span> <span class="o">=</span> <span class="n">load_source_definitions</span><span class="p">(</span><span class="n">definitions_dir</span><span class="p">)</span>
@@ -1044,105 +995,78 @@
 
   warn(f&quot;The following {key_input_col} input keys were not unique w.r.t. {input_col}, a one to many relationship will therefore be used: {&#39;, &#39;.join(one_to_many_input_keys)}\n&quot;)
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>gppd_idnr</th>
-      <th>name</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-      <th>fuel_type</th>
-      <th>capacity_mw</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>NaN</td>
-      <td>Rothes Bio-Plant CHP</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-      <td>biomass</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>NaN</td>
-      <td>Didcot A (G)</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-      <td>coal</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>GBR1000374</td>
-      <td>Aberthaw B</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-      <td>coal</td>
-      <td>1586.0</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>GBR1000142</td>
-      <td>Cottam</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-      <td>coal</td>
-      <td>2008.0</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>GBR0000174</td>
-      <td>Drax</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-      <td>coal</td>
-      <td>1980.0</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right">('Unnamed: 0_level_0', 'osuked_id')</th>
+<th align="left">('esail_id', 'Unnamed: 1_level_1')</th>
+<th align="left">('gppd_idnr', 'Unnamed: 2_level_1')</th>
+<th align="left">('name', 'Unnamed: 3_level_1')</th>
+<th align="left">('sett_bmu_id', 'Unnamed: 4_level_1')</th>
+<th align="right">('longitude', 'Unnamed: 5_level_1')</th>
+<th align="right">('latitude', 'Unnamed: 6_level_1')</th>
+<th align="left">('fuel_type', 'Unnamed: 7_level_1')</th>
+<th align="right">('capacity_mw', 'Unnamed: 8_level_1')</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">nan</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+<td align="left">biomass</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">nan</td>
+<td align="left">Didcot A (G)</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">GBR1000374</td>
+<td align="left">Aberthaw B</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+<td align="left">coal</td>
+<td align="right">1586</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">GBR1000142</td>
+<td align="left">Cottam</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+<td align="left">coal</td>
+<td align="right">2008</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">GBR0000174</td>
+<td align="left">Drax</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+<td align="left">coal</td>
+<td align="right">1980</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">intermediate_data_dir</span><span class="si">}</span><span class="s1">/power_stations.csv&#39;</span><span class="p">)</span>
 </code></pre></div>
                 

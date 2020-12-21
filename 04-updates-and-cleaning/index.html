@@ -514,84 +514,60 @@
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.26757</td>
-      <td>51.62363</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right">('Unnamed: 0_level_0', 'osuked_id')</th>
+<th align="left">('esail_id', 'Unnamed: 1_level_1')</th>
+<th align="left">('fuel_type', 'Unnamed: 2_level_1')</th>
+<th align="left">('sett_bmu_id', 'Unnamed: 3_level_1')</th>
+<th align="right">('longitude', 'Unnamed: 4_level_1')</th>
+<th align="right">('latitude', 'Unnamed: 5_level_1')</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">biomass</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">coal</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">coal</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">coal</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">coal</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <p><br></p>
 <h3 id="custom-data-checks">Custom Data Checks<a class="headerlink" href="#custom-data-checks" title="Permanent link">&para;</a></h3>
 <p>We'll start by confirming that none of the plants have multiple locations assigned to them</p>
@@ -623,84 +599,60 @@
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal, biomass</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right">('Unnamed: 0_level_0', 'osuked_id')</th>
+<th align="left">('esail_id', 'Unnamed: 1_level_1')</th>
+<th align="left">('fuel_type', 'Unnamed: 2_level_1')</th>
+<th align="left">('sett_bmu_id', 'Unnamed: 3_level_1')</th>
+<th align="right">('longitude', 'Unnamed: 4_level_1')</th>
+<th align="right">('latitude', 'Unnamed: 5_level_1')</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">biomass</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">coal</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">coal</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">coal</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">coal, biomass</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <p><br></p>
 <h3 id="checkingapplying-output-definitions">Checking/Applying Output Definitions<a class="headerlink" href="#checkingapplying-output-definitions" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">definitions_dir</span><span class="si">}</span><span class="s1">/outputs.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -776,84 +728,60 @@
 &lt;ipython-input-15-424d1db4ecaf&gt;:7: UserWarning: capacity was not found in the output dataset
   warn(f&#39;{output_col} was not found in the output dataset&#39;)
 </code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>esail_id</th>
-      <th>fuel_type</th>
-      <th>sett_bmu_id</th>
-      <th>longitude</th>
-      <th>latitude</th>
-    </tr>
-    <tr>
-      <th>osuked_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10000</th>
-      <td>MARK</td>
-      <td>biomass</td>
-      <td>E_MARK-1, E_MARK-2</td>
-      <td>-3.603516</td>
-      <td>57.480403</td>
-    </tr>
-    <tr>
-      <th>10001</th>
-      <td>DIDC</td>
-      <td>coal</td>
-      <td>T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
-      <td>-1.267570</td>
-      <td>51.623630</td>
-    </tr>
-    <tr>
-      <th>10002</th>
-      <td>ABTH</td>
-      <td>coal</td>
-      <td>T_ABTH7, T_ABTH8, T_ABTH9</td>
-      <td>-3.404866</td>
-      <td>51.387312</td>
-    </tr>
-    <tr>
-      <th>10003</th>
-      <td>COTPS</td>
-      <td>coal</td>
-      <td>T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
-      <td>-0.648193</td>
-      <td>53.245495</td>
-    </tr>
-    <tr>
-      <th>10004</th>
-      <td>DRAXX</td>
-      <td>coal, biomass</td>
-      <td>T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
-      <td>-0.626221</td>
-      <td>53.748711</td>
-    </tr>
-  </tbody>
+<table>
+<thead>
+<tr>
+<th align="right">('Unnamed: 0_level_0', 'osuked_id')</th>
+<th align="left">('esail_id', 'Unnamed: 1_level_1')</th>
+<th align="left">('fuel_type', 'Unnamed: 2_level_1')</th>
+<th align="left">('sett_bmu_id', 'Unnamed: 3_level_1')</th>
+<th align="right">('longitude', 'Unnamed: 4_level_1')</th>
+<th align="right">('latitude', 'Unnamed: 5_level_1')</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">biomass</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">coal</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">coal</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">coal</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">coal, biomass</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_...</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+</tr>
+</tbody>
 </table>
-</div>
-
 <div class="highlight"><pre><span></span><code><span class="c1"># then start doing some matching with GPPDB</span>
 </code></pre></div>
                 

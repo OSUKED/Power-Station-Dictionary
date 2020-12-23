@@ -16,6 +16,7 @@ from dagster import execute_pipeline, pipeline, solid, Field
 def download_source_data(context, raw_data_dir: str):
     try:
         download.download_opsd_power_plants_data(raw_data_dir)
+        context.log.info('The latest source data was successfully retrieved')
     except:
         context.log.info('Source data could not be updated, will proceed with existing raw data sources')
 

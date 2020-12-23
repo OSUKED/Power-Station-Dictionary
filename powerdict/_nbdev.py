@@ -21,17 +21,22 @@ index = {"retrieve_opsd_power_plants_page": "01-source-data.ipynb",
          "check_output_col_values": "04-updates-and-cleaning.ipynb",
          "apply_output_col_types": "04-updates-and-cleaning.ipynb",
          "check_and_apply_output_defs": "04-updates-and-cleaning.ipynb",
-         "download_source_data": "05-pipeline.ipynb",
-         "construct_intermediate_dataset": "05-pipeline.ipynb",
-         "update_dataset_updates": "05-pipeline.ipynb",
-         "clean_output_dataset": "05-pipeline.ipynb",
-         "save_output_dataset": "05-pipeline.ipynb",
-         "generate_output_dataset_pipeline": "05-pipeline.ipynb"}
+         "download_source_data": "05-pipelines.ipynb",
+         "construct_intermediate_dataset": "05-pipelines.ipynb",
+         "update_dataset_updates": "05-pipelines.ipynb",
+         "clean_output_dataset": "05-pipelines.ipynb",
+         "save_output_dataset": "05-pipelines.ipynb",
+         "generate_output_dataset_pipeline": "05-pipelines.ipynb",
+         "app": "06-ci-cd.ipynb",
+         "get_current_package_version": "06-ci-cd.ipynb",
+         "increment_package_version": "06-ci-cd.ipynb",
+         "set_current_package_version": "06-ci-cd.ipynb"}
 
 modules = ["download.py",
            "construct.py",
            "update.py",
-           "pipeline.py"]
+           "pipeline.py",
+           "cicd.py"]
 
 doc_url = "https://OSUKED.github.io/Power-Station-Dictionary/"
 

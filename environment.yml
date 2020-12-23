@@ -22,6 +22,8 @@ dependencies:
   - mkdocs-material
   - geopandas
   - descartes
+  - python-dotenv
+  - typer
   - pip
   
   - pip:

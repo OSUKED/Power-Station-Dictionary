@@ -1,6 +1,6 @@
 sett_bmu_id,ngc_bmu_id,bmu_root,name,primary_fuel_type,detailed_fuel_type,longitude,latitude,common_name
-E_MARK-1,MARK-1,MARK,Rothes Bio-Plant CHP 1,biomass,bone,-3.6035160000000004,57.480403,Rothes Bio-Plant CHP
-E_MARK-2,MARK-2,MARK,Rothes Bio-Plant CHP 2,biomass,bone,-3.6035160000000004,57.480403,Rothes Bio-Plant CHP
+E_MARK-1,MARK-1,MARK,Rothes Bio-Plant CHP 1,biomass,bone,-3.603516,57.480403,Rothes Bio-Plant CHP
+E_MARK-2,MARK-2,MARK,Rothes Bio-Plant CHP 2,biomass,bone,-3.603516,57.480403,Rothes Bio-Plant CHP
 T_DIDC1,DIDC1,DIDC,Didcot A (G) 1,coal,coalgas_opt_out,-1.26757,51.62363,Didcot A (G)
 T_DIDC2,DIDC2,DIDC,Didcot A (G) 2,coal,coalgas_opt_out,-1.26757,51.62363,Didcot A (G)
 T_DIDC4,DIDC4,DIDC,Didcot A (G) 4,coal,coalgas_opt_out,-1.26757,51.62363,Didcot A (G)
@@ -17,49 +17,49 @@ T_DRAXX-3,DRAXX-3,DRAXX,Drax,coal,coal_opt_in,-0.626221,53.748711,Drax
 T_DRAXX-4,DRAXX-4,DRAXX,Drax,coal,coal_opt_in,-0.626221,53.748711,Drax
 T_DRAXX-5,DRAXX-5,DRAXX,Drax,coal,coal_opt_in,-0.626221,53.748711,Drax
 T_DRAXX-6,DRAXX-6,DRAXX,Drax,coal,coal_opt_in,-0.626221,53.748711,Drax
-T_EGGPS-1,EGGPS-1,EGGPS,Eggborough,coal,coal_opt_in,-0.8349610000000001,53.709714,Eggborough
-T_EGGPS-2,EGGPS-2,EGGPS,Eggborough,coal,coal_opt_in,-0.8349610000000001,53.709714,Eggborough
-T_EGGPS-3,EGGPS-3,EGGPS,Eggborough,coal,coal_opt_in,-0.8349610000000001,53.709714,Eggborough
-T_EGGPS-4,EGGPS-4,EGGPS,Eggborough,coal,coal_opt_in,-0.8349610000000001,53.709714,Eggborough
-T_FERR-3,FERR-3,FERR,Ferrybridge C,coal,coal_opt_in,-1.032715,53.735716000000004,Ferrybridge C
-T_FERR-4,FERR-4,FERR,Ferrybridge C,coal,coal_opt_in,-1.032715,53.735716000000004,Ferrybridge C
+T_EGGPS-1,EGGPS-1,EGGPS,Eggborough,coal,coal_opt_in,-0.834961,53.709714,Eggborough
+T_EGGPS-2,EGGPS-2,EGGPS,Eggborough,coal,coal_opt_in,-0.834961,53.709714,Eggborough
+T_EGGPS-3,EGGPS-3,EGGPS,Eggborough,coal,coal_opt_in,-0.834961,53.709714,Eggborough
+T_EGGPS-4,EGGPS-4,EGGPS,Eggborough,coal,coal_opt_in,-0.834961,53.709714,Eggborough
+T_FERR-3,FERR-3,FERR,Ferrybridge C,coal,coal_opt_in,-1.032715,53.735716,Ferrybridge C
+T_FERR-4,FERR-4,FERR,Ferrybridge C,coal,coal_opt_in,-1.032715,53.735716,Ferrybridge C
 T_FIDL-1,FIDL-1,FIDL,Fiddlers Ferry,coal,coal_opt_in,-2.823486,53.350551,Fiddlers Ferry
 T_FIDL-2,FIDL-2,FIDL,Fiddlers Ferry,coal,coal_opt_in,-2.823486,53.350551,Fiddlers Ferry
 T_FIDL-3,FIDL-3,FIDL,Fiddlers Ferry,coal,coal_opt_in,-2.823486,53.350551,Fiddlers Ferry
 T_FIDL-4,FIDL-4,FIDL,Fiddlers Ferry,coal,coal_opt_in,-2.823486,53.350551,Fiddlers Ferry
-T_FIFO-13,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071000000005,Fifoots
-T_FIFO-14,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071000000005,Fifoots
-T_FIFO-15,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071000000005,Fifoots
-T_LOAN-1,LOAN-1,LOAN,Longannet,coal,coal_opt_in,-3.4387209999999997,56.0475,Longannet
-T_LOAN-2,LOAN-2,LOAN,Longannet,coal,coal_opt_in,-3.4387209999999997,56.0475,Longannet
-T_LOAN-3,LOAN-3,LOAN,Longannet,coal,coal_opt_in,-3.4387209999999997,56.0475,Longannet
-T_LOAN-4,LOAN-4,LOAN,Longannet,coal,coal_opt_in,-3.4387209999999997,56.0475,Longannet
+T_FIFO-13,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071,Fifoots
+T_FIFO-14,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071,Fifoots
+T_FIFO-15,,FIFO,Fifoots,coal,coal_opt_in,-2.970539,51.549071,Fifoots
+T_LOAN-1,LOAN-1,LOAN,Longannet,coal,coal_opt_in,-3.438721,56.0475,Longannet
+T_LOAN-2,LOAN-2,LOAN,Longannet,coal,coal_opt_in,-3.438721,56.0475,Longannet
+T_LOAN-3,LOAN-3,LOAN,Longannet,coal,coal_opt_in,-3.438721,56.0475,Longannet
+T_LOAN-4,LOAN-4,LOAN,Longannet,coal,coal_opt_in,-3.438721,56.0475,Longannet
 E_LYNE1,LNMTH-1,LYNE,Lynemouth Generator 1,coal,coal_opt_in,-1.52083,55.20417,Lynemouth Generator
 E_LYNE2,LNMTH-2,LYNE,Lynemouth Generator 2,coal,coal_opt_in,-1.52083,55.20417,Lynemouth Generator
 E_LYNE3,LNMTH-3,LYNE,Lynemouth Generator 3,coal,coal_opt_in,-1.52083,55.20417,Lynemouth Generator
-T_RATS-1,RATS-1,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864000000004,Ratcliffe on Soar
-T_RATS-2,RATS-2,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864000000004,Ratcliffe on Soar
-T_RATS-3,RATS-3,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864000000004,Ratcliffe on Soar
-T_RATS-4,RATS-4,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864000000004,Ratcliffe on Soar
+T_RATS-1,RATS-1,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864,Ratcliffe on Soar
+T_RATS-2,RATS-2,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864,Ratcliffe on Soar
+T_RATS-3,RATS-3,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864,Ratcliffe on Soar
+T_RATS-4,RATS-4,RATS,Ratcliffe on Soar,coal,coal_opt_in,-1.219482,52.855864,Ratcliffe on Soar
 T_RUGPS-6,RUGPS-6,RUGPS,Rugeley B,coal,coal_opt_in,-1.94458,52.729639,Rugeley B
 T_RUGPS-7,RUGPS-7,RUGPS,Rugeley B,coal,coal_opt_in,-1.94458,52.729639,Rugeley B
 T_USKM-13,USKM-13,USKM,Uskmouth,coal,coal_opt_in,-3.043213,51.611195,Uskmouth
 T_USKM-14,USKM-14,USKM,Uskmouth,coal,coal_opt_in,-3.043213,51.611195,Uskmouth
 T_USKM-15,USKM-15,USKM,Uskmouth,coal,coal_opt_in,-3.043213,51.611195,Uskmouth
-T_WBUPS-1,WBUPS-1,WBUPS,West Burton A Unit 1,coal,coal_opt_in,-0.53833,53.363665000000005,West Burton A
-T_WBUPS-2,WBUPS-2,WBUPS,West Burton A Unit 2,coal,coal_opt_in,-0.53833,53.363665000000005,West Burton A
-T_WBUPS-3,WBUPS-3,WBUPS,West Burton A Unit 3,coal,coal_opt_in,-0.53833,53.363665000000005,West Burton A
-T_WBUPS-4,WBUPS-4,WBUPS,West Burton A Unit 4,coal,coal_opt_in,-0.53833,53.363665000000005,West Burton A
+T_WBUPS-1,WBUPS-1,WBUPS,West Burton A Unit 1,coal,coal_opt_in,-0.53833,53.363665,West Burton A
+T_WBUPS-2,WBUPS-2,WBUPS,West Burton A Unit 2,coal,coal_opt_in,-0.53833,53.363665,West Burton A
+T_WBUPS-3,WBUPS-3,WBUPS,West Burton A Unit 3,coal,coal_opt_in,-0.53833,53.363665,West Burton A
+T_WBUPS-4,WBUPS-4,WBUPS,West Burton A Unit 4,coal,coal_opt_in,-0.53833,53.363665,West Burton A
 T_COCK-1,COCK-1,COCK,Cockenzie,coal,coal_opt_out,-2.968404,55.968502,Cockenzie
 T_COCK-2,COCK-2,COCK,Cockenzie,coal,coal_opt_out,-2.968404,55.968502,Cockenzie
 T_COCK-3,COCK-3,COCK,Cockenzie,coal,coal_opt_out,-2.968404,55.968502,Cockenzie
 T_COCK-4,COCK-4,COCK,Cockenzie,coal,coal_opt_out,-2.968404,55.968502,Cockenzie
 T_DIDC3,DIDC3,DIDC,Didcot A 3,coal,coal_opt_out,-1.26757,51.62363,Didcot A (G)
-T_DRKPS-9,,DRKPS,Drakelow,coal,coal_opt_out,-1.6568049999999999,52.773607999999996,Drakelow
-T_DRKPS-10,,DRKPS,Drakelow ,coal,coal_opt_out,-1.6568049999999999,52.773607999999996,Drakelow
-T_DRKPS-12,,DRKPS,Drakelow ,coal,coal_opt_out,-1.6568049999999999,52.773607999999996,Drakelow
-T_FERR-1,FERR-1,FERR,Ferrybridge C,coal,coal_opt_out,-1.032715,53.735716000000004,Ferrybridge C
-T_FERR-2,FERR-2,FERR,Ferrybridge C,coal,coal_opt_out,-1.032715,53.735716000000004,Ferrybridge C
+T_DRKPS-9,,DRKPS,Drakelow,coal,coal_opt_out,-1.656805,52.773608,Drakelow
+T_DRKPS-10,,DRKPS,Drakelow ,coal,coal_opt_out,-1.656805,52.773608,Drakelow
+T_DRKPS-12,,DRKPS,Drakelow ,coal,coal_opt_out,-1.656805,52.773608,Drakelow
+T_FERR-1,FERR-1,FERR,Ferrybridge C,coal,coal_opt_out,-1.032715,53.735716,Ferrybridge C
+T_FERR-2,FERR-2,FERR,Ferrybridge C,coal,coal_opt_out,-1.032715,53.735716,Ferrybridge C
 T_HMRPS-1,,HMRPS,High Marnham,coal,coal_opt_out,-0.792565,53.22902,High Marnham
 T_HMRPS-2,,HMRPS,High Marnham,coal,coal_opt_out,-0.792565,53.22902,High Marnham
 T_HMRPS-3,,HMRPS,High Marnham,coal,coal_opt_out,-0.792565,53.22902,High Marnham
@@ -67,10 +67,10 @@ T_HMRPS-4,,HMRPS,High Marnham,coal,coal_opt_out,-0.792565,53.22902,High Marnham
 T_HMRPS-5,,HMRPS,High Marnham,coal,coal_opt_out,-0.792565,53.22902,High Marnham
 T_IRNPS-1,IRNPS-1,IRNPS,Ironbridge B,coal,coal_opt_out,-2.504883,52.603048,Ironbridge B
 T_IRNPS-2,IRNPS-2,IRNPS,Ironbridge B,coal,coal_opt_out,-2.504883,52.603048,Ironbridge B
-T_KINO-1,KINO-1,KINO,Kingsnorth,coal,coaloil_opt_out,0.6027020000000001,51.418946999999996,Kingsnorth
-T_KINO-2,KINO-2,KINO,Kingsnorth,coal,coaloil_opt_out,0.6027020000000001,51.418946999999996,Kingsnorth
-T_KINO-3,KINO-3,KINO,Kingsnorth,coal,coaloil_opt_out,0.6027020000000001,51.418946999999996,Kingsnorth
-T_KINO-4,KINO-4,KINO,Kingsnorth,coal,coaloil_opt_out,0.6027020000000001,51.418946999999996,Kingsnorth
+T_KINO-1,KINO-1,KINO,Kingsnorth,coal,coaloil_opt_out,0.602702,51.418947,Kingsnorth
+T_KINO-2,KINO-2,KINO,Kingsnorth,coal,coaloil_opt_out,0.602702,51.418947,Kingsnorth
+T_KINO-3,KINO-3,KINO,Kingsnorth,coal,coaloil_opt_out,0.602702,51.418947,Kingsnorth
+T_KINO-4,KINO-4,KINO,Kingsnorth,coal,coaloil_opt_out,0.602702,51.418947,Kingsnorth
 T_TILB10,TILB10,TILB,Tilbury B,coal,coaloil_opt_out,0.391677,51.454926,Tilbury B
 T_TILB-7,TILB-7,TILB,Tilbury B,coal,coaloil_opt_out,0.391677,51.454926,Tilbury B
 T_TILB-8,TILB-8,TILB,Tilbury B,coal,coaloil_opt_out,0.391677,51.454926,Tilbury B
@@ -79,33 +79,33 @@ T_BAGE-1,BAGE-1,BAGE,Baglan Bay Unit 1,gas,ccgt,-5.031738,51.720223,Baglan Bay
 T_BAGE-2,BAGE-2,BAGE,Baglan Bay Unit 2,gas,ccgt,-5.031738,51.720223,Baglan Bay
 T_BARK-1,BARK-1,BARK,Barking 2 MGT stage 1,gas,ccgt,0.153809,51.556582,Barking 2 MGT stage 1
 T_BARKB2,BARKB2,BARKB,Barking 2 MGT stage 2,gas,ccgt,0.147,51.521,Barking 2 MGT stage 2
-E_BRYP-1,BRYP-1,BRYP,Barry,gas,ccgt,-3.3398440000000003,51.37178,Barry
-E_AESB-1,,AESB,Barry (Under AES Ownership),gas,ccgt,-3.228712,51.408134000000004,Barry (Under AES Ownership)
+E_BRYP-1,BRYP-1,BRYP,Barry,gas,ccgt,-3.339844,51.37178,Barry
+E_AESB-1,,AESB,Barry (Under AES Ownership),gas,ccgt,-3.228712,51.408134,Barry (Under AES Ownership)
 E_BRGG-1,BRGG-1,BRGG,Brigg,gas,ccgt,-0.32959,53.442264,Brigg
 T_CARR-1,CARR-1,CARR,Carrington Unit 1,gas,ccgt,-2.504883,53.455349,Carrington
 T_CARR-2,CARR-2,CARR,Carrington Unit 2,gas,ccgt,-2.504883,53.455349,Carrington
-2__MPGEN002,YEP-PGU02,MPGEN002,Castleford CCGT,gas,ccgt,-1.3430389999999999,53.73191,Castleford CCGT
+2__MPGEN002,YEP-PGU02,MPGEN002,Castleford CCGT,gas,ccgt,-1.343039,53.73191,Castleford CCGT
 T_CNQPS-1,CNQPS-1,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871,Connahs Quay
 T_CNQPS-2,CNQPS-2,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871,Connahs Quay
 T_CNQPS-3,CNQPS-3,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871,Connahs Quay
 T_CNQPS-4,CNQPS-4,CNQPS,Connahs Quay,gas,ccgt,-3.080651,53.231871,Connahs Quay
-E_CORB-1,CORB-1,CORB,Corby,gas,ccgt,-0.86792,52.247983000000005,Corby
-T_COSO-1,COSO-1,COSO,Coryton,gas,ccgt,0.8349610000000001,51.542919,Coryton
+E_CORB-1,CORB-1,CORB,Corby,gas,ccgt,-0.86792,52.247983,Corby
+T_COSO-1,COSO-1,COSO,Coryton,gas,ccgt,0.834961,51.542919,Coryton
 T_CDCL-1,CDCL-1,CDCL,Cottam Development Centre Limited,gas,ccgt,-0.86792,53.219191,Cottam Development Centre Limited
 T_DAMC-1,DAMC-1,DAMC,Damhead Creek,gas,ccgt,0.549316,51.460852,Damhead Creek
-T_DEEP-1,DEEP-1,DEEP,Deeside,gas,ccgt,-3.208008,53.140181000000005,Deeside
+T_DEEP-1,DEEP-1,DEEP,Deeside,gas,ccgt,-3.208008,53.140181,Deeside
 T_DIDCB5,DIDCB5,DIDCB,Didcot B 5,gas,ccgt,-1.26757,51.62363,Didcot B
 T_DIDCB6,DIDCB6,DIDCB,Didcot B 6,gas,ccgt,-1.26757,51.62363,Didcot B
 T_EECL-1,EECL-1,EECL,Enfield Energy,gas,ccgt,-0.022763,51.662337,Enfield Energy
 T_FIFE-1,FIFE-1,FIFE,Fife CCGT,gas,ccgt,-3.3061,56.1689,Fife CCGT
 E_GYAR-1,GYAR-1,GYAR,Great Yarmouth,gas,ccgt,1.625977,52.596375,Great Yarmouth
-T_KEAD-1,KEAD-1,KEAD,Keadby,gas,ccgt,-0.494385,53.585983999999996,Keadby
-T_KILNS-1,KILNS-1,KILNS,Killingholme 1,gas,ccgt,-0.25511,53.65951999999999,Killingholme 1
-T_KILLPG-1,KILLPG-1,KILLPG,Killingholme 2,gas,ccgt,-0.25511,53.65951999999999,Killingholme 2
-T_KILLPG-2,KILLPG-2,KILLPG,Killingholme 2,gas,ccgt,-0.25511,53.65951999999999,Killingholme 2
-E_KLYN-A-1,KLYN-A-1,KLYNA,Kings Lynn,gas,ccgt,0.380117,52.727256000000004,Kings Lynn
+T_KEAD-1,KEAD-1,KEAD,Keadby,gas,ccgt,-0.494385,53.585984,Keadby
+T_KILNS-1,KILNS-1,KILNS,Killingholme 1,gas,ccgt,-0.25511,53.65952,Killingholme 1
+T_KILLPG-1,KILLPG-1,KILLPG,Killingholme 2,gas,ccgt,-0.25511,53.65952,Killingholme 2
+T_KILLPG-2,KILLPG-2,KILLPG,Killingholme 2,gas,ccgt,-0.25511,53.65952,Killingholme 2
+E_KLYN-A-1,KLYN-A-1,KLYNA,Kings Lynn,gas,ccgt,0.380117,52.727256,Kings Lynn
 T_LAGA-1,LAGA-1,LAGA,Langage,gas,ccgt,-3.966064,50.492463,Langage
-T_LBAR-1,LBAR-1,LBAR,Little Barford,gas,ccgt,-0.230713,52.221070000000005,Little Barford
+T_LBAR-1,LBAR-1,LBAR,Little Barford,gas,ccgt,-0.230713,52.22107,Little Barford
 T_MRWD-1,MRWD-1,MRWD,Marchwood,gas,ccgt,-1.351318,50.903033,Marchwood
 T_MEDP-1,MEDP-1,MEDP,Medway,gas,ccgt,0.889893,51.378638,Medway
 T_PEMB-11,PEMB-11,PEMB,Pembroke Power Station - Unit 1,gas,ccgt,-4.996378,51.684368,Pembroke Power Station -
@@ -114,60 +114,60 @@ T_PEMB-31,PEMB-31,PEMB,Pembroke Power Station - Unit 3,gas,ccgt,-4.996378,51.684
 T_PEMB-41,PEMB-41,PEMB,Pembroke Power Station - Unit 4,gas,ccgt,-4.996378,51.684368,Pembroke Power Station -
 T_PEMB-51,PEMB-51,PEMB,Pembroke Power Station - Unit 5,gas,ccgt,-4.996378,51.684368,Pembroke Power Station -
 E_PETEM1,PETEM1,PETEM,Peterborough,gas,ccgt,-0.204697,52.57694,Peterborough
-T_ROCK-1,ROCK-1,ROCK,Rocksavage,gas,ccgt,-2.5927729999999998,53.330873,Rocksavage
+T_ROCK-1,ROCK-1,ROCK,Rocksavage,gas,ccgt,-2.592773,53.330873,Rocksavage
 E_ROOS-1,ROOS-1,ROOS,Roosecote,gas,ccgt,-3.153076,54.156001,Roosecote
 T_RYHPS-1,RYHPS-1,RYHPS,Rye House,gas,ccgt,-0.285645,51.815407,Rye House
-T_SCCL-1,SCCL-1,SCCL,Saltend South,gas,ccgt,-0.13183599999999998,53.83308100000001,Saltend South
-T_SCCL-2,SCCL-2,SCCL,Saltend South,gas,ccgt,-0.13183599999999998,53.83308100000001,Saltend South
-T_SCCL-3,SCCL-3,SCCL,Saltend South,gas,ccgt,-0.13183599999999998,53.83308100000001,Saltend South
+T_SCCL-1,SCCL-1,SCCL,Saltend South,gas,ccgt,-0.131836,53.833081,Saltend South
+T_SCCL-2,SCCL-2,SCCL,Saltend South,gas,ccgt,-0.131836,53.833081,Saltend South
+T_SCCL-3,SCCL-3,SCCL,Saltend South,gas,ccgt,-0.131836,53.833081,Saltend South
 T_SEAB-1,SEAB-1,SEAB,Seabank 1,gas,ccgt,-2.614746,51.481383,Seabank
 T_SEAB-2,SEAB-2,SEAB,Seabank 2,gas,ccgt,-2.614746,51.481383,Seabank
 T_SVRP-10,SVRP-10,SVRP,Severn Power Unit 10,gas,ccgt,-3.065186,51.740636,Severn Power
 T_SVRP-20,SVRP-20,SVRP,Severn Power Unit 20,gas,ccgt,-3.065186,51.740636,Severn Power
 E_SHOS-1,SHOS-1,SHOS,Shoreham,gas,ccgt,-0.252686,50.882243,Shoreham
-T_SHBA-1,SHBA-1,SHBA,South Humber Bank 1,gas,ccgt,-0.13183599999999998,53.618579000000004,South Humber Bank
-T_SHBA-2,SHBA-2,SHBA,South Humber Bank 2,gas,ccgt,-0.13183599999999998,53.618579000000004,South Humber Bank
-T_SPLN-1,SPLN-1,SPLN,Spalding,gas,ccgt,-0.252686,52.81604300000001,Spalding
+T_SHBA-1,SHBA-1,SHBA,South Humber Bank 1,gas,ccgt,-0.131836,53.618579,South Humber Bank
+T_SHBA-2,SHBA-2,SHBA,South Humber Bank 2,gas,ccgt,-0.131836,53.618579,South Humber Bank
+T_SPLN-1,SPLN-1,SPLN,Spalding,gas,ccgt,-0.252686,52.816043,Spalding
 T_STAY-1,STAY-1,STAY,Staythorpe Unit 1,gas,ccgt,-0.98877,53.041213,Staythorpe
 T_STAY-2,STAY-2,STAY,Staythorpe Unit 2,gas,ccgt,-0.98877,53.041213,Staythorpe
 T_STAY-3,STAY-3,STAY,Staythorpe Unit 3,gas,ccgt,-0.98877,53.041213,Staythorpe
 T_STAY-4,STAY-4,STAY,Staythorpe Unit 4,gas,ccgt,-0.98877,53.041213,Staythorpe
-T_SUTB-1,SUTB-1,SUTB,Sutton Bridge,gas,ccgt,0.09887699999999999,52.623059999999995,Sutton Bridge
-T_TESI-1,TESI-1,TESI,Teesside,gas,ccgt,-1.1302159999999999,54.573479000000006,Teesside
-T_TESI-2,TESI-2,TESI,Teesside,gas,ccgt,-1.1302159999999999,54.573479000000006,Teesside
-2__MPGEN001,YEP-PGU03,MPGEN001,Thornhill CCGT,gas,ccgt,-1.655244,53.677085999999996,Thornhill CCGT
-T_WBURB-1,WBURB-1,WBURB,West Burton B Unit 1,gas,ccgt,-0.53833,53.363665000000005,West Burton B
-T_WBURB-2,WBURB-2,WBURB,West Burton B Unit 2,gas,ccgt,-0.53833,53.363665000000005,West Burton B
-T_WBURB-3,WBURB-3,WBURB,West Burton B Unit 3,gas,ccgt,-0.53833,53.363665000000005,West Burton B
+T_SUTB-1,SUTB-1,SUTB,Sutton Bridge,gas,ccgt,0.098877,52.62306,Sutton Bridge
+T_TESI-1,TESI-1,TESI,Teesside,gas,ccgt,-1.130216,54.573479,Teesside
+T_TESI-2,TESI-2,TESI,Teesside,gas,ccgt,-1.130216,54.573479,Teesside
+2__MPGEN001,YEP-PGU03,MPGEN001,Thornhill CCGT,gas,ccgt,-1.655244,53.677086,Thornhill CCGT
+T_WBURB-1,WBURB-1,WBURB,West Burton B Unit 1,gas,ccgt,-0.53833,53.363665,West Burton B
+T_WBURB-2,WBURB-2,WBURB,West Burton B Unit 2,gas,ccgt,-0.53833,53.363665,West Burton B
+T_WBURB-3,WBURB-3,WBURB,West Burton B Unit 3,gas,ccgt,-0.53833,53.363665,West Burton B
 E_WINN-1,,WINN,Unknown,gas,ccgt,-2.534686,53.266177,
-E_DERW-1,DERW-1,DERW,Derwent,gas,chp,-1.3994440000000001,52.905812,Derwent
-E_FAWN-1,FAWN-1,FAWN,Fawley Cogen,gas,chp,-1.3514329999999999,50.830366999999995,Fawley Cogen
-E_FELL-1,FELL-1,FELL,Fellside,gas,chp,-1.3514329999999999,50.830366999999995,Fellside
-T_GRAI-6,GRAI-6,GRAI,Grain CHP,gas,chp,0.703125,51.474540000000005,Grain CHP
-T_GRAI-7,GRAI-7,GRAI,Grain CHP,gas,chp,0.703125,51.474540000000005,Grain CHP
-T_GRAI-8,GRAI-8,GRAI,Grain CHP,gas,chp,0.703125,51.474540000000005,Grain CHP
-T_GRMO-1,GRMO-1,GRMO,Grangemouth CHP Ltd,gas,chp,-3.0322270000000002,55.930741000000005,Grangemouth CHP Ltd
+E_DERW-1,DERW-1,DERW,Derwent,gas,chp,-1.399444,52.905812,Derwent
+E_FAWN-1,FAWN-1,FAWN,Fawley Cogen,gas,chp,-1.351433,50.830367,Fawley Cogen
+E_FELL-1,FELL-1,FELL,Fellside,gas,chp,-1.351433,50.830367,Fellside
+T_GRAI-6,GRAI-6,GRAI,Grain CHP,gas,chp,0.703125,51.47454,Grain CHP
+T_GRAI-7,GRAI-7,GRAI,Grain CHP,gas,chp,0.703125,51.47454,Grain CHP
+T_GRAI-8,GRAI-8,GRAI,Grain CHP,gas,chp,0.703125,51.47454,Grain CHP
+T_GRMO-1,GRMO-1,GRMO,Grangemouth CHP Ltd,gas,chp,-3.032227,55.930741,Grangemouth CHP Ltd
 E_HYTHE,,HYTHE,Hythe CHP,gas,chp,,,Hythe CHP
-T_HUMR-1,HUMR-1,HUMR,Immingham CHP,gas,chp,0.0,53.690201,Immingham CHP
-2__DPGEN001,MNW-PGU02,DPGEN001,Sandbach CHP,gas,chp,-2.405816,53.165426000000004,Sandbach CHP
+T_HUMR-1,HUMR-1,HUMR,Immingham CHP,gas,chp,0,53.690201,Immingham CHP
+2__DPGEN001,MNW-PGU02,DPGEN001,Sandbach CHP,gas,chp,-2.405816,53.165426,Sandbach CHP
 E_SHOT-1,SHOT-1,SHOT,Shotton CHP,gas,chp,-3.03265,53.23375,Shotton CHP
-E_SLOUG,,SLOUG,Slough,gas,chp,-0.626267,51.523953000000006,Slough
-2__DPGEN002,MNW-PGU03,DPGEN002,Stoke CHP,gas,chp,-2.1903330000000003,52.990359,Stoke CHP
-T__DICI002,,DICI1,Weaver Power Station,gas,chp,-2.7254099999999997,53.31544,Weaver Power Station
-T__DICI001,,DICI2,Weston Point Power Station,gas,chp,-2.7254099999999997,53.31544,Weston Point Power Station
+E_SLOUG,,SLOUG,Slough,gas,chp,-0.626267,51.523953,Slough
+2__DPGEN002,MNW-PGU03,DPGEN002,Stoke CHP,gas,chp,-2.190333,52.990359,Stoke CHP
+T__DICI002,,DICI1,Weaver Power Station,gas,chp,-2.72541,53.31544,Weaver Power Station
+T__DICI001,,DICI2,Weston Point Power Station,gas,chp,-2.72541,53.31544,Weston Point Power Station
 E_ALDMG-1,,ALDMG,Aldershot Military Generator,fuel_oil,diesel,0.7598,51.2599,Aldershot Military Generator
-E_ABERDARE,ABERU-1,ABERDARE,Aberdare District Energy,gas,gas,-3.4492599999999998,51.711177,Aberdare District Energy
+E_ABERDARE,ABERU-1,ABERDARE,Aberdare District Energy,gas,gas,-3.44926,51.711177,Aberdare District Energy
 E_BENIG-1,,BENIG,Bentinck,gas,gas,-1.270137,53.090486,Bentinck
 E_BRIDGWTR,BRIDU-1,BRIDGWTR,Bridgewater District Energy,gas,gas,-3.005964,51.127515,Bridgewater District Energy
-E_CAYTG-1,,CAYTG,Caythorpe,gas,gas,-0.203475,54.086555000000004,Caythorpe
+E_CAYTG-1,,CAYTG,Caythorpe,gas,gas,-0.203475,54.086555,Caythorpe
 T_FAWL2G,FAWL2G,FAWLG,Fawley GT 2,gas,gas,1.328881,50.816696,Fawley
-E_FDUN-1,FDUNT-1,FDUN,Fort Dunlop,gas,gas,-1.3514329999999999,50.830366999999995,Fort Dunlop
+E_FDUN-1,FDUNT-1,FDUN,Fort Dunlop,gas,gas,-1.351433,50.830367,Fort Dunlop
 T_LBAR-1G,LBAR-1G,LBARG,Little Barford OCGT,gas,gas,-0.2689,52.2045,Little Barford OCGT
 T_PEHE-3G,PEHE-3,PEHEG,Peterhead GT3,gas,gas,-1.788879,57.477213,Peterhead GT
 T_PEHE-4G,PEHE-4,PEHEG,Peterhead GT4,gas,gas,-1.788879,57.477213,Peterhead GT
-E_PYEBG-1,,PYEBG,Pye Bridge,gas,gas,-1.349033,53.07139300000001,Pye Bridge
+E_PYEBG-1,,PYEBG,Pye Bridge,gas,gas,-1.349033,53.071393,Pye Bridge
 E_REDGT-1,,REDGT,Redditch,gas,gas,-1.932818,52.300184,Redditch
-E_SEVINGTN,SEVIU-1,SEVINGTN,Sevington District Energy,gas,gas,0.907475,51.128007000000004,Sevington District Energy
+E_SEVINGTN,SEVIU-1,SEVINGTN,Sevington District Energy,gas,gas,0.907475,51.128007,Sevington District Energy
 E_SOLUTIA,SOLUU-1,SOLUTIA,Solutia District Energy,gas,gas,-2.9983234,51.5877364,Solutia District Energy
 T_ABTH7G,ABTH7G,ABTHG,Aberthaw B AGT,fuel_oil,gasoil,-3.404866,51.387312,Aberthaw B AGT
 T_ABTH8G,ABTH8G,ABTHG,Aberthaw B AGT,fuel_oil,gasoil,-3.404866,51.387312,Aberthaw B AGT
@@ -182,14 +182,14 @@ E_DIDC1G,DIDC01G,DIDCG,Didcot OCGT Unit 1,fuel_oil,gasoil,-1.26757,51.62363,Didc
 E_DIDC2G,DIDC02G,DIDCG,Didcot OCGT Unit 2,fuel_oil,gasoil,-1.26757,51.62363,Didcot A AGT
 E_DIDC3G,DIDC03G,DIDCG,Didcot OCGT Unit 3,fuel_oil,gasoil,-1.26757,51.62363,Didcot A AGT
 E_DIDC4G,DIDC04G,DIDCG,Didcot OCGT Unit 4,fuel_oil,gasoil,-1.26757,51.62363,Didcot A AGT
-T_DRAXX-10G,DRAXX-10G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.9990209999999999,53.737545999999995,Drax AGT
-T_DRAXX-12G,DRAXX-12G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.9990209999999999,53.737545999999995,Drax AGT
-T_DRAXX-9G,DRAXX-9G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.9990209999999999,53.737545999999995,Drax AGT
+T_DRAXX-10G,DRAXX-10G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.999021,53.737546,Drax AGT
+T_DRAXX-12G,DRAXX-12G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.999021,53.737546,Drax AGT
+T_DRAXX-9G,DRAXX-9G,DRAXXG,Drax AGT,fuel_oil,gasoil,-0.999021,53.737546,Drax AGT
 T_FAWL1G,FAWL1G,FAWLG,Fawley AGT,fuel_oil,gasoil,1.328881,50.816696,Fawley
 T_FAWL3G,FAWL3G,FAWLG,Fawley AGT,fuel_oil,gasoil,1.328881,50.816696,Fawley
 T_FAWL4G,FAWL4G,FAWLG,Fawley AGT,fuel_oil,gasoil,1.328881,50.816696,Fawley
-T_FERR-5G,FERR-5G,FERRG,Ferrybridge C AGT,fuel_oil,gasoil,-1.2805799999999998,53.7174,Ferrybridge C AGT
-T_FERR-8G,FERR-8G,FERRG,Ferrybridge C AGT,fuel_oil,gasoil,-1.2805799999999998,53.7174,Ferrybridge C AGT
+T_FERR-5G,FERR-5G,FERRG,Ferrybridge C AGT,fuel_oil,gasoil,-1.28058,53.7174,Ferrybridge C AGT
+T_FERR-8G,FERR-8G,FERRG,Ferrybridge C AGT,fuel_oil,gasoil,-1.28058,53.7174,Ferrybridge C AGT
 T_FIDL-2G,FIDL-2G,FIDLG,Fiddlers Ferry AGT,fuel_oil,gasoil,-2.687,53.372,Fiddlers Ferry AGT
 T_FIDL-3G,FIDL-3G,FIDLG,Fiddlers Ferry AGT,fuel_oil,gasoil,-2.687,53.372,Fiddlers Ferry AGT
 T_GRAI1G,GRAI1G,GRAIG,Grain AGT,fuel_oil,gasoil,0.715028,51.445181,Grain AGT
@@ -198,34 +198,34 @@ T_GRAI3G,GRAI3G,GRAIG,Grain AGT,fuel_oil,gasoil,0.715028,51.445181,Grain AGT
 T_GRAI4G,GRAI4G,GRAIG,Grain AGT,fuel_oil,gasoil,0.715028,51.445181,Grain AGT
 T_GRAI5G,GRAI5G,GRAIG,Grain AGT,fuel_oil,gasoil,0.715028,51.445181,Grain AGT
 T_INDQ-1,INDQ-1,INDQ,Indian Queens,fuel_oil,gasoil,-5.064697,50.373496,Indian Queens
-T_KEADGT-3,KEADGT-3,KEADGT,Keadby GT,fuel_oil,gasoil,-0.494385,53.585983999999996,Keadby GT
-T_KINO1G,KINO1G,KINOG,Kingsnorth AGT,fuel_oil,gasoil,0.6027020000000001,51.418946999999996,Kingsnorth AGT
-T_KINO4G,KINO4G,KINOG,Kingsnorth AGT,fuel_oil,gasoil,0.6027020000000001,51.418946999999996,Kingsnorth AGT
-T_LITTD1G,LITT1G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.24166700000000002,51.465278000000005,Littlebrook D AGT
-T_LITTD2G,LITT2G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.24166700000000002,51.465278000000005,Littlebrook D AGT
-T_LITTD3G,LITT3G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.24166700000000002,51.465278000000005,Littlebrook D AGT
-T_PEHE-1,PEHE-1,PEHE,Peterhead Block 1,fuel_oil,gasoil,-1.867676,57.527621999999994,Peterhead
-T_PEHE-2,PEHE-2,PEHE,Peterhead Unit 2,fuel_oil,gasoil,-1.867676,57.527621999999994,Peterhead
-T_RATSGT-2,RATSGT-2,RATSGT,Ratcliffe on Soar AGT,fuel_oil,gasoil,-1.219482,52.855864000000004,Ratcliffe on Soar AGT
-T_RATSGT-4,RATSGT-4,RATSGT,Ratcliffe on Soar AGT,fuel_oil,gasoil,-1.219482,52.855864000000004,Ratcliffe on Soar AGT
+T_KEADGT-3,KEADGT-3,KEADGT,Keadby GT,fuel_oil,gasoil,-0.494385,53.585984,Keadby GT
+T_KINO1G,KINO1G,KINOG,Kingsnorth AGT,fuel_oil,gasoil,0.602702,51.418947,Kingsnorth AGT
+T_KINO4G,KINO4G,KINOG,Kingsnorth AGT,fuel_oil,gasoil,0.602702,51.418947,Kingsnorth AGT
+T_LITTD1G,LITT1G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.241667,51.465278,Littlebrook D AGT
+T_LITTD2G,LITT2G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.241667,51.465278,Littlebrook D AGT
+T_LITTD3G,LITT3G,LITTDG,Littlebrook D AGT,fuel_oil,gasoil,0.241667,51.465278,Littlebrook D AGT
+T_PEHE-1,PEHE-1,PEHE,Peterhead Block 1,fuel_oil,gasoil,-1.867676,57.527622,Peterhead
+T_PEHE-2,PEHE-2,PEHE,Peterhead Unit 2,fuel_oil,gasoil,-1.867676,57.527622,Peterhead
+T_RATSGT-2,RATSGT-2,RATSGT,Ratcliffe on Soar AGT,fuel_oil,gasoil,-1.219482,52.855864,Ratcliffe on Soar AGT
+T_RATSGT-4,RATSGT-4,RATSGT,Ratcliffe on Soar AGT,fuel_oil,gasoil,-1.219482,52.855864,Ratcliffe on Soar AGT
 T_RUGGT-6,RUGGT-6,RUGGT,Rugeley B AGT,fuel_oil,gasoil,-1.94458,52.729639,Rugeley B AGT
 T_RUGGT-7,RUGGT-7,RUGGT,Rugeley B AGT,fuel_oil,gasoil,-1.94458,52.729639,Rugeley B AGT
-E_TAYL2G,TAYL2G,TAYLG,Taylors Lane,fuel_oil,gasoil,-0.2575,51.54600000000001,Taylors Lane
-E_TAYL3G,TAYL3G,TAYLG,Taylors Lane,fuel_oil,gasoil,-0.2575,51.54600000000001,Taylors Lane
+E_TAYL2G,TAYL2G,TAYLG,Taylors Lane,fuel_oil,gasoil,-0.2575,51.546,Taylors Lane
+E_TAYL3G,TAYL3G,TAYLG,Taylors Lane,fuel_oil,gasoil,-0.2575,51.546,Taylors Lane
 T_TILB0G,TILB0G,TILBG,Tilbury B AGT,fuel_oil,gasoil,0.391677,51.454926,Tilbury B AGT
 T_TILB7G,TILB7G,TILBG,Tilbury B AGT,fuel_oil,gasoil,0.391677,51.454926,Tilbury B AGT
 T_TILB8G,TILB8G,TILBG,Tilbury B AGT,fuel_oil,gasoil,0.391677,51.454926,Tilbury B AGT
 T_TILB9G,TILB9G,TILBG,Tilbury B AGT,fuel_oil,gasoil,0.391677,51.454926,Tilbury B AGT
-T_WBUGT-1,WBUGT-1,WBUGT,West Burton AGT,fuel_oil,gasoil,-0.53833,53.363665000000005,West Burton AGT
-T_WBUGT-4,WBUGT-4,WBUGT,West Burton AGT,fuel_oil,gasoil,-0.53833,53.363665000000005,West Burton AGT
-M_CAS-BEU01,CAS-BEU01,CASBEU,Beauly Cascade,run_of_river,hydro,-4.552586,57.444705000000006,Beauly Cascade
+T_WBUGT-1,WBUGT-1,WBUGT,West Burton AGT,fuel_oil,gasoil,-0.53833,53.363665,West Burton AGT
+T_WBUGT-4,WBUGT-4,WBUGT,West Burton AGT,fuel_oil,gasoil,-0.53833,53.363665,West Burton AGT
+M_CAS-BEU01,CAS-BEU01,CASBEU,Beauly Cascade,run_of_river,hydro,-4.552586,57.444705,Beauly Cascade
 E_CLAC-1,CLAC-1,CLAC,Clachan Power Station,run_of_river,hydro,-4.918736,56.277573,Clachan Power Station
-M_CAS-CLU01,CAS-CLU01,CASCLU,Clunie Cascade,run_of_river,hydro,-3.7783550000000004,56.716947999999995,Clunie Cascade
-M_CAS-CON01,CAS-CON01,CASCON,Conon Cascade,run_of_river,hydro,-4.830066,57.619203000000006,Conon Cascade
-E_CWMD-1,CWMD-1,CWMD,Cwm Dyli,run_of_river,hydro,-4.0114730000000005,53.065902,Cwm Dyli
-E_DOLG-1,,DOLG,Dolgarrog,run_of_river,hydro,-3.8426739999999997,53.191545,Dolgarrog
-E_DOLG_H,,DOLGH,Dolgarrog,run_of_river,hydro,-3.8426739999999997,53.191545,Dolgarrog
-E_DOLG_L,,DOLGL,Dolgarrog,run_of_river,hydro,-3.8426739999999997,53.191545,Dolgarrog
+M_CAS-CLU01,CAS-CLU01,CASCLU,Clunie Cascade,run_of_river,hydro,-3.778355,56.716948,Clunie Cascade
+M_CAS-CON01,CAS-CON01,CASCON,Conon Cascade,run_of_river,hydro,-4.830066,57.619203,Conon Cascade
+E_CWMD-1,CWMD-1,CWMD,Cwm Dyli,run_of_river,hydro,-4.011473,53.065902,Cwm Dyli
+E_DOLG-1,,DOLG,Dolgarrog,run_of_river,hydro,-3.842674,53.191545,Dolgarrog
+E_DOLG_H,,DOLGH,Dolgarrog,run_of_river,hydro,-3.842674,53.191545,Dolgarrog
+E_DOLG_L,,DOLGL,Dolgarrog,run_of_river,hydro,-3.842674,53.191545,Dolgarrog
 T_ERRO-1,ERRO-1,ERRO,Errochty G1,run_of_river,hydro,-3.790283,56.734649,Errochty G
 T_ERRO-2,ERRO-2,ERRO,Errochty G2,run_of_river,hydro,-3.790283,56.734649,Errochty G
 T_ERRO-3,ERRO-3,ERRO,Errochty G3,run_of_river,hydro,-3.790283,56.734649,Errochty G
@@ -236,19 +236,19 @@ E_FASN-3,FASN3,FASN,Fasnakyle G3,run_of_river,hydro,-4.793703,57.325887,Fasnakyl
 T_FASN-3,,FASN,Fasnakyle G3,run_of_river,hydro,-4.793703,57.325887,Fasnakyle G
 E_FASN-4,FASN-4,FASN,Fasnakyle G4,run_of_river,hydro,-4.793703,57.325887,Fasnakyle G
 T_FINL-1,FINL-1,FINL,Finlarig,run_of_river,hydro,-3.614502,56.279961,Finlarig
-M_CAS-GAR01,CAS-GAR01,CASGAR,Garry Cascade,run_of_river,hydro,-5.289194,57.066143000000004,Garry Cascade
-T_GLNDO-1,GLNDO-1,GLNDO,Glendoe,run_of_river,hydro,-5.174561,57.15411999999999,Glendoe
-M_CAS-KIL01,CAS-KIL01,CASKIL,Killin Cascade,run_of_river,hydro,-4.3077510000000006,56.470679000000004,Killin Cascade
-E_MAEN-1,,MAEN,Maentwrog,run_of_river,hydro,-3.9730260000000004,52.920708,Maentwrog
+M_CAS-GAR01,CAS-GAR01,CASGAR,Garry Cascade,run_of_river,hydro,-5.289194,57.066143,Garry Cascade
+T_GLNDO-1,GLNDO-1,GLNDO,Glendoe,run_of_river,hydro,-5.174561,57.15412,Glendoe
+M_CAS-KIL01,CAS-KIL01,CASKIL,Killin Cascade,run_of_river,hydro,-4.307751,56.470679,Killin Cascade
+E_MAEN-1,,MAEN,Maentwrog,run_of_river,hydro,-3.973026,52.920708,Maentwrog
 M_CAS-MOR01,CAS-MOR01,CASMOR,Moriston Cascade,run_of_river,hydro,-4.962463,57.144936,Moriston Cascade
-T_NANT-1,NANT-1,NANT,Nant,run_of_river,hydro,-5.2514650000000005,56.163906000000004,Nant
-E_RHEI-1,RHEI-1,RHEI,Rheidol,run_of_river,hydro,-3.8992970000000002,52.396207000000004,Rheidol
-E_RHEI-2,,RHEI,Rheidol,run_of_river,hydro,-3.8992970000000002,52.396207000000004,Rheidol
-E_RHEI-3,,RHEI,Rheidol,run_of_river,hydro,-3.8992970000000002,52.396207000000004,Rheidol
-M_SLOY-1,SLOY-1,SLOY,Sloy G1,run_of_river,hydro,-4.735107,56.200593000000005,Sloy G
-T_SLOY-2,SLOY-2,SLOY,Sloy G2,run_of_river,hydro,-4.735107,56.200593000000005,Sloy G
-T_SLOY-3,SLOY-3,SLOY,Sloy G3,run_of_river,hydro,-4.735107,56.200593000000005,Sloy G
-M_SLOY-4,SLOY-4,SLOY,Sloy G4,run_of_river,hydro,-4.735107,56.200593000000005,Sloy G
+T_NANT-1,NANT-1,NANT,Nant,run_of_river,hydro,-5.251465,56.163906,Nant
+E_RHEI-1,RHEI-1,RHEI,Rheidol,run_of_river,hydro,-3.899297,52.396207,Rheidol
+E_RHEI-2,,RHEI,Rheidol,run_of_river,hydro,-3.899297,52.396207,Rheidol
+E_RHEI-3,,RHEI,Rheidol,run_of_river,hydro,-3.899297,52.396207,Rheidol
+M_SLOY-1,SLOY-1,SLOY,Sloy G1,run_of_river,hydro,-4.735107,56.200593,Sloy G
+T_SLOY-2,SLOY-2,SLOY,Sloy G2,run_of_river,hydro,-4.735107,56.200593,Sloy G
+T_SLOY-3,SLOY-3,SLOY,Sloy G3,run_of_river,hydro,-4.735107,56.200593,Sloy G
+M_SLOY-4,SLOY-4,SLOY,Sloy G4,run_of_river,hydro,-4.735107,56.200593,Sloy G
 E_MANXENR-1,MANXENR-1,MANXENR,Manx Power,gas,mann,,,Manx Power
 T_BRWE-1,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
 T_BRWE-2,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
@@ -256,14 +256,14 @@ T_BRWE-3,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
 T_BRWE-4,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
 T_BRWE-5,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
 T_BRWE-6,,BRWE,Bradwell,nuclear,nuclear,0.89694,51.74139,Bradwell
-T_DUNG-1,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889000000005,Dungeness A
-T_DUNG-2,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889000000005,Dungeness A
-T_DUNG-3,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889000000005,Dungeness A
-T_DUNG-4,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889000000005,Dungeness A
-T_DNGB21,DNGB21,DNGB,Dungeness B,nuclear,nuclear,0.963889,50.913889000000005,Dungeness B
-T_DNGB22,DNGB22,DNGB,Dungeness B,nuclear,nuclear,0.963889,50.913889000000005,Dungeness B
-T_HRTL-1,HRTL-1,HRTL,Hartlepool,nuclear,nuclear,-1.098633,54.686533999999995,Hartlepool
-T_HRTL-2,HRTL-2,HRTL,Hartlepool,nuclear,nuclear,-1.098633,54.686533999999995,Hartlepool
+T_DUNG-1,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889,Dungeness A
+T_DUNG-2,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889,Dungeness A
+T_DUNG-3,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889,Dungeness A
+T_DUNG-4,,DUNG,Dungeness A,nuclear,nuclear,0.963889,50.913889,Dungeness A
+T_DNGB21,DNGB21,DNGB,Dungeness B,nuclear,nuclear,0.963889,50.913889,Dungeness B
+T_DNGB22,DNGB22,DNGB,Dungeness B,nuclear,nuclear,0.963889,50.913889,Dungeness B
+T_HRTL-1,HRTL-1,HRTL,Hartlepool,nuclear,nuclear,-1.098633,54.686534,Hartlepool
+T_HRTL-2,HRTL-2,HRTL,Hartlepool,nuclear,nuclear,-1.098633,54.686534,Hartlepool
 T_HEYM11,HEYM11,HEYM1,Heysham 1,nuclear,nuclear,-2.916111111,54.02888889,Heysham 1
 T_HEYM12,HEYM12,HEYM1,Heysham 1,nuclear,nuclear,-2.916111111,54.02888889,Heysham 1
 T_HEYM27,HEYM27,HEYM2,Heysham 2,nuclear,nuclear,-2.916111111,54.02888889,Heysham 2
@@ -272,29 +272,29 @@ T_HINB-7,HINB-7,HINB,Hinkley Point B,nuclear,nuclear,-3.317871,51.138001,Hinkley
 T_HINB-8,HINB-8,HINB,Hinkley Point B,nuclear,nuclear,-3.317871,51.138001,Hinkley Point B
 T_HUNB-7,HUNB-7,HUNB,Hunterston Generator 7,nuclear,nuclear,-4.822998,55.646599,Hunterston Generator
 T_HUNB-8,HUNB-8,HUNB,Hunterston Generator 8,nuclear,nuclear,-4.822998,55.646599,Hunterston Generator
-T_OLDS1,OLDS1,OLDS,Oldbury,nuclear,nuclear,-2.5708330000000004,51.648889000000004,Oldbury
-T_OLDS2,OLDS2,OLDS,Oldbury,nuclear,nuclear,-2.5708330000000004,51.648889000000004,Oldbury
+T_OLDS1,OLDS1,OLDS,Oldbury,nuclear,nuclear,-2.570833,51.648889,Oldbury
+T_OLDS2,OLDS2,OLDS,Oldbury,nuclear,nuclear,-2.570833,51.648889,Oldbury
 T_SIZEA1,,SIZEA,Sizewell A,nuclear,nuclear,1.61972,52.215,Sizewell A
 T_SIZEA2,,SIZEA,Sizewell A,nuclear,nuclear,1.61972,52.215,Sizewell A
 T_SIZB-1,SIZB-1,SIZB,Sizewell B,nuclear,nuclear,1.571045,52.173932,Sizewell B
 T_SIZB-2,SIZB-2,SIZB,Sizewell B,nuclear,nuclear,1.571045,52.173932,Sizewell B
-T_TORN-1,TORN-1,TORN,Torness Generator 1,nuclear,nuclear,-2.054443,55.813629000000006,Torness Generator
-T_TORN-2,TORN-2,TORN,Torness Generator 2,nuclear,nuclear,-2.054443,55.813629000000006,Torness Generator
-T_WYLF-1,WYLF-1,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370220999999994,Wylfa
-T_WYLF-2,WYLF-2,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370220999999994,Wylfa
-T_WYLF-3,WYLF-3,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370220999999994,Wylfa
-T_WYLF-4,WYLF-4,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370220999999994,Wylfa
+T_TORN-1,TORN-1,TORN,Torness Generator 1,nuclear,nuclear,-2.054443,55.813629,Torness Generator
+T_TORN-2,TORN-2,TORN,Torness Generator 2,nuclear,nuclear,-2.054443,55.813629,Torness Generator
+T_WYLF-1,WYLF-1,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370221,Wylfa
+T_WYLF-2,WYLF-2,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370221,Wylfa
+T_WYLF-3,WYLF-3,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370221,Wylfa
+T_WYLF-4,WYLF-4,WYLF,Wylfa,nuclear,nuclear,-4.405518,53.370221,Wylfa
 T_FAWL1,FAWL1,FAWL,Fawley,fuel_oil,oil_opt_out,1.328881,50.816696,Fawley
 T_FAWL3,FAWL3,FAWL,Fawley,fuel_oil,oil_opt_out,1.328881,50.816696,Fawley
 T_FAWL4,,FAWL,Fawley,fuel_oil,oil_opt_out,1.328881,50.816696,Fawley
-T_GRAI-1,GRAI-1,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.474540000000005,Grain CHP
-T_GRAI-2,GRAI-2,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.474540000000005,Grain CHP
-T_GRAI-3,GRAI-3,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.474540000000005,Grain CHP
-T_GRAI-4,GRAI-4,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.474540000000005,Grain CHP
-T_LITTD1,LITTD1,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.24166700000000002,51.465278000000005,Littlebrook D
-T_LITTD2,LITTD2,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.24166700000000002,51.465278000000005,Littlebrook D
-T_LITTD3,LITTD3,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.24166700000000002,51.465278000000005,Littlebrook D
-E_FIBRE,,FIBRE,Fibropower,biomass,chix,-0.626267,51.523953000000006,Fibropower
+T_GRAI-1,GRAI-1,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.47454,Grain CHP
+T_GRAI-2,GRAI-2,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.47454,Grain CHP
+T_GRAI-3,GRAI-3,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.47454,Grain CHP
+T_GRAI-4,GRAI-4,GRAI,Grain,fuel_oil,oil_opt_out,0.703125,51.47454,Grain CHP
+T_LITTD1,LITTD1,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.241667,51.465278,Littlebrook D
+T_LITTD2,LITTD2,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.241667,51.465278,Littlebrook D
+T_LITTD3,LITTD3,LITTD,Littlebrook D,fuel_oil,oil_opt_out,0.241667,51.465278,Littlebrook D
+E_FIBRE,,FIBRE,Fibropower,biomass,chix,-0.626267,51.523953,Fibropower
 T_CRUA-1,CRUA-1,CRUA,Crauchan,pumped_storage,pump,-5.218506,56.36525,Crauchan
 T_CRUA-2,CRUA-2,CRUA,Crauchan,pumped_storage,pump,-5.218506,56.36525,Crauchan
 T_CRUA-3,CRUA-3,CRUA,Crauchan,pumped_storage,pump,-5.218506,56.36525,Crauchan
@@ -305,78 +305,78 @@ T_DINO-3,DINO-3,DINO,Dinorwig,pumped_storage,pump,-3.966064,53.080827,Dinorwig
 T_DINO-4,DINO-4,DINO,Dinorwig,pumped_storage,pump,-3.966064,53.080827,Dinorwig
 T_DINO-5,DINO-5,DINO,Dinorwig,pumped_storage,pump,-3.966064,53.080827,Dinorwig
 T_DINO-6,DINO-6,DINO,Dinorwig,pumped_storage,pump,-3.966064,53.080827,Dinorwig
-T_FFES-1,FFES-1,FFES,Ffestiniog,pumped_storage,pump,-3.9770510000000003,53.008173,Ffestiniog
-T_FFES-2,FFES-2,FFES,Ffestiniog,pumped_storage,pump,-3.9770510000000003,53.008173,Ffestiniog
-T_FFES-3,FFES-3,FFES,Ffestiniog,pumped_storage,pump,-3.9770510000000003,53.008173,Ffestiniog
-T_FFES-4,FFES-4,FFES,Ffestiniog,pumped_storage,pump,-3.9770510000000003,53.008173,Ffestiniog
+T_FFES-1,FFES-1,FFES,Ffestiniog,pumped_storage,pump,-3.977051,53.008173,Ffestiniog
+T_FFES-2,FFES-2,FFES,Ffestiniog,pumped_storage,pump,-3.977051,53.008173,Ffestiniog
+T_FFES-3,FFES-3,FFES,Ffestiniog,pumped_storage,pump,-3.977051,53.008173,Ffestiniog
+T_FFES-4,FFES-4,FFES,Ffestiniog,pumped_storage,pump,-3.977051,53.008173,Ffestiniog
 T_FOYE-1,FOYE-1,FOYE,Foyers G1,pumped_storage,pump,-4.361572,57.237449,Foyers G
 T_FOYE-2,FOYE-2,FOYE,Foyers G2,pumped_storage,pump,-4.361572,57.237449,Foyers G
-T_ACHRW-1,ACHRW-1,ACHRW,AChruach Wind Farm,wind,wind,-5.393722,56.342859999999995,AChruach Wind Farm
-T_AKGLW-2,AKGLW-2,AKGLW,Aikengall 2 Wind Farm Generation,wind,wind,-2.4929930000000002,55.923317000000004,Aikengall 2 Wind Farm Generation
-E_AIRSW-1,AIRSW-1,AIRSW,Airies Windfarm,wind,wind,-4.713441,54.970895999999996,Airies Windfarm
-E_ASHWW-1,ASHWW-1,ASHWW,Andershaw Wind Farm,wind,wind,-3.814161,55.514869999999995,Andershaw Wind Farm
-T_ANSUW-1,ANSUW-1,ANSUW,An Suidhe Windfarm,wind,wind,-5.449219,56.065903000000006,An Suidhe Windfarm
+T_ACHRW-1,ACHRW-1,ACHRW,AChruach Wind Farm,wind,wind,-5.393722,56.34286,AChruach Wind Farm
+T_AKGLW-2,AKGLW-2,AKGLW,Aikengall 2 Wind Farm Generation,wind,wind,-2.492993,55.923317,Aikengall 2 Wind Farm Generation
+E_AIRSW-1,AIRSW-1,AIRSW,Airies Windfarm,wind,wind,-4.713441,54.970896,Airies Windfarm
+E_ASHWW-1,ASHWW-1,ASHWW,Andershaw Wind Farm,wind,wind,-3.814161,55.51487,Andershaw Wind Farm
+T_ANSUW-1,ANSUW-1,ANSUW,An Suidhe Windfarm,wind,wind,-5.449219,56.065903,An Suidhe Windfarm
 T_ARCHW-1,ARCHW-1,ARCHW,Arecleoch Windfarm,wind,wind,-4.63623,55.14121,Arecleoch Windfarm
 E_ASLVW-1,ASLVW-1,ASLVW,Assel Valley Wind Farm,wind,wind,-4.825652,55.222814,Assel Valley Wind Farm
 E_ABRTW-1,ABRTW-1,ABRTW,Auchrobert Wind Farm,wind,wind,-3.988675,55.621764,Auchrobert Wind Farm
 E_BABAW-1,BABAW-1,BABAW,Baillie Wind Farm,wind,wind,-4.372559,58.430482,Baillie Wind Farm
-T_BOWLW-1,BOWLW-1,BOWLW,Barrow Offshore Windfarm,wind,wind,-3.2833330000000003,53.983332999999995,Barrow Offshore Windfarm
+T_BOWLW-1,BOWLW-1,BOWLW,Barrow Offshore Windfarm,wind,wind,-3.283333,53.983333,Barrow Offshore Windfarm
 E_BTUIW-2,BTUIW-2,BTUIW,Beinn An Tuirc 2 Windfarm,wind,wind,-5.537109,55.683779,Beinn An Tuirc 2 Windfarm
 T_BEINW-1,BEINW-1,BEINW,Beinneun Wind Farm,wind,wind,-4.789059,57.17555556,Beinneun Wind Farm
 E_BETHW-1,BETHW-1,BETHW,Beinn Tharsuinn,wind,wind,-4.42749,58.077876,Beinn Tharsuinn
 E_BRYBW-1,BRYBW-1,BRYBW,Berry Burn Windfarm,wind,wind,-3.966064,57.36209,Berry Burn Windfarm
 T_BHLAW-1,BHLAW-1,BHLAW,Bhlaraidh Windfarm 1,wind,wind,-4.668919,57.22303,Bhlaraidh Windfarm 1
 T_BLKWW-1,BLKWW-1,BLKWW,Blackcraig Windfarm,wind,wind,-4.033976,55.117955,Blackcraig Windfarm
-T_BLLA-1,BLLA-1,BLLA1,Black Law Wind Farm,wind,wind,-3.4826660000000005,55.590763,Black Law Wind Farm
-T_BLLA-2,BLLA-2,BLLA2,Black Law Windfarm Extension,wind,wind,-3.4826660000000005,55.590763,Black Law Windfarm Extension
+T_BLLA-1,BLLA-1,BLLA1,Black Law Wind Farm,wind,wind,-3.482666,55.590763,Black Law Wind Farm
+T_BLLA-2,BLLA-2,BLLA2,Black Law Windfarm Extension,wind,wind,-3.482666,55.590763,Black Law Windfarm Extension
 E_BODW-1,,BODW,Blyth Offshore Demonstrator Windfarm Generation,wind,wind,-1.401,55.131,Blyth Offshore Demonstrator Windfarm Generation
 E_BRDUW-1,BRDUW-1,BRDUW,Braes of Doune,wind,wind,-3.361816,56.419978,Braes of Doune
-T_WISTW-2,WISTW-2,WISTW,Brockloch Rig 2 Windfarm,wind,wind,-4.141234,55.25515600000001,Brockloch Rig 2 Windfarm
-E_BRNLW-1,BRNLW-1,BRNLW,Brownieleys Windfarm,wind,wind,-2.3745580000000004,56.844014,Brownieleys Windfarm
-E_BURBO,BURBW-1,BURBO,Burbo Bank Offshore Windfarm,wind,wind,-3.19582,53.487739000000005,Burbo Bank Offshore Windfarm
-T_BRBEO-1,BRBEO-1,BRBEO,Burbo Bank Wind Farm Extension,wind,wind,-3.273,53.483999999999995,Burbo Bank Wind Farm Extension
+T_WISTW-2,WISTW-2,WISTW,Brockloch Rig 2 Windfarm,wind,wind,-4.141234,55.255156,Brockloch Rig 2 Windfarm
+E_BRNLW-1,BRNLW-1,BRNLW,Brownieleys Windfarm,wind,wind,-2.374558,56.844014,Brownieleys Windfarm
+E_BURBO,BURBW-1,BURBO,Burbo Bank Offshore Windfarm,wind,wind,-3.19582,53.487739,Burbo Bank Offshore Windfarm
+T_BRBEO-1,BRBEO-1,BRBEO,Burbo Bank Wind Farm Extension,wind,wind,-3.273,53.484,Burbo Bank Wind Farm Extension
 E_BNWKW-1,BNWKW-1,BNWKW,Burn of Whilk Windfarm,wind,wind,-3.21433,58.351973,Burn of Whilk Windfarm
-2__PSTAT001,CAIRW-2,PSTAT001,Cairn Uish / Rothes Windfarm Extension,wind,wind,-3.063895,57.504968000000005,Cairn Uish / Rothes Windfarm Extension
-2__PPGEN003,CMSTW-1,PPGEN003,Camster Wind Farm,wind,wind,-3.2701290000000003,58.406935,Camster Wind Farm
+2__PSTAT001,CAIRW-2,PSTAT001,Cairn Uish / Rothes Windfarm Extension,wind,wind,-3.063895,57.504968,Cairn Uish / Rothes Windfarm Extension
+2__PPGEN003,CMSTW-1,PPGEN003,Camster Wind Farm,wind,wind,-3.270129,58.406935,Camster Wind Farm
 T_CRGHW-1,CRGHW-1,CRGHW,Carraig Gheal Wind Farm,wind,wind,-4.790039,56.389584,Carraig Gheal Wind Farm
 E_CLFLW-1,CLFLW-1,CLFLW,Clachan Flats Windfarm,wind,wind,-4.957855,56.283062,Clachan Flats Windfarm
-E_CLDRW-1,CLDRW-1,CLDRW,Clashindarroch Wind Farm,wind,wind,-2.9223630000000003,57.308724,Clashindarroch Wind Farm
-T_CLDCW-1,CLDCW-1,CLDCW,Clyde Central Windfarm,wind,wind,-3.35083,55.310391,Clyde Central Windfarm
-T_CLDNW-1,CLDNW-1,CLDNW,Clyde North Windfarm,wind,wind,-3.35083,55.310391,Clyde North Windfarm
-T_CLDSW-1,CLDSW-1,CLDSW,Clyde South Windfarm,wind,wind,-3.35083,55.310391,Clyde South Windfarm
-T_CGTHW-1,CGTHW-1,CGTHW,Corriegarth Wind Farm,wind,wind,-4.3596379999999995,57.190084999999996,Corriegarth Wind Farm
-T_CRMLW-1,CRMLW-1,CRMLW,Corriemoillie Wind Farm,wind,wind,-4.838531,57.694244999999995,Corriemoillie Wind Farm
-T_COUWW-1,COUWW-1,COUWW,Cour Wind Farm,wind,wind,-5.484929,55.680679000000005,Cour Wind Farm
-T_CRYRW-3,CRYRW-3,CRYRW3,Crystal Rig III Wind Farm,wind,wind,-2.39502,55.893795999999995,Crystal Rig III Wind Farm
-T_CRYRW-2,CRYRW-2,CRYRW2,Crystal Rig Wind Farm - Phase 2,wind,wind,-2.39502,55.893795999999995,Crystal Rig Wind Farm - Phase 2
-E_DALSW-1,DALSW-1,DALSW,Dalswinton Wind Farm,wind,wind,-3.6628190000000003,55.183662,Dalswinton Wind Farm
-T_DRSLW-1,DRSLW-1,DRSLW,Dersalloch Windfarm,wind,wind,-4.484173,55.311291000000004,Dersalloch Windfarm
-T_DDGNO-1,DDGNO-1,DDGNO,Dudgeon Offshore Wind Farm Generator 1,wind,wind,1.39,53.248999999999995,Dudgeon Offshore Wind Farm Generator
-T_DDGNO-2,DDGNO-2,DDGNO,Dudgeon Offshore Wind Farm Generator 2,wind,wind,1.39,53.248999999999995,Dudgeon Offshore Wind Farm Generator
-T_DDGNO-3,DDGNO-3,DDGNO,Dudgeon Offshore Wind Farm Generator 3,wind,wind,1.39,53.248999999999995,Dudgeon Offshore Wind Farm Generator
-T_DDGNO-4,DDGNO-4,DDGNO,Dudgeon Offshore Wind Farm Generator 4,wind,wind,1.39,53.248999999999995,Dudgeon Offshore Wind Farm Generator
+E_CLDRW-1,CLDRW-1,CLDRW,Clashindarroch Wind Farm,wind,wind,-2.922363,57.308724,Clashindarroch Wind Farm
+T_CLDCW-1,CLDCW-1,CLDW,Clyde Central Windfarm,wind,wind,-3.35083,55.310391,Clyde Central Windfarm
+T_CLDNW-1,CLDNW-1,CLDW,Clyde North Windfarm,wind,wind,-3.35083,55.310391,Clyde North Windfarm
+T_CLDSW-1,CLDSW-1,CLDW,Clyde South Windfarm,wind,wind,-3.35083,55.310391,Clyde South Windfarm
+T_CGTHW-1,CGTHW-1,CGTHW,Corriegarth Wind Farm,wind,wind,-4.359638,57.190085,Corriegarth Wind Farm
+T_CRMLW-1,CRMLW-1,CRMLW,Corriemoillie Wind Farm,wind,wind,-4.838531,57.694245,Corriemoillie Wind Farm
+T_COUWW-1,COUWW-1,COUWW,Cour Wind Farm,wind,wind,-5.484929,55.680679,Cour Wind Farm
+T_CRYRW-3,CRYRW-3,CRYRW3,Crystal Rig III Wind Farm,wind,wind,-2.39502,55.893796,Crystal Rig III Wind Farm
+T_CRYRW-2,CRYRW-2,CRYRW2,Crystal Rig Wind Farm - Phase 2,wind,wind,-2.39502,55.893796,Crystal Rig Wind Farm - Phase 2
+E_DALSW-1,DALSW-1,DALSW,Dalswinton Wind Farm,wind,wind,-3.662819,55.183662,Dalswinton Wind Farm
+T_DRSLW-1,DRSLW-1,DRSLW,Dersalloch Windfarm,wind,wind,-4.484173,55.311291,Dersalloch Windfarm
+T_DDGNO-1,DDGNO-1,DDGNO,Dudgeon Offshore Wind Farm Generator 1,wind,wind,1.39,53.249,Dudgeon Offshore Wind Farm Generator
+T_DDGNO-2,DDGNO-2,DDGNO,Dudgeon Offshore Wind Farm Generator 2,wind,wind,1.39,53.249,Dudgeon Offshore Wind Farm Generator
+T_DDGNO-3,DDGNO-3,DDGNO,Dudgeon Offshore Wind Farm Generator 3,wind,wind,1.39,53.249,Dudgeon Offshore Wind Farm Generator
+T_DDGNO-4,DDGNO-4,DDGNO,Dudgeon Offshore Wind Farm Generator 4,wind,wind,1.39,53.249,Dudgeon Offshore Wind Farm Generator
 T_DNLWW-1,DNLWW-1,DNLWW,Dun Law Extension Windfarm,wind,wind,-2.296143,55.776573,Dun Law Extension Windfarm
-T_DUNGW-1,DUNGW-1,DUNGW,Dunmglass Wind Farm,wind,wind,-4.255802,57.25148000000001,Dunmglass Wind Farm
-T_EDINW-1,EDINW-1,EDINW,Edinbane Windfarm,wind,wind,-6.229248,57.27904300000001,Edinbane Windfarm
+T_DUNGW-1,DUNGW-1,DUNGW,Dunmglass Wind Farm,wind,wind,-4.255802,57.25148,Dunmglass Wind Farm
+T_EDINW-1,EDINW-1,EDINW,Edinbane Windfarm,wind,wind,-6.229248,57.279043,Edinbane Windfarm
 T_EWHLW-1,EWHLW-1,EWHLW,Ewe Hill II Wind Farm,wind,wind,-3.205105,55.228662,Ewe Hill II Wind Farm
-T_FALGW-1,FALGW-1,FALGW,Fallago Rig Wind Farm,wind,wind,-2.768555,55.93689499999999,Fallago Rig Wind Farm
+T_FALGW-1,FALGW-1,FALGW,Fallago Rig Wind Farm,wind,wind,-2.768555,55.936895,Fallago Rig Wind Farm
 T_FARR-1,FAARW-1,FARR,Farr Wind Farm Unit 1,wind,wind,-4.094167,57.325,Farr Wind Farm
 T_FARR-2,FAARW-2,FARR,Farr Wind Farm Unit 2,wind,wind,-4.094167,57.325,Farr Wind Farm
-T_FSDLW-1,FSDLW-1,FSDLW,Freasdail Wind Farm,wind,wind,-5.479858999999999,55.780803000000006,Freasdail Wind Farm
+T_FSDLW-1,FSDLW-1,FSDLW,Freasdail Wind Farm,wind,wind,-5.479859,55.780803,Freasdail Wind Farm
 T_GLWSW-1,GLWSW-1,GLWSW,Galawhistle Wind Farm,wind,wind,-3.921928,55.534273,Galawhistle Wind Farm
 T_GANW-11,GAOFO-1,GANW,Galloper Offshore Windfarm 11,wind,wind,2.035,51.893,Galloper Offshore Windfarm 1
 T_GANW-13,GAOFO-3,GANW,Galloper Offshore Windfarm 13,wind,wind,2.035,51.893,Galloper Offshore Windfarm 1
 T_GANW-22,GAOFO-2,GANW,Galloper Offshore Windfarm 22,wind,wind,2.035,51.893,Galloper Offshore Windfarm 1
 T_GANW-24,GAOFO-4,GANW,Galloper Offshore Windfarm 24,wind,wind,2.035,51.893,Galloper Offshore Windfarm 1
-T_GNAPW-1,GNAPW-1,GNAPW,Glen App Wind Farm,wind,wind,-5.026858,55.021378000000006,Glen App Wind Farm
-E_GLCHW-1,GLCHW-1,GLCHW,Glenchamber Wind Farm,wind,wind,-4.754334,54.96341999999999,Glenchamber Wind Farm
-E_GLOFW-1,GLOFW-1,GLOFW,Glens of Foudland,wind,wind,-2.878418,57.219607999999994,Glens of Foudland
-E_GFLDW-1,GFLDW-1,GFLDW,Goole Fields 1 Windfarm,wind,wind,-0.8724209999999999,53.668356,Goole Fields 1 Windfarm
+T_GNAPW-1,GNAPW-1,GNAPW,Glen App Wind Farm,wind,wind,-5.026858,55.021378,Glen App Wind Farm
+E_GLCHW-1,GLCHW-1,GLCHW,Glenchamber Wind Farm,wind,wind,-4.754334,54.96342,Glenchamber Wind Farm
+E_GLOFW-1,GLOFW-1,GLOFW,Glens of Foudland,wind,wind,-2.878418,57.219608,Glens of Foudland
+E_GFLDW-1,GFLDW-1,GFLDW,Goole Fields 1 Windfarm,wind,wind,-0.872421,53.668356,Goole Fields 1 Windfarm
 T_GORDW-1,GORDW-1,GORDW,Gordonbush Wind Farm,wind,wind,-3.834229,58.066256,Gordonbush Wind Farm
 E_GDSTW-1,GDSTW-1,GDSTW,Gordonstown Windfarm,wind,wind,-2.484139,57.460944,Gordonstown Windfarm
-T_GRGBW-1,GRGBW-1,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.7138669999999998,52.066,Greater Gabbard Offshore Windfarm
-T_GRGBW-2,GRGBW-2,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.7138669999999998,52.066,Greater Gabbard Offshore Windfarm
-T_GRGBW-3,GRGBW-3,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.7138669999999998,52.066,Greater Gabbard Offshore Windfarm
+T_GRGBW-1,GRGBW-1,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.713867,52.066,Greater Gabbard Offshore Windfarm
+T_GRGBW-2,GRGBW-2,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.713867,52.066,Greater Gabbard Offshore Windfarm
+T_GRGBW-3,GRGBW-3,GRGBW,Greater Gabbard Offshore Windfarm,wind,wind,1.713867,52.066,Greater Gabbard Offshore Windfarm
 T_GRIFW-1,GRIFW-1,GRIFW,Griffin Wind Farm Unit 1,wind,wind,-3.394775,56.529199,Griffin Wind Farm
 T_GRIFW-2,GRIFW-2,GRIFW,Griffin Wind Farm Unit 2,wind,wind,-3.394775,56.529199,Griffin Wind Farm
 E_GNFSW-3,,GNFSW0,Gunfleet Sands Demo Unit 3,wind,wind,1.174444,51.739444,Gunfleet Sands Demo  3
@@ -384,77 +384,77 @@ E_GNFSW-1,GNFSW-1,GNFSW1,Gunfleet Sands Windfarm Unit 1,wind,wind,1.174444,51.73
 T_GNFSW-1,GNFSW-1,GNFSW1,Gunfleet Sands Windfarm Unit 1,wind,wind,1.174444,51.739444,Gunfleet Sands Windfarm  1
 E_GNFSW-2,GNFSW-2,GNFSW2,Gunfleet Sands Windfarm Unit 2,wind,wind,1.174444,51.739444,Gunfleet Sands Windfarm  2
 T_GNFSW-2,GNFSW-2,GNFSW2,Gunfleet Sands Windfarm Unit 2,wind,wind,1.174444,51.739444,Gunfleet Sands Windfarm  2
-T_GYMRW-1,GYMRW-1,GYMRW,Gwynt y Mor Offshore Wind Farm Unit 1,wind,wind,-3.5839999999999996,53.458999999999996,Gwynt y Mor Offshore Wind Farm
-T_GYMRW-2,GYMRW-2,GYMRW,Gwynt y Mor Offshore Wind Farm Unit 2,wind,wind,-3.5839999999999996,53.458999999999996,Gwynt y Mor Offshore Wind Farm
+T_GYMRW-1,GYMRW-1,GYMRW,Gwynt y Mor Offshore Wind Farm Unit 1,wind,wind,-3.584,53.459,Gwynt y Mor Offshore Wind Farm
+T_GYMRW-2,GYMRW-2,GYMRW,Gwynt y Mor Offshore Wind Farm Unit 2,wind,wind,-3.584,53.459,Gwynt y Mor Offshore Wind Farm
 T_GYMR-15,GYMRO-15,GYMR,Gwynt y Mor Wind Farm East 15,wind,wind,-3.944092,53.376775,Gwynt y Mor Wind Farm East 1
 T_GYMR-17,GYMRO-17,GYMR,Gwynt y Mor Wind Farm East 16,wind,wind,-3.944092,53.376775,Gwynt y Mor Wind Farm East 1
 T_GYMR-26,GYMRO-26,GYMR,Gwynt y Mor Wind Farm West 26,wind,wind,-3.944092,53.376775,Gwynt y Mor Wind Farm East 1
 T_GYMR-28,GYMRO-28,GYMR,Gwynt y Mor Wind Farm West 28,wind,wind,-3.944092,53.376775,Gwynt y Mor Wind Farm East 1
 T_HADHW-1,HADHW-1,HADHW,Hadyard Hill Wind Farm,wind,wind,-4.702148,55.247815,Hadyard Hill Wind Farm
 E_HBHDW-1,HBHDW-1,HBHDW,Harburnhead Wind Farm,wind,wind,-3.547456,55.815259,Harburnhead Wind Farm
-E_HRHLW-1,HRHLW-1,HRHLW,Hare Hill Extension Wind Farm,wind,wind,-4.054104,55.405691000000004,Hare Hill Extension Wind Farm
+E_HRHLW-1,HRHLW-1,HRHLW,Hare Hill Extension Wind Farm,wind,wind,-4.054104,55.405691,Hare Hill Extension Wind Farm
 T_HRSTW-1,HRSTW-1,HRSTW,Harestanes Windfarm,wind,wind,-3.636475,55.229023,Harestanes Windfarm
-E_HLGLW-1,HLGLW-1,HLGLW,Hill of Glaschyle Windfarm,wind,wind,-3.615587,57.51051999999999,Hill of Glaschyle Windfarm
+E_HLGLW-1,HLGLW-1,HLGLW,Hill of Glaschyle Windfarm,wind,wind,-3.615587,57.51052,Hill of Glaschyle Windfarm
 E_HLTWW-1,HLTWW-1,HLTWW,Hill of Towie Windfarm ,wind,wind,-2.406006,57.486309,Hill of Towie Windfarm 
 T_HMGTO-1,HMGTO-1,HMGTO,Humber Offshore Wind Farm Unit 1,wind,wind,0.293,53.644,Humber Offshore Wind Farm
 T_HMGTO-2,HMGTO-2,HMGTO,Humber Offshore Wind Farm Unit 2,wind,wind,0.293,53.644,Humber Offshore Wind Farm
-E_HYWDW-1,HYWDW-1,HYWDW,Hywind Generator 1,wind,wind,-1.35,57.483000000000004,Hywind Generator 1
-T_KTHLW-1,KTHLW-1,KTHLW,Keith Hill Windfarm,wind,wind,-2.825456,55.817271999999996,Keith Hill Windfarm
+E_HYWDW-1,HYWDW-1,HYWDW,Hywind Generator 1,wind,wind,-1.35,57.483,Hywind Generator 1
+T_KTHLW-1,KTHLW-1,KTHLW,Keith Hill Windfarm,wind,wind,-2.825456,55.817272,Keith Hill Windfarm
 T_KILBW-1,KILBW-1,KILBW,Kilbraur Windfarm,wind,wind,,,Kilbraur Windfarm
-T_KLGLW-1,KLGLW-1,KLGLW,Kilgallioch Wind Farm,wind,wind,-4.765280000000001,55.05,Kilgallioch Wind Farm
-T_LNCSW-1,LNCSO-1,LNCSW,Lincs Offshore Wind Farm Unit 1,wind,wind,0.5273439999999999,53.265213,Lincs Offshore Wind Farm
-T_LNCSW-2,LNCSO-2,LNCSW,Lincs Offshore Wind Farm Unit 2,wind,wind,0.5273439999999999,53.265213,Lincs Offshore Wind Farm
-T_LNCSW-3,LNCSW-3,LNCSW,Lincs Wind Farm (Onshore),wind,wind,0.5273439999999999,53.265213,Lincs Offshore Wind Farm
+T_KLGLW-1,KLGLW-1,KLGLW,Kilgallioch Wind Farm,wind,wind,-4.76528,55.05,Kilgallioch Wind Farm
+T_LNCSW-1,LNCSO-1,LNCSW,Lincs Offshore Wind Farm Unit 1,wind,wind,0.527344,53.265213,Lincs Offshore Wind Farm
+T_LNCSW-2,LNCSO-2,LNCSW,Lincs Offshore Wind Farm Unit 2,wind,wind,0.527344,53.265213,Lincs Offshore Wind Farm
+T_LNCSW-3,LNCSW-3,LNCSW,Lincs Wind Farm (Onshore),wind,wind,0.527344,53.265213,Lincs Offshore Wind Farm
 T_LCLTW-1,LCLTW-1,LCLTW,Lochluichart Windfarm,wind,wind,-4.559326,57.73935,Lochluichart Windfarm
-T_LARYW-1,LARYO-1,LARYW,London Array Windfarm Unit 1,wind,wind,1.3623049999999999,51.645294,London Array Windfarm
-T_LARYW-2,LARYO-2,LARYW,London Array Windfarm Unit 2,wind,wind,1.3623049999999999,51.645294,London Array Windfarm
-T_LARYW-3,LARYO-3,LARYW,London Array Windfarm Unit 3,wind,wind,1.3623049999999999,51.645294,London Array Windfarm
-T_LARYW-4,LARYO-4,LARYW,London Array Windfarm Unit 4,wind,wind,1.3623049999999999,51.645294,London Array Windfarm
+T_LARYW-1,LARYO-1,LARYW,London Array Windfarm Unit 1,wind,wind,1.362305,51.645294,London Array Windfarm
+T_LARYW-2,LARYO-2,LARYW,London Array Windfarm Unit 2,wind,wind,1.362305,51.645294,London Array Windfarm
+T_LARYW-3,LARYO-3,LARYW,London Array Windfarm Unit 3,wind,wind,1.362305,51.645294,London Array Windfarm
+T_LARYW-4,LARYO-4,LARYW,London Array Windfarm Unit 4,wind,wind,1.362305,51.645294,London Array Windfarm
 T_MKHLW-1,MKHLW-1,MKHLW,Mark Hill Windfarm,wind,wind,-4.822998,55.160043,Mark Hill Windfarm
-2__PSTAT002,MDHLW-1,PSTAT002,Mid Hill Windfarm,wind,wind,-2.482026,56.964684999999996,Mid Hill Windfarm
-T_MILWW-1,MILWW-1,MILWW,Millennium Wind Farm,wind,wind,-4.866943,57.219607999999994,Millennium Wind Farm
-T_MYGPW-1,MYGPW-1,MYGPW,Minnygap Wind Farm,wind,wind,-3.5148019999999995,55.248768000000005,Minnygap Wind Farm
+2__PSTAT002,MDHLW-1,PSTAT002,Mid Hill Windfarm,wind,wind,-2.482026,56.964685,Mid Hill Windfarm
+T_MILWW-1,MILWW-1,MILWW,Millennium Wind Farm,wind,wind,-4.866943,57.219608,Millennium Wind Farm
+T_MYGPW-1,MYGPW-1,MYGPW,Minnygap Wind Farm,wind,wind,-3.514802,55.248768,Minnygap Wind Farm
 E_MINSW-1,MINSW-1,MINSW,Minsca Wind Farm,wind,wind,-3.47168,55.040614,Minsca Wind Farm
 E_MOYE-1,,MOYE,Moy Windfarm,wind,wind,-4.064872,57.390303,Moy Windfarm
-E_MOYEW-1,MOYEW-1,MOYEW,Moy Windfarm,wind,wind,-4.052356,57.39099399999999,Moy Windfarm
+E_MOYEW-1,MOYEW-1,MOYEW,Moy Windfarm,wind,wind,-4.052356,57.390994,Moy Windfarm
 E_OMNDW-1,OMNDW-1,OMNDW,Ormonde Windfarm,wind,wind,-3.4,54.1,Ormonde Windfarm
 E_OMNDD-1,OMNDD-1,OMNDD,Ormonde Windfarm Demand,wind,wind,-3.4,54.1,Ormonde Windfarm Demand
 T_OMNDW-1,OMNDO-1,OMNDW,Ormonde Windfarm Unit 1,wind,wind,-3.4,54.1,Ormonde Windfarm
 2__PPGEN002,PAUHW-1,PPGEN002,Pauls Hill Windfarm,wind,wind,-3.458196,57.451933,Pauls Hill Windfarm
-T_PNYCW-1,PNYCW-1,PNYCW,Pen y Cymoedd Wind Farm,wind,wind,-3.5613580000000002,51.710658,Pen y Cymoedd Wind Farm
+T_PNYCW-1,PNYCW-1,PNYCW,Pen y Cymoedd Wind Farm,wind,wind,-3.561358,51.710658,Pen y Cymoedd Wind Farm
 T_RCBKO-1,RCBKO-1,RCBKO,Race Bank Offshore Wind Farm Unit 1,wind,wind,0.841,53.276,Race Bank Offshore Wind Farm
 T_RCBKO-2,RCBKO-2,RCBKO,Race Bank Offshore Wind Farm Unit 2,wind,wind,0.841,53.276,Race Bank Offshore Wind Farm
 T_RMPNO-1,RMPNO-1,RMPNO,Rampion Offshore Windfarm 1,wind,wind,-0.27,50.67,Rampion Offshore Windfarm
 T_RMPNO-2,RMPNO-2,RMPNO,Rampion Offshore Windfarm 2,wind,wind,-0.27,50.67,Rampion Offshore Windfarm
-T_RREW-1,RREW-1,RREW,Robin Rigg East,wind,wind,-3.7166669999999997,54.75,Robin Rigg East
-T_RRWW-1,RRWW-1,RRWW,Robin Rigg West,wind,wind,-3.7166669999999997,54.75,Robin Rigg West
-2__PPGEN001,CAIRW-1,PPGEN001,Rothes (Cairn Uish) Wind Farm,wind,wind,-3.063895,57.504968000000005,Rothes (Cairn Uish) Wind Farm
-T_SANQW-1,SANQW-1,SANQW,Sanquhar Community Wind Farm Generation,wind,wind,-4.023363,55.322672999999995,Sanquhar Community Wind Farm Generation
+T_RREW-1,RREW-1,RREW,Robin Rigg East,wind,wind,-3.716667,54.75,Robin Rigg East
+T_RRWW-1,RRWW-1,RRWW,Robin Rigg West,wind,wind,-3.716667,54.75,Robin Rigg West
+2__PPGEN001,CAIRW-1,PPGEN001,Rothes (Cairn Uish) Wind Farm,wind,wind,-3.063895,57.504968,Rothes (Cairn Uish) Wind Farm
+T_SANQW-1,SANQW-1,SANQW,Sanquhar Community Wind Farm Generation,wind,wind,-4.023363,55.322673,Sanquhar Community Wind Farm Generation
 E_SHRSW-1,SHRSW-1,SHRSW,Sheringham Shoals Windfarm Unit 1,wind,wind,1.147,53.135,Sheringham Shoals Windfarm  1
 T_SHRSW-1,SHRSO-1,SHRSW,Sheringham Shoals Windfarm Unit 1,wind,wind,1.147,53.135,Sheringham Shoals Windfarm  1
 E_SHRSW-2,SHRSW-2,SHRSW,Sheringham Shoals Windfarm Unit 2,wind,wind,1.147,53.135,Sheringham Shoals Windfarm  1
 T_SHRSW-2,SHRSO-2,SHRSW,Sheringham Shoals Windfarm Unit 2,wind,wind,1.147,53.135,Sheringham Shoals Windfarm  1
-T_STRNW-1,STRNW-1,STRNW,Strathy North Wind Farm 1,wind,wind,-3.89086,58.385270999999996,Strathy North Wind Farm 1
+T_STRNW-1,STRNW-1,STRNW,Strathy North Wind Farm 1,wind,wind,-3.89086,58.385271,Strathy North Wind Farm 1
 E_THNTW-2,THNTW-2,THNTW,Thanet Offshore Wind 2,wind,wind,1.6331,51.4306,Thanet Offshore Wind
 T_THNTO-1,THNTO-1,THNTO,Thanet Offshore Windfarm Unit 1,wind,wind,1.461182,51.385495,Thanet Offshore Windfarm
 T_THNTO-2,THNTO-2,THNTO,Thanet Offshore Windfarm Unit 2,wind,wind,1.461182,51.385495,Thanet Offshore Windfarm
 E_THNTW-1,THNTW-1,THNTW,Thanet Offshore Wind Unit 1,wind,wind,1.6331,51.4306,Thanet Offshore Wind
 T_TDBNW-1,TDBNW-1,TDBNW,Toddleburn Wind Farm,wind,wind,-2.81,55.77,Toddleburn Wind Farm
-E_TULWW-1,TULWW-1,TULWW,Tullo Windfarm,wind,wind,-2.581787,56.662265000000005,Tullo
-E_TULWW-2,TULWW-2,TULWW,Tullow Windfarm Extension,wind,wind,-2.581787,56.662265000000005,Tullo
-T_WLNYO-3,WLNYO-3,WLNYO,Walney Offshore Windfarm (Extension),wind,wind,-3.6035160000000004,53.981935,Walney Offshore Windfarm (Extension)
-T_WLNYO-4,WLNYO-4,WLNYO,Walney Offshore Windfarm (Extension),wind,wind,-3.6035160000000004,53.981935,Walney Offshore Windfarm (Extension)
+E_TULWW-1,TULWW-1,TULWW,Tullo Windfarm,wind,wind,-2.581787,56.662265,Tullo
+E_TULWW-2,TULWW-2,TULWW,Tullow Windfarm Extension,wind,wind,-2.581787,56.662265,Tullo
+T_WLNYO-3,WLNYO-3,WLNYO,Walney Offshore Windfarm (Extension),wind,wind,-3.603516,53.981935,Walney Offshore Windfarm (Extension)
+T_WLNYO-4,WLNYO-4,WLNYO,Walney Offshore Windfarm (Extension),wind,wind,-3.603516,53.981935,Walney Offshore Windfarm (Extension)
 T_WLNYW-1,WLNYW-1,WLNYW1,Walney Offshore Windfarm Unit 1,wind,wind,-3.522,54.044,Walney Offshore Windfarm  1
 E_WLNYW-2,WLNYW-2,WLNYW2,Walney Offshore Windfarm Unit 2,wind,wind,-3.522,54.044,Walney Offshore Windfarm  2
-T_WLNYO-2,WLNYO-2,WLNYO,Walney Offshore Windfarm Unit 2,wind,wind,-3.6035160000000004,53.981935,Walney Offshore Windfarm (Extension)
-T_WTMSO-1,WTMSO-1,WTMSO,Westermost Rough Windfarm,wind,wind,0.6811520000000001,53.943155000000004,Westermost Rough Windfarm
+T_WLNYO-2,WLNYO-2,WLNYO,Walney Offshore Windfarm Unit 2,wind,wind,-3.603516,53.981935,Walney Offshore Windfarm (Extension)
+T_WTMSO-1,WTMSO-1,WTMSO,Westermost Rough Windfarm,wind,wind,0.681152,53.943155,Westermost Rough Windfarm
 T_WTMSD-1,WTMSD-1,WTMSD,Westermost Rough Windfarm Onshore Demand,wind,wind,0.149,53.805,Westermost Rough Windfarm Onshore Demand
 T_WDNSO-1,WDNSO-1,WDNSO,West of Duddon Sands 1 - OFTO,wind,wind,-3.768311,53.923751,West of Duddon Sands
-T_WDNSW-1,WDNSW-1,WDNSW,West of Duddon Sands 1 Windfarm,wind,wind,-3.463,53.983000000000004,West of Duddon Sands
+T_WDNSW-1,WDNSW-1,WDNSW,West of Duddon Sands 1 Windfarm,wind,wind,-3.463,53.983,West of Duddon Sands
 T_WDNSO-2,WDNSO-2,WDNSO,West of Duddon Sands 2 - OFTO,wind,wind,-3.768311,53.923751,West of Duddon Sands
-T_WDNSW-2,WDNSW-2,WDNSW,West of Duddon Sands 2 Windfarm,wind,wind,-3.463,53.983000000000004,West of Duddon Sands
-T_WHILW-1,WHILW-1,WHILW1,Whitelee Wind Farm,wind,wind,-4.042969,55.702355000000004,Whitelee Wind Farm
-T_WHILW-2,WHILW-2,WHILW2,Whitelee Windfarm Extension,wind,wind,-4.042969,55.702355000000004,Whitelee Windfarm Extension
+T_WDNSW-2,WDNSW-2,WDNSW,West of Duddon Sands 2 Windfarm,wind,wind,-3.463,53.983,West of Duddon Sands
+T_WHILW-1,WHILW-1,WHILW1,Whitelee Wind Farm,wind,wind,-4.042969,55.702355,Whitelee Wind Farm
+T_WHILW-2,WHILW-2,WHILW2,Whitelee Windfarm Extension,wind,wind,-4.042969,55.702355,Whitelee Windfarm Extension
 2__AANGE001,,AANGE,,aggregator,,,,
 2__AFLEX001,,AFLEX,,aggregator,,,,
 2__ALIME000,,ALIME,,aggregator,,,,
@@ -487,8 +487,8 @@ E_LSTWY-1,,LSTWY,,rgt,,,,
 E_RDFRB-1,,RDFRB,,rgt,,,,
 E_RDFRD-1,,RDFRD,,rgt,,,,
 E_ROOSB-1,,ROOSB,,battery,,,,
-T_STLGW-1,,STLGW,Stronelairg Windfarm 1,wind,,-4.461346,57.09986899999999,Stronelairg Windfarm
-T_STLGW-2,,STLGW,Stronelairg Windfarm 3,wind,,-4.461346,57.09986899999999,Stronelairg Windfarm
+T_STLGW-1,,STLGW,Stronelairg Windfarm 1,wind,,-4.461346,57.099869,Stronelairg Windfarm
+T_STLGW-2,,STLGW,Stronelairg Windfarm 3,wind,,-4.461346,57.099869,Stronelairg Windfarm
 E_TDRVE-1,,TDRVE,,rgt,,,,
 E_TRFPK-1,,TRFPK,,rgt,,,,
 E_WTRLN-1,,WTRLN,,rgt,,,,

@@ -176,7 +176,7 @@ osuked_id,esail_id,gppd_idnr,name,sett_bmu_id,longitude,latitude,fuel_type,capac
 10174,CRGHW,GBR0004619,Carraig Gheal Wind Farm,T_CRGHW-1,-4.790039,56.389584,wind,46.0
 10175,CLFLW,,Clachan Flats Windfarm,E_CLFLW-1,-4.957855,56.283062,wind,
 10176,CLDRW,GBR0004623,Clashindarroch Wind Farm,E_CLDRW-1,-2.9223630000000003,57.308724,wind,36.9
-10177,CLDW,GBR0004178,"Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm","T_CLDCW-1, T_CLDNW-1, T_CLDSW-1",-3.35083,55.310391,wind,172.8
+10177,CLDW,GBR0004178,"Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm","T_CLDCW-1, T_CLDNW-1, T_CLDSW-1",-3.35083,55.310391,wind,522.0
 10178,CGTHW,GBR0004664,Corriegarth Wind Farm,T_CGTHW-1,-4.3596379999999995,57.190084999999996,wind,69.0
 10179,CRMLW,GBR0004120,Corriemoillie Wind Farm,T_CRMLW-1,-4.838531,57.694244999999995,wind,47.5
 10180,COUWW,,Cour Wind Farm,T_COUWW-1,-5.484929,55.680679000000005,wind,

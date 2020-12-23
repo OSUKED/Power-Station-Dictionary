@@ -5,7 +5,6 @@ __all__ = ['app', 'get_current_package_version', 'increment_package_version', 's
 # Cell
 import os
 import typer
-import dotenv
 from warnings import warn
 from configparser import ConfigParser
 

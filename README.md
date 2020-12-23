@@ -4,11 +4,11 @@
 
 <br>
 
-> This repository exposes a power station dictionary that enables mapping between various naming conventions and associated plant metadata
+> A power station dictionary that enables mapping between various naming conventions and associated plant metadata
 
 <br>
 
-The core output of this project is a clean power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. The `powerdict` module provides a programmatic way in which to combine the raw datasets and apply any additional updates specified in the files contained within the three data directories:
+The core output of this project is a clean power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. Currently the focus of this work are plants within the GB power system. The `powerdict` module provides a programmatic way in which to combine the raw datasets and apply any additional updates specified in the files contained within the three data directories:
 
 - _raw_ - source datasets as csvs
 - _updates_ - JSON mappings from an osuked_id to a new attribute value
@@ -31,12 +31,18 @@ pip install powerdict
 
 ### Development Set-Up
 
-To create a new environment you can follow the following code blocks or run the `setup_env` batch script located in the batch_scripts directory.
+To set-up a new environment you can run the following from the batch_scripts directory
 
+```bash
+pypi_publish
 ```
-git clone
-conda env create -f environment.yml
-conda activate powerdict
+
+Alternatively you can run these commands
+
+```bash
+call conda env create -f environment.yml
+call conda activate PowerDict
+call ipython kernel install --user --name=PowerDict
 ```
 
 <br>
@@ -47,6 +53,14 @@ To publish the `powerdict` module to PyPi simply run the following from the batc
 
 ```bash
 pypi_publish
+```
+
+or follow these commands
+
+```bash
+call conda activate PowerDict
+call python setup.py sdist bdist_wheel
+call twine upload --skip-existing dist/*
 ```
 
 When prompted you should enter your PyPi username and password

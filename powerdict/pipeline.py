@@ -13,8 +13,11 @@ from dagster import execute_pipeline, pipeline, solid, Field
 
 # Cell
 @solid()
-def download_source_data(_, raw_data_dir: str):
-    download.download_opsd_power_plants_data(raw_data_dir)
+def download_source_data(context, raw_data_dir: str):
+    try:
+        download.download_opsd_power_plants_data(raw_data_dir)
+    except:
+        context.log.info('Source data could not be updated, will proceed with existing raw data sources')
 
     return
 

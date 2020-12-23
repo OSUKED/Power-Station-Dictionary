@@ -11,12 +11,38 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      # ... should have this part reconstruct the docs and push to gh-pages
-      - name: "Build & test"
+      - uses: actions/checkout@master
+        
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+        
+      - name: Install the module and construct the dataset
+        shell: bash
         run: |
-          echo "done!"
+          python -m pip install --upgrade pip
+          pip install -e .
+          dagster pipeline execute -m powerdict.pipeline -c pipeline_inputs.yaml
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Create latest distribution
+        run: python setup.py sdist bdist_wheel 
+        
+      - name: Get tag version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} 
+        
+      - name: Set PyPi version as tag
+        run: python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
+
+      - name: Publish package to PyPi
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Update release on GitHub
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false

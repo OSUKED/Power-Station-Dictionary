@@ -4,6 +4,7 @@ __all__ = ['app', 'get_current_package_version', 'increment_package_version', 's
 
 # Cell
 import os
+import re
 import typer
 import logging
 from warnings import warn
@@ -42,6 +43,8 @@ def increment_package_version(old_version: str, increment_level: str='micro'):
 # Cell
 @app.command()
 def set_current_package_version(version: str, settings_fp: str='settings.ini'):
+    version = version.replace('v', '')
+
     config = ConfigParser(delimiters=['='])
     config.read(settings_fp)
 
@@ -50,7 +53,9 @@ def set_current_package_version(version: str, settings_fp: str='settings.ini'):
     with open(settings_fp, 'w') as configfile:
         config.write(configfile)
 
-    logging.info(f'The package version has to be updated to {version}')
+    logger = logging.getLogger('package_release')
+    logger.setLevel('INFO')
+    logger.info(f'The package version has to be updated to {version}')
 
     return
 

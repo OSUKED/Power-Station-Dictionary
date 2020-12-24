@@ -1,9 +1,5 @@
 name: generate_output_dataset
-on: 
-  push:
-    tags-ignore:
-      - 'v*'
-  workflow_dispatch: 
+on: [push, workflow_dispatch]
 
 jobs:
   miniconda:

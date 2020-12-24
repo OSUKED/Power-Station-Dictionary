@@ -18,13 +18,6 @@ jobs:
         with:
           python-version: 3.7
         
-      - name: Get tag version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} 
-        
-      - name: Set PyPi version as tag
-        run: python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
-        
       - name: Install the module and construct the dataset
         shell: bash
         run: |
@@ -34,7 +27,14 @@ jobs:
           dagster pipeline execute -m powerdict.pipeline -c pipeline_configs/generate_output_dataset.yaml
 
       - name: Create latest distribution
-        run: python setup.py sdist bdist_wheel
+        run: python setup.py sdist bdist_wheel 
+        
+      - name: Get tag version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} 
+        
+      - name: Set PyPi version as tag
+        run: python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
 
       - name: Publish package to PyPi
         uses: pypa/gh-action-pypi-publish@master

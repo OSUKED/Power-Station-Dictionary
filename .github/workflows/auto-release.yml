@@ -34,21 +34,20 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} 
         
       - name: Set PyPi version as tag
-        run: python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
+        run: |
+          python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
+          pip install -e . # reinstalling with new version number
 
-#       - name: Publish package to PyPi
-#         uses: pypa/gh-action-pypi-publish@master
-#         with:
-#           user: __token__
-#           password: ${{ secrets.PYPI_API_TOKEN }}
+      - name: Publish package to PyPi
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
-#       - name: Update release on GitHub
-#         uses: "marvinpinto/action-automatic-releases@latest"
-#         with:
-#           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#           prerelease: false
-#           files: |
-#             LICENSE.txt
-      
-      - name: Saving changes to repo
-        uses: stefanzweifel/git-auto-commit-action@v4 
+      - name: Update release on GitHub
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            LICENSE.txt

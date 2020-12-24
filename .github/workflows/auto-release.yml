@@ -24,19 +24,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install wheel
           pip install -e .
-          dagster pipeline execute -m powerdict.pipeline -c pipeline_configs/generate_output_dataset.yaml
-
-      - name: Create latest distribution
-        run: python setup.py sdist bdist_wheel 
+          dagster pipeline execute -m powerdict.pipeline -c pipeline_configs/generate_output_dataset.yaml 
         
       - name: Get tag version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//} 
         
       - name: Set PyPi version as tag
+        run: python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
+
+      - name: Create latest distribution
         run: |
-          python -m powerdict.cicd set-current-package-version ${{ steps.get_version.outputs.VERSION }}
           pip install -e . # reinstalling with new version number
+          python setup.py sdist bdist_wheel
 
       - name: Publish package to PyPi
         uses: pypa/gh-action-pypi-publish@master

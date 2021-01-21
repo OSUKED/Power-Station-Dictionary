@@ -335,8 +335,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#construction-steps" class="md-nav__link">
-    Construction Steps
+  <a href="#dictionary-generation-pipeline" class="md-nav__link">
+    Dictionary Generation Pipeline
   </a>
   
 </li>
@@ -519,8 +519,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#construction-steps" class="md-nav__link">
-    Construction Steps
+  <a href="#dictionary-generation-pipeline" class="md-nav__link">
+    Dictionary Generation Pipeline
   </a>
   
 </li>
@@ -547,6 +547,14 @@
 <h3 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h3>
 <p><br></p>
 <h3 id="inputoutput-definitions">Input/Output Definitions<a class="headerlink" href="#inputoutput-definitions" title="Permanent link">&para;</a></h3>
+<p>Each of the source datasets has a matching input specification file stored under <code>data/definitions</code>. The specification is stored in a JSON format and contains the following key:value pairs.</p>
+<ul>
+<li>filename: name of the source csv file (stored under <code>data/raw</code>)</li>
+<li>key_input_col: the name of the column in the source file that contains the ids that will be used to join the source to the dictionary</li>
+<li>key_output_col: the name of the column in the output dictionary that will contain the relevant source ids</li>
+<li>key_map: a mapping from the unique <code>osuked_id</code> to the relevant source id</li>
+<li>attr_cols: a description of how to programmatically add the specified attribute columns to the output dictionary, including its name, rank (0 has higher priority), and value_map to be used if some of the values are to be standardised into another form</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;GPPDB.csv&quot;</span><span class="p">,</span> 
     <span class="nt">&quot;key_input_col&quot;</span><span class="p">:</span> <span class="s2">&quot;gppd_idnr&quot;</span><span class="p">,</span> 
@@ -568,6 +576,8 @@
 <span class="p">}</span>
 </code></pre></div>
 
+<p><br></p>
+<p>As well as having JSON specifications for the inputs, we employ a similar approach with the outputs. The <code>outputs.json</code> file specifies the datatypes of the output columns, and in the case of categorical data fields can be used to ensure that only expected categories are returned.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
     <span class="nt">&quot;sett_bmu_id&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
@@ -591,7 +601,8 @@
 </code></pre></div>
 
 <p><br></p>
-<h3 id="construction-steps">Construction Steps<a class="headerlink" href="#construction-steps" title="Permanent link">&para;</a></h3>
+<h3 id="dictionary-generation-pipeline">Dictionary Generation Pipeline<a class="headerlink" href="#dictionary-generation-pipeline" title="Permanent link">&para;</a></h3>
+<p>The following steps described the automated pipeline that constructs the power station dictionary, this is run automatically whenever changes are pushed to the repository.</p>
 <ol>
 <li>Download the latest versions of the external datasets</li>
 <li>Load the JSON source definitions and identify which of their columns will be used for key matching and which will be used for populating the power plant attributes </li>
@@ -600,7 +611,7 @@
 <li>The JSON files specifying corrections/updates are then loaded in and applied to each output column in turn</li>
 <li>Finally the generated dataset is saved as a csv</li>
 </ol>
-<p>Whilst the mapping between the <code>osuked_id</code> and source id keys must be one-to-one, the mapping between source id keys and attributes can be one-to-one, one-to-many, or many-to-one.</p>
+<p>N.b. Whilst the mapping between the <code>osuked_id</code> and source id keys must be one-to-one, the mapping between source id keys and attributes can be one-to-one, one-to-many, or many-to-one.</p>
                 
               
               

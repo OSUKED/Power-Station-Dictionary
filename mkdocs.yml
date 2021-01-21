@@ -1,5 +1,6 @@
 site_name: Power-Station-Dictionary
 repo_url: https://github.com/OSUKED/Power-Station-Dictionary
+edit_uri: edit/main/docs/
 repo_name: Power-Station-Dictionary
 theme:
   name: material

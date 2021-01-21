@@ -444,300 +444,3192 @@
                 
                 
                 <h1 id="dictionary">Dictionary<a class="headerlink" href="#dictionary" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>&lt;br&gt;
-
-|   osuked_id | esail_id   | gppd_idnr   | name                                                               | sett_bmu_id                                                                    |   longitude |   latitude | fuel_type     |   capacity_mw |
-</code></pre></div>
-
-<p>|------------:|:-----------|:------------|:-------------------------------------------------------------------|:-------------------------------------------------------------------------------|------------:|-----------:|:--------------|--------------:|
-|       10000 | MARK       | nan         | Rothes Bio-Plant CHP                                               | E_MARK-1, E_MARK-2                                                             |   -3.60352  |    57.4804 | biomass       |       nan     |
-|       10001 | DIDC       | nan         | Didcot A (G)                                                       | T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3                                             |   -1.26757  |    51.6236 | coal          |       nan     |
-|       10002 | ABTH       | GBR1000374  | Aberthaw B                                                         | T_ABTH7, T_ABTH8, T_ABTH9                                                      |   -3.40487  |    51.3873 | coal          |      1586     |
-|       10003 | COTPS      | GBR1000142  | Cottam                                                             | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4                                     |   -0.648193 |    53.2455 | coal          |      2008     |
-|       10004 | DRAXX      | GBR0000174  | Drax                                                               | T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_DRAXX-5, T_DRAXX-6               |   -0.626221 |    53.7487 | coal, biomass |      1980     |
-|       10005 | EGGPS      | GBR1000147  | Eggborough                                                         | T_EGGPS-1, T_EGGPS-2, T_EGGPS-3, T_EGGPS-4                                     |   -0.834961 |    53.7097 | coal          |      1960     |
-|       10006 | FERR       | nan         | Ferrybridge C                                                      | T_FERR-3, T_FERR-4, T_FERR-1, T_FERR-2                                         |   -1.03272  |    53.7357 | coal          |       nan     |
-|       10007 | FIDL       | nan         | Fiddlers Ferry                                                     | T_FIDL-1, T_FIDL-2, T_FIDL-3, T_FIDL-4                                         |   -2.82349  |    53.3506 | coal          |       nan     |
-|       10008 | FIFO       | nan         | Fifoots                                                            | T_FIFO-13, T_FIFO-14, T_FIFO-15                                                |   -2.97054  |    51.5491 | coal          |       nan     |
-|       10009 | LOAN       | nan         | Longannet                                                          | T_LOAN-1, T_LOAN-2, T_LOAN-3, T_LOAN-4                                         |   -3.43872  |    56.0475 | coal          |       nan     |
-|       10010 | LYNE       | nan         | Lynemouth Generator                                                | E_LYNE1, E_LYNE2, E_LYNE3                                                      |   -1.52083  |    55.2042 | coal          |       nan     |
-|       10011 | RATS       | GBR1000496  | Ratcliffe on Soar                                                  | T_RATS-1, T_RATS-2, T_RATS-3, T_RATS-4                                         |   -1.21948  |    52.8559 | coal          |      2000     |
-|       10012 | RUGPS      | nan         | Rugeley B                                                          | T_RUGPS-6, T_RUGPS-7                                                           |   -1.94458  |    52.7296 | coal          |       nan     |
-|       10013 | USKM       | GBR2000811  | Uskmouth                                                           | T_USKM-13, T_USKM-14, T_USKM-15                                                |   -3.04321  |    51.6112 | coal          |       230     |
-|       10014 | WBUPS      | GBR1000143  | West Burton A                                                      | T_WBUPS-1, T_WBUPS-2, T_WBUPS-3, T_WBUPS-4                                     |   -0.53833  |    53.3637 | coal          |      2012     |
-|       10015 | COCK       | nan         | Cockenzie                                                          | T_COCK-1, T_COCK-2, T_COCK-3, T_COCK-4                                         |   -2.9684   |    55.9685 | coal          |       nan     |
-|       10016 | DRKPS      | nan         | Drakelow                                                           | T_DRKPS-9, T_DRKPS-10, T_DRKPS-12                                              |   -1.65681  |    52.7736 | coal          |       nan     |
-|       10017 | HMRPS      | nan         | High Marnham                                                       | T_HMRPS-1, T_HMRPS-2, T_HMRPS-3, T_HMRPS-4, T_HMRPS-5                          |   -0.792565 |    53.229  | coal          |       nan     |
-|       10018 | IRNPS      | nan         | Ironbridge B                                                       | T_IRNPS-1, T_IRNPS-2                                                           |   -2.50488  |    52.603  | coal          |       nan     |
-|       10019 | KINO       | nan         | Kingsnorth                                                         | T_KINO-1, T_KINO-2, T_KINO-3, T_KINO-4                                         |    0.602702 |    51.4189 | coal          |       nan     |
-|       10020 | TILB       | nan         | Tilbury B                                                          | T_TILB10, T_TILB-7, T_TILB-8, T_TILB-9                                         |    0.391677 |    51.4549 | coal          |       nan     |
-|       10021 | BAGE       | GBR1000312  | Baglan Bay                                                         | T_BAGE-1, T_BAGE-2                                                             |   -5.03174  |    51.7202 | gas           |       520     |
-|       10022 | BARK       | nan         | Barking 2 MGT stage 1                                              | T_BARK-1                                                                       |    0.153809 |    51.5566 | gas           |       nan     |
-|       10023 | BARKB      | nan         | Barking 2 MGT stage 2                                              | T_BARKB2                                                                       |    0.147    |    51.521  | gas           |       nan     |
-|       10024 | BRYP       | GBR2000125  | Barry                                                              | E_BRYP-1                                                                       |   -3.33984  |    51.3718 | gas           |       235     |
-|       10025 | AESB       | nan         | Barry (Under AES Ownership)                                        | E_AESB-1                                                                       |   -3.22871  |    51.4081 | gas           |       nan     |
-|       10026 | BRGG       | GBR2000126  | Brigg                                                              | E_BRGG-1                                                                       |   -0.32959  |    53.4423 | gas           |       150     |
-|       10027 | CARR       | GBR2000124  | Carrington                                                         | T_CARR-1, T_CARR-2                                                             |   -2.50488  |    53.4553 | gas           |       900     |
-|       10028 | MPGEN002   | GBR1000113  | Castleford CCGT                                                    | 2__MPGEN002                                                                    |   -1.34304  |    53.7319 | gas           |        56     |
-|       10029 | CNQPS      | GBR1000492  | Connahs Quay                                                       | T_CNQPS-1, T_CNQPS-2, T_CNQPS-3, T_CNQPS-4                                     |   -3.08065  |    53.2319 | gas           |      1380     |
-|       10030 | CORB       | GBR1000077  | Corby                                                              | E_CORB-1                                                                       |   -0.86792  |    52.248  | gas           |       401     |
-|       10031 | COSO       | GBR1000211  | Coryton                                                            | T_COSO-1                                                                       |    0.834961 |    51.5429 | gas           |       800     |
-|       10032 | CDCL       | GBR1000493  | Cottam Development Centre Limited                                  | T_CDCL-1                                                                       |   -0.86792  |    53.2192 | gas           |       395     |
-|       10033 | DAMC       | GBR1000465  | Damhead Creek                                                      | T_DAMC-1                                                                       |    0.549316 |    51.4609 | gas           |       805     |
-|       10034 | DEEP       | GBR2000262  | Deeside                                                            | T_DEEP-1                                                                       |   -3.20801  |    53.1402 | gas           |       515     |
-|       10035 | DIDCB      | GBR1000369  | Didcot B                                                           | T_DIDCB5, T_DIDCB6                                                             |   -1.26757  |    51.6236 | gas           |      1470     |
-|       10036 | EECL       | GBR1000494  | Enfield Energy                                                     | T_EECL-1                                                                       |   -0.022763 |    51.6623 | gas           |       408     |
-|       10037 | FIFE       | nan         | Fife CCGT                                                          | T_FIFE-1                                                                       |   -3.3061   |    56.1689 | gas           |       nan     |
-|       10038 | GYAR       | GBR1000370  | Great Yarmouth                                                     | E_GYAR-1                                                                       |    1.62598  |    52.5964 | gas           |       420     |
-|       10039 | KEAD       | nan         | Keadby                                                             | T_KEAD-1                                                                       |   -0.494385 |    53.586  | gas           |       nan     |
-|       10040 | KILNS      | GBR1000500  | Killingholme 1                                                     | T_KILNS-1                                                                      |   -0.25511  |    53.6595 | gas           |       600     |
-|       10041 | KILLPG     | nan         | Killingholme 2                                                     | T_KILLPG-1, T_KILLPG-2                                                         |   -0.25511  |    53.6595 | gas           |       nan     |
-|       10042 | KLYNA      | nan         | Kings Lynn                                                         | E_KLYN-A-1                                                                     |    0.380117 |    52.7273 | gas           |       nan     |
-|       10043 | LAGA       | GBR1000073  | Langage                                                            | T_LAGA-1                                                                       |   -3.96606  |    50.4925 | gas           |       905     |
-|       10044 | LBAR       | GBR1000371  | Little Barford                                                     | T_LBAR-1                                                                       |   -0.230713 |    52.2211 | gas           |       720     |
-|       10045 | MRWD       | GBR1000311  | Marchwood                                                          | T_MRWD-1                                                                       |   -1.35132  |    50.903  | gas           |       842     |
-|       10046 | MEDP       | GBR1000437  | Medway                                                             | T_MEDP-1                                                                       |    0.889893 |    51.3786 | gas           |       700     |
-|       10047 | PEMB       | GBR1000372  | Pembroke Power Station -                                           | T_PEMB-11, T_PEMB-21, T_PEMB-31, T_PEMB-41, T_PEMB-51                          |   -4.99638  |    51.6844 | gas           |      2180     |
-|       10048 | PETEM      | GBR2000128  | Peterborough                                                       | E_PETEM1                                                                       |   -0.204697 |    52.5769 | gas           |       240     |
-|       10049 | ROCK       | GBR1000212  | Rocksavage                                                         | T_ROCK-1                                                                       |   -2.59277  |    53.3309 | gas           |       810     |
-|       10050 | ROOS       | nan         | Roosecote                                                          | E_ROOS-1                                                                       |   -3.15308  |    54.156  | gas           |       nan     |
-|       10051 | RYHPS      | GBR1000466  | Rye House                                                          | T_RYHPS-1                                                                      |   -0.285645 |    51.8154 | gas           |       715     |
-|       10052 | SCCL       | GBR2000263  | Saltend South                                                      | T_SCCL-1, T_SCCL-2, T_SCCL-3                                                   |   -0.131836 |    53.8331 | gas           |      1200     |
-|       10053 | SEAB       | GBR1000480  | Seabank                                                            | T_SEAB-1, T_SEAB-2                                                             |   -2.61475  |    51.4814 | gas           |       410     |
-|       10054 | SVRP       | GBR1000313  | Severn Power                                                       | T_SVRP-10, T_SVRP-20                                                           |   -3.06519  |    51.7406 | gas           |       850     |
-|       10055 | SHOS       | GBR2000769  | Shoreham                                                           | E_SHOS-1                                                                       |   -0.252686 |    50.8822 | gas           |       420     |
-|       10056 | SHBA       | GBR1000074  | South Humber Bank                                                  | T_SHBA-1, T_SHBA-2                                                             |   -0.131836 |    53.6186 | gas           |      1310     |
-|       10057 | SPLN       | GBR0006165  | Spalding                                                           | T_SPLN-1                                                                       |   -0.252686 |    52.816  | gas           |       880     |
-|       10058 | STAY       | GBR1000373  | Staythorpe                                                         | T_STAY-1, T_STAY-2, T_STAY-3, T_STAY-4                                         |   -0.98877  |    53.0412 | gas           |      1772     |
-|       10059 | SUTB       | GBR2000518  | Sutton Bridge                                                      | T_SUTB-1                                                                       |    0.098877 |    52.6231 | gas           |       819     |
-|       10060 | TESI       | GBR0002514  | Teesside                                                           | T_TESI-1, T_TESI-2                                                             |   -1.13022  |    54.5735 | gas           |        62     |
-|       10061 | MPGEN001   | GBR1000115  | Thornhill CCGT                                                     | 2__MPGEN001                                                                    |   -1.65524  |    53.6771 | gas           |        50     |
-|       10062 | WBURB      | GBR1000141  | West Burton B                                                      | T_WBURB-1, T_WBURB-2, T_WBURB-3                                                |   -0.53833  |    53.3637 | gas           |      1332     |
-|       10063 | WINN       | nan         | nan                                                                | E_WINN-1                                                                       |   -2.53469  |    53.2662 | gas           |       nan     |
-|       10064 | DERW       | nan         | Derwent                                                            | E_DERW-1                                                                       |   -1.39944  |    52.9058 | gas           |       nan     |
-|       10065 | FAWN       | nan         | Fawley Cogen                                                       | E_FAWN-1                                                                       |   -1.35143  |    50.8304 | gas           |       nan     |
-|       10066 | FELL       | GBR1000317  | Fellside                                                           | E_FELL-1                                                                       |   -1.35143  |    50.8304 | gas           |       180     |
-|       10067 | GRAI       | GBR1000495  | Grain CHP                                                          | T_GRAI-6, T_GRAI-7, T_GRAI-8, T_GRAI-1, T_GRAI-2, T_GRAI-3, T_GRAI-4           |    0.703125 |    51.4745 | gas, oil      |      1404     |
-|       10068 | GRMO       | nan         | Grangemouth CHP Ltd                                                | T_GRMO-1                                                                       |   -3.03223  |    55.9307 | gas           |       nan     |
-|       10069 | HYTHE      | nan         | Hythe CHP                                                          | E_HYTHE                                                                        |  nan        |   nan      | gas           |       nan     |
-|       10070 | HUMR       | GBR1000517  | Immingham CHP                                                      | T_HUMR-1                                                                       |    0        |    53.6902 | gas           |      1240     |
-|       10071 | DPGEN001   | GBR1000114  | Sandbach CHP                                                       | 2__DPGEN001                                                                    |   -2.40582  |    53.1654 | gas           |        56     |
-|       10072 | SHOT       | nan         | Shotton CHP                                                        | E_SHOT-1                                                                       |   -3.03265  |    53.2338 | gas           |       nan     |
-|       10073 | SLOUG      | nan         | Slough                                                             | E_SLOUG                                                                        |   -0.626267 |    51.524  | gas           |       nan     |
-|       10074 | DPGEN002   | nan         | Stoke CHP                                                          | 2__DPGEN002                                                                    |   -2.19033  |    52.9904 | gas           |       nan     |
-|       10075 | DICI1      | nan         | Weaver Power Station                                               | T__DICI002                                                                     |   -2.72541  |    53.3154 | gas           |       nan     |
-|       10076 | DICI2      | nan         | Weston Point Power Station                                         | T__DICI001                                                                     |   -2.72541  |    53.3154 | gas           |       nan     |
-|       10077 | ALDMG      | nan         | Aldershot Military Generator                                       | E_ALDMG-1                                                                      |    0.7598   |    51.2599 | oil           |       nan     |
-|       10078 | ABERDARE   | nan         | Aberdare District Energy                                           | E_ABERDARE                                                                     |   -3.44926  |    51.7112 | gas           |       nan     |
-|       10079 | BENIG      | nan         | Bentinck                                                           | E_BENIG-1                                                                      |   -1.27014  |    53.0905 | gas           |       nan     |
-|       10080 | BRIDGWTR   | nan         | Bridgewater District Energy                                        | E_BRIDGWTR                                                                     |   -3.00596  |    51.1275 | gas           |       nan     |
-|       10081 | CAYTG      | nan         | Caythorpe                                                          | E_CAYTG-1                                                                      |   -0.203475 |    54.0866 | gas           |       nan     |
-|       10082 | FAWLG      | nan         | Fawley                                                             | T_FAWL2G, T_FAWL1G, T_FAWL3G, T_FAWL4G                                         |    1.32888  |    50.8167 | gas, oil      |       nan     |
-|       10083 | FDUN       | nan         | Fort Dunlop                                                        | E_FDUN-1                                                                       |   -1.35143  |    50.8304 | gas           |       nan     |
-|       10084 | LBARG      | nan         | Little Barford OCGT                                                | T_LBAR-1G                                                                      |   -0.2689   |    52.2045 | gas           |       nan     |
-|       10085 | PEHEG      | GBR2000723  | Peterhead GT                                                       | T_PEHE-3G, T_PEHE-4G                                                           |   -1.78888  |    57.4772 | gas           |      1180     |
-|       10086 | PYEBG      | nan         | Pye Bridge                                                         | E_PYEBG-1                                                                      |   -1.34903  |    53.0714 | gas           |       nan     |
-|       10087 | REDGT      | nan         | Redditch                                                           | E_REDGT-1                                                                      |   -1.93282  |    52.3002 | gas           |       nan     |
-|       10088 | SEVINGTN   | nan         | Sevington District Energy                                          | E_SEVINGTN                                                                     |    0.907475 |    51.128  | gas           |       nan     |
-|       10089 | SOLUTIA    | nan         | Solutia District Energy                                            | E_SOLUTIA                                                                      |   -2.99832  |    51.5877 | gas           |       nan     |
-|       10090 | ABTHG      | GBR1000375  | Aberthaw B AGT                                                     | T_ABTH7G, T_ABTH8G, T_ABTH9G                                                   |   -3.40487  |    51.3873 | oil           |        51     |
-|       10091 | COWE       | GBR1000376  | Cowes                                                              | E_COWE1, E_COWE2                                                               |   -1.2864   |    50.7459 | oil           |       140     |
-|       10092 | DIDCG      | GBR1000377  | Didcot A AGT                                                       | T_DIDC1G, T_DIDC2G, T_DIDC3G, T_DIDC4G, E_DIDC1G, E_DIDC2G, E_DIDC3G, E_DIDC4G |   -1.26757  |    51.6236 | oil           |       100     |
-|       10093 | DRAXXG     | GBR1000112  | Drax AGT                                                           | T_DRAXX-10G, T_DRAXX-12G, T_DRAXX-9G                                           |   -0.999021 |    53.7375 | oil           |        75     |
-|       10094 | FERRG      | GBR0000116  | Ferrybridge C AGT                                                  | T_FERR-5G, T_FERR-8G                                                           |   -1.28058  |    53.7174 | oil           |        79     |
-|       10095 | FIDLG      | nan         | Fiddlers Ferry AGT                                                 | T_FIDL-2G, T_FIDL-3G                                                           |   -2.687    |    53.372  | oil           |       nan     |
-|       10096 | GRAIG      | GBR1000497  | Grain AGT                                                          | T_GRAI1G, T_GRAI2G, T_GRAI3G, T_GRAI4G, T_GRAI5G                               |    0.715028 |    51.4452 | oil           |        56     |
-|       10097 | INDQ       | GBR1000150  | Indian Queens                                                      | T_INDQ-1                                                                       |   -5.0647   |    50.3735 | oil           |       140     |
-|       10098 | KEADGT     | nan         | Keadby GT                                                          | T_KEADGT-3                                                                     |   -0.494385 |    53.586  | oil           |       nan     |
-|       10099 | KINOG      | nan         | Kingsnorth AGT                                                     | T_KINO1G, T_KINO4G                                                             |    0.602702 |    51.4189 | oil           |       nan     |
-|       10100 | LITTDG     | nan         | Littlebrook D AGT                                                  | T_LITTD1G, T_LITTD2G, T_LITTD3G                                                |    0.241667 |    51.4653 | oil           |       nan     |
-|       10101 | PEHE       | nan         | Peterhead                                                          | T_PEHE-1, T_PEHE-2                                                             |   -1.86768  |    57.5276 | oil           |       nan     |
-|       10102 | RATSGT     | nan         | Ratcliffe on Soar AGT                                              | T_RATSGT-2, T_RATSGT-4                                                         |   -1.21948  |    52.8559 | oil           |       nan     |
-|       10103 | RUGGT      | nan         | Rugeley B AGT                                                      | T_RUGGT-6, T_RUGGT-7                                                           |   -1.94458  |    52.7296 | oil           |       nan     |
-|       10104 | TAYLG      | GBR1000499  | Taylors Lane                                                       | E_TAYL2G, E_TAYL3G                                                             |   -0.2575   |    51.546  | oil           |       144     |
-|       10105 | TILBG      | nan         | Tilbury B AGT                                                      | T_TILB0G, T_TILB7G, T_TILB8G, T_TILB9G                                         |    0.391677 |    51.4549 | oil           |       nan     |
-|       10106 | WBUGT      | GBR1000146  | West Burton AGT                                                    | T_WBUGT-1, T_WBUGT-4                                                           |   -0.53833  |    53.3637 | oil           |        40     |
-|       10107 | CASBEU     | nan         | Beauly Cascade                                                     | M_CAS-BEU01                                                                    |   -4.55259  |    57.4447 | hydro         |       nan     |
-|       10108 | CLAC       | GBR1000401  | Clachan Power Station                                              | E_CLAC-1                                                                       |   -4.91874  |    56.2776 | hydro         |        40     |
-|       10109 | CASCLU     | GBR1000405  | Clunie Cascade                                                     | M_CAS-CLU01                                                                    |   -3.77835  |    56.7169 | hydro         |        61.2   |
-|       10110 | CASCON     | nan         | Conon Cascade                                                      | M_CAS-CON01                                                                    |   -4.83007  |    57.6192 | hydro         |       nan     |
-|       10111 | CWMD       | nan         | Cwm Dyli                                                           | E_CWMD-1                                                                       |   -4.01147  |    53.0659 | hydro         |       nan     |
-|       10112 | DOLG       | nan         | Dolgarrog                                                          | E_DOLG-1                                                                       |   -3.84267  |    53.1915 | hydro         |       nan     |
-|       10113 | DOLGH      | nan         | Dolgarrog                                                          | E_DOLG_H                                                                       |   -3.84267  |    53.1915 | hydro         |       nan     |
-|       10114 | DOLGL      | nan         | Dolgarrog                                                          | E_DOLG_L                                                                       |   -3.84267  |    53.1915 | hydro         |       nan     |
-|       10115 | ERRO       | nan         | Errochty G                                                         | T_ERRO-1, T_ERRO-2, T_ERRO-3                                                   |   -3.79028  |    56.7346 | hydro         |       nan     |
-|       10116 | FASN       | nan         | Fasnakyle G                                                        | T_FASN-1, E_FASN-2, T_FASN-2, E_FASN-3, T_FASN-3, E_FASN-4                     |   -4.7937   |    57.3259 | hydro         |       nan     |
-|       10117 | FINL       | nan         | Finlarig                                                           | T_FINL-1                                                                       |   -3.6145   |    56.28   | hydro         |       nan     |
-|       10118 | CASGAR     | nan         | Garry Cascade                                                      | M_CAS-GAR01                                                                    |   -5.28919  |    57.0661 | hydro         |       nan     |
-|       10119 | GLNDO      | GBR0000388  | Glendoe                                                            | T_GLNDO-1                                                                      |   -5.17456  |    57.1541 | hydro         |       100     |
-|       10120 | CASKIL     | nan         | Killin Cascade                                                     | M_CAS-KIL01                                                                    |   -4.30775  |    56.4707 | hydro         |       nan     |
-|       10121 | MAEN       | nan         | Maentwrog                                                          | E_MAEN-1                                                                       |   -3.97303  |    52.9207 | hydro         |       nan     |
-|       10122 | CASMOR     | nan         | Moriston Cascade                                                   | M_CAS-MOR01                                                                    |   -4.96246  |    57.1449 | hydro         |       nan     |
-|       10123 | NANT       | nan         | Nant                                                               | T_NANT-1                                                                       |   -5.25147  |    56.1639 | hydro         |       nan     |
-|       10124 | RHEI       | GBR0003552  | Rheidol                                                            | E_RHEI-1, E_RHEI-2, E_RHEI-3                                                   |   -3.8993   |    52.3962 | hydro         |        55.975 |
-|       10125 | SLOY       | GBR1000404  | Sloy G                                                             | M_SLOY-1, T_SLOY-2, T_SLOY-3, M_SLOY-4                                         |   -4.73511  |    56.2006 | hydro         |       152.5   |
-|       10126 | MANXENR    | nan         | Manx Power                                                         | E_MANXENR-1                                                                    |  nan        |   nan      | gas           |       nan     |
-|       10127 | BRWE       | nan         | Bradwell                                                           | T_BRWE-1, T_BRWE-2, T_BRWE-3, T_BRWE-4, T_BRWE-5, T_BRWE-6                     |    0.89694  |    51.7414 | nuclear       |       nan     |
-|       10128 | DUNG       | nan         | Dungeness A                                                        | T_DUNG-1, T_DUNG-2, T_DUNG-3, T_DUNG-4                                         |    0.963889 |    50.9139 | nuclear       |       nan     |
-|       10129 | DNGB       | GBR1000052  | Dungeness B                                                        | T_DNGB21, T_DNGB22                                                             |    0.963889 |    50.9139 | nuclear       |      1050     |
-|       10130 | HRTL       | GBR1000053  | Hartlepool                                                         | T_HRTL-1, T_HRTL-2                                                             |   -1.09863  |    54.6865 | nuclear       |      1180     |
-|       10131 | HEYM1      | GBR1000054  | Heysham 1                                                          | T_HEYM11, T_HEYM12                                                             |   -2.91611  |    54.0289 | nuclear       |      1155     |
-|       10132 | HEYM2      | GBR1000055  | Heysham 2                                                          | T_HEYM27, T_HEYM28                                                             |   -2.91611  |    54.0289 | nuclear       |      1230     |
-|       10133 | HINB       | GBR1000056  | Hinkley Point B                                                    | T_HINB-7, T_HINB-8                                                             |   -3.31787  |    51.138  | nuclear       |       955     |
-|       10134 | HUNB       | GBR1000057  | Hunterston Generator                                               | T_HUNB-7, T_HUNB-8                                                             |   -4.823    |    55.6466 | nuclear       |       965     |
-|       10135 | OLDS       | nan         | Oldbury                                                            | T_OLDS1, T_OLDS2                                                               |   -2.57083  |    51.6489 | nuclear       |       nan     |
-|       10136 | SIZEA      | nan         | Sizewell A                                                         | T_SIZEA1, T_SIZEA2                                                             |    1.61972  |    52.215  | nuclear       |       nan     |
-|       10137 | SIZB       | GBR1000058  | Sizewell B                                                         | T_SIZB-1, T_SIZB-2                                                             |    1.57105  |    52.1739 | nuclear       |      1198     |
-|       10138 | TORN       | GBR1000059  | Torness Generator                                                  | T_TORN-1, T_TORN-2                                                             |   -2.05444  |    55.8136 | nuclear       |      1185     |
-|       10139 | WYLF       | nan         | Wylfa                                                              | T_WYLF-1, T_WYLF-2, T_WYLF-3, T_WYLF-4                                         |   -4.40552  |    53.3702 | nuclear       |       nan     |
-|       10140 | FAWL       | nan         | Fawley                                                             | T_FAWL1, T_FAWL3, T_FAWL4                                                      |    1.32888  |    50.8167 | oil           |       nan     |
-|       10141 | LITTD      | nan         | Littlebrook D                                                      | T_LITTD1, T_LITTD2, T_LITTD3                                                   |    0.241667 |    51.4653 | oil           |       nan     |
-|       10142 | FIBRE      | nan         | Fibropower                                                         | E_FIBRE                                                                        |   -0.626267 |    51.524  | biomass       |       nan     |
-|       10143 | CRUA       | nan         | Crauchan                                                           | T_CRUA-1, T_CRUA-2, T_CRUA-3, T_CRUA-4                                         |   -5.21851  |    56.3653 | hydro         |       nan     |
-|       10144 | DINO       | GBR1000151  | Dinorwig                                                           | T_DINO-1, T_DINO-2, T_DINO-3, T_DINO-4, T_DINO-5, T_DINO-6                     |   -3.96606  |    53.0808 | hydro         |      1800     |
-|       10145 | FFES       | GBR1000152  | Ffestiniog                                                         | T_FFES-1, T_FFES-2, T_FFES-3, T_FFES-4                                         |   -3.97705  |    53.0082 | hydro         |       360     |
-|       10146 | FOYE       | GBR2000657  | Foyers G                                                           | T_FOYE-1, T_FOYE-2                                                             |   -4.36157  |    57.2374 | hydro         |       300     |
-|       10147 | ACHRW      | GBR0004331  | AChruach Wind Farm                                                 | T_ACHRW-1                                                                      |   -5.39372  |    56.3429 | wind          |        42.6   |
-|       10148 | AKGLW      | GBR0004332  | Aikengall 2 Wind Farm Generation                                   | T_AKGLW-2                                                                      |   -2.49299  |    55.9233 | wind          |        60.8   |
-|       10149 | AIRSW      | nan         | Airies Windfarm                                                    | E_AIRSW-1                                                                      |   -4.71344  |    54.9709 | wind          |       nan     |
-|       10150 | ASHWW      | nan         | Andershaw Wind Farm                                                | E_ASHWW-1                                                                      |   -3.81416  |    55.5149 | wind          |       nan     |
-|       10151 | ANSUW      | nan         | An Suidhe Windfarm                                                 | T_ANSUW-1                                                                      |   -5.44922  |    56.0659 | wind          |       nan     |
-|       10152 | ARCHW      | GBR0003258  | Arecleoch Windfarm                                                 | T_ARCHW-1                                                                      |   -4.63623  |    55.1412 | wind          |       120     |
-|       10153 | ASLVW      | nan         | Assel Valley Wind Farm                                             | E_ASLVW-1                                                                      |   -4.82565  |    55.2228 | wind          |       nan     |
-|       10154 | ABRTW      | nan         | Auchrobert Wind Farm                                               | E_ABRTW-1                                                                      |   -3.98868  |    55.6218 | wind          |       nan     |
-|       10155 | BABAW      | GBR0004021  | Baillie Wind Farm                                                  | E_BABAW-1                                                                      |   -4.37256  |    58.4305 | wind          |        52.5   |
-|       10156 | BOWLW      | GBR0002546  | Barrow Offshore Windfarm                                           | T_BOWLW-1                                                                      |   -3.28333  |    53.9833 | wind          |        90     |
-|       10157 | BTUIW      | GBR0004525  | Beinn An Tuirc 2 Windfarm                                          | E_BTUIW-2                                                                      |   -5.53711  |    55.6838 | wind          |        43.7   |
-|       10158 | BEINW      | GBR0003787  | Beinneun Wind Farm                                                 | T_BEINW-1                                                                      |   -4.78906  |    57.1756 | wind          |        85     |
-|       10159 | BETHW      | nan         | Beinn Tharsuinn                                                    | E_BETHW-1                                                                      |   -4.42749  |    58.0779 | wind          |       nan     |
-|       10160 | BRYBW      | GBR0004261  | Berry Burn Windfarm                                                | E_BRYBW-1                                                                      |   -3.96606  |    57.3621 | wind          |        66.7   |
-|       10161 | BHLAW      | GBR0004640  | Bhlaraidh Windfarm 1                                               | T_BHLAW-1                                                                      |   -4.66892  |    57.223  | wind          |       110     |
-|       10162 | BLKWW      | nan         | Blackcraig Windfarm                                                | T_BLKWW-1                                                                      |   -4.03398  |    55.118  | wind          |       nan     |
-|       10163 | BLLA1      | GBR0003116  | Black Law Wind Farm                                                | T_BLLA-1                                                                       |   -3.48267  |    55.5908 | wind          |       124.2   |
-|       10164 | BLLA2      | GBR0004253  | Black Law Windfarm Extension                                       | T_BLLA-2                                                                       |   -3.48267  |    55.5908 | wind          |        55.42  |
-|       10165 | BODW       | nan         | Blyth Offshore Demonstrator Windfarm Generation                    | E_BODW-1                                                                       |   -1.401    |    55.131  | wind          |       nan     |
-|       10166 | BRDUW      | GBR0003119  | Braes of Doune                                                     | E_BRDUW-1                                                                      |   -3.36182  |    56.42   | wind          |        72     |
-|       10167 | WISTW      | GBR0004431  | Brockloch Rig 2 Windfarm                                           | T_WISTW-2                                                                      |   -4.14123  |    55.2552 | wind          |        61.5   |
-|       10168 | BRNLW      | nan         | Brownieleys Windfarm                                               | E_BRNLW-1                                                                      |   -2.37456  |    56.844  | wind          |       nan     |
-|       10169 | BURBO      | GBR0002487  | Burbo Bank Offshore Windfarm                                       | E_BURBO                                                                        |   -3.19582  |    53.4877 | wind          |        90     |
-|       10170 | BRBEO      | GBR0002539  | Burbo Bank Wind Farm Extension                                     | T_BRBEO-1                                                                      |   -3.273    |    53.484  | wind          |       258     |
-|       10171 | BNWKW      | nan         | Burn of Whilk Windfarm                                             | E_BNWKW-1                                                                      |   -3.21433  |    58.352  | wind          |       nan     |
-|       10172 | PSTAT001   | GBR0003951  | Cairn Uish / Rothes Windfarm Extension                             | 2__PSTAT001                                                                    |   -3.0639   |    57.505  | wind          |        41.4   |
-|       10173 | PPGEN003   | GBR0004006  | Camster Wind Farm                                                  | 2__PPGEN003                                                                    |   -3.27013  |    58.4069 | wind          |        50     |
-|       10174 | CRGHW      | GBR0004619  | Carraig Gheal Wind Farm                                            | T_CRGHW-1                                                                      |   -4.79004  |    56.3896 | wind          |        46     |
-|       10175 | CLFLW      | nan         | Clachan Flats Windfarm                                             | E_CLFLW-1                                                                      |   -4.95786  |    56.2831 | wind          |       nan     |
-|       10176 | CLDRW      | GBR0004623  | Clashindarroch Wind Farm                                           | E_CLDRW-1                                                                      |   -2.92236  |    57.3087 | wind          |        36.9   |
-|       10177 | CLDW       | GBR0004178  | Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm | T_CLDCW-1, T_CLDNW-1, T_CLDSW-1                                                |   -3.35083  |    55.3104 | wind          |       522     |
-|       10178 | CGTHW      | GBR0004664  | Corriegarth Wind Farm                                              | T_CGTHW-1                                                                      |   -4.35964  |    57.1901 | wind          |        69     |
-|       10179 | CRMLW      | GBR0004120  | Corriemoillie Wind Farm                                            | T_CRMLW-1                                                                      |   -4.83853  |    57.6942 | wind          |        47.5   |
-|       10180 | COUWW      | nan         | Cour Wind Farm                                                     | T_COUWW-1                                                                      |   -5.48493  |    55.6807 | wind          |       nan     |
-|       10181 | CRYRW3     | GBR0004215  | Crystal Rig III Wind Farm                                          | T_CRYRW-3                                                                      |   -2.39502  |    55.8938 | wind          |        13.8   |
-|       10182 | CRYRW2     | GBR0003440  | Crystal Rig Wind Farm - Phase 2                                    | T_CRYRW-2                                                                      |   -2.39502  |    55.8938 | wind          |       138     |
-|       10183 | DALSW      | nan         | Dalswinton Wind Farm                                               | E_DALSW-1                                                                      |   -3.66282  |    55.1837 | wind          |       nan     |
-|       10184 | DRSLW      | GBR0004269  | Dersalloch Windfarm                                                | T_DRSLW-1                                                                      |   -4.48417  |    55.3113 | wind          |        69     |
-|       10185 | DDGNO      | nan         | Dudgeon Offshore Wind Farm Generator                               | T_DDGNO-1, T_DDGNO-2, T_DDGNO-3, T_DDGNO-4                                     |    1.39     |    53.249  | wind          |       nan     |
-|       10186 | DNLWW      | nan         | Dun Law Extension Windfarm                                         | T_DNLWW-1                                                                      |   -2.29614  |    55.7766 | wind          |       nan     |
-|       10187 | DUNGW      | nan         | Dunmglass Wind Farm                                                | T_DUNGW-1                                                                      |   -4.2558   |    57.2515 | wind          |       nan     |
-|       10188 | EDINW      | GBR0004674  | Edinbane Windfarm                                                  | T_EDINW-1                                                                      |   -6.22925  |    57.279  | wind          |        41     |
-|       10189 | EWHLW      | nan         | Ewe Hill II Wind Farm                                              | T_EWHLW-1                                                                      |   -3.20511  |    55.2287 | wind          |       nan     |
-|       10190 | FALGW      | GBR0004059  | Fallago Rig Wind Farm                                              | T_FALGW-1                                                                      |   -2.76856  |    55.9369 | wind          |       144     |
-|       10191 | FARR       | GBR0004676  | Farr Wind Farm                                                     | T_FARR-1, T_FARR-2                                                             |   -4.09417  |    57.325  | wind          |        92     |
-|       10192 | FSDLW      | nan         | Freasdail Wind Farm                                                | T_FSDLW-1                                                                      |   -5.47986  |    55.7808 | wind          |       nan     |
-|       10193 | GLWSW      | GBR0004368  | Galawhistle Wind Farm                                              | T_GLWSW-1                                                                      |   -3.92193  |    55.5343 | wind          |        66     |
-|       10194 | GANW       | nan         | Galloper Offshore Windfarm 1                                       | T_GANW-11, T_GANW-13, T_GANW-22, T_GANW-24                                     |    2.035    |    51.893  | wind          |       nan     |
-|       10195 | GNAPW      | nan         | Glen App Wind Farm                                                 | T_GNAPW-1                                                                      |   -5.02686  |    55.0214 | wind          |       nan     |
-|       10196 | GLCHW      | nan         | Glenchamber Wind Farm                                              | E_GLCHW-1                                                                      |   -4.75433  |    54.9634 | wind          |       nan     |
-|       10197 | GLOFW      | nan         | Glens of Foudland                                                  | E_GLOFW-1                                                                      |   -2.87842  |    57.2196 | wind          |       nan     |
-|       10198 | GFLDW      | nan         | Goole Fields 1 Windfarm                                            | E_GFLDW-1                                                                      |   -0.872421 |    53.6684 | wind          |       nan     |
-|       10199 | GORDW      | GBR0003662  | Gordonbush Wind Farm                                               | T_GORDW-1                                                                      |   -3.83423  |    58.0663 | wind          |        70     |
-|       10200 | GDSTW      | nan         | Gordonstown Windfarm                                               | E_GDSTW-1                                                                      |   -2.48414  |    57.4609 | wind          |       nan     |
-|       10201 | GRGBW      | GBR0002510  | Greater Gabbard Offshore Windfarm                                  | T_GRGBW-1, T_GRGBW-2, T_GRGBW-3                                                |    1.71387  |    52.066  | wind          |       504     |
-|       10202 | GRIFW      | GBR0004028  | Griffin Wind Farm                                                  | T_GRIFW-1, T_GRIFW-2                                                           |   -3.39478  |    56.5292 | wind          |       188.6   |
-|       10203 | GNFSW0     | GBR0002488  | Gunfleet Sands Demo  3                                             | E_GNFSW-3                                                                      |    1.17444  |    51.7394 | wind          |        12     |
-|       10204 | GNFSW1     | GBR0002490  | Gunfleet Sands Windfarm  1                                         | E_GNFSW-1, T_GNFSW-1                                                           |    1.17444  |    51.7394 | wind          |       108     |
-|       10205 | GNFSW2     | GBR0002489  | Gunfleet Sands Windfarm  2                                         | E_GNFSW-2, T_GNFSW-2                                                           |    1.17444  |    51.7394 | wind          |        65     |
-|       10206 | GYMRW      | GBR0002543  | Gwynt y Mor Offshore Wind Farm                                     | T_GYMRW-1, T_GYMRW-2                                                           |   -3.584    |    53.459  | wind          |       576     |
-|       10207 | GYMR       | nan         | Gwynt y Mor Wind Farm East 1                                       | T_GYMR-15, T_GYMR-17, T_GYMR-26, T_GYMR-28                                     |   -3.94409  |    53.3768 | wind          |       nan     |
-|       10208 | HADHW      | GBR0003109  | Hadyard Hill Wind Farm                                             | T_HADHW-1                                                                      |   -4.70215  |    55.2478 | wind          |       119.6   |
-|       10209 | HBHDW      | GBR0004225  | Harburnhead Wind Farm                                              | E_HBHDW-1                                                                      |   -3.54746  |    55.8153 | wind          |        51.7   |
-|       10210 | HRHLW      | nan         | Hare Hill Extension Wind Farm                                      | E_HRHLW-1                                                                      |   -4.0541   |    55.4057 | wind          |       nan     |
-|       10211 | HRSTW      | GBR0004119  | Harestanes Windfarm                                                | T_HRSTW-1                                                                      |   -3.63647  |    55.229  | wind          |       136     |
-|       10212 | HLGLW      | nan         | Hill of Glaschyle Windfarm                                         | E_HLGLW-1                                                                      |   -3.61559  |    57.5105 | wind          |       nan     |
-|       10213 | HLTWW      | GBR0004014  | Hill of Towie Windfarm                                             | E_HLTWW-1                                                                      |   -2.40601  |    57.4863 | wind          |        48.3   |
-|       10214 | HMGTO      | GBR0002544  | Humber Offshore Wind Farm                                          | T_HMGTO-1, T_HMGTO-2                                                           |    0.293    |    53.644  | wind          |       219     |
-|       10215 | HYWDW      | nan         | Hywind Generator 1                                                 | E_HYWDW-1                                                                      |   -1.35     |    57.483  | wind          |       nan     |
-|       10216 | KTHLW      | nan         | Keith Hill Windfarm                                                | T_KTHLW-1                                                                      |   -2.82546  |    55.8173 | wind          |       nan     |
-|       10217 | KILBW      | GBR0003202  | Kilbraur Windfarm                                                  | T_KILBW-1                                                                      |  nan        |   nan      | wind          |        47.5   |
-|       10218 | KLGLW      | nan         | Kilgallioch Wind Farm                                              | T_KLGLW-1                                                                      |   -4.76528  |    55.05   | wind          |       nan     |
-|       10219 | LNCSW      | GBR0002513  | Lincs Offshore Wind Farm                                           | T_LNCSW-1, T_LNCSW-2, T_LNCSW-3                                                |    0.527344 |    53.2652 | wind          |       270     |
-|       10220 | LCLTW      | GBR0004123  | Lochluichart Windfarm                                              | T_LCLTW-1                                                                      |   -4.55933  |    57.7394 | wind          |        69     |
-|       10221 | LARYW      | GBR0002511  | London Array Windfarm                                              | T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4                                     |    1.36231  |    51.6453 | wind          |       630     |
-|       10222 | MKHLW      | GBR0003260  | Mark Hill Windfarm                                                 | T_MKHLW-1                                                                      |   -4.823    |    55.16   | wind          |        56     |
-|       10223 | PSTAT002   | GBR0004667  | Mid Hill Windfarm                                                  | 2__PSTAT002                                                                    |   -2.48203  |    56.9647 | wind          |        57.5   |
-|       10224 | MILWW      | GBR0004682  | Millennium Wind Farm                                               | T_MILWW-1                                                                      |   -4.86694  |    57.2196 | wind          |        40     |
-|       10225 | MYGPW      | nan         | Minnygap Wind Farm                                                 | T_MYGPW-1                                                                      |   -3.5148   |    55.2488 | wind          |       nan     |
-|       10226 | MINSW      | GBR0004517  | Minsca Wind Farm                                                   | E_MINSW-1                                                                      |   -3.47168  |    55.0406 | wind          |        36.8   |
-|       10227 | MOYE       | nan         | Moy Windfarm                                                       | E_MOYE-1                                                                       |   -4.06487  |    57.3903 | wind          |       nan     |
-|       10228 | MOYEW      | GBR0003647  | Moy Windfarm                                                       | E_MOYEW-1                                                                      |   -4.05236  |    57.391  | wind          |        60     |
-|       10229 | OMNDW      | GBR0002509  | Ormonde Windfarm                                                   | E_OMNDW-1, T_OMNDW-1                                                           |   -3.4      |    54.1    | wind          |       150     |
-|       10230 | OMNDD      | nan         | Ormonde Windfarm Demand                                            | E_OMNDD-1                                                                      |   -3.4      |    54.1    | wind          |       nan     |
-|       10231 | PPGEN002   | GBR0004687  | Pauls Hill Windfarm                                                | 2__PPGEN002                                                                    |   -3.4582   |    57.4519 | wind          |        64     |
-|       10232 | PNYCW      | GBR0004595  | Pen y Cymoedd Wind Farm                                            | T_PNYCW-1                                                                      |   -3.56136  |    51.7107 | wind          |       228     |
-|       10233 | RCBKO      | GBR0002515  | Race Bank Offshore Wind Farm                                       | T_RCBKO-1, T_RCBKO-2                                                           |    0.841    |    53.276  | wind          |       286.5   |
-|       10234 | RMPNO      | nan         | Rampion Offshore Windfarm                                          | T_RMPNO-1, T_RMPNO-2                                                           |   -0.27     |    50.67   | wind          |       nan     |
-|       10235 | RREW       | GBR0002496  | Robin Rigg East                                                    | T_RREW-1                                                                       |   -3.71667  |    54.75   | wind          |        90     |
-|       10236 | RRWW       | GBR0002497  | Robin Rigg West                                                    | T_RRWW-1                                                                       |   -3.71667  |    54.75   | wind          |        90     |
-|       10237 | PPGEN001   | GBR0003534  | Rothes (Cairn Uish) Wind Farm                                      | 2__PPGEN001                                                                    |   -3.0639   |    57.505  | wind          |        51     |
-|       10238 | SANQW      | nan         | Sanquhar Community Wind Farm Generation                            | T_SANQW-1                                                                      |   -4.02336  |    55.3227 | wind          |       nan     |
-|       10239 | SHRSW      | GBR0002512  | Sheringham Shoals Windfarm  1                                      | E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2                                     |    1.147    |    53.135  | wind          |       316     |
-|       10240 | STRNW      | GBR0004625  | Strathy North Wind Farm 1                                          | T_STRNW-1                                                                      |   -3.89086  |    58.3853 | wind          |        67.65  |
-|       10241 | THNTW      | nan         | Thanet Offshore Wind                                               | E_THNTW-2, E_THNTW-1                                                           |    1.6331   |    51.4306 | wind          |       nan     |
-|       10242 | THNTO      | GBR0002499  | Thanet Offshore Windfarm                                           | T_THNTO-1, T_THNTO-2                                                           |    1.46118  |    51.3855 | wind          |       300     |
-|       10243 | TDBNW      | nan         | Toddleburn Wind Farm                                               | T_TDBNW-1                                                                      |   -2.81     |    55.77   | wind          |       nan     |
-|       10244 | TULWW      | nan         | Tullo                                                              | E_TULWW-1, E_TULWW-2                                                           |   -2.58179  |    56.6623 | wind          |       nan     |
-|       10245 | WLNYO      | nan         | Walney Offshore Windfarm (Extension)                               | T_WLNYO-3, T_WLNYO-4, T_WLNYO-2                                                |   -3.60352  |    53.9819 | wind          |       nan     |
-|       10246 | WLNYW1     | GBR0002500  | Walney Offshore Windfarm  1                                        | T_WLNYW-1                                                                      |   -3.522    |    54.044  | wind          |       184     |
-|       10247 | WLNYW2     | GBR0002506  | Walney Offshore Windfarm  2                                        | E_WLNYW-2                                                                      |   -3.522    |    54.044  | wind          |       184     |
-|       10248 | WTMSO      | GBR0002545  | Westermost Rough Windfarm                                          | T_WTMSO-1                                                                      |    0.681152 |    53.9432 | wind          |       210     |
-|       10249 | WTMSD      | nan         | Westermost Rough Windfarm Onshore Demand                           | T_WTMSD-1                                                                      |    0.149    |    53.805  | wind          |       nan     |
-|       10250 | WDNSO      | GBR0002519  | West of Duddon Sands                                               | T_WDNSO-1, T_WDNSO-2                                                           |   -3.76831  |    53.9238 | wind          |       389     |
-|       10251 | WDNSW      | nan         | West of Duddon Sands                                               | T_WDNSW-1, T_WDNSW-2                                                           |   -3.463    |    53.983  | wind          |       nan     |
-|       10252 | WHILW1     | GBR0003489  | Whitelee Wind Farm                                                 | T_WHILW-1                                                                      |   -4.04297  |    55.7024 | wind          |       322     |
-|       10253 | WHILW2     | GBR0003981  | Whitelee Windfarm Extension                                        | T_WHILW-2                                                                      |   -4.04297  |    55.7024 | wind          |       217.02  |
-|       10254 | AANGE      | nan         | nan                                                                | 2__AANGE001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10255 | AFLEX      | nan         | nan                                                                | 2__AFLEX001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10256 | ALIME      | nan         | nan                                                                | 2__ALIME000                                                                    |  nan        |   nan      | other         |       nan     |
-|       10257 | ALOND      | nan         | nan                                                                | 2__ALOND001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10258 | BANGE      | nan         | nan                                                                | 2__BANGE001, 2__BANGE002                                                       |  nan        |   nan      | other         |       nan     |
-|       10259 | BFLEX      | nan         | nan                                                                | 2__BFLEX001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10260 | BLIME      | nan         | nan                                                                | 2__BLIME000                                                                    |  nan        |   nan      | other         |       nan     |
-|       10261 | BUKPR      | nan         | nan                                                                | 2__BUKPR001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10262 | DSMAR      | nan         | nan                                                                | 2__DSMAR001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10263 | EANGE      | nan         | nan                                                                | 2__EANGE001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10264 | EFLEX      | nan         | nan                                                                | 2__EFLEX001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10265 | FANGE      | nan         | nan                                                                | 2__FANGE001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10266 | FFLEX      | nan         | nan                                                                | 2__FFLEX001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10267 | GANGE      | nan         | nan                                                                | 2__GANGE001, 2__GANGE002                                                       |  nan        |   nan      | other         |       nan     |
-|       10268 | HANGE      | nan         | nan                                                                | 2__HANGE001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10269 | LSTAT      | nan         | nan                                                                | 2__LSTAT001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10270 | MANGE      | nan         | nan                                                                | 2__MANGE001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10271 | MFLEX      | nan         | nan                                                                | 2__MFLEX001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10272 | MSMAR      | nan         | nan                                                                | 2__MSMAR001                                                                    |  nan        |   nan      | other         |       nan     |
-|       10273 | ALCOA      | nan         | nan                                                                | E_ALCOA-1                                                                      |  nan        |   nan      | other         |       nan     |
-|       10274 | ARNKB      | nan         | Bloxwich                                                           | E_ARNKB-1                                                                      |   -2.0043   |    52.6147 | other         |       nan     |
-|       10275 | BURGH      | nan         | nan                                                                | E_BURGH-1                                                                      |  nan        |   nan      | other         |       nan     |
-|       10276 | CHICK      | nan         | nan                                                                | E_CHICK-1                                                                      |  nan        |   nan      | other         |       nan     |
-|       10277 | CRGTW      | nan         | nan                                                                | E_CRGTW-1                                                                      |  nan        |   nan      | wind          |       nan     |
-|       10278 | CRSSB      | nan         | Carnegie Road                                                      | E_CRSSB-1                                                                      |   -2.92705  |    53.4201 | other         |       nan     |
-|       10279 | LCHWT      | nan         | Letchworth                                                         | E_LCHWT-1                                                                      |   -0.201175 |    51.9822 | gas           |       nan     |
-|       10280 | LSTWY      | nan         | nan                                                                | E_LSTWY-1                                                                      |  nan        |   nan      | gas           |       nan     |
-|       10281 | RDFRB      | nan         | nan                                                                | E_RDFRB-1                                                                      |  nan        |   nan      | gas           |       nan     |
-|       10282 | RDFRD      | nan         | nan                                                                | E_RDFRD-1                                                                      |  nan        |   nan      | gas           |       nan     |
-|       10283 | ROOSB      | nan         | nan                                                                | E_ROOSB-1                                                                      |  nan        |   nan      | other         |       nan     |
-|       10284 | STLGW      | nan         | Stronelairg Windfarm                                               | T_STLGW-1, T_STLGW-2                                                           |   -4.46135  |    57.0999 | wind          |       nan     |
-|       10285 | TDRVE      | nan         | nan                                                                | E_TDRVE-1                                                                      |  nan        |   nan      | gas           |       nan     |
-|       10286 | TRFPK      | nan         | nan                                                                | E_TRFPK-1                                                                      |  nan        |   nan      | gas           |       nan     |
-|       10287 | WTRLN      | nan         | nan                                                                | E_WTRLN-1                                                                      |  nan        |   nan      | gas           |       nan     |</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th align="right">osuked_id</th>
+<th align="left">esail_id</th>
+<th align="left">gppd_idnr</th>
+<th align="left">name</th>
+<th align="left">sett_bmu_id</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">fuel_type</th>
+<th align="right">capacity_mw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">10000</td>
+<td align="left">MARK</td>
+<td align="left">nan</td>
+<td align="left">Rothes Bio-Plant CHP</td>
+<td align="left">E_MARK-1, E_MARK-2</td>
+<td align="right">-3.60352</td>
+<td align="right">57.4804</td>
+<td align="left">biomass</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10001</td>
+<td align="left">DIDC</td>
+<td align="left">nan</td>
+<td align="left">Didcot A (G)</td>
+<td align="left">T_DIDC1, T_DIDC2, T_DIDC4, T_DIDC3</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10002</td>
+<td align="left">ABTH</td>
+<td align="left">GBR1000374</td>
+<td align="left">Aberthaw B</td>
+<td align="left">T_ABTH7, T_ABTH8, T_ABTH9</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+<td align="left">coal</td>
+<td align="right">1586</td>
+</tr>
+<tr>
+<td align="right">10003</td>
+<td align="left">COTPS</td>
+<td align="left">GBR1000142</td>
+<td align="left">Cottam</td>
+<td align="left">T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4</td>
+<td align="right">-0.648193</td>
+<td align="right">53.2455</td>
+<td align="left">coal</td>
+<td align="right">2008</td>
+</tr>
+<tr>
+<td align="right">10004</td>
+<td align="left">DRAXX</td>
+<td align="left">GBR0000174</td>
+<td align="left">Drax</td>
+<td align="left">T_DRAXX-1, T_DRAXX-2, T_DRAXX-3, T_DRAXX-4, T_DRAXX-5, T_DRAXX-6</td>
+<td align="right">-0.626221</td>
+<td align="right">53.7487</td>
+<td align="left">coal, biomass</td>
+<td align="right">1980</td>
+</tr>
+<tr>
+<td align="right">10005</td>
+<td align="left">EGGPS</td>
+<td align="left">GBR1000147</td>
+<td align="left">Eggborough</td>
+<td align="left">T_EGGPS-1, T_EGGPS-2, T_EGGPS-3, T_EGGPS-4</td>
+<td align="right">-0.834961</td>
+<td align="right">53.7097</td>
+<td align="left">coal</td>
+<td align="right">1960</td>
+</tr>
+<tr>
+<td align="right">10006</td>
+<td align="left">FERR</td>
+<td align="left">nan</td>
+<td align="left">Ferrybridge C</td>
+<td align="left">T_FERR-3, T_FERR-4, T_FERR-1, T_FERR-2</td>
+<td align="right">-1.03272</td>
+<td align="right">53.7357</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10007</td>
+<td align="left">FIDL</td>
+<td align="left">nan</td>
+<td align="left">Fiddlers Ferry</td>
+<td align="left">T_FIDL-1, T_FIDL-2, T_FIDL-3, T_FIDL-4</td>
+<td align="right">-2.82349</td>
+<td align="right">53.3506</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10008</td>
+<td align="left">FIFO</td>
+<td align="left">nan</td>
+<td align="left">Fifoots</td>
+<td align="left">T_FIFO-13, T_FIFO-14, T_FIFO-15</td>
+<td align="right">-2.97054</td>
+<td align="right">51.5491</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10009</td>
+<td align="left">LOAN</td>
+<td align="left">nan</td>
+<td align="left">Longannet</td>
+<td align="left">T_LOAN-1, T_LOAN-2, T_LOAN-3, T_LOAN-4</td>
+<td align="right">-3.43872</td>
+<td align="right">56.0475</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10010</td>
+<td align="left">LYNE</td>
+<td align="left">nan</td>
+<td align="left">Lynemouth Generator</td>
+<td align="left">E_LYNE1, E_LYNE2, E_LYNE3</td>
+<td align="right">-1.52083</td>
+<td align="right">55.2042</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10011</td>
+<td align="left">RATS</td>
+<td align="left">GBR1000496</td>
+<td align="left">Ratcliffe on Soar</td>
+<td align="left">T_RATS-1, T_RATS-2, T_RATS-3, T_RATS-4</td>
+<td align="right">-1.21948</td>
+<td align="right">52.8559</td>
+<td align="left">coal</td>
+<td align="right">2000</td>
+</tr>
+<tr>
+<td align="right">10012</td>
+<td align="left">RUGPS</td>
+<td align="left">nan</td>
+<td align="left">Rugeley B</td>
+<td align="left">T_RUGPS-6, T_RUGPS-7</td>
+<td align="right">-1.94458</td>
+<td align="right">52.7296</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10013</td>
+<td align="left">USKM</td>
+<td align="left">GBR2000811</td>
+<td align="left">Uskmouth</td>
+<td align="left">T_USKM-13, T_USKM-14, T_USKM-15</td>
+<td align="right">-3.04321</td>
+<td align="right">51.6112</td>
+<td align="left">coal</td>
+<td align="right">230</td>
+</tr>
+<tr>
+<td align="right">10014</td>
+<td align="left">WBUPS</td>
+<td align="left">GBR1000143</td>
+<td align="left">West Burton A</td>
+<td align="left">T_WBUPS-1, T_WBUPS-2, T_WBUPS-3, T_WBUPS-4</td>
+<td align="right">-0.53833</td>
+<td align="right">53.3637</td>
+<td align="left">coal</td>
+<td align="right">2012</td>
+</tr>
+<tr>
+<td align="right">10015</td>
+<td align="left">COCK</td>
+<td align="left">nan</td>
+<td align="left">Cockenzie</td>
+<td align="left">T_COCK-1, T_COCK-2, T_COCK-3, T_COCK-4</td>
+<td align="right">-2.9684</td>
+<td align="right">55.9685</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10016</td>
+<td align="left">DRKPS</td>
+<td align="left">nan</td>
+<td align="left">Drakelow</td>
+<td align="left">T_DRKPS-9, T_DRKPS-10, T_DRKPS-12</td>
+<td align="right">-1.65681</td>
+<td align="right">52.7736</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10017</td>
+<td align="left">HMRPS</td>
+<td align="left">nan</td>
+<td align="left">High Marnham</td>
+<td align="left">T_HMRPS-1, T_HMRPS-2, T_HMRPS-3, T_HMRPS-4, T_HMRPS-5</td>
+<td align="right">-0.792565</td>
+<td align="right">53.229</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10018</td>
+<td align="left">IRNPS</td>
+<td align="left">nan</td>
+<td align="left">Ironbridge B</td>
+<td align="left">T_IRNPS-1, T_IRNPS-2</td>
+<td align="right">-2.50488</td>
+<td align="right">52.603</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10019</td>
+<td align="left">KINO</td>
+<td align="left">nan</td>
+<td align="left">Kingsnorth</td>
+<td align="left">T_KINO-1, T_KINO-2, T_KINO-3, T_KINO-4</td>
+<td align="right">0.602702</td>
+<td align="right">51.4189</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10020</td>
+<td align="left">TILB</td>
+<td align="left">nan</td>
+<td align="left">Tilbury B</td>
+<td align="left">T_TILB10, T_TILB-7, T_TILB-8, T_TILB-9</td>
+<td align="right">0.391677</td>
+<td align="right">51.4549</td>
+<td align="left">coal</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10021</td>
+<td align="left">BAGE</td>
+<td align="left">GBR1000312</td>
+<td align="left">Baglan Bay</td>
+<td align="left">T_BAGE-1, T_BAGE-2</td>
+<td align="right">-5.03174</td>
+<td align="right">51.7202</td>
+<td align="left">gas</td>
+<td align="right">520</td>
+</tr>
+<tr>
+<td align="right">10022</td>
+<td align="left">BARK</td>
+<td align="left">nan</td>
+<td align="left">Barking 2 MGT stage 1</td>
+<td align="left">T_BARK-1</td>
+<td align="right">0.153809</td>
+<td align="right">51.5566</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10023</td>
+<td align="left">BARKB</td>
+<td align="left">nan</td>
+<td align="left">Barking 2 MGT stage 2</td>
+<td align="left">T_BARKB2</td>
+<td align="right">0.147</td>
+<td align="right">51.521</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10024</td>
+<td align="left">BRYP</td>
+<td align="left">GBR2000125</td>
+<td align="left">Barry</td>
+<td align="left">E_BRYP-1</td>
+<td align="right">-3.33984</td>
+<td align="right">51.3718</td>
+<td align="left">gas</td>
+<td align="right">235</td>
+</tr>
+<tr>
+<td align="right">10025</td>
+<td align="left">AESB</td>
+<td align="left">nan</td>
+<td align="left">Barry (Under AES Ownership)</td>
+<td align="left">E_AESB-1</td>
+<td align="right">-3.22871</td>
+<td align="right">51.4081</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10026</td>
+<td align="left">BRGG</td>
+<td align="left">GBR2000126</td>
+<td align="left">Brigg</td>
+<td align="left">E_BRGG-1</td>
+<td align="right">-0.32959</td>
+<td align="right">53.4423</td>
+<td align="left">gas</td>
+<td align="right">150</td>
+</tr>
+<tr>
+<td align="right">10027</td>
+<td align="left">CARR</td>
+<td align="left">GBR2000124</td>
+<td align="left">Carrington</td>
+<td align="left">T_CARR-1, T_CARR-2</td>
+<td align="right">-2.50488</td>
+<td align="right">53.4553</td>
+<td align="left">gas</td>
+<td align="right">900</td>
+</tr>
+<tr>
+<td align="right">10028</td>
+<td align="left">MPGEN002</td>
+<td align="left">GBR1000113</td>
+<td align="left">Castleford CCGT</td>
+<td align="left">2__MPGEN002</td>
+<td align="right">-1.34304</td>
+<td align="right">53.7319</td>
+<td align="left">gas</td>
+<td align="right">56</td>
+</tr>
+<tr>
+<td align="right">10029</td>
+<td align="left">CNQPS</td>
+<td align="left">GBR1000492</td>
+<td align="left">Connahs Quay</td>
+<td align="left">T_CNQPS-1, T_CNQPS-2, T_CNQPS-3, T_CNQPS-4</td>
+<td align="right">-3.08065</td>
+<td align="right">53.2319</td>
+<td align="left">gas</td>
+<td align="right">1380</td>
+</tr>
+<tr>
+<td align="right">10030</td>
+<td align="left">CORB</td>
+<td align="left">GBR1000077</td>
+<td align="left">Corby</td>
+<td align="left">E_CORB-1</td>
+<td align="right">-0.86792</td>
+<td align="right">52.248</td>
+<td align="left">gas</td>
+<td align="right">401</td>
+</tr>
+<tr>
+<td align="right">10031</td>
+<td align="left">COSO</td>
+<td align="left">GBR1000211</td>
+<td align="left">Coryton</td>
+<td align="left">T_COSO-1</td>
+<td align="right">0.834961</td>
+<td align="right">51.5429</td>
+<td align="left">gas</td>
+<td align="right">800</td>
+</tr>
+<tr>
+<td align="right">10032</td>
+<td align="left">CDCL</td>
+<td align="left">GBR1000493</td>
+<td align="left">Cottam Development Centre Limited</td>
+<td align="left">T_CDCL-1</td>
+<td align="right">-0.86792</td>
+<td align="right">53.2192</td>
+<td align="left">gas</td>
+<td align="right">395</td>
+</tr>
+<tr>
+<td align="right">10033</td>
+<td align="left">DAMC</td>
+<td align="left">GBR1000465</td>
+<td align="left">Damhead Creek</td>
+<td align="left">T_DAMC-1</td>
+<td align="right">0.549316</td>
+<td align="right">51.4609</td>
+<td align="left">gas</td>
+<td align="right">805</td>
+</tr>
+<tr>
+<td align="right">10034</td>
+<td align="left">DEEP</td>
+<td align="left">GBR2000262</td>
+<td align="left">Deeside</td>
+<td align="left">T_DEEP-1</td>
+<td align="right">-3.20801</td>
+<td align="right">53.1402</td>
+<td align="left">gas</td>
+<td align="right">515</td>
+</tr>
+<tr>
+<td align="right">10035</td>
+<td align="left">DIDCB</td>
+<td align="left">GBR1000369</td>
+<td align="left">Didcot B</td>
+<td align="left">T_DIDCB5, T_DIDCB6</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">gas</td>
+<td align="right">1470</td>
+</tr>
+<tr>
+<td align="right">10036</td>
+<td align="left">EECL</td>
+<td align="left">GBR1000494</td>
+<td align="left">Enfield Energy</td>
+<td align="left">T_EECL-1</td>
+<td align="right">-0.022763</td>
+<td align="right">51.6623</td>
+<td align="left">gas</td>
+<td align="right">408</td>
+</tr>
+<tr>
+<td align="right">10037</td>
+<td align="left">FIFE</td>
+<td align="left">nan</td>
+<td align="left">Fife CCGT</td>
+<td align="left">T_FIFE-1</td>
+<td align="right">-3.3061</td>
+<td align="right">56.1689</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10038</td>
+<td align="left">GYAR</td>
+<td align="left">GBR1000370</td>
+<td align="left">Great Yarmouth</td>
+<td align="left">E_GYAR-1</td>
+<td align="right">1.62598</td>
+<td align="right">52.5964</td>
+<td align="left">gas</td>
+<td align="right">420</td>
+</tr>
+<tr>
+<td align="right">10039</td>
+<td align="left">KEAD</td>
+<td align="left">nan</td>
+<td align="left">Keadby</td>
+<td align="left">T_KEAD-1</td>
+<td align="right">-0.494385</td>
+<td align="right">53.586</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10040</td>
+<td align="left">KILNS</td>
+<td align="left">GBR1000500</td>
+<td align="left">Killingholme 1</td>
+<td align="left">T_KILNS-1</td>
+<td align="right">-0.25511</td>
+<td align="right">53.6595</td>
+<td align="left">gas</td>
+<td align="right">600</td>
+</tr>
+<tr>
+<td align="right">10041</td>
+<td align="left">KILLPG</td>
+<td align="left">nan</td>
+<td align="left">Killingholme 2</td>
+<td align="left">T_KILLPG-1, T_KILLPG-2</td>
+<td align="right">-0.25511</td>
+<td align="right">53.6595</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10042</td>
+<td align="left">KLYNA</td>
+<td align="left">nan</td>
+<td align="left">Kings Lynn</td>
+<td align="left">E_KLYN-A-1</td>
+<td align="right">0.380117</td>
+<td align="right">52.7273</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10043</td>
+<td align="left">LAGA</td>
+<td align="left">GBR1000073</td>
+<td align="left">Langage</td>
+<td align="left">T_LAGA-1</td>
+<td align="right">-3.96606</td>
+<td align="right">50.4925</td>
+<td align="left">gas</td>
+<td align="right">905</td>
+</tr>
+<tr>
+<td align="right">10044</td>
+<td align="left">LBAR</td>
+<td align="left">GBR1000371</td>
+<td align="left">Little Barford</td>
+<td align="left">T_LBAR-1</td>
+<td align="right">-0.230713</td>
+<td align="right">52.2211</td>
+<td align="left">gas</td>
+<td align="right">720</td>
+</tr>
+<tr>
+<td align="right">10045</td>
+<td align="left">MRWD</td>
+<td align="left">GBR1000311</td>
+<td align="left">Marchwood</td>
+<td align="left">T_MRWD-1</td>
+<td align="right">-1.35132</td>
+<td align="right">50.903</td>
+<td align="left">gas</td>
+<td align="right">842</td>
+</tr>
+<tr>
+<td align="right">10046</td>
+<td align="left">MEDP</td>
+<td align="left">GBR1000437</td>
+<td align="left">Medway</td>
+<td align="left">T_MEDP-1</td>
+<td align="right">0.889893</td>
+<td align="right">51.3786</td>
+<td align="left">gas</td>
+<td align="right">700</td>
+</tr>
+<tr>
+<td align="right">10047</td>
+<td align="left">PEMB</td>
+<td align="left">GBR1000372</td>
+<td align="left">Pembroke Power Station -</td>
+<td align="left">T_PEMB-11, T_PEMB-21, T_PEMB-31, T_PEMB-41, T_PEMB-51</td>
+<td align="right">-4.99638</td>
+<td align="right">51.6844</td>
+<td align="left">gas</td>
+<td align="right">2180</td>
+</tr>
+<tr>
+<td align="right">10048</td>
+<td align="left">PETEM</td>
+<td align="left">GBR2000128</td>
+<td align="left">Peterborough</td>
+<td align="left">E_PETEM1</td>
+<td align="right">-0.204697</td>
+<td align="right">52.5769</td>
+<td align="left">gas</td>
+<td align="right">240</td>
+</tr>
+<tr>
+<td align="right">10049</td>
+<td align="left">ROCK</td>
+<td align="left">GBR1000212</td>
+<td align="left">Rocksavage</td>
+<td align="left">T_ROCK-1</td>
+<td align="right">-2.59277</td>
+<td align="right">53.3309</td>
+<td align="left">gas</td>
+<td align="right">810</td>
+</tr>
+<tr>
+<td align="right">10050</td>
+<td align="left">ROOS</td>
+<td align="left">nan</td>
+<td align="left">Roosecote</td>
+<td align="left">E_ROOS-1</td>
+<td align="right">-3.15308</td>
+<td align="right">54.156</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10051</td>
+<td align="left">RYHPS</td>
+<td align="left">GBR1000466</td>
+<td align="left">Rye House</td>
+<td align="left">T_RYHPS-1</td>
+<td align="right">-0.285645</td>
+<td align="right">51.8154</td>
+<td align="left">gas</td>
+<td align="right">715</td>
+</tr>
+<tr>
+<td align="right">10052</td>
+<td align="left">SCCL</td>
+<td align="left">GBR2000263</td>
+<td align="left">Saltend South</td>
+<td align="left">T_SCCL-1, T_SCCL-2, T_SCCL-3</td>
+<td align="right">-0.131836</td>
+<td align="right">53.8331</td>
+<td align="left">gas</td>
+<td align="right">1200</td>
+</tr>
+<tr>
+<td align="right">10053</td>
+<td align="left">SEAB</td>
+<td align="left">GBR1000480</td>
+<td align="left">Seabank</td>
+<td align="left">T_SEAB-1, T_SEAB-2</td>
+<td align="right">-2.61475</td>
+<td align="right">51.4814</td>
+<td align="left">gas</td>
+<td align="right">410</td>
+</tr>
+<tr>
+<td align="right">10054</td>
+<td align="left">SVRP</td>
+<td align="left">GBR1000313</td>
+<td align="left">Severn Power</td>
+<td align="left">T_SVRP-10, T_SVRP-20</td>
+<td align="right">-3.06519</td>
+<td align="right">51.7406</td>
+<td align="left">gas</td>
+<td align="right">850</td>
+</tr>
+<tr>
+<td align="right">10055</td>
+<td align="left">SHOS</td>
+<td align="left">GBR2000769</td>
+<td align="left">Shoreham</td>
+<td align="left">E_SHOS-1</td>
+<td align="right">-0.252686</td>
+<td align="right">50.8822</td>
+<td align="left">gas</td>
+<td align="right">420</td>
+</tr>
+<tr>
+<td align="right">10056</td>
+<td align="left">SHBA</td>
+<td align="left">GBR1000074</td>
+<td align="left">South Humber Bank</td>
+<td align="left">T_SHBA-1, T_SHBA-2</td>
+<td align="right">-0.131836</td>
+<td align="right">53.6186</td>
+<td align="left">gas</td>
+<td align="right">1310</td>
+</tr>
+<tr>
+<td align="right">10057</td>
+<td align="left">SPLN</td>
+<td align="left">GBR0006165</td>
+<td align="left">Spalding</td>
+<td align="left">T_SPLN-1</td>
+<td align="right">-0.252686</td>
+<td align="right">52.816</td>
+<td align="left">gas</td>
+<td align="right">880</td>
+</tr>
+<tr>
+<td align="right">10058</td>
+<td align="left">STAY</td>
+<td align="left">GBR1000373</td>
+<td align="left">Staythorpe</td>
+<td align="left">T_STAY-1, T_STAY-2, T_STAY-3, T_STAY-4</td>
+<td align="right">-0.98877</td>
+<td align="right">53.0412</td>
+<td align="left">gas</td>
+<td align="right">1772</td>
+</tr>
+<tr>
+<td align="right">10059</td>
+<td align="left">SUTB</td>
+<td align="left">GBR2000518</td>
+<td align="left">Sutton Bridge</td>
+<td align="left">T_SUTB-1</td>
+<td align="right">0.098877</td>
+<td align="right">52.6231</td>
+<td align="left">gas</td>
+<td align="right">819</td>
+</tr>
+<tr>
+<td align="right">10060</td>
+<td align="left">TESI</td>
+<td align="left">GBR0002514</td>
+<td align="left">Teesside</td>
+<td align="left">T_TESI-1, T_TESI-2</td>
+<td align="right">-1.13022</td>
+<td align="right">54.5735</td>
+<td align="left">gas</td>
+<td align="right">62</td>
+</tr>
+<tr>
+<td align="right">10061</td>
+<td align="left">MPGEN001</td>
+<td align="left">GBR1000115</td>
+<td align="left">Thornhill CCGT</td>
+<td align="left">2__MPGEN001</td>
+<td align="right">-1.65524</td>
+<td align="right">53.6771</td>
+<td align="left">gas</td>
+<td align="right">50</td>
+</tr>
+<tr>
+<td align="right">10062</td>
+<td align="left">WBURB</td>
+<td align="left">GBR1000141</td>
+<td align="left">West Burton B</td>
+<td align="left">T_WBURB-1, T_WBURB-2, T_WBURB-3</td>
+<td align="right">-0.53833</td>
+<td align="right">53.3637</td>
+<td align="left">gas</td>
+<td align="right">1332</td>
+</tr>
+<tr>
+<td align="right">10063</td>
+<td align="left">WINN</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_WINN-1</td>
+<td align="right">-2.53469</td>
+<td align="right">53.2662</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10064</td>
+<td align="left">DERW</td>
+<td align="left">nan</td>
+<td align="left">Derwent</td>
+<td align="left">E_DERW-1</td>
+<td align="right">-1.39944</td>
+<td align="right">52.9058</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10065</td>
+<td align="left">FAWN</td>
+<td align="left">nan</td>
+<td align="left">Fawley Cogen</td>
+<td align="left">E_FAWN-1</td>
+<td align="right">-1.35143</td>
+<td align="right">50.8304</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10066</td>
+<td align="left">FELL</td>
+<td align="left">GBR1000317</td>
+<td align="left">Fellside</td>
+<td align="left">E_FELL-1</td>
+<td align="right">-1.35143</td>
+<td align="right">50.8304</td>
+<td align="left">gas</td>
+<td align="right">180</td>
+</tr>
+<tr>
+<td align="right">10067</td>
+<td align="left">GRAI</td>
+<td align="left">GBR1000495</td>
+<td align="left">Grain CHP</td>
+<td align="left">T_GRAI-6, T_GRAI-7, T_GRAI-8, T_GRAI-1, T_GRAI-2, T_GRAI-3, T_GRAI-4</td>
+<td align="right">0.703125</td>
+<td align="right">51.4745</td>
+<td align="left">gas, oil</td>
+<td align="right">1404</td>
+</tr>
+<tr>
+<td align="right">10068</td>
+<td align="left">GRMO</td>
+<td align="left">nan</td>
+<td align="left">Grangemouth CHP Ltd</td>
+<td align="left">T_GRMO-1</td>
+<td align="right">-3.03223</td>
+<td align="right">55.9307</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10069</td>
+<td align="left">HYTHE</td>
+<td align="left">nan</td>
+<td align="left">Hythe CHP</td>
+<td align="left">E_HYTHE</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10070</td>
+<td align="left">HUMR</td>
+<td align="left">GBR1000517</td>
+<td align="left">Immingham CHP</td>
+<td align="left">T_HUMR-1</td>
+<td align="right">0</td>
+<td align="right">53.6902</td>
+<td align="left">gas</td>
+<td align="right">1240</td>
+</tr>
+<tr>
+<td align="right">10071</td>
+<td align="left">DPGEN001</td>
+<td align="left">GBR1000114</td>
+<td align="left">Sandbach CHP</td>
+<td align="left">2__DPGEN001</td>
+<td align="right">-2.40582</td>
+<td align="right">53.1654</td>
+<td align="left">gas</td>
+<td align="right">56</td>
+</tr>
+<tr>
+<td align="right">10072</td>
+<td align="left">SHOT</td>
+<td align="left">nan</td>
+<td align="left">Shotton CHP</td>
+<td align="left">E_SHOT-1</td>
+<td align="right">-3.03265</td>
+<td align="right">53.2338</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10073</td>
+<td align="left">SLOUG</td>
+<td align="left">nan</td>
+<td align="left">Slough</td>
+<td align="left">E_SLOUG</td>
+<td align="right">-0.626267</td>
+<td align="right">51.524</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10074</td>
+<td align="left">DPGEN002</td>
+<td align="left">nan</td>
+<td align="left">Stoke CHP</td>
+<td align="left">2__DPGEN002</td>
+<td align="right">-2.19033</td>
+<td align="right">52.9904</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10075</td>
+<td align="left">DICI1</td>
+<td align="left">nan</td>
+<td align="left">Weaver Power Station</td>
+<td align="left">T__DICI002</td>
+<td align="right">-2.72541</td>
+<td align="right">53.3154</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10076</td>
+<td align="left">DICI2</td>
+<td align="left">nan</td>
+<td align="left">Weston Point Power Station</td>
+<td align="left">T__DICI001</td>
+<td align="right">-2.72541</td>
+<td align="right">53.3154</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10077</td>
+<td align="left">ALDMG</td>
+<td align="left">nan</td>
+<td align="left">Aldershot Military Generator</td>
+<td align="left">E_ALDMG-1</td>
+<td align="right">0.7598</td>
+<td align="right">51.2599</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10078</td>
+<td align="left">ABERDARE</td>
+<td align="left">nan</td>
+<td align="left">Aberdare District Energy</td>
+<td align="left">E_ABERDARE</td>
+<td align="right">-3.44926</td>
+<td align="right">51.7112</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10079</td>
+<td align="left">BENIG</td>
+<td align="left">nan</td>
+<td align="left">Bentinck</td>
+<td align="left">E_BENIG-1</td>
+<td align="right">-1.27014</td>
+<td align="right">53.0905</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10080</td>
+<td align="left">BRIDGWTR</td>
+<td align="left">nan</td>
+<td align="left">Bridgewater District Energy</td>
+<td align="left">E_BRIDGWTR</td>
+<td align="right">-3.00596</td>
+<td align="right">51.1275</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10081</td>
+<td align="left">CAYTG</td>
+<td align="left">nan</td>
+<td align="left">Caythorpe</td>
+<td align="left">E_CAYTG-1</td>
+<td align="right">-0.203475</td>
+<td align="right">54.0866</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10082</td>
+<td align="left">FAWLG</td>
+<td align="left">nan</td>
+<td align="left">Fawley</td>
+<td align="left">T_FAWL2G, T_FAWL1G, T_FAWL3G, T_FAWL4G</td>
+<td align="right">1.32888</td>
+<td align="right">50.8167</td>
+<td align="left">gas, oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10083</td>
+<td align="left">FDUN</td>
+<td align="left">nan</td>
+<td align="left">Fort Dunlop</td>
+<td align="left">E_FDUN-1</td>
+<td align="right">-1.35143</td>
+<td align="right">50.8304</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10084</td>
+<td align="left">LBARG</td>
+<td align="left">nan</td>
+<td align="left">Little Barford OCGT</td>
+<td align="left">T_LBAR-1G</td>
+<td align="right">-0.2689</td>
+<td align="right">52.2045</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10085</td>
+<td align="left">PEHEG</td>
+<td align="left">GBR2000723</td>
+<td align="left">Peterhead GT</td>
+<td align="left">T_PEHE-3G, T_PEHE-4G</td>
+<td align="right">-1.78888</td>
+<td align="right">57.4772</td>
+<td align="left">gas</td>
+<td align="right">1180</td>
+</tr>
+<tr>
+<td align="right">10086</td>
+<td align="left">PYEBG</td>
+<td align="left">nan</td>
+<td align="left">Pye Bridge</td>
+<td align="left">E_PYEBG-1</td>
+<td align="right">-1.34903</td>
+<td align="right">53.0714</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10087</td>
+<td align="left">REDGT</td>
+<td align="left">nan</td>
+<td align="left">Redditch</td>
+<td align="left">E_REDGT-1</td>
+<td align="right">-1.93282</td>
+<td align="right">52.3002</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10088</td>
+<td align="left">SEVINGTN</td>
+<td align="left">nan</td>
+<td align="left">Sevington District Energy</td>
+<td align="left">E_SEVINGTN</td>
+<td align="right">0.907475</td>
+<td align="right">51.128</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10089</td>
+<td align="left">SOLUTIA</td>
+<td align="left">nan</td>
+<td align="left">Solutia District Energy</td>
+<td align="left">E_SOLUTIA</td>
+<td align="right">-2.99832</td>
+<td align="right">51.5877</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10090</td>
+<td align="left">ABTHG</td>
+<td align="left">GBR1000375</td>
+<td align="left">Aberthaw B AGT</td>
+<td align="left">T_ABTH7G, T_ABTH8G, T_ABTH9G</td>
+<td align="right">-3.40487</td>
+<td align="right">51.3873</td>
+<td align="left">oil</td>
+<td align="right">51</td>
+</tr>
+<tr>
+<td align="right">10091</td>
+<td align="left">COWE</td>
+<td align="left">GBR1000376</td>
+<td align="left">Cowes</td>
+<td align="left">E_COWE1, E_COWE2</td>
+<td align="right">-1.2864</td>
+<td align="right">50.7459</td>
+<td align="left">oil</td>
+<td align="right">140</td>
+</tr>
+<tr>
+<td align="right">10092</td>
+<td align="left">DIDCG</td>
+<td align="left">GBR1000377</td>
+<td align="left">Didcot A AGT</td>
+<td align="left">T_DIDC1G, T_DIDC2G, T_DIDC3G, T_DIDC4G, E_DIDC1G, E_DIDC2G, E_DIDC3G, E_DIDC4G</td>
+<td align="right">-1.26757</td>
+<td align="right">51.6236</td>
+<td align="left">oil</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td align="right">10093</td>
+<td align="left">DRAXXG</td>
+<td align="left">GBR1000112</td>
+<td align="left">Drax AGT</td>
+<td align="left">T_DRAXX-10G, T_DRAXX-12G, T_DRAXX-9G</td>
+<td align="right">-0.999021</td>
+<td align="right">53.7375</td>
+<td align="left">oil</td>
+<td align="right">75</td>
+</tr>
+<tr>
+<td align="right">10094</td>
+<td align="left">FERRG</td>
+<td align="left">GBR0000116</td>
+<td align="left">Ferrybridge C AGT</td>
+<td align="left">T_FERR-5G, T_FERR-8G</td>
+<td align="right">-1.28058</td>
+<td align="right">53.7174</td>
+<td align="left">oil</td>
+<td align="right">79</td>
+</tr>
+<tr>
+<td align="right">10095</td>
+<td align="left">FIDLG</td>
+<td align="left">nan</td>
+<td align="left">Fiddlers Ferry AGT</td>
+<td align="left">T_FIDL-2G, T_FIDL-3G</td>
+<td align="right">-2.687</td>
+<td align="right">53.372</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10096</td>
+<td align="left">GRAIG</td>
+<td align="left">GBR1000497</td>
+<td align="left">Grain AGT</td>
+<td align="left">T_GRAI1G, T_GRAI2G, T_GRAI3G, T_GRAI4G, T_GRAI5G</td>
+<td align="right">0.715028</td>
+<td align="right">51.4452</td>
+<td align="left">oil</td>
+<td align="right">56</td>
+</tr>
+<tr>
+<td align="right">10097</td>
+<td align="left">INDQ</td>
+<td align="left">GBR1000150</td>
+<td align="left">Indian Queens</td>
+<td align="left">T_INDQ-1</td>
+<td align="right">-5.0647</td>
+<td align="right">50.3735</td>
+<td align="left">oil</td>
+<td align="right">140</td>
+</tr>
+<tr>
+<td align="right">10098</td>
+<td align="left">KEADGT</td>
+<td align="left">nan</td>
+<td align="left">Keadby GT</td>
+<td align="left">T_KEADGT-3</td>
+<td align="right">-0.494385</td>
+<td align="right">53.586</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10099</td>
+<td align="left">KINOG</td>
+<td align="left">nan</td>
+<td align="left">Kingsnorth AGT</td>
+<td align="left">T_KINO1G, T_KINO4G</td>
+<td align="right">0.602702</td>
+<td align="right">51.4189</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10100</td>
+<td align="left">LITTDG</td>
+<td align="left">nan</td>
+<td align="left">Littlebrook D AGT</td>
+<td align="left">T_LITTD1G, T_LITTD2G, T_LITTD3G</td>
+<td align="right">0.241667</td>
+<td align="right">51.4653</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10101</td>
+<td align="left">PEHE</td>
+<td align="left">nan</td>
+<td align="left">Peterhead</td>
+<td align="left">T_PEHE-1, T_PEHE-2</td>
+<td align="right">-1.86768</td>
+<td align="right">57.5276</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10102</td>
+<td align="left">RATSGT</td>
+<td align="left">nan</td>
+<td align="left">Ratcliffe on Soar AGT</td>
+<td align="left">T_RATSGT-2, T_RATSGT-4</td>
+<td align="right">-1.21948</td>
+<td align="right">52.8559</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10103</td>
+<td align="left">RUGGT</td>
+<td align="left">nan</td>
+<td align="left">Rugeley B AGT</td>
+<td align="left">T_RUGGT-6, T_RUGGT-7</td>
+<td align="right">-1.94458</td>
+<td align="right">52.7296</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10104</td>
+<td align="left">TAYLG</td>
+<td align="left">GBR1000499</td>
+<td align="left">Taylors Lane</td>
+<td align="left">E_TAYL2G, E_TAYL3G</td>
+<td align="right">-0.2575</td>
+<td align="right">51.546</td>
+<td align="left">oil</td>
+<td align="right">144</td>
+</tr>
+<tr>
+<td align="right">10105</td>
+<td align="left">TILBG</td>
+<td align="left">nan</td>
+<td align="left">Tilbury B AGT</td>
+<td align="left">T_TILB0G, T_TILB7G, T_TILB8G, T_TILB9G</td>
+<td align="right">0.391677</td>
+<td align="right">51.4549</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10106</td>
+<td align="left">WBUGT</td>
+<td align="left">GBR1000146</td>
+<td align="left">West Burton AGT</td>
+<td align="left">T_WBUGT-1, T_WBUGT-4</td>
+<td align="right">-0.53833</td>
+<td align="right">53.3637</td>
+<td align="left">oil</td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td align="right">10107</td>
+<td align="left">CASBEU</td>
+<td align="left">nan</td>
+<td align="left">Beauly Cascade</td>
+<td align="left">M_CAS-BEU01</td>
+<td align="right">-4.55259</td>
+<td align="right">57.4447</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10108</td>
+<td align="left">CLAC</td>
+<td align="left">GBR1000401</td>
+<td align="left">Clachan Power Station</td>
+<td align="left">E_CLAC-1</td>
+<td align="right">-4.91874</td>
+<td align="right">56.2776</td>
+<td align="left">hydro</td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td align="right">10109</td>
+<td align="left">CASCLU</td>
+<td align="left">GBR1000405</td>
+<td align="left">Clunie Cascade</td>
+<td align="left">M_CAS-CLU01</td>
+<td align="right">-3.77835</td>
+<td align="right">56.7169</td>
+<td align="left">hydro</td>
+<td align="right">61.2</td>
+</tr>
+<tr>
+<td align="right">10110</td>
+<td align="left">CASCON</td>
+<td align="left">nan</td>
+<td align="left">Conon Cascade</td>
+<td align="left">M_CAS-CON01</td>
+<td align="right">-4.83007</td>
+<td align="right">57.6192</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10111</td>
+<td align="left">CWMD</td>
+<td align="left">nan</td>
+<td align="left">Cwm Dyli</td>
+<td align="left">E_CWMD-1</td>
+<td align="right">-4.01147</td>
+<td align="right">53.0659</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10112</td>
+<td align="left">DOLG</td>
+<td align="left">nan</td>
+<td align="left">Dolgarrog</td>
+<td align="left">E_DOLG-1</td>
+<td align="right">-3.84267</td>
+<td align="right">53.1915</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10113</td>
+<td align="left">DOLGH</td>
+<td align="left">nan</td>
+<td align="left">Dolgarrog</td>
+<td align="left">E_DOLG_H</td>
+<td align="right">-3.84267</td>
+<td align="right">53.1915</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10114</td>
+<td align="left">DOLGL</td>
+<td align="left">nan</td>
+<td align="left">Dolgarrog</td>
+<td align="left">E_DOLG_L</td>
+<td align="right">-3.84267</td>
+<td align="right">53.1915</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10115</td>
+<td align="left">ERRO</td>
+<td align="left">nan</td>
+<td align="left">Errochty G</td>
+<td align="left">T_ERRO-1, T_ERRO-2, T_ERRO-3</td>
+<td align="right">-3.79028</td>
+<td align="right">56.7346</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10116</td>
+<td align="left">FASN</td>
+<td align="left">nan</td>
+<td align="left">Fasnakyle G</td>
+<td align="left">T_FASN-1, E_FASN-2, T_FASN-2, E_FASN-3, T_FASN-3, E_FASN-4</td>
+<td align="right">-4.7937</td>
+<td align="right">57.3259</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10117</td>
+<td align="left">FINL</td>
+<td align="left">nan</td>
+<td align="left">Finlarig</td>
+<td align="left">T_FINL-1</td>
+<td align="right">-3.6145</td>
+<td align="right">56.28</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10118</td>
+<td align="left">CASGAR</td>
+<td align="left">nan</td>
+<td align="left">Garry Cascade</td>
+<td align="left">M_CAS-GAR01</td>
+<td align="right">-5.28919</td>
+<td align="right">57.0661</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10119</td>
+<td align="left">GLNDO</td>
+<td align="left">GBR0000388</td>
+<td align="left">Glendoe</td>
+<td align="left">T_GLNDO-1</td>
+<td align="right">-5.17456</td>
+<td align="right">57.1541</td>
+<td align="left">hydro</td>
+<td align="right">100</td>
+</tr>
+<tr>
+<td align="right">10120</td>
+<td align="left">CASKIL</td>
+<td align="left">nan</td>
+<td align="left">Killin Cascade</td>
+<td align="left">M_CAS-KIL01</td>
+<td align="right">-4.30775</td>
+<td align="right">56.4707</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10121</td>
+<td align="left">MAEN</td>
+<td align="left">nan</td>
+<td align="left">Maentwrog</td>
+<td align="left">E_MAEN-1</td>
+<td align="right">-3.97303</td>
+<td align="right">52.9207</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10122</td>
+<td align="left">CASMOR</td>
+<td align="left">nan</td>
+<td align="left">Moriston Cascade</td>
+<td align="left">M_CAS-MOR01</td>
+<td align="right">-4.96246</td>
+<td align="right">57.1449</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10123</td>
+<td align="left">NANT</td>
+<td align="left">nan</td>
+<td align="left">Nant</td>
+<td align="left">T_NANT-1</td>
+<td align="right">-5.25147</td>
+<td align="right">56.1639</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10124</td>
+<td align="left">RHEI</td>
+<td align="left">GBR0003552</td>
+<td align="left">Rheidol</td>
+<td align="left">E_RHEI-1, E_RHEI-2, E_RHEI-3</td>
+<td align="right">-3.8993</td>
+<td align="right">52.3962</td>
+<td align="left">hydro</td>
+<td align="right">55.975</td>
+</tr>
+<tr>
+<td align="right">10125</td>
+<td align="left">SLOY</td>
+<td align="left">GBR1000404</td>
+<td align="left">Sloy G</td>
+<td align="left">M_SLOY-1, T_SLOY-2, T_SLOY-3, M_SLOY-4</td>
+<td align="right">-4.73511</td>
+<td align="right">56.2006</td>
+<td align="left">hydro</td>
+<td align="right">152.5</td>
+</tr>
+<tr>
+<td align="right">10126</td>
+<td align="left">MANXENR</td>
+<td align="left">nan</td>
+<td align="left">Manx Power</td>
+<td align="left">E_MANXENR-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10127</td>
+<td align="left">BRWE</td>
+<td align="left">nan</td>
+<td align="left">Bradwell</td>
+<td align="left">T_BRWE-1, T_BRWE-2, T_BRWE-3, T_BRWE-4, T_BRWE-5, T_BRWE-6</td>
+<td align="right">0.89694</td>
+<td align="right">51.7414</td>
+<td align="left">nuclear</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10128</td>
+<td align="left">DUNG</td>
+<td align="left">nan</td>
+<td align="left">Dungeness A</td>
+<td align="left">T_DUNG-1, T_DUNG-2, T_DUNG-3, T_DUNG-4</td>
+<td align="right">0.963889</td>
+<td align="right">50.9139</td>
+<td align="left">nuclear</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10129</td>
+<td align="left">DNGB</td>
+<td align="left">GBR1000052</td>
+<td align="left">Dungeness B</td>
+<td align="left">T_DNGB21, T_DNGB22</td>
+<td align="right">0.963889</td>
+<td align="right">50.9139</td>
+<td align="left">nuclear</td>
+<td align="right">1050</td>
+</tr>
+<tr>
+<td align="right">10130</td>
+<td align="left">HRTL</td>
+<td align="left">GBR1000053</td>
+<td align="left">Hartlepool</td>
+<td align="left">T_HRTL-1, T_HRTL-2</td>
+<td align="right">-1.09863</td>
+<td align="right">54.6865</td>
+<td align="left">nuclear</td>
+<td align="right">1180</td>
+</tr>
+<tr>
+<td align="right">10131</td>
+<td align="left">HEYM1</td>
+<td align="left">GBR1000054</td>
+<td align="left">Heysham 1</td>
+<td align="left">T_HEYM11, T_HEYM12</td>
+<td align="right">-2.91611</td>
+<td align="right">54.0289</td>
+<td align="left">nuclear</td>
+<td align="right">1155</td>
+</tr>
+<tr>
+<td align="right">10132</td>
+<td align="left">HEYM2</td>
+<td align="left">GBR1000055</td>
+<td align="left">Heysham 2</td>
+<td align="left">T_HEYM27, T_HEYM28</td>
+<td align="right">-2.91611</td>
+<td align="right">54.0289</td>
+<td align="left">nuclear</td>
+<td align="right">1230</td>
+</tr>
+<tr>
+<td align="right">10133</td>
+<td align="left">HINB</td>
+<td align="left">GBR1000056</td>
+<td align="left">Hinkley Point B</td>
+<td align="left">T_HINB-7, T_HINB-8</td>
+<td align="right">-3.31787</td>
+<td align="right">51.138</td>
+<td align="left">nuclear</td>
+<td align="right">955</td>
+</tr>
+<tr>
+<td align="right">10134</td>
+<td align="left">HUNB</td>
+<td align="left">GBR1000057</td>
+<td align="left">Hunterston Generator</td>
+<td align="left">T_HUNB-7, T_HUNB-8</td>
+<td align="right">-4.823</td>
+<td align="right">55.6466</td>
+<td align="left">nuclear</td>
+<td align="right">965</td>
+</tr>
+<tr>
+<td align="right">10135</td>
+<td align="left">OLDS</td>
+<td align="left">nan</td>
+<td align="left">Oldbury</td>
+<td align="left">T_OLDS1, T_OLDS2</td>
+<td align="right">-2.57083</td>
+<td align="right">51.6489</td>
+<td align="left">nuclear</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10136</td>
+<td align="left">SIZEA</td>
+<td align="left">nan</td>
+<td align="left">Sizewell A</td>
+<td align="left">T_SIZEA1, T_SIZEA2</td>
+<td align="right">1.61972</td>
+<td align="right">52.215</td>
+<td align="left">nuclear</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10137</td>
+<td align="left">SIZB</td>
+<td align="left">GBR1000058</td>
+<td align="left">Sizewell B</td>
+<td align="left">T_SIZB-1, T_SIZB-2</td>
+<td align="right">1.57105</td>
+<td align="right">52.1739</td>
+<td align="left">nuclear</td>
+<td align="right">1198</td>
+</tr>
+<tr>
+<td align="right">10138</td>
+<td align="left">TORN</td>
+<td align="left">GBR1000059</td>
+<td align="left">Torness Generator</td>
+<td align="left">T_TORN-1, T_TORN-2</td>
+<td align="right">-2.05444</td>
+<td align="right">55.8136</td>
+<td align="left">nuclear</td>
+<td align="right">1185</td>
+</tr>
+<tr>
+<td align="right">10139</td>
+<td align="left">WYLF</td>
+<td align="left">nan</td>
+<td align="left">Wylfa</td>
+<td align="left">T_WYLF-1, T_WYLF-2, T_WYLF-3, T_WYLF-4</td>
+<td align="right">-4.40552</td>
+<td align="right">53.3702</td>
+<td align="left">nuclear</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10140</td>
+<td align="left">FAWL</td>
+<td align="left">nan</td>
+<td align="left">Fawley</td>
+<td align="left">T_FAWL1, T_FAWL3, T_FAWL4</td>
+<td align="right">1.32888</td>
+<td align="right">50.8167</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10141</td>
+<td align="left">LITTD</td>
+<td align="left">nan</td>
+<td align="left">Littlebrook D</td>
+<td align="left">T_LITTD1, T_LITTD2, T_LITTD3</td>
+<td align="right">0.241667</td>
+<td align="right">51.4653</td>
+<td align="left">oil</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10142</td>
+<td align="left">FIBRE</td>
+<td align="left">nan</td>
+<td align="left">Fibropower</td>
+<td align="left">E_FIBRE</td>
+<td align="right">-0.626267</td>
+<td align="right">51.524</td>
+<td align="left">biomass</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10143</td>
+<td align="left">CRUA</td>
+<td align="left">nan</td>
+<td align="left">Crauchan</td>
+<td align="left">T_CRUA-1, T_CRUA-2, T_CRUA-3, T_CRUA-4</td>
+<td align="right">-5.21851</td>
+<td align="right">56.3653</td>
+<td align="left">hydro</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10144</td>
+<td align="left">DINO</td>
+<td align="left">GBR1000151</td>
+<td align="left">Dinorwig</td>
+<td align="left">T_DINO-1, T_DINO-2, T_DINO-3, T_DINO-4, T_DINO-5, T_DINO-6</td>
+<td align="right">-3.96606</td>
+<td align="right">53.0808</td>
+<td align="left">hydro</td>
+<td align="right">1800</td>
+</tr>
+<tr>
+<td align="right">10145</td>
+<td align="left">FFES</td>
+<td align="left">GBR1000152</td>
+<td align="left">Ffestiniog</td>
+<td align="left">T_FFES-1, T_FFES-2, T_FFES-3, T_FFES-4</td>
+<td align="right">-3.97705</td>
+<td align="right">53.0082</td>
+<td align="left">hydro</td>
+<td align="right">360</td>
+</tr>
+<tr>
+<td align="right">10146</td>
+<td align="left">FOYE</td>
+<td align="left">GBR2000657</td>
+<td align="left">Foyers G</td>
+<td align="left">T_FOYE-1, T_FOYE-2</td>
+<td align="right">-4.36157</td>
+<td align="right">57.2374</td>
+<td align="left">hydro</td>
+<td align="right">300</td>
+</tr>
+<tr>
+<td align="right">10147</td>
+<td align="left">ACHRW</td>
+<td align="left">GBR0004331</td>
+<td align="left">AChruach Wind Farm</td>
+<td align="left">T_ACHRW-1</td>
+<td align="right">-5.39372</td>
+<td align="right">56.3429</td>
+<td align="left">wind</td>
+<td align="right">42.6</td>
+</tr>
+<tr>
+<td align="right">10148</td>
+<td align="left">AKGLW</td>
+<td align="left">GBR0004332</td>
+<td align="left">Aikengall 2 Wind Farm Generation</td>
+<td align="left">T_AKGLW-2</td>
+<td align="right">-2.49299</td>
+<td align="right">55.9233</td>
+<td align="left">wind</td>
+<td align="right">60.8</td>
+</tr>
+<tr>
+<td align="right">10149</td>
+<td align="left">AIRSW</td>
+<td align="left">nan</td>
+<td align="left">Airies Windfarm</td>
+<td align="left">E_AIRSW-1</td>
+<td align="right">-4.71344</td>
+<td align="right">54.9709</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10150</td>
+<td align="left">ASHWW</td>
+<td align="left">nan</td>
+<td align="left">Andershaw Wind Farm</td>
+<td align="left">E_ASHWW-1</td>
+<td align="right">-3.81416</td>
+<td align="right">55.5149</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10151</td>
+<td align="left">ANSUW</td>
+<td align="left">nan</td>
+<td align="left">An Suidhe Windfarm</td>
+<td align="left">T_ANSUW-1</td>
+<td align="right">-5.44922</td>
+<td align="right">56.0659</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10152</td>
+<td align="left">ARCHW</td>
+<td align="left">GBR0003258</td>
+<td align="left">Arecleoch Windfarm</td>
+<td align="left">T_ARCHW-1</td>
+<td align="right">-4.63623</td>
+<td align="right">55.1412</td>
+<td align="left">wind</td>
+<td align="right">120</td>
+</tr>
+<tr>
+<td align="right">10153</td>
+<td align="left">ASLVW</td>
+<td align="left">nan</td>
+<td align="left">Assel Valley Wind Farm</td>
+<td align="left">E_ASLVW-1</td>
+<td align="right">-4.82565</td>
+<td align="right">55.2228</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10154</td>
+<td align="left">ABRTW</td>
+<td align="left">nan</td>
+<td align="left">Auchrobert Wind Farm</td>
+<td align="left">E_ABRTW-1</td>
+<td align="right">-3.98868</td>
+<td align="right">55.6218</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10155</td>
+<td align="left">BABAW</td>
+<td align="left">GBR0004021</td>
+<td align="left">Baillie Wind Farm</td>
+<td align="left">E_BABAW-1</td>
+<td align="right">-4.37256</td>
+<td align="right">58.4305</td>
+<td align="left">wind</td>
+<td align="right">52.5</td>
+</tr>
+<tr>
+<td align="right">10156</td>
+<td align="left">BOWLW</td>
+<td align="left">GBR0002546</td>
+<td align="left">Barrow Offshore Windfarm</td>
+<td align="left">T_BOWLW-1</td>
+<td align="right">-3.28333</td>
+<td align="right">53.9833</td>
+<td align="left">wind</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td align="right">10157</td>
+<td align="left">BTUIW</td>
+<td align="left">GBR0004525</td>
+<td align="left">Beinn An Tuirc 2 Windfarm</td>
+<td align="left">E_BTUIW-2</td>
+<td align="right">-5.53711</td>
+<td align="right">55.6838</td>
+<td align="left">wind</td>
+<td align="right">43.7</td>
+</tr>
+<tr>
+<td align="right">10158</td>
+<td align="left">BEINW</td>
+<td align="left">GBR0003787</td>
+<td align="left">Beinneun Wind Farm</td>
+<td align="left">T_BEINW-1</td>
+<td align="right">-4.78906</td>
+<td align="right">57.1756</td>
+<td align="left">wind</td>
+<td align="right">85</td>
+</tr>
+<tr>
+<td align="right">10159</td>
+<td align="left">BETHW</td>
+<td align="left">nan</td>
+<td align="left">Beinn Tharsuinn</td>
+<td align="left">E_BETHW-1</td>
+<td align="right">-4.42749</td>
+<td align="right">58.0779</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10160</td>
+<td align="left">BRYBW</td>
+<td align="left">GBR0004261</td>
+<td align="left">Berry Burn Windfarm</td>
+<td align="left">E_BRYBW-1</td>
+<td align="right">-3.96606</td>
+<td align="right">57.3621</td>
+<td align="left">wind</td>
+<td align="right">66.7</td>
+</tr>
+<tr>
+<td align="right">10161</td>
+<td align="left">BHLAW</td>
+<td align="left">GBR0004640</td>
+<td align="left">Bhlaraidh Windfarm 1</td>
+<td align="left">T_BHLAW-1</td>
+<td align="right">-4.66892</td>
+<td align="right">57.223</td>
+<td align="left">wind</td>
+<td align="right">110</td>
+</tr>
+<tr>
+<td align="right">10162</td>
+<td align="left">BLKWW</td>
+<td align="left">nan</td>
+<td align="left">Blackcraig Windfarm</td>
+<td align="left">T_BLKWW-1</td>
+<td align="right">-4.03398</td>
+<td align="right">55.118</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10163</td>
+<td align="left">BLLA1</td>
+<td align="left">GBR0003116</td>
+<td align="left">Black Law Wind Farm</td>
+<td align="left">T_BLLA-1</td>
+<td align="right">-3.48267</td>
+<td align="right">55.5908</td>
+<td align="left">wind</td>
+<td align="right">124.2</td>
+</tr>
+<tr>
+<td align="right">10164</td>
+<td align="left">BLLA2</td>
+<td align="left">GBR0004253</td>
+<td align="left">Black Law Windfarm Extension</td>
+<td align="left">T_BLLA-2</td>
+<td align="right">-3.48267</td>
+<td align="right">55.5908</td>
+<td align="left">wind</td>
+<td align="right">55.42</td>
+</tr>
+<tr>
+<td align="right">10165</td>
+<td align="left">BODW</td>
+<td align="left">nan</td>
+<td align="left">Blyth Offshore Demonstrator Windfarm Generation</td>
+<td align="left">E_BODW-1</td>
+<td align="right">-1.401</td>
+<td align="right">55.131</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10166</td>
+<td align="left">BRDUW</td>
+<td align="left">GBR0003119</td>
+<td align="left">Braes of Doune</td>
+<td align="left">E_BRDUW-1</td>
+<td align="right">-3.36182</td>
+<td align="right">56.42</td>
+<td align="left">wind</td>
+<td align="right">72</td>
+</tr>
+<tr>
+<td align="right">10167</td>
+<td align="left">WISTW</td>
+<td align="left">GBR0004431</td>
+<td align="left">Brockloch Rig 2 Windfarm</td>
+<td align="left">T_WISTW-2</td>
+<td align="right">-4.14123</td>
+<td align="right">55.2552</td>
+<td align="left">wind</td>
+<td align="right">61.5</td>
+</tr>
+<tr>
+<td align="right">10168</td>
+<td align="left">BRNLW</td>
+<td align="left">nan</td>
+<td align="left">Brownieleys Windfarm</td>
+<td align="left">E_BRNLW-1</td>
+<td align="right">-2.37456</td>
+<td align="right">56.844</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10169</td>
+<td align="left">BURBO</td>
+<td align="left">GBR0002487</td>
+<td align="left">Burbo Bank Offshore Windfarm</td>
+<td align="left">E_BURBO</td>
+<td align="right">-3.19582</td>
+<td align="right">53.4877</td>
+<td align="left">wind</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td align="right">10170</td>
+<td align="left">BRBEO</td>
+<td align="left">GBR0002539</td>
+<td align="left">Burbo Bank Wind Farm Extension</td>
+<td align="left">T_BRBEO-1</td>
+<td align="right">-3.273</td>
+<td align="right">53.484</td>
+<td align="left">wind</td>
+<td align="right">258</td>
+</tr>
+<tr>
+<td align="right">10171</td>
+<td align="left">BNWKW</td>
+<td align="left">nan</td>
+<td align="left">Burn of Whilk Windfarm</td>
+<td align="left">E_BNWKW-1</td>
+<td align="right">-3.21433</td>
+<td align="right">58.352</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10172</td>
+<td align="left">PSTAT001</td>
+<td align="left">GBR0003951</td>
+<td align="left">Cairn Uish / Rothes Windfarm Extension</td>
+<td align="left">2__PSTAT001</td>
+<td align="right">-3.0639</td>
+<td align="right">57.505</td>
+<td align="left">wind</td>
+<td align="right">41.4</td>
+</tr>
+<tr>
+<td align="right">10173</td>
+<td align="left">PPGEN003</td>
+<td align="left">GBR0004006</td>
+<td align="left">Camster Wind Farm</td>
+<td align="left">2__PPGEN003</td>
+<td align="right">-3.27013</td>
+<td align="right">58.4069</td>
+<td align="left">wind</td>
+<td align="right">50</td>
+</tr>
+<tr>
+<td align="right">10174</td>
+<td align="left">CRGHW</td>
+<td align="left">GBR0004619</td>
+<td align="left">Carraig Gheal Wind Farm</td>
+<td align="left">T_CRGHW-1</td>
+<td align="right">-4.79004</td>
+<td align="right">56.3896</td>
+<td align="left">wind</td>
+<td align="right">46</td>
+</tr>
+<tr>
+<td align="right">10175</td>
+<td align="left">CLFLW</td>
+<td align="left">nan</td>
+<td align="left">Clachan Flats Windfarm</td>
+<td align="left">E_CLFLW-1</td>
+<td align="right">-4.95786</td>
+<td align="right">56.2831</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10176</td>
+<td align="left">CLDRW</td>
+<td align="left">GBR0004623</td>
+<td align="left">Clashindarroch Wind Farm</td>
+<td align="left">E_CLDRW-1</td>
+<td align="right">-2.92236</td>
+<td align="right">57.3087</td>
+<td align="left">wind</td>
+<td align="right">36.9</td>
+</tr>
+<tr>
+<td align="right">10177</td>
+<td align="left">CLDW</td>
+<td align="left">GBR0004178</td>
+<td align="left">Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm</td>
+<td align="left">T_CLDCW-1, T_CLDNW-1, T_CLDSW-1</td>
+<td align="right">-3.35083</td>
+<td align="right">55.3104</td>
+<td align="left">wind</td>
+<td align="right">522</td>
+</tr>
+<tr>
+<td align="right">10178</td>
+<td align="left">CGTHW</td>
+<td align="left">GBR0004664</td>
+<td align="left">Corriegarth Wind Farm</td>
+<td align="left">T_CGTHW-1</td>
+<td align="right">-4.35964</td>
+<td align="right">57.1901</td>
+<td align="left">wind</td>
+<td align="right">69</td>
+</tr>
+<tr>
+<td align="right">10179</td>
+<td align="left">CRMLW</td>
+<td align="left">GBR0004120</td>
+<td align="left">Corriemoillie Wind Farm</td>
+<td align="left">T_CRMLW-1</td>
+<td align="right">-4.83853</td>
+<td align="right">57.6942</td>
+<td align="left">wind</td>
+<td align="right">47.5</td>
+</tr>
+<tr>
+<td align="right">10180</td>
+<td align="left">COUWW</td>
+<td align="left">nan</td>
+<td align="left">Cour Wind Farm</td>
+<td align="left">T_COUWW-1</td>
+<td align="right">-5.48493</td>
+<td align="right">55.6807</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10181</td>
+<td align="left">CRYRW3</td>
+<td align="left">GBR0004215</td>
+<td align="left">Crystal Rig III Wind Farm</td>
+<td align="left">T_CRYRW-3</td>
+<td align="right">-2.39502</td>
+<td align="right">55.8938</td>
+<td align="left">wind</td>
+<td align="right">13.8</td>
+</tr>
+<tr>
+<td align="right">10182</td>
+<td align="left">CRYRW2</td>
+<td align="left">GBR0003440</td>
+<td align="left">Crystal Rig Wind Farm - Phase 2</td>
+<td align="left">T_CRYRW-2</td>
+<td align="right">-2.39502</td>
+<td align="right">55.8938</td>
+<td align="left">wind</td>
+<td align="right">138</td>
+</tr>
+<tr>
+<td align="right">10183</td>
+<td align="left">DALSW</td>
+<td align="left">nan</td>
+<td align="left">Dalswinton Wind Farm</td>
+<td align="left">E_DALSW-1</td>
+<td align="right">-3.66282</td>
+<td align="right">55.1837</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10184</td>
+<td align="left">DRSLW</td>
+<td align="left">GBR0004269</td>
+<td align="left">Dersalloch Windfarm</td>
+<td align="left">T_DRSLW-1</td>
+<td align="right">-4.48417</td>
+<td align="right">55.3113</td>
+<td align="left">wind</td>
+<td align="right">69</td>
+</tr>
+<tr>
+<td align="right">10185</td>
+<td align="left">DDGNO</td>
+<td align="left">nan</td>
+<td align="left">Dudgeon Offshore Wind Farm Generator</td>
+<td align="left">T_DDGNO-1, T_DDGNO-2, T_DDGNO-3, T_DDGNO-4</td>
+<td align="right">1.39</td>
+<td align="right">53.249</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10186</td>
+<td align="left">DNLWW</td>
+<td align="left">nan</td>
+<td align="left">Dun Law Extension Windfarm</td>
+<td align="left">T_DNLWW-1</td>
+<td align="right">-2.29614</td>
+<td align="right">55.7766</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10187</td>
+<td align="left">DUNGW</td>
+<td align="left">nan</td>
+<td align="left">Dunmglass Wind Farm</td>
+<td align="left">T_DUNGW-1</td>
+<td align="right">-4.2558</td>
+<td align="right">57.2515</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10188</td>
+<td align="left">EDINW</td>
+<td align="left">GBR0004674</td>
+<td align="left">Edinbane Windfarm</td>
+<td align="left">T_EDINW-1</td>
+<td align="right">-6.22925</td>
+<td align="right">57.279</td>
+<td align="left">wind</td>
+<td align="right">41</td>
+</tr>
+<tr>
+<td align="right">10189</td>
+<td align="left">EWHLW</td>
+<td align="left">nan</td>
+<td align="left">Ewe Hill II Wind Farm</td>
+<td align="left">T_EWHLW-1</td>
+<td align="right">-3.20511</td>
+<td align="right">55.2287</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10190</td>
+<td align="left">FALGW</td>
+<td align="left">GBR0004059</td>
+<td align="left">Fallago Rig Wind Farm</td>
+<td align="left">T_FALGW-1</td>
+<td align="right">-2.76856</td>
+<td align="right">55.9369</td>
+<td align="left">wind</td>
+<td align="right">144</td>
+</tr>
+<tr>
+<td align="right">10191</td>
+<td align="left">FARR</td>
+<td align="left">GBR0004676</td>
+<td align="left">Farr Wind Farm</td>
+<td align="left">T_FARR-1, T_FARR-2</td>
+<td align="right">-4.09417</td>
+<td align="right">57.325</td>
+<td align="left">wind</td>
+<td align="right">92</td>
+</tr>
+<tr>
+<td align="right">10192</td>
+<td align="left">FSDLW</td>
+<td align="left">nan</td>
+<td align="left">Freasdail Wind Farm</td>
+<td align="left">T_FSDLW-1</td>
+<td align="right">-5.47986</td>
+<td align="right">55.7808</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10193</td>
+<td align="left">GLWSW</td>
+<td align="left">GBR0004368</td>
+<td align="left">Galawhistle Wind Farm</td>
+<td align="left">T_GLWSW-1</td>
+<td align="right">-3.92193</td>
+<td align="right">55.5343</td>
+<td align="left">wind</td>
+<td align="right">66</td>
+</tr>
+<tr>
+<td align="right">10194</td>
+<td align="left">GANW</td>
+<td align="left">nan</td>
+<td align="left">Galloper Offshore Windfarm 1</td>
+<td align="left">T_GANW-11, T_GANW-13, T_GANW-22, T_GANW-24</td>
+<td align="right">2.035</td>
+<td align="right">51.893</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10195</td>
+<td align="left">GNAPW</td>
+<td align="left">nan</td>
+<td align="left">Glen App Wind Farm</td>
+<td align="left">T_GNAPW-1</td>
+<td align="right">-5.02686</td>
+<td align="right">55.0214</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10196</td>
+<td align="left">GLCHW</td>
+<td align="left">nan</td>
+<td align="left">Glenchamber Wind Farm</td>
+<td align="left">E_GLCHW-1</td>
+<td align="right">-4.75433</td>
+<td align="right">54.9634</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10197</td>
+<td align="left">GLOFW</td>
+<td align="left">nan</td>
+<td align="left">Glens of Foudland</td>
+<td align="left">E_GLOFW-1</td>
+<td align="right">-2.87842</td>
+<td align="right">57.2196</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10198</td>
+<td align="left">GFLDW</td>
+<td align="left">nan</td>
+<td align="left">Goole Fields 1 Windfarm</td>
+<td align="left">E_GFLDW-1</td>
+<td align="right">-0.872421</td>
+<td align="right">53.6684</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10199</td>
+<td align="left">GORDW</td>
+<td align="left">GBR0003662</td>
+<td align="left">Gordonbush Wind Farm</td>
+<td align="left">T_GORDW-1</td>
+<td align="right">-3.83423</td>
+<td align="right">58.0663</td>
+<td align="left">wind</td>
+<td align="right">70</td>
+</tr>
+<tr>
+<td align="right">10200</td>
+<td align="left">GDSTW</td>
+<td align="left">nan</td>
+<td align="left">Gordonstown Windfarm</td>
+<td align="left">E_GDSTW-1</td>
+<td align="right">-2.48414</td>
+<td align="right">57.4609</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10201</td>
+<td align="left">GRGBW</td>
+<td align="left">GBR0002510</td>
+<td align="left">Greater Gabbard Offshore Windfarm</td>
+<td align="left">T_GRGBW-1, T_GRGBW-2, T_GRGBW-3</td>
+<td align="right">1.71387</td>
+<td align="right">52.066</td>
+<td align="left">wind</td>
+<td align="right">504</td>
+</tr>
+<tr>
+<td align="right">10202</td>
+<td align="left">GRIFW</td>
+<td align="left">GBR0004028</td>
+<td align="left">Griffin Wind Farm</td>
+<td align="left">T_GRIFW-1, T_GRIFW-2</td>
+<td align="right">-3.39478</td>
+<td align="right">56.5292</td>
+<td align="left">wind</td>
+<td align="right">188.6</td>
+</tr>
+<tr>
+<td align="right">10203</td>
+<td align="left">GNFSW0</td>
+<td align="left">GBR0002488</td>
+<td align="left">Gunfleet Sands Demo  3</td>
+<td align="left">E_GNFSW-3</td>
+<td align="right">1.17444</td>
+<td align="right">51.7394</td>
+<td align="left">wind</td>
+<td align="right">12</td>
+</tr>
+<tr>
+<td align="right">10204</td>
+<td align="left">GNFSW1</td>
+<td align="left">GBR0002490</td>
+<td align="left">Gunfleet Sands Windfarm  1</td>
+<td align="left">E_GNFSW-1, T_GNFSW-1</td>
+<td align="right">1.17444</td>
+<td align="right">51.7394</td>
+<td align="left">wind</td>
+<td align="right">108</td>
+</tr>
+<tr>
+<td align="right">10205</td>
+<td align="left">GNFSW2</td>
+<td align="left">GBR0002489</td>
+<td align="left">Gunfleet Sands Windfarm  2</td>
+<td align="left">E_GNFSW-2, T_GNFSW-2</td>
+<td align="right">1.17444</td>
+<td align="right">51.7394</td>
+<td align="left">wind</td>
+<td align="right">65</td>
+</tr>
+<tr>
+<td align="right">10206</td>
+<td align="left">GYMRW</td>
+<td align="left">GBR0002543</td>
+<td align="left">Gwynt y Mor Offshore Wind Farm</td>
+<td align="left">T_GYMRW-1, T_GYMRW-2</td>
+<td align="right">-3.584</td>
+<td align="right">53.459</td>
+<td align="left">wind</td>
+<td align="right">576</td>
+</tr>
+<tr>
+<td align="right">10207</td>
+<td align="left">GYMR</td>
+<td align="left">nan</td>
+<td align="left">Gwynt y Mor Wind Farm East 1</td>
+<td align="left">T_GYMR-15, T_GYMR-17, T_GYMR-26, T_GYMR-28</td>
+<td align="right">-3.94409</td>
+<td align="right">53.3768</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10208</td>
+<td align="left">HADHW</td>
+<td align="left">GBR0003109</td>
+<td align="left">Hadyard Hill Wind Farm</td>
+<td align="left">T_HADHW-1</td>
+<td align="right">-4.70215</td>
+<td align="right">55.2478</td>
+<td align="left">wind</td>
+<td align="right">119.6</td>
+</tr>
+<tr>
+<td align="right">10209</td>
+<td align="left">HBHDW</td>
+<td align="left">GBR0004225</td>
+<td align="left">Harburnhead Wind Farm</td>
+<td align="left">E_HBHDW-1</td>
+<td align="right">-3.54746</td>
+<td align="right">55.8153</td>
+<td align="left">wind</td>
+<td align="right">51.7</td>
+</tr>
+<tr>
+<td align="right">10210</td>
+<td align="left">HRHLW</td>
+<td align="left">nan</td>
+<td align="left">Hare Hill Extension Wind Farm</td>
+<td align="left">E_HRHLW-1</td>
+<td align="right">-4.0541</td>
+<td align="right">55.4057</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10211</td>
+<td align="left">HRSTW</td>
+<td align="left">GBR0004119</td>
+<td align="left">Harestanes Windfarm</td>
+<td align="left">T_HRSTW-1</td>
+<td align="right">-3.63647</td>
+<td align="right">55.229</td>
+<td align="left">wind</td>
+<td align="right">136</td>
+</tr>
+<tr>
+<td align="right">10212</td>
+<td align="left">HLGLW</td>
+<td align="left">nan</td>
+<td align="left">Hill of Glaschyle Windfarm</td>
+<td align="left">E_HLGLW-1</td>
+<td align="right">-3.61559</td>
+<td align="right">57.5105</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10213</td>
+<td align="left">HLTWW</td>
+<td align="left">GBR0004014</td>
+<td align="left">Hill of Towie Windfarm</td>
+<td align="left">E_HLTWW-1</td>
+<td align="right">-2.40601</td>
+<td align="right">57.4863</td>
+<td align="left">wind</td>
+<td align="right">48.3</td>
+</tr>
+<tr>
+<td align="right">10214</td>
+<td align="left">HMGTO</td>
+<td align="left">GBR0002544</td>
+<td align="left">Humber Offshore Wind Farm</td>
+<td align="left">T_HMGTO-1, T_HMGTO-2</td>
+<td align="right">0.293</td>
+<td align="right">53.644</td>
+<td align="left">wind</td>
+<td align="right">219</td>
+</tr>
+<tr>
+<td align="right">10215</td>
+<td align="left">HYWDW</td>
+<td align="left">nan</td>
+<td align="left">Hywind Generator 1</td>
+<td align="left">E_HYWDW-1</td>
+<td align="right">-1.35</td>
+<td align="right">57.483</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10216</td>
+<td align="left">KTHLW</td>
+<td align="left">nan</td>
+<td align="left">Keith Hill Windfarm</td>
+<td align="left">T_KTHLW-1</td>
+<td align="right">-2.82546</td>
+<td align="right">55.8173</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10217</td>
+<td align="left">KILBW</td>
+<td align="left">GBR0003202</td>
+<td align="left">Kilbraur Windfarm</td>
+<td align="left">T_KILBW-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">wind</td>
+<td align="right">47.5</td>
+</tr>
+<tr>
+<td align="right">10218</td>
+<td align="left">KLGLW</td>
+<td align="left">nan</td>
+<td align="left">Kilgallioch Wind Farm</td>
+<td align="left">T_KLGLW-1</td>
+<td align="right">-4.76528</td>
+<td align="right">55.05</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10219</td>
+<td align="left">LNCSW</td>
+<td align="left">GBR0002513</td>
+<td align="left">Lincs Offshore Wind Farm</td>
+<td align="left">T_LNCSW-1, T_LNCSW-2, T_LNCSW-3</td>
+<td align="right">0.527344</td>
+<td align="right">53.2652</td>
+<td align="left">wind</td>
+<td align="right">270</td>
+</tr>
+<tr>
+<td align="right">10220</td>
+<td align="left">LCLTW</td>
+<td align="left">GBR0004123</td>
+<td align="left">Lochluichart Windfarm</td>
+<td align="left">T_LCLTW-1</td>
+<td align="right">-4.55933</td>
+<td align="right">57.7394</td>
+<td align="left">wind</td>
+<td align="right">69</td>
+</tr>
+<tr>
+<td align="right">10221</td>
+<td align="left">LARYW</td>
+<td align="left">GBR0002511</td>
+<td align="left">London Array Windfarm</td>
+<td align="left">T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4</td>
+<td align="right">1.36231</td>
+<td align="right">51.6453</td>
+<td align="left">wind</td>
+<td align="right">630</td>
+</tr>
+<tr>
+<td align="right">10222</td>
+<td align="left">MKHLW</td>
+<td align="left">GBR0003260</td>
+<td align="left">Mark Hill Windfarm</td>
+<td align="left">T_MKHLW-1</td>
+<td align="right">-4.823</td>
+<td align="right">55.16</td>
+<td align="left">wind</td>
+<td align="right">56</td>
+</tr>
+<tr>
+<td align="right">10223</td>
+<td align="left">PSTAT002</td>
+<td align="left">GBR0004667</td>
+<td align="left">Mid Hill Windfarm</td>
+<td align="left">2__PSTAT002</td>
+<td align="right">-2.48203</td>
+<td align="right">56.9647</td>
+<td align="left">wind</td>
+<td align="right">57.5</td>
+</tr>
+<tr>
+<td align="right">10224</td>
+<td align="left">MILWW</td>
+<td align="left">GBR0004682</td>
+<td align="left">Millennium Wind Farm</td>
+<td align="left">T_MILWW-1</td>
+<td align="right">-4.86694</td>
+<td align="right">57.2196</td>
+<td align="left">wind</td>
+<td align="right">40</td>
+</tr>
+<tr>
+<td align="right">10225</td>
+<td align="left">MYGPW</td>
+<td align="left">nan</td>
+<td align="left">Minnygap Wind Farm</td>
+<td align="left">T_MYGPW-1</td>
+<td align="right">-3.5148</td>
+<td align="right">55.2488</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10226</td>
+<td align="left">MINSW</td>
+<td align="left">GBR0004517</td>
+<td align="left">Minsca Wind Farm</td>
+<td align="left">E_MINSW-1</td>
+<td align="right">-3.47168</td>
+<td align="right">55.0406</td>
+<td align="left">wind</td>
+<td align="right">36.8</td>
+</tr>
+<tr>
+<td align="right">10227</td>
+<td align="left">MOYE</td>
+<td align="left">nan</td>
+<td align="left">Moy Windfarm</td>
+<td align="left">E_MOYE-1</td>
+<td align="right">-4.06487</td>
+<td align="right">57.3903</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10228</td>
+<td align="left">MOYEW</td>
+<td align="left">GBR0003647</td>
+<td align="left">Moy Windfarm</td>
+<td align="left">E_MOYEW-1</td>
+<td align="right">-4.05236</td>
+<td align="right">57.391</td>
+<td align="left">wind</td>
+<td align="right">60</td>
+</tr>
+<tr>
+<td align="right">10229</td>
+<td align="left">OMNDW</td>
+<td align="left">GBR0002509</td>
+<td align="left">Ormonde Windfarm</td>
+<td align="left">E_OMNDW-1, T_OMNDW-1</td>
+<td align="right">-3.4</td>
+<td align="right">54.1</td>
+<td align="left">wind</td>
+<td align="right">150</td>
+</tr>
+<tr>
+<td align="right">10230</td>
+<td align="left">OMNDD</td>
+<td align="left">nan</td>
+<td align="left">Ormonde Windfarm Demand</td>
+<td align="left">E_OMNDD-1</td>
+<td align="right">-3.4</td>
+<td align="right">54.1</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10231</td>
+<td align="left">PPGEN002</td>
+<td align="left">GBR0004687</td>
+<td align="left">Pauls Hill Windfarm</td>
+<td align="left">2__PPGEN002</td>
+<td align="right">-3.4582</td>
+<td align="right">57.4519</td>
+<td align="left">wind</td>
+<td align="right">64</td>
+</tr>
+<tr>
+<td align="right">10232</td>
+<td align="left">PNYCW</td>
+<td align="left">GBR0004595</td>
+<td align="left">Pen y Cymoedd Wind Farm</td>
+<td align="left">T_PNYCW-1</td>
+<td align="right">-3.56136</td>
+<td align="right">51.7107</td>
+<td align="left">wind</td>
+<td align="right">228</td>
+</tr>
+<tr>
+<td align="right">10233</td>
+<td align="left">RCBKO</td>
+<td align="left">GBR0002515</td>
+<td align="left">Race Bank Offshore Wind Farm</td>
+<td align="left">T_RCBKO-1, T_RCBKO-2</td>
+<td align="right">0.841</td>
+<td align="right">53.276</td>
+<td align="left">wind</td>
+<td align="right">286.5</td>
+</tr>
+<tr>
+<td align="right">10234</td>
+<td align="left">RMPNO</td>
+<td align="left">nan</td>
+<td align="left">Rampion Offshore Windfarm</td>
+<td align="left">T_RMPNO-1, T_RMPNO-2</td>
+<td align="right">-0.27</td>
+<td align="right">50.67</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10235</td>
+<td align="left">RREW</td>
+<td align="left">GBR0002496</td>
+<td align="left">Robin Rigg East</td>
+<td align="left">T_RREW-1</td>
+<td align="right">-3.71667</td>
+<td align="right">54.75</td>
+<td align="left">wind</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td align="right">10236</td>
+<td align="left">RRWW</td>
+<td align="left">GBR0002497</td>
+<td align="left">Robin Rigg West</td>
+<td align="left">T_RRWW-1</td>
+<td align="right">-3.71667</td>
+<td align="right">54.75</td>
+<td align="left">wind</td>
+<td align="right">90</td>
+</tr>
+<tr>
+<td align="right">10237</td>
+<td align="left">PPGEN001</td>
+<td align="left">GBR0003534</td>
+<td align="left">Rothes (Cairn Uish) Wind Farm</td>
+<td align="left">2__PPGEN001</td>
+<td align="right">-3.0639</td>
+<td align="right">57.505</td>
+<td align="left">wind</td>
+<td align="right">51</td>
+</tr>
+<tr>
+<td align="right">10238</td>
+<td align="left">SANQW</td>
+<td align="left">nan</td>
+<td align="left">Sanquhar Community Wind Farm Generation</td>
+<td align="left">T_SANQW-1</td>
+<td align="right">-4.02336</td>
+<td align="right">55.3227</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10239</td>
+<td align="left">SHRSW</td>
+<td align="left">GBR0002512</td>
+<td align="left">Sheringham Shoals Windfarm  1</td>
+<td align="left">E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2</td>
+<td align="right">1.147</td>
+<td align="right">53.135</td>
+<td align="left">wind</td>
+<td align="right">316</td>
+</tr>
+<tr>
+<td align="right">10240</td>
+<td align="left">STRNW</td>
+<td align="left">GBR0004625</td>
+<td align="left">Strathy North Wind Farm 1</td>
+<td align="left">T_STRNW-1</td>
+<td align="right">-3.89086</td>
+<td align="right">58.3853</td>
+<td align="left">wind</td>
+<td align="right">67.65</td>
+</tr>
+<tr>
+<td align="right">10241</td>
+<td align="left">THNTW</td>
+<td align="left">nan</td>
+<td align="left">Thanet Offshore Wind</td>
+<td align="left">E_THNTW-2, E_THNTW-1</td>
+<td align="right">1.6331</td>
+<td align="right">51.4306</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10242</td>
+<td align="left">THNTO</td>
+<td align="left">GBR0002499</td>
+<td align="left">Thanet Offshore Windfarm</td>
+<td align="left">T_THNTO-1, T_THNTO-2</td>
+<td align="right">1.46118</td>
+<td align="right">51.3855</td>
+<td align="left">wind</td>
+<td align="right">300</td>
+</tr>
+<tr>
+<td align="right">10243</td>
+<td align="left">TDBNW</td>
+<td align="left">nan</td>
+<td align="left">Toddleburn Wind Farm</td>
+<td align="left">T_TDBNW-1</td>
+<td align="right">-2.81</td>
+<td align="right">55.77</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10244</td>
+<td align="left">TULWW</td>
+<td align="left">nan</td>
+<td align="left">Tullo</td>
+<td align="left">E_TULWW-1, E_TULWW-2</td>
+<td align="right">-2.58179</td>
+<td align="right">56.6623</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10245</td>
+<td align="left">WLNYO</td>
+<td align="left">nan</td>
+<td align="left">Walney Offshore Windfarm (Extension)</td>
+<td align="left">T_WLNYO-3, T_WLNYO-4, T_WLNYO-2</td>
+<td align="right">-3.60352</td>
+<td align="right">53.9819</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10246</td>
+<td align="left">WLNYW1</td>
+<td align="left">GBR0002500</td>
+<td align="left">Walney Offshore Windfarm  1</td>
+<td align="left">T_WLNYW-1</td>
+<td align="right">-3.522</td>
+<td align="right">54.044</td>
+<td align="left">wind</td>
+<td align="right">184</td>
+</tr>
+<tr>
+<td align="right">10247</td>
+<td align="left">WLNYW2</td>
+<td align="left">GBR0002506</td>
+<td align="left">Walney Offshore Windfarm  2</td>
+<td align="left">E_WLNYW-2</td>
+<td align="right">-3.522</td>
+<td align="right">54.044</td>
+<td align="left">wind</td>
+<td align="right">184</td>
+</tr>
+<tr>
+<td align="right">10248</td>
+<td align="left">WTMSO</td>
+<td align="left">GBR0002545</td>
+<td align="left">Westermost Rough Windfarm</td>
+<td align="left">T_WTMSO-1</td>
+<td align="right">0.681152</td>
+<td align="right">53.9432</td>
+<td align="left">wind</td>
+<td align="right">210</td>
+</tr>
+<tr>
+<td align="right">10249</td>
+<td align="left">WTMSD</td>
+<td align="left">nan</td>
+<td align="left">Westermost Rough Windfarm Onshore Demand</td>
+<td align="left">T_WTMSD-1</td>
+<td align="right">0.149</td>
+<td align="right">53.805</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10250</td>
+<td align="left">WDNSO</td>
+<td align="left">GBR0002519</td>
+<td align="left">West of Duddon Sands</td>
+<td align="left">T_WDNSO-1, T_WDNSO-2</td>
+<td align="right">-3.76831</td>
+<td align="right">53.9238</td>
+<td align="left">wind</td>
+<td align="right">389</td>
+</tr>
+<tr>
+<td align="right">10251</td>
+<td align="left">WDNSW</td>
+<td align="left">nan</td>
+<td align="left">West of Duddon Sands</td>
+<td align="left">T_WDNSW-1, T_WDNSW-2</td>
+<td align="right">-3.463</td>
+<td align="right">53.983</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10252</td>
+<td align="left">WHILW1</td>
+<td align="left">GBR0003489</td>
+<td align="left">Whitelee Wind Farm</td>
+<td align="left">T_WHILW-1</td>
+<td align="right">-4.04297</td>
+<td align="right">55.7024</td>
+<td align="left">wind</td>
+<td align="right">322</td>
+</tr>
+<tr>
+<td align="right">10253</td>
+<td align="left">WHILW2</td>
+<td align="left">GBR0003981</td>
+<td align="left">Whitelee Windfarm Extension</td>
+<td align="left">T_WHILW-2</td>
+<td align="right">-4.04297</td>
+<td align="right">55.7024</td>
+<td align="left">wind</td>
+<td align="right">217.02</td>
+</tr>
+<tr>
+<td align="right">10254</td>
+<td align="left">AANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__AANGE001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10255</td>
+<td align="left">AFLEX</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__AFLEX001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10256</td>
+<td align="left">ALIME</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__ALIME000</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10257</td>
+<td align="left">ALOND</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__ALOND001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10258</td>
+<td align="left">BANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__BANGE001, 2__BANGE002</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10259</td>
+<td align="left">BFLEX</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__BFLEX001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10260</td>
+<td align="left">BLIME</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__BLIME000</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10261</td>
+<td align="left">BUKPR</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__BUKPR001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10262</td>
+<td align="left">DSMAR</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__DSMAR001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10263</td>
+<td align="left">EANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__EANGE001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10264</td>
+<td align="left">EFLEX</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__EFLEX001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10265</td>
+<td align="left">FANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__FANGE001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10266</td>
+<td align="left">FFLEX</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__FFLEX001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10267</td>
+<td align="left">GANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__GANGE001, 2__GANGE002</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10268</td>
+<td align="left">HANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__HANGE001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10269</td>
+<td align="left">LSTAT</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__LSTAT001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10270</td>
+<td align="left">MANGE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__MANGE001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10271</td>
+<td align="left">MFLEX</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__MFLEX001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10272</td>
+<td align="left">MSMAR</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">2__MSMAR001</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10273</td>
+<td align="left">ALCOA</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_ALCOA-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10274</td>
+<td align="left">ARNKB</td>
+<td align="left">nan</td>
+<td align="left">Bloxwich</td>
+<td align="left">E_ARNKB-1</td>
+<td align="right">-2.0043</td>
+<td align="right">52.6147</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10275</td>
+<td align="left">BURGH</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_BURGH-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10276</td>
+<td align="left">CHICK</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_CHICK-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10277</td>
+<td align="left">CRGTW</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_CRGTW-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10278</td>
+<td align="left">CRSSB</td>
+<td align="left">nan</td>
+<td align="left">Carnegie Road</td>
+<td align="left">E_CRSSB-1</td>
+<td align="right">-2.92705</td>
+<td align="right">53.4201</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10279</td>
+<td align="left">LCHWT</td>
+<td align="left">nan</td>
+<td align="left">Letchworth</td>
+<td align="left">E_LCHWT-1</td>
+<td align="right">-0.201175</td>
+<td align="right">51.9822</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10280</td>
+<td align="left">LSTWY</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_LSTWY-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10281</td>
+<td align="left">RDFRB</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_RDFRB-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10282</td>
+<td align="left">RDFRD</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_RDFRD-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10283</td>
+<td align="left">ROOSB</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_ROOSB-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">other</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10284</td>
+<td align="left">STLGW</td>
+<td align="left">nan</td>
+<td align="left">Stronelairg Windfarm</td>
+<td align="left">T_STLGW-1, T_STLGW-2</td>
+<td align="right">-4.46135</td>
+<td align="right">57.0999</td>
+<td align="left">wind</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10285</td>
+<td align="left">TDRVE</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_TDRVE-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10286</td>
+<td align="left">TRFPK</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_TRFPK-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+<tr>
+<td align="right">10287</td>
+<td align="left">WTRLN</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">E_WTRLN-1</td>
+<td align="right">nan</td>
+<td align="right">nan</td>
+<td align="left">gas</td>
+<td align="right">nan</td>
+</tr>
+</tbody>
+</table>
                 
               
               

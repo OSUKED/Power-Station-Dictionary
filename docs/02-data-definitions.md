@@ -355,7 +355,7 @@ BMU_root_to_gppd_idnr = {
     'WDNSO': 'GBR0002519', # West of Duddon Sands - how to handle OFTO and farm? only WDNSO has data on BMRS
     'THNTO': 'GBR0002499', # could only see FPN for THNTO on BMRS, seems like O is for offtake which is where measurements are made
     'BRYP': 'GBR2000125', # There's also AESB from when it was under AES ownership but no data 
-#    ['CLDCW', 'CLDNW', 'CLDSW']: 'GBR0004178', # The GPPDB only includes the extension at 173 MW but this doesnt match to any of these BMU capacities as shown on netareports
+    'CLDW': 'GBR0004178', # The GPPDB only includes the extension at 173 MW but this doesnt match to any of these BMU capacities as shown on netareports - fixed: https://github.com/OSUKED/Power-Station-Dictionary/issues/6
     'PEMB': 'GBR1000372',
     'WBUPS': 'GBR1000143',
     'COTPS': 'GBR1000142',

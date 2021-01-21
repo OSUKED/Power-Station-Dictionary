@@ -1,4 +1,4 @@
-# End-to-End Pipeline
+# Pipelines
 
 
 
@@ -14,15 +14,19 @@ from dagster import execute_pipeline, pipeline, solid, Field
 
 <br>
 
-### Dagster Pipeline
+### End-to-End Dataset Generation
 
 We're now going to combine the dictionary generation steps into a pipeline using dagster, first we'll create the individual components.
 
 ```python
 #exports
 @solid()
-def download_source_data(_, raw_data_dir: str):
-    download.download_opsd_power_plants_data(raw_data_dir)
+def download_source_data(context, raw_data_dir: str):
+    try:
+        download.download_opsd_power_plants_data(raw_data_dir)
+        context.log.info('The latest source data was successfully retrieved')
+    except:
+        context.log.info('Source data could not be updated, will proceed with existing raw data sources')
     
     return 
 

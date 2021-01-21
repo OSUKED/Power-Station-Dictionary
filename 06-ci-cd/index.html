@@ -14,7 +14,7 @@
     
     
       
-        <title>Method - Power-Station-Dictionary</title>
+        <title>CI/CD - Power-Station-Dictionary</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dataset-generation" class="md-skip">
+        <a href="#cicd" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Method
+              CI/CD
             
           </span>
         </div>
@@ -160,15 +160,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link md-tabs__link--active">
+      <a href=".." class="md-tabs__link">
         Home
       </a>
     </li>
@@ -242,14 +240,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" >
     
     <label class="md-nav__link" for="nav-1">
       Home
@@ -281,70 +277,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Method
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../generation-process/" class="md-nav__link">
       Method
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sources" class="md-nav__link">
-    Sources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputoutput-definitions" class="md-nav__link">
-    Input/Output Definitions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updatescorrections" class="md-nav__link">
-    Updates/Corrections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#construction-steps" class="md-nav__link">
-    Construction Steps
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -485,29 +422,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sources" class="md-nav__link">
-    Sources
+  <a href="#initialising-cli" class="md-nav__link">
+    Initialising CLI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#inputoutput-definitions" class="md-nav__link">
-    Input/Output Definitions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updatescorrections" class="md-nav__link">
-    Updates/Corrections
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#construction-steps" class="md-nav__link">
-    Construction Steps
+  <a href="#incrementing-the-package-version" class="md-nav__link">
+    Incrementing the Package Version
   </a>
   
 </li>
@@ -524,70 +447,130 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/OSUKED/Power-Station-Dictionary/edit/main/docs/generation-process.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/OSUKED/Power-Station-Dictionary/edit/main/docs/06-ci-cd.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="dataset-generation">Dataset Generation<a class="headerlink" href="#dataset-generation" title="Permanent link">&para;</a></h1>
-<p><br></p>
-<h3 id="sources">Sources<a class="headerlink" href="#sources" title="Permanent link">&para;</a></h3>
-<p><br></p>
-<h3 id="inputoutput-definitions">Input/Output Definitions<a class="headerlink" href="#inputoutput-definitions" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;GPPDB.csv&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;key_input_col&quot;</span><span class="p">:</span> <span class="s2">&quot;gppd_idnr&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;key_output_col&quot;</span><span class="p">:</span> <span class="s2">&quot;gppd_idnr&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;key_map&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;10002&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000374&quot;</span><span class="p">,</span> 
-        <span class="nt">&quot;10003&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000142&quot;</span><span class="p">,</span> 
-        <span class="err">...</span>
-        <span class="nt">&quot;10004&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR0000174&quot;</span><span class="p">,</span> 
-        <span class="nt">&quot;10005&quot;</span><span class="p">:</span> <span class="s2">&quot;GBR1000147&quot;</span>
-    <span class="p">},</span> 
-    <span class="nt">&quot;attr_cols&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;capacity_mw&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;output_col&quot;</span><span class="p">:</span> <span class="s2">&quot;capacity_mw&quot;</span><span class="p">,</span> 
-            <span class="nt">&quot;output_rank&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-            <span class="nt">&quot;value_map&quot;</span><span class="p">:</span> <span class="kc">null</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;sett_bmu_id&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;capacity_mw&quot;</span><span class="p">:</span> <span class="s2">&quot;float&quot;</span><span class="p">,</span> 
-    <span class="nt">&quot;fuel_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gas&quot;</span><span class="p">,</span> <span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="s2">&quot;wind&quot;</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="s2">&quot;biomass&quot;</span><span class="p">,</span> <span class="s2">&quot;other&quot;</span><span class="p">],</span> 
-    <span class="nt">&quot;plant_type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ccgt&quot;</span><span class="p">,</span> <span class="s2">&quot;ocgt&quot;</span><span class="p">,</span> <span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="err">...</span> <span class="p">,</span> <span class="s2">&quot;battery&quot;</span><span class="p">,</span> <span class="s2">&quot;biomass&quot;</span><span class="p">]</span>
-<span class="p">}</span>
+                <h1 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">typer</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
+<span class="kn">from</span> <span class="nn">configparser</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 </code></pre></div>
 
 <p><br></p>
-<h3 id="updatescorrections">Updates/Corrections<a class="headerlink" href="#updatescorrections" title="Permanent link">&para;</a></h3>
-<p>A collection of JSON files are stored within the <code>data/updates</code> directory, each one relating to a specific attribute column in the output dataset. Each file contains a mapping between the osuked_id of the plant to a key/value set of metadata which must contain <code>new_value</code> and <code>md_description</code> keys. Below we have included a sample from the <code>fuel_type.json</code> update file.</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;10004&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;new_value&quot;</span><span class="p">:</span> <span class="s2">&quot;coal, biomass&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;md_description&quot;</span><span class="p">:</span> <span class="s2">&quot;Drax is currently converting its coal units to biomass before the 2024 coal ban - [evidence](https://www.drax.com/press_release/drax-closer-coal-free-future-fourth-biomass-unit-conversion/)&quot;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<h3 id="initialising-cli">Initialising CLI<a class="headerlink" href="#initialising-cli" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">typer</span><span class="o">.</span><span class="n">Typer</span><span class="p">()</span>
 </code></pre></div>
 
 <p><br></p>
-<h3 id="construction-steps">Construction Steps<a class="headerlink" href="#construction-steps" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Download the latest versions of the external datasets</li>
-<li>Load the JSON source definitions and identify which of their columns will be used for key matching and which will be used for populating the power plant attributes </li>
-<li>For each of the output columns rank their input sources as specified in the source definitions</li>
-<li>Iterating over each of the output columns the lowest rank input is used to populate the DB first, with subsequent higher rank input sources overwriting earlier ones when they overlap </li>
-<li>The JSON files specifying corrections/updates are then loaded in and applied to each output column in turn</li>
-<li>Finally the generated dataset is saved as a csv</li>
-</ol>
-<p>Whilst the mapping between the <code>osuked_id</code> and source id keys must be one-to-one, the mapping between source id keys and attributes can be one-to-one, one-to-many, or many-to-one.</p>
+<h3 id="incrementing-the-package-version">Incrementing the Package Version<a class="headerlink" href="#incrementing-the-package-version" title="Permanent link">&para;</a></h3>
+<p>We'll start by retrieving the current package version specified in <code>settings.ini</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">get_current_package_version</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;settings.ini&#39;</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">delimiters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;=&#39;</span><span class="p">])</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">)</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEFAULT&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">version</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">settings_fp</span> <span class="o">=</span> <span class="s1">&#39;../settings.ini&#39;</span>
+
+<span class="n">original_version</span> <span class="o">=</span> <span class="n">get_current_package_version</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">)</span>
+
+<span class="n">original_version</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;1.0.0&#39;
+</code></pre></div>
+
+<p><br></p>
+<p>We'll now increment the package version</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">increment_package_version</span><span class="p">(</span><span class="n">old_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">increment_level</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">):</span>
+    <span class="n">increment</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">rev</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rev</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">,</span> <span class="n">micro</span> <span class="o">=</span> <span class="n">old_version</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="c1"># naming from - https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/specification.html#sequence-based-scheme</span>
+
+    <span class="k">if</span> <span class="n">increment_level</span> <span class="o">==</span> <span class="s1">&#39;major&#39;</span><span class="p">:</span>
+        <span class="n">major</span> <span class="o">=</span> <span class="n">increment</span><span class="p">(</span><span class="n">major</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">increment_level</span> <span class="o">==</span> <span class="s1">&#39;minor&#39;</span><span class="p">:</span>
+        <span class="n">minor</span> <span class="o">=</span> <span class="n">increment</span><span class="p">(</span><span class="n">minor</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">increment_level</span> <span class="o">==</span> <span class="s1">&#39;micro&#39;</span><span class="p">:</span>
+        <span class="n">micro</span> <span class="o">=</span> <span class="n">increment</span><span class="p">(</span><span class="n">micro</span><span class="p">)</span>
+
+    <span class="n">new_version</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">major</span><span class="p">,</span> <span class="n">minor</span><span class="p">,</span> <span class="n">micro</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">new_version</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">increment_package_version</span><span class="p">(</span><span class="n">original_version</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;1.0.1&#39;
+</code></pre></div>
+
+<p><br></p>
+<p>But what about if we've made large changes to the code-base and wish to express the size of these revisions in the version? For that we can specify the <code>increment_level</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">increment_package_version</span><span class="p">(</span><span class="n">original_version</span><span class="p">,</span> <span class="n">increment_level</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;2.0.0&#39;
+</code></pre></div>
+
+<p><br></p>
+<p>And finally we can set the version</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">set_current_package_version</span><span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">settings_fp</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;settings.ini&#39;</span><span class="p">):</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">version</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">delimiters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;=&#39;</span><span class="p">])</span>
+    <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">)</span>
+
+    <span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;DEFAULT&#39;</span><span class="p">,</span> <span class="s1">&#39;version&#39;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">configfile</span><span class="p">:</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configfile</span><span class="p">)</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;package_release&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The package version has to be updated to </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> 
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">set_current_package_version</span><span class="p">(</span><span class="s1">&#39;9.9.9&#39;</span><span class="p">,</span> <span class="n">settings_fp</span><span class="p">)</span>
+<span class="n">get_current_package_version</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;9.9.9&#39;
+</code></pre></div>
+
+<p><br></p>
+<p>Before we move on we'll change the version on file back to the original</p>
+<div class="highlight"><pre><span></span><code><span class="n">set_current_package_version</span><span class="p">(</span><span class="n">original_version</span><span class="p">,</span> <span class="n">settings_fp</span><span class="p">)</span>
+<span class="n">get_current_package_version</span><span class="p">(</span><span class="n">settings_fp</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;1.0.0&#39;
+</code></pre></div>
+
+<p><br></p>
+<p>Finally we need to ensure the CLI app is available when the module is loaded.</p>
+<p>N.b. we've included the condition <code>'__file__' in globals()</code> to make sure this isn't when inside the notebook</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span> <span class="ow">and</span> <span class="s1">&#39;__file__&#39;</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="n">app</span><span class="p">()</span>
+</code></pre></div>
                 
               
               
@@ -602,41 +585,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Welcome
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../dictionary/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Dictionary
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

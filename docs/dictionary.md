@@ -2,6 +2,10 @@
 
 <br>
 
+[Download](https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/main/data/output/power_stations.csv){: .md-button }
+
+This page provides a direct view of the power station dictionary. You can search the dictionary [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv). 
+
 |   osuked_id | esail_id   | gppd_idnr   | name                                                               | sett_bmu_id                                                                    |   longitude |   latitude | fuel_type     |   capacity_mw |
 |------------:|:-----------|:------------|:-------------------------------------------------------------------|:-------------------------------------------------------------------------------|------------:|-----------:|:--------------|--------------:|
 |       10000 | MARK       | nan         | Rothes Bio-Plant CHP                                               | E_MARK-1, E_MARK-2                                                             |   -3.60352  |    57.4804 | biomass       |       nan     |

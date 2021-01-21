@@ -731,7 +731,7 @@ Name: primary_fuel_type, dtype: int64
 <div class="highlight"><pre><span></span><code>&lt;matplotlib.legend.Legend at 0x241a1eca4c0&gt;
 </code></pre></div>
 
-<p><img alt="png" src="../docs/img/nbs/output_13_1.png" /></p>
+<p><img alt="png" src="../img/nbs/output_13_1.png" /></p>
 <p><br></p>
 <h3 id="open-power-system-data-dataset"><em>Open Power System Data</em> Dataset<a class="headerlink" href="#open-power-system-data-dataset" title="Permanent link">&para;</a></h3>
 <p>We want to make sure that we're always downloading the latest available dataset from OPSD so we'll identify which csv that is from their website</p>
@@ -995,7 +995,7 @@ Name: energy_source, dtype: int64
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
 </code></pre></div>
 
-<p><img alt="png" src="../docs/img/nbs/output_32_0.png" /></p>
+<p><img alt="png" src="../img/nbs/output_32_0.png" /></p>
 <p><br></p>
 <p>We'll also look at the detail to which they go in for energy sources</p>
 <div class="highlight"><pre><span></span><code><span class="n">df_OPSD</span><span class="p">[[</span><span class="s1">&#39;energy_source_level_1&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_source_level_2&#39;</span><span class="p">,</span> <span class="s1">&#39;energy_source_level_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>

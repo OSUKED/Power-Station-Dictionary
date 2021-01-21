@@ -436,8 +436,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cleaning-markdown" class="md-nav__link">
-    Cleaning Markdown
+  <a href="#cleaning-markdown-tables" class="md-nav__link">
+    Cleaning Markdown Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-dictionary-page" class="md-nav__link">
+    Creating the Dictionary Page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transferring-images" class="md-nav__link">
+    Transferring Images
   </a>
   
 </li>
@@ -474,9 +488,10 @@
 
 <p><br></p>
 <h3 id="user-inputs">User Inputs<a class="headerlink" href="#user-inputs" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">docs_dir</span> <span class="o">=</span> <span class="s1">&#39;../docs&#39;</span>
-<span class="n">img_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">docs_dir</span><span class="si">}</span><span class="s1">/img/nbs&#39;</span>
-<span class="n">dev_nbs_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">dev_nbs_dir</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
+<span class="n">docs_dir</span> <span class="o">=</span> <span class="s1">&#39;../docs&#39;</span>
+<span class="n">docs_img_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">docs_dir</span><span class="si">}</span><span class="s1">/img/nbs&#39;</span>
+<span class="n">dict_fp</span> <span class="o">=</span> <span class="s1">&#39;../data/output/power_stations.csv&#39;</span>
 </code></pre></div>
 
 <p><br></p>
@@ -493,30 +508,30 @@
             <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">convert_nbs_to_md</span><span class="p">(</span><span class="n">nbs_dir</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">convert_nbs_to_md</span><span class="p">(</span><span class="n">nbs_dir</span><span class="p">,</span> <span class="n">docs_img_dir</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">):</span>
     <span class="n">nb_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">nbs_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span><span class="o">==</span><span class="s1">&#39;.ipynb&#39;</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">nb_file</span> <span class="ow">in</span> <span class="n">track</span><span class="p">(</span><span class="n">nb_files</span><span class="p">):</span>
         <span class="n">nb_fp</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">nbs_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">nb_file</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="n">junix</span><span class="o">.</span><span class="n">export_images</span><span class="p">(</span><span class="n">nb_fp</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">)</span>
-        <span class="n">convert_md</span><span class="p">(</span><span class="n">nb_fp</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">,</span> <span class="n">img_path</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">img_dir</span><span class="si">}</span><span class="s1">/&#39;</span><span class="p">,</span> <span class="n">jekyll</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">junix</span><span class="o">.</span><span class="n">export_images</span><span class="p">(</span><span class="n">nb_fp</span><span class="p">,</span> <span class="n">docs_img_dir</span><span class="p">)</span>
+        <span class="n">convert_md</span><span class="p">(</span><span class="n">nb_fp</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">,</span> <span class="n">img_path</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">docs_img_dir</span><span class="si">}</span><span class="s1">/&#39;</span><span class="p">,</span> <span class="n">jekyll</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="n">md_fp</span> <span class="o">=</span>  <span class="n">docs_dir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">+</span> <span class="n">nb_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.ipynb&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.md&#39;</span>
         <span class="n">encode_file_as_utf8</span><span class="p">(</span><span class="n">md_fp</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">nbs_dir</span> <span class="ow">in</span> <span class="p">[</span><span class="n">dev_nbs_dir</span><span class="p">]:</span>
-    <span class="n">convert_nbs_to_md</span><span class="p">(</span><span class="n">nbs_dir</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">)</span>
+    <span class="n">convert_nbs_to_md</span><span class="p">(</span><span class="n">nbs_dir</span><span class="p">,</span> <span class="n">docs_img_dir</span><span class="p">,</span> <span class="n">docs_dir</span><span class="p">)</span>
 </code></pre></div>
 
 <div><span class="Text-label" style="display:inline-block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; min-width:0; max-width:15ex; vertical-align:middle; text-align:right"></span>
 <progress style="width:60ex" max="7" value="7" class="Progress-main"/></progress>
 <span class="Progress-label"><strong>100%</strong></span>
 <span class="Iteration-label">7/7</span>
-<span class="Time-label">[00:01<00:00, 0.18s/it]</span></div>
+<span class="Time-label">[00:02<00:00, 0.22s/it]</span></div>
 
 <p><br></p>
-<h3 id="cleaning-markdown">Cleaning Markdown<a class="headerlink" href="#cleaning-markdown" title="Permanent link">&para;</a></h3>
+<h3 id="cleaning-markdown-tables">Cleaning Markdown Tables<a class="headerlink" href="#cleaning-markdown-tables" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
 <span class="k">class</span> <span class="nc">MyHTMLParser</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -593,39 +608,35 @@
     <span class="k">return</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">md_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">docs_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span><span class="o">==</span><span class="s1">&#39;.md&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">md_files</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">docs_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">docs_dir</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span><span class="o">==</span><span class="s1">&#39;.md&#39;</span> <span class="k">if</span> <span class="n">f</span><span class="o">!=</span><span class="s1">&#39;00-documentation.md&#39;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">md_file</span> <span class="ow">in</span> <span class="n">md_files</span><span class="p">:</span>
     <span class="n">div_to_md_tables</span> <span class="o">=</span> <span class="n">clean_md_file_tables</span><span class="p">(</span><span class="n">md_file</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------
+<p><br></p>
+<h3 id="creating-the-dictionary-page">Creating the Dictionary Page<a class="headerlink" href="#creating-the-dictionary-page" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">#exports</span>
+<span class="k">def</span> <span class="nf">create_dictionary_page</span><span class="p">(</span><span class="n">docs_dir</span><span class="o">=</span><span class="s1">&#39;docs&#39;</span><span class="p">,</span> <span class="n">dict_fp</span><span class="o">=</span><span class="s1">&#39;data/output/power_stations.csv&#39;</span><span class="p">):</span>
+    <span class="n">df_power_stations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dict_fp</span><span class="p">)</span>
 
-FileNotFoundError                         Traceback (most recent call last)
+    <span class="n">md_file_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;# Dictionary</span>
 
-&lt;ipython-input-9-749c5ee890cb&gt; in &lt;module&gt;
-      2 
-      3 for md_file in md_files:
-----&gt; 4     div_to_md_tables = clean_md_file_tables(md_file)
+<span class="s2">    &lt;br&gt;</span>
 
+<span class="s2">    </span><span class="si">{</span><span class="n">df_power_stations</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">    &quot;&quot;&quot;</span>
 
-&lt;ipython-input-8-2465abeb9526&gt; in clean_md_file_tables(md_fp)
-     61 
-     62 def clean_md_file_tables(md_fp):
----&gt; 63     div_to_md_tables = extract_div_to_md_tables(md_fp)
-     64 
-     65     with open(md_fp, &#39;r&#39;) as f:
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">docs_dir</span><span class="si">}</span><span class="s1">/dictionary.md&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">md_file_text</span><span class="p">)</span>
+</code></pre></div>
 
+<div class="highlight"><pre><span></span><code><span class="n">create_dictionary_page</span><span class="p">(</span><span class="n">docs_dir</span><span class="p">,</span> <span class="n">dict_fp</span><span class="p">)</span>
+</code></pre></div>
 
-&lt;ipython-input-8-2465abeb9526&gt; in extract_div_to_md_tables(md_fp)
-     41 
-     42 def extract_div_to_md_tables(md_fp):
----&gt; 43     with open(md_fp, &#39;r&#39;) as f:
-     44         file_txt = f.read()
-     45
-
-
-FileNotFoundError: [Errno 2] No such file or directory: &#39;00-documentation.md&#39;
+<p><br></p>
+<h3 id="transferring-images">Transferring Images<a class="headerlink" href="#transferring-images" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">## want to create a markdown file that includes the dataset</span>
 </code></pre></div>
                 
               

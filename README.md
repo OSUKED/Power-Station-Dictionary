@@ -38,7 +38,7 @@ pip install powerdict
 To set-up a new environment you can run the following from the batch_scripts directory
 
 ```bash
-pypi_publish
+setup_env
 ```
 
 Alternatively you can run these commands

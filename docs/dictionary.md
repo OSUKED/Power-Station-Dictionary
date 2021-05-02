@@ -1,10 +1,10 @@
 # Dictionary
 
-<br>
-
 [Download](https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/main/data/output/power_stations.csv){: .md-button }
 
-This page provides a direct view of the power station dictionary. You can search the dictionary [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv). 
+<br>
+
+This page provides a direct view of the power station dictionary. You can find a searchable version of this table [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv). 
 
 |   osuked_id | esail_id   | gppd_idnr   | name                                                               | sett_bmu_id                                                                    |   longitude |   latitude | fuel_type     |   capacity_mw |
 |------------:|:-----------|:------------|:-------------------------------------------------------------------|:-------------------------------------------------------------------------------|------------:|-----------:|:--------------|--------------:|

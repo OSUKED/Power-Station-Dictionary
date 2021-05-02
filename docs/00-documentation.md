@@ -20,9 +20,10 @@ from warnings import warn
 ### User Inputs
 
 ```python
-docs_dir = '../docs'
-img_dir = f'{docs_dir}/img/nbs'
 dev_nbs_dir = '.'
+docs_dir = '../docs'
+docs_img_dir = f'{docs_dir}/img/nbs'
+dict_fp = '../data/output/power_stations.csv'
 ```
 
 <br>
@@ -42,13 +43,13 @@ def encode_file_as_utf8(fp):
             with codecs.open(fp, 'w', 'utf-8') as file:
                 file.write(contents)
             
-def convert_nbs_to_md(nbs_dir, img_dir, docs_dir):
+def convert_nbs_to_md(nbs_dir, docs_img_dir, docs_dir):
     nb_files = [f for f in os.listdir(nbs_dir) if f[-6:]=='.ipynb']
 
     for nb_file in track(nb_files):
         nb_fp = f'{nbs_dir}/{nb_file}'
-        junix.export_images(nb_fp, img_dir)
-        convert_md(nb_fp, docs_dir, img_path=f'{img_dir}/', jekyll=False)
+        junix.export_images(nb_fp, docs_img_dir)
+        convert_md(nb_fp, docs_dir, img_path=f'{docs_img_dir}/', jekyll=False)
 
         md_fp =  docs_dir + '/'+ nb_file.replace('.ipynb', '') + '.md'
         encode_file_as_utf8(md_fp)
@@ -56,7 +57,7 @@ def convert_nbs_to_md(nbs_dir, img_dir, docs_dir):
 
 ```python
 for nbs_dir in [dev_nbs_dir]:
-    convert_nbs_to_md(nbs_dir, img_dir, docs_dir)
+    convert_nbs_to_md(nbs_dir, docs_img_dir, docs_dir)
 ```
 
 
@@ -64,12 +65,12 @@ for nbs_dir in [dev_nbs_dir]:
 <progress style="width:60ex" max="7" value="7" class="Progress-main"/></progress>
 <span class="Progress-label"><strong>100%</strong></span>
 <span class="Iteration-label">7/7</span>
-<span class="Time-label">[00:01<00:00, 0.18s/it]</span></div>
+<span class="Time-label">[00:02<00:00, 0.22s/it]</span></div>
 
 
 <br>
 
-### Cleaning Markdown
+### Cleaning Markdown Tables
 
 ```python
 #exports
@@ -100,7 +101,7 @@ def convert_df_to_md(df):
 def extract_div_to_md_table(start_idx, end_idx, table_and_div_tags, file_txt):
     n_start_divs_before = table_and_div_tags[:start_idx].count('<div>')
     n_end_divs_before = table_and_div_tags[:end_idx].count('</div>')
-
+    
     div_start_idx = get_substring_idxs(file_txt, '<div>')[n_start_divs_before-1]
     div_end_idx = get_substring_idxs(file_txt, '</div>')[n_end_divs_before]
 
@@ -149,38 +150,40 @@ def clean_md_file_tables(md_fp):
 ```
 
 ```python
-md_files = [f for f in os.listdir(docs_dir) if f[-3:]=='.md']
+md_files = [f'{docs_dir}/{f}' for f in os.listdir(docs_dir) if f[-3:]=='.md' if f!='00-documentation.md']
 
 for md_file in md_files:
     div_to_md_tables = clean_md_file_tables(md_file)
 ```
 
+<br>
 
-    ---------------------------------------------------------------------------
+### Creating the Dictionary Page
 
-    FileNotFoundError                         Traceback (most recent call last)
+```python
+#exports
+def create_dictionary_page(docs_dir='docs', dict_fp='data/output/power_stations.csv'):
+    df_power_stations = pd.read_csv(dict_fp)
 
-    <ipython-input-9-749c5ee890cb> in <module>
-          2 
-          3 for md_file in md_files:
-    ----> 4     div_to_md_tables = clean_md_file_tables(md_file)
-    
+    md_file_text = f"""# Dictionary
 
-    <ipython-input-8-2465abeb9526> in clean_md_file_tables(md_fp)
-         61 
-         62 def clean_md_file_tables(md_fp):
-    ---> 63     div_to_md_tables = extract_div_to_md_tables(md_fp)
-         64 
-         65     with open(md_fp, 'r') as f:
-    
+    <br>
 
-    <ipython-input-8-2465abeb9526> in extract_div_to_md_tables(md_fp)
-         41 
-         42 def extract_div_to_md_tables(md_fp):
-    ---> 43     with open(md_fp, 'r') as f:
-         44         file_txt = f.read()
-         45 
-    
+    {df_power_stations.to_markdown(index=False)}
+    """
 
-    FileNotFoundError: [Errno 2] No such file or directory: '00-documentation.md'
+    with open(f'{docs_dir}/dictionary.md', 'w') as f:
+        f.write(md_file_text)
+```
 
+```python
+create_dictionary_page(docs_dir, dict_fp)
+```
+
+<br>
+
+### Transferring Images
+
+```python
+## want to create a markdown file that includes the dataset
+```

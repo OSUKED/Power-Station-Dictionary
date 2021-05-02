@@ -159,7 +159,7 @@ ax.legend(frameon=False, bbox_to_anchor=(1, 0.75))
 
 
 
-![png](../docs/img/nbs/output_13_1.png)
+![png](img/nbs/output_13_1.png)
 
 
 <br>
@@ -333,7 +333,7 @@ for ax in axs:
 ```
 
 
-![png](../docs/img/nbs/output_32_0.png)
+![png](img/nbs/output_32_0.png)
 
 
 <br>

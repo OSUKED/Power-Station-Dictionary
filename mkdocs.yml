@@ -50,3 +50,4 @@ nav:
     - Construction: 03-database-construction.md
     - Updates: 04-updates-and-cleaning.md
     - Pipeline: 05-pipelines.md
+    - CI/CD: 06-ci-cd.md

@@ -2,5 +2,8 @@
     "10004": {
         "new_value": "coal, biomass",
         "md_description": "Drax is currently converting its coal units to biomass before the 2024 coal ban - [evidence](https://www.drax.com/press_release/drax-closer-coal-free-future-fourth-biomass-unit-conversion/)"
+    },
+    "10101": {
+        "new_value": "gas",
     }
 }

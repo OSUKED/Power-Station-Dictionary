@@ -1,0 +1,134 @@
+osuked_id,esail_id,gppd_idnr,name,sett_bmu_id,longitude,latitude,fuel_type,capacity_mw,plant_type,4c_offshore_id,windpowernet_id,wikidata_id,wikipedia_id,power_technology_id,hub_height
+10147,ACHRW,GBR0004331,AChruach Wind Farm,T_ACHRW-1,-5.393722,56.34286,wind,42.6,onshore,,,,,,
+10148,AKGLW,GBR0004332,Aikengall 2 Wind Farm Generation,"T_AKGLW-2, T_AKGLW-3",-2.492993,55.923317,wind,60.8,onshore,,,,,,
+10149,AIRSW,,Airies Windfarm,E_AIRSW-1,-4.713441,54.970896,wind,,onshore,,,,,,
+10150,ASHWW,,Andershaw Wind Farm,E_ASHWW-1,-3.814161,55.51487,wind,,onshore,,,,,,
+10151,ANSUW,,An Suidhe Windfarm,T_ANSUW-1,-5.449219,56.065903000000006,wind,,onshore,,,,,,
+10152,ARCHW,GBR0003258,Arecleoch Windfarm,T_ARCHW-1,-4.63623,55.14121,wind,120.0,onshore,,,,,,
+10153,ASLVW,,Assel Valley Wind Farm,E_ASLVW-1,-4.825652,55.222814,wind,,onshore,,,,,,
+10154,ABRTW,,Auchrobert Wind Farm,E_ABRTW-1,-3.988675,55.621764,wind,,onshore,,,,,,
+10155,BABAW,GBR0004021,Baillie Wind Farm,E_BABAW-1,-4.372559,58.430482,wind,52.5,onshore,,,,,,
+10156,BOWLW,GBR0002546,Barrow Offshore Windfarm,T_BOWLW-1,-3.2833330000000003,53.983333,wind,90.0,offshore,barrow-united-kingdom-uk01,windfarm_en_1503_barrow,Q2016017,Barrow_Offshore_Wind_Farm,,75
+10157,BTUIW,GBR0004525,Beinn An Tuirc 2 Windfarm,"E_BTUIW-2, E_BTUIW-3",-5.537109,55.683779,wind,43.7,onshore,,,,,,
+10158,BEINW,GBR0003787,Beinneun Wind Farm,T_BEINW-1,-4.789059,57.17555556,wind,85.0,onshore,,,,,,
+10159,BETHW,,Beinn Tharsuinn,E_BETHW-1,-4.42749,58.077876,wind,,onshore,,,,,,
+10160,BRYBW,GBR0004261,Berry Burn Windfarm,E_BRYBW-1,-3.966064,57.36209,wind,66.7,onshore,,,,,,
+10161,BHLAW,GBR0004640,Bhlaraidh Windfarm 1,T_BHLAW-1,-4.668919,57.22303,wind,110.0,onshore,,,,,,
+10162,BLKWW,,Blackcraig Windfarm,T_BLKWW-1,-4.033976,55.117955,wind,,onshore,,,,,,
+10163,BLLA1,GBR0003116,Black Law Wind Farm,T_BLLA-1,-3.4826660000000005,55.590763,wind,124.2,onshore,,,,,,
+10164,BLLA2,GBR0004253,Black Law Windfarm Extension,T_BLLA-2,-3.4826660000000005,55.590763,wind,55.42,onshore,,,,,,
+10165,BODW,,Blyth Offshore Demonstrator Windfarm Generation,E_BODW-1,-1.401,55.131,wind,,offshore,"blyth-offshore-demonstrator---phase-2-united-kingdom-uk79, blyth-offshore-demonstrator---phase-1-united-kingdom-uk70","windfarm_en_16663_blyth-offshore, windfarm_en_16688_blyth-offshore-3a-4",Q4930860,Blyth_Offshore_Wind_Farm,blyth,62
+10166,BRDUW,GBR0003119,Braes of Doune,E_BRDUW-1,-3.361816,56.419978,wind,72.0,onshore,,,,,,
+10167,WISTW,GBR0004431,Brockloch Rig 2 Windfarm,T_WISTW-2,-4.141234,55.25515600000001,wind,61.5,onshore,,,,,,
+10168,BRNLW,,Brownieleys Windfarm,E_BRNLW-1,-2.3745580000000004,56.844014,wind,,onshore,,,,,,
+10169,BURBO,GBR0002487,Burbo Bank Offshore Windfarm,E_BURBO,-3.19582,53.487739000000005,wind,90.0,offshore,"burbo-bank-united-kingdom-uk02, burbo-bank-extension-united-kingdom-uk59",windfarm_en_10684_burbo-bank,Q2583856,Burbo_Bank_Offshore_Wind_Farm,"burbowind, burbo-bank-extension-offshore-wind-farm-liverpool-bay",88.0
+10170,BRBEO,GBR0002539,Burbo Bank Wind Farm Extension,T_BRBEO-1,-3.273,53.484,wind,258.0,offshore,,,,,,105.0
+10171,BNWKW,,Burn of Whilk Windfarm,E_BNWKW-1,-3.21433,58.351973,wind,,onshore,,,,,,
+10172,PSTAT001,GBR0003951,Cairn Uish / Rothes Windfarm Extension,2__PSTAT001,-3.063895,57.504968000000005,wind,41.4,onshore,,,,,,
+10173,PPGEN003,GBR0004006,Camster Wind Farm,2__PPGEN003,-3.2701290000000003,58.406935,wind,50.0,onshore,,,,,,
+10174,CRGHW,GBR0004619,Carraig Gheal Wind Farm,T_CRGHW-1,-4.790039,56.389584,wind,46.0,onshore,,,,,,
+10175,CLFLW,,Clachan Flats Windfarm,E_CLFLW-1,-4.957855,56.283062,wind,,onshore,,,,,,
+10176,CLDRW,GBR0004623,Clashindarroch Wind Farm,E_CLDRW-1,-2.9223630000000003,57.308724,wind,36.9,onshore,,,,,,
+10177,CLDW,GBR0004178,"Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm","T_CLDCW-1, T_CLDNW-1, T_CLDSW-1",-3.35083,55.310391,wind,522.0,onshore,,,,,,
+10178,CGTHW,GBR0004664,Corriegarth Wind Farm,T_CGTHW-1,-4.359638,57.190085,wind,69.0,onshore,,,,,,
+10179,CRMLW,GBR0004120,Corriemoillie Wind Farm,T_CRMLW-1,-4.838531,57.694245,wind,47.5,onshore,,,,,,
+10180,COUWW,,Cour Wind Farm,T_COUWW-1,-5.484929,55.680679000000005,wind,,onshore,,,,,,
+10181,CRYRW3,GBR0004215,Crystal Rig III Wind Farm,T_CRYRW-3,-2.39502,55.893796,wind,13.8,onshore,,,,,,
+10182,CRYRW2,GBR0003440,Crystal Rig Wind Farm - Phase 2,T_CRYRW-2,-2.39502,55.893796,wind,138.0,onshore,,,,,,
+10183,DALSW,,Dalswinton Wind Farm,E_DALSW-1,-3.662819,55.183662,wind,,onshore,,,,,,
+10184,DRSLW,GBR0004269,Dersalloch Windfarm,T_DRSLW-1,-4.484173,55.311291,wind,69.0,onshore,,,,,,
+10185,DDGNO,,Dudgeon Offshore Wind Farm Generator,"T_DDGNO-1, T_DDGNO-2, T_DDGNO-3, T_DDGNO-4",1.39,53.249,wind,,offshore,dudgeon-united-kingdom-uk04,windfarm_en_12072_dudgeon,Q5311735,Dudgeon_Offshore_Wind_Farm,dudgeon-offshore-wind-farm,110
+10186,DNLWW,,Dun Law Extension Windfarm,T_DNLWW-1,-2.296143,55.776573,wind,,onshore,,,,,,
+10187,DUNGW,,Dunmglass Wind Farm,T_DUNGW-1,-4.255802,57.25148000000001,wind,,onshore,,,,,,
+10188,EDINW,GBR0004674,Edinbane Windfarm,T_EDINW-1,-6.229248,57.27904300000001,wind,41.0,onshore,,,,,,
+10189,EWHLW,,Ewe Hill II Wind Farm,T_EWHLW-1,-3.205105,55.228662,wind,,onshore,,,,,,
+10190,FALGW,GBR0004059,Fallago Rig Wind Farm,T_FALGW-1,-2.768555,55.93689499999999,wind,144.0,onshore,,,,,,
+10191,FARR,GBR0004676,Farr Wind Farm,"T_FARR-1, T_FARR-2",-4.094167,57.325,wind,92.0,onshore,,,,,,
+10192,FSDLW,,Freasdail Wind Farm,T_FSDLW-1,-5.479858999999999,55.780803000000006,wind,,onshore,,,,,,
+10193,GLWSW,GBR0004368,Galawhistle Wind Farm,T_GLWSW-1,-3.921928,55.534273,wind,66.0,onshore,,,,,,
+10194,GANW,,Galloper Offshore Windfarm 1,"T_GANW-11, T_GANW-13, T_GANW-22, T_GANW-24",2.035,51.893,wind,,offshore,galloper-united-kingdom-uk62,windfarm_en_16770_galloper,Q56026054,,galloper-offshore-wind-farm,88.0
+10195,GNAPW,,Glen App Wind Farm,T_GNAPW-1,-5.026858,55.021378000000006,wind,,onshore,,,,,,
+10196,GLCHW,,Glenchamber Wind Farm,E_GLCHW-1,-4.754334,54.96341999999999,wind,,onshore,,,,,,
+10197,GLOFW,,Glens of Foudland,E_GLOFW-1,-2.878418,57.219608,wind,,onshore,,,,,,
+10198,GFLDW,,Goole Fields 1 Windfarm,E_GFLDW-1,-0.8724209999999999,53.668356,wind,,onshore,,,,,,
+10199,GORDW,GBR0003662,Gordonbush Wind Farm,"T_GORDW-1, T_GORDW-2",-3.834229,58.066256,wind,70.0,onshore,,,,,,
+10200,GDSTW,,Gordonstown Windfarm,E_GDSTW-1,-2.484139,57.460944,wind,,onshore,,,,,,
+10201,GRGBW,GBR0002510,Greater Gabbard Offshore Windfarm,"T_GRGBW-1, T_GRGBW-2, T_GRGBW-3",1.7138669999999998,52.066,wind,504.0,offshore,greater-gabbard-united-kingdom-uk05,"windfarm_en_1615_greater-gabbard-1, windfarm_en_7107_greater-gabbard-2",Q820613,Greater_Gabbard_wind_farm,greatergabbardoffsho,79.5
+10202,GRIFW,GBR0004028,Griffin Wind Farm,"T_GRIFW-1, T_GRIFW-2",-3.394775,56.529199,wind,188.6,onshore,,,,,,
+10203,GNFSW0,GBR0002488,Gunfleet Sands Demo  3,E_GNFSW-3,1.174444,51.739444,wind,12.0,offshore,"gunfleet-sands--united-kingdom-uk07, gunfleet-sands-3---demonstration-project-united-kingdom-uk73","windfarm_en_1601_gunfleet-sands-1, windfarm_en_7385_gunfleet-sands-2, windfarm_en_16762_gunfleet-sands-3-demonstration",Q5618736,Gunfleet_Sands_Offshore_Wind_Farm,gunfleetsandswindfar,80.0
+10204,GNFSW1,GBR0002490,Gunfleet Sands Windfarm  1,"E_GNFSW-1, T_GNFSW-1",1.174444,51.739444,wind,108.0,offshore,,,,,,80.0
+10205,GNFSW2,GBR0002489,Gunfleet Sands Windfarm  2,"E_GNFSW-2, T_GNFSW-2",1.174444,51.739444,wind,65.0,offshore,,,,,,80.0
+10206,GYMRW,GBR0002543,Gwynt y Mor Offshore Wind Farm,"T_GYMRW-1, T_GYMRW-2",-3.584,53.459,wind,576.0,offshore,gwynt-y-môr-united-kingdom-uk09,windfarm_en_7389_gwynt-y-mor,Q455472,Gwynt_y_Mor,gwynt-y-mor-offshore-wind-farm-north-wales,98
+10207,GYMR,,Gwynt y Mor Wind Farm East 1,"T_GYMR-15, T_GYMR-17, T_GYMR-26, T_GYMR-28",-3.944092,53.376775,wind,,offshore,,,,,,84.4
+10208,HADHW,GBR0003109,Hadyard Hill Wind Farm,T_HADHW-1,-4.702148,55.247815,wind,119.6,onshore,,,,,,
+10209,HBHDW,GBR0004225,Harburnhead Wind Farm,E_HBHDW-1,-3.547456,55.815259,wind,51.7,onshore,,,,,,
+10210,HRHLW,,Hare Hill Extension Wind Farm,E_HRHLW-1,-4.054104,55.405691,wind,,onshore,,,,,,
+10211,HRSTW,GBR0004119,Harestanes Windfarm,T_HRSTW-1,-3.636475,55.229023,wind,136.0,onshore,,,,,,
+10212,HLGLW,,Hill of Glaschyle Windfarm,E_HLGLW-1,-3.615587,57.51051999999999,wind,,onshore,,,,,,
+10213,HLTWW,GBR0004014,Hill of Towie Windfarm ,E_HLTWW-1,-2.406006,57.486309,wind,48.3,onshore,,,,,,
+10214,HMGTO,GBR0002544,Humber Offshore Wind Farm,"T_HMGTO-1, T_HMGTO-2",0.293,53.644,wind,219.0,offshore,humber-gateway-united-kingdom-uk10,windfarm_en_12070_humber-gateway,Q15226770,Humber_Gateway_Wind_Farm,humber-gateway-offshore-wind-farm,80
+10215,HYWDW,,Hywind Generator 1,E_HYWDW-1,-1.35,57.483,wind,,offshore,hywind-scotland-pilot-park-united-kingdom-uk76,windfarm_en_16758_hywind-scotland-pilot-park,Q6989526,Hywind_Scotland,hywind-pilot-park-aberdeenshire,101
+10216,KTHLW,,Keith Hill Windfarm,T_KTHLW-1,-2.825456,55.817272,wind,,onshore,,,,,,
+10217,KILBW,GBR0003202,Kilbraur Windfarm,T_KILBW-1,-4.0564,58.0395,wind,47.5,onshore,,,,,,
+10218,KLGLW,,Kilgallioch Wind Farm,T_KLGLW-1,-4.765280000000001,55.05,wind,,onshore,,,,,,
+10219,LNCSW,GBR0002513,Lincs Offshore Wind Farm,"T_LNCSW-1, T_LNCSW-2, T_LNCSW-3",0.5273439999999999,53.265213,wind,270.0,offshore,lincs-united-kingdom-uk13,windfarm_en_10526_lincs,Q6551320,Lincs_Wind_Farm,centricalincs,100
+10220,LCLTW,GBR0004123,Lochluichart Windfarm,T_LCLTW-1,-4.559326,57.73935,wind,69.0,onshore,,,,,,
+10221,LARYW,GBR0002511,London Array Windfarm,"T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4",1.362305,51.645294,wind,630.0,offshore,london-array-united-kingdom-uk14,windfarm_en_1574_london-array,Q914264,London_Array,london-array,87
+10222,MKHLW,GBR0003260,Mark Hill Windfarm,T_MKHLW-1,-4.822998,55.160043,wind,56.0,onshore,,,,,,
+10223,PSTAT002,GBR0004667,Mid Hill Windfarm,2__PSTAT002,-2.482026,56.964685,wind,57.5,onshore,,,,,,
+10224,MILWW,GBR0004682,Millennium Wind Farm,T_MILWW-1,-4.866943,57.219608,wind,40.0,onshore,,,,,,
+10225,MYGPW,,Minnygap Wind Farm,T_MYGPW-1,-3.5148019999999995,55.248768000000005,wind,,onshore,,,,,,
+10226,MINSW,GBR0004517,Minsca Wind Farm,E_MINSW-1,-3.47168,55.040614,wind,36.8,onshore,,,,,,
+10227,MOYE,,Moy Windfarm,E_MOYE-1,-4.064872,57.390303,wind,,onshore,,,,,,
+10228,MOYEW,GBR0003647,Moy Windfarm,E_MOYEW-1,-4.052356,57.39099399999999,wind,60.0,onshore,,,,,,
+10229,OMNDW,GBR0002509,Ormonde Windfarm,"E_OMNDW-1, T_OMNDW-1",-3.4,54.1,wind,150.0,offshore,ormonde-united-kingdom-uk17,windfarm_en_1629_ormonde,Q763941,Ormonde_Wind_Farm,ormonde-offshore-wind-farm,100
+10230,OMNDD,,Ormonde Windfarm Demand,E_OMNDD-1,-3.4,54.1,wind,,offshore,,,,,,100.0
+10231,PPGEN002,GBR0004687,Pauls Hill Windfarm,2__PPGEN002,-3.458196,57.451933,wind,64.0,onshore,,,,,,
+10232,PNYCW,GBR0004595,Pen y Cymoedd Wind Farm,T_PNYCW-1,-3.561358,51.710658,wind,228.0,onshore,,,,,,
+10233,RCBKO,GBR0002515,Race Bank Offshore Wind Farm,"T_RCBKO-1, T_RCBKO-2",0.841,53.276,wind,286.5,offshore,"race-bank-united-kingdom-uk18, race-bank-extension-united-kingdom-uk4f","windfarm_en_12071_race-bank, windfarm_en_30016_race-bank-extension",Q3364824,Race_Bank_wind_farm,race-bank-wind-farm,90.0
+10234,RMPNO,,Rampion Offshore Windfarm,"T_RMPNO-1, T_RMPNO-2",-0.27,50.67,wind,,offshore,rampion-united-kingdom-uk36,windfarm_en_16761_rampion,Q7290043,Rampion_Wind_Farm,rampion-offshore-wind-project-english-channel,80.0
+10235,RREW,GBR0002496,Robin Rigg East,T_RREW-1,-3.716667,54.75,wind,90.0,offshore,robin-rigg-united-kingdom-uk20,windfarm_en_7392_robin-rigg,Q1724197,Robin_Rigg_Wind_Farm,robinriggwind,80.0
+10236,RRWW,GBR0002497,Robin Rigg West,T_RRWW-1,-3.716667,54.75,wind,90.0,offshore,,,,,,80.0
+10237,PPGEN001,GBR0003534,Rothes (Cairn Uish) Wind Farm,2__PPGEN001,-3.063895,57.504968000000005,wind,51.0,onshore,,,,,,
+10238,SANQW,,Sanquhar Community Wind Farm Generation,T_SANQW-1,-4.023363,55.322673,wind,,onshore,,,,,,
+10239,SHRSW,GBR0002512,Sheringham Shoals Windfarm  1,"E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2",1.147,53.135,wind,316.0,offshore,"sheringham-shoal-united-kingdom-uk27, sheringham-shoal-extension-united-kingdom-uk4h","windfarm_en_7394_sheringham-shoal, windfarm_en_30017_sheringham-shoal-extension",Q7495028,Sheringham_Shoal_Offshore_Wind_Farm,sheringham-shoal,132.0
+10240,STRNW,GBR0004625,Strathy North Wind Farm 1,T_STRNW-1,-3.89086,58.385271,wind,67.65,onshore,,,,,,
+10241,THNTW,,Thanet Offshore Wind,"E_THNTW-2, E_THNTW-1",1.6331,51.4306,wind,,offshore,thanet-united-kingdom-uk29,windfarm_en_1623_thanet,Q1576615,Thanet_Wind_Farm,thanetwindfarm,151.0
+10242,THNTO,GBR0002499,Thanet Offshore Windfarm,"T_THNTO-1, T_THNTO-2",1.461182,51.385495,wind,300.0,offshore,,,,,,151.0
+10243,TDBNW,,Toddleburn Wind Farm,T_TDBNW-1,-2.81,55.77,wind,,onshore,,,,,,
+10244,TULWW,,Tullo,"E_TULWW-1, E_TULWW-2",-2.581787,56.662265000000005,wind,,onshore,,,,,,
+10245,WLNYO,,Walney Offshore Windfarm (Extension),"T_WLNYO-3, T_WLNYO-4, T_WLNYO-2",-3.603516,53.981935,wind,,offshore,"walney--phase-1-united-kingdom-uk31, walney---phase-2-united-kingdom-uk32, walney-extension-united-kingdom-uk63","windfarm_en_7395_walney, windfarm_en_22261_walney-extension",Q1330226,Walney_Wind_Farm,walneyoffshorewindfa,82.0
+10246,WLNYW1,GBR0002500,Walney Offshore Windfarm  1,T_WLNYW-1,-3.522,54.044,wind,184.0,offshore,,,,,,88.0
+10247,WLNYW2,GBR0002506,Walney Offshore Windfarm  2,E_WLNYW-2,-3.522,54.044,wind,184.0,offshore,,,,,,88.0
+10248,WTMSO,GBR0002545,Westermost Rough Windfarm,T_WTMSO-1,0.6811520000000001,53.943155,wind,210.0,offshore,westermost-rough-united-kingdom-uk34,windfarm_en_21826_westermost-rough,Q7987427,Westermost_Rough_Wind_Farm,westermost-rough-offshore-wind-farm-yorkshire,102.0
+10249,WTMSD,,Westermost Rough Windfarm Onshore Demand,T_WTMSD-1,0.149,53.805,wind,,offshore,,,,,,102.0
+10250,WDNSO,GBR0002519,West of Duddon Sands,"T_WDNSO-1, T_WDNSO-2",-3.768311,53.923751,wind,389.0,offshore,west-of-duddon-sands-united-kingdom-uk33,windfarm_en_7396_west-of-duddon-sands,Q7987061,West_of_Duddon_Sands_Wind_Farm,west-of-duddon-sands-offshore-wind-farm,90.0
+10251,WDNSW,,West of Duddon Sands,"T_WDNSW-1, T_WDNSW-2",-3.463,53.983,wind,,offshore,,,,,,90.0
+10252,WHILW1,GBR0003489,Whitelee Wind Farm,T_WHILW-1,-4.042969,55.702355,wind,322.0,onshore,,,,,,
+10253,WHILW2,GBR0003981,Whitelee Windfarm Extension,T_WHILW-2,-4.042969,55.702355,wind,217.02,onshore,,,,,,
+10277,CRGTW,,Craig 2,E_CRGTW-1,-3.0676,55.1641,wind,,onshore,,,,,,
+10284,STLGW,,Stronelairg Windfarm,"T_STLGW-1, T_STLGW-2, T_STLGW-3",-4.461346,57.09986899999999,wind,,onshore,,,,,,
+10288,,,Achlachan,C__PSMAR001,-3.4565,58.4479,wind,,onshore,,,,,,
+10289,,,Coire Na Cloiche,E_CNCLW-1,-4.3801,57.7903,wind,,onshore,,,,,,
+10290,,,Kincardine,E_KINCW-1,-1.8774,56.9835,wind,,offshore,"kincardine---phase-1-united-kingdom-uk2h, kincardine---phase-2-united-kingdom-uk4n, kincardine---dolphyn---2-mw-demo-united-kingdom-uk4u",windfarm_en_17376_kincardine-offshore-windfarm,,,,102.5
+10291,,,Rosehall,E_RSHLW-1,-4.5508,58.0033,wind,,onshore,,,,,,
+10292,,,Tullymurdoch,E_TLYMW-1,-3.2944,56.6717,wind,,onshore,,,,,,
+10293,,,Halsary,T_HALSW-1,-3.4095,58.4332,wind,,onshore,,,,,,
+10294,,,Aberdeen Bay,T_ABRBO-1,-1.9728,57.2226,wind,,offshore,aberdeen-(eowdc)-united-kingdom-uk47,windfarm_en_16769_eowdc,Q17509465,European_Offshore_Wind_Deployment_Centre,european-offshore-wind-deployment-centre-aberdeen,120
+10295,,,Afton,T_AFTOW-1,-4.1691,55.3128,wind,,onshore,,,,,,
+10296,,,Bad a Cheo,T_BDCHW-1,-3.4209,58.4194,wind,,onshore,,,,,,
+10297,,,Beatrice,"T_BEATO-1, T_BEATO-2, T_BEATO-3, T_BEATO-4",-3.07,58.1299,wind,,offshore,"united-kingdom/beatrice-demonstration-united-kingdom-uk46, united-kingdom/beatrice-united-kingdom-uk53","windfarm_en_10664_beatrice-demonstration, windfarm_en_12051_beatrice",Q4877211,Beatrice_Wind_Farm,beatrice-offshore-wind-farm,101
+10298,,,Crossdykes,"T_CRDEW-1, T_CRDEW-2",-3.1698,55.1763,wind,,onshore,,,,,,
+10299,,,Dorenell,"T_DOREW-1, T_DOREW-2",-3.1238,57.3479,wind,,onshore,,,,,,
+10300,,,East Anglia One,"T_EAAO-1, T_EAAO-2",2.499,52.233,wind,,offshore,east-anglia-one-united-kingdom-uk64,windfarm_en_16790_east,Q19364853,East_Anglia_Array,east-anglia-one-offshore-wind-farm,120 
+10301,,,Hornsea,"T_HOWAO-1, T_HOWAO-2, T_HOWAO-3",1.791,53.8849,wind,,offshore,"hornsea-project-one-united-kingdom-uk81, hornsea-project-two-united-kingdom-uk1u, hornsea-project-three-united-kingdom-uk1k, hornsea-project-four-united-kingdom-uk1j","windfarm_en_16677_hornsea-project-one-heron-wind, windfarm_en_16685_hornsea-project-three",Q23013079,Hornsea_Wind_Farm,hornsea-project-one-north-sea,153.0
+10302,,,Kype Muir,T_KPMRW-1,-4.1062,55.6073,wind,,onshore,,,,,,
+10303,,,Middle Muir,T_MIDMW-1,-3.8093,55.51,wind,,onshore,,,,,,
+10304,,,Moray East,"T_MOWEO-1, T_MOWEO-2, T_MOWEO-3",-2.72,58.188,wind,,offshore,moray-east-united-kingdom-uk40,windfarm_en_16772_moray-east,,,moray-offshore-windfarm-east-scotland,105.0
+10305,,,Pogbie,T_PGBIW-1,-2.8533,55.8344,wind,,onshore,,,,,,
+10306,,,Triton Knoll,"T_TKNEW-1, T_TKNWW-1",0.839,53.478,wind,,offshore,triton-knoll-united-kingdom-uk30,windfarm_en_10786_triton-knoll-wind-farm,Q7844328,Triton_Knoll,triton-knoll-offshore-windfarm,140.0
+10307,,,Tralorg,T_TRLGW-1,-4.8074,55.2337,wind,,onshore,,,,,,
+10308,,,Twenty Shillings,T_TWSHW-1,-3.9156,55.3154,wind,,onshore,,,,,,
+10309,,,Windy Rig,T_WDRGW-1,-4.1761,55.2718,wind,,onshore,,,,,,
+10310,,,Whiteside Hill,T_WHIHW-1,-4.0178,55.3239,wind,,onshore,,,,,,
+10311,,,Wathegar,T_WTGRW-1,-3.2296,58.4395,wind,,onshore,,,,,,

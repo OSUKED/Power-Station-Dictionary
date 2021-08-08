@@ -1,3 +1,7 @@
+# Project Specific
+.env
+
+# Git
 *.bak
 .gitattributes
 .last_checked

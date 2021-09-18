@@ -1,0 +1,203 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "ids",
+      "path": "ids.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "osuked_id",
+            "required": true,
+            "type": "integer",
+            "format": "default",
+            "description": "The identifier used to refer to power plants in the Subak data cooperative",
+            "title": "OSUKED ID",
+            "hierarchy": "root"
+          },
+          {
+            "name": "gppd_idnr",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "GPPD ID",
+            "description": "The identifier used in the global power plant database",
+            "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "esail_id",
+            "type": "string",
+            "format": "default",
+            "description": "The identifier used by the Energy Systems and Artificial Intelligence Lab at UCL",
+            "title": "ESAIL ID",
+            "hierarchy": "equivalent"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "format": "default",
+            "title": "Common Name",
+            "description": "The name used to refer to the power plant site",
+            "hierarchy": "equivalent"
+          },
+          {
+            "name": "sett_bmu_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "description": "The Balancing Mechanism Unit identifier used for settlement purposes by Elexon",
+            "title": "Settlement BMU ID",
+            "hierarchy": "child"
+          },
+          {
+            "name": "ngc_bmu_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "description": "The Balancing Mechanism Unit identifier used by the National Grid",
+            "title": "National Grid BMU ID",
+            "hierarchy": "child"
+          },
+          {
+            "name": "4c_offshore_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "4C-Offshore ID",
+            "description": "The identifier used by 4C-Offshore",
+            "hierarchy": "equivalent/child",
+            "url_format": "https://www.4coffshore.com/windfarms/united-kingdom/{value}.html"
+          },
+          {
+            "name": "windpowernet_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "WindPowerNet ID",
+            "description": "The identifier used by the WindPower.Net",
+            "hierarchy": "equivalent/child",
+            "url_format": "https://www.thewindpower.net/{value}.php"
+          },
+          {
+            "name": "wikidata_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "Wikidata ID",
+            "description": "The identifier used by Wikidata",
+            "hierarchy": "equivalent/child",
+            "url_format": "https://www.wikidata.org/wiki/{value}"
+          },
+          {
+            "name": "wikipedia_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "Wikipedia ID",
+            "description": "The identifier used by Wikipedia",
+            "hierarchy": "equivalent/child",
+            "url_format": "https://en.wikipedia.org/wiki/{value}"
+          },
+          {
+            "name": "power_technology_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "Power-Technology ID",
+            "description": "The identifier used by Power-Technology",
+            "hierarchy": "equivalent/child",
+            "url_format": "https://www.power-technology.com/projects/{value}"
+          },
+          {
+            "name": "eutl_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "integer"
+            },
+            "title": "EUTL ID",
+            "description": "The identifier used in the European (Emissions Trading Scheme) Transaction Logs",
+            "hierarchy": "equivalent/child"
+          }
+        ],
+        "primaryKey": "osuked_id",
+        "foreignKeys": [
+          {
+            "fields": "osuked_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json",
+              "resource": "plant-locations",
+              "fields": "osuked_id",
+              "attributes": ["longitude", "latitude"]
+            }
+          },
+          {
+            "fields": "osuked_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json",
+              "resource": "wind-farms",
+              "fields": "osuked_id",
+              "attributes": ["plant_type", "hub_height"]
+            }
+          },
+          {
+            "fields": "gppd_idnr",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json",
+              "resource": "global-power-plant-database",
+              "fields": "gppd_idnr",
+              "attributes": ["capacity_mw", "longitude", "latitude", "primary_fuel", "other_fuel1", "other_fuel2", "other_fuel3", "commissioning_year", "owner", "source", "url", "geolocation_source", "wepp_id", "year_of_capacity_data", "generation_gwh_2013", "generation_gwh_2014", "generation_gwh_2015", "generation_gwh_2016", "generation_gwh_2017", "generation_gwh_2018", "generation_gwh_2019", "generation_data_source","estimated_generation_gwh_2013", "estimated_generation_gwh_2014", "estimated_generation_gwh_2015", "estimated_generation_gwh_2016", "estimated_generation_gwh_2017"]
+            }
+          },
+          {
+            "fields": "eutl_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json",
+              "resource": "verified-emissions",
+              "fields": "account_id",
+              "attributes": ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "power plants",
+    "ids"
+  ],
+  "version": "1.0.0",
+  "name": "ids",
+  "title": "Power Plant IDs",
+  "description": "Dataset listing the various IDs used to refer to the same power plants. These IDs can represent same-as relationships as well as sets which relate to different elements of the same plant (e.g.BMUs).",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

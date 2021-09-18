@@ -36,17 +36,252 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
-  - javascripts/config.js
-  - javascripts/tables.js
+  - js/tables.js
   
 nav:
   - Home: 
     - Welcome: index.md
-    - Method: generation-process.md
-    - Dictionary: dictionary.md
-  - Development:
-    - Sources: 01-source-data.md
-    - Definitions: 02-data-definitions.md
-    - Construction: 03-database-construction.md
-    - Updates: 04-updates-and-cleaning.md
-    - Pipeline: 05-pipelines.md
+  - Sites:
+    
+    - AChruach Wind Farm: objects/AChruach Wind Farm.md
+    - Aberdare District Energy: objects/Aberdare District Energy.md
+    - Aberdeen Bay: objects/Aberdeen Bay.md
+    - Aberthaw B: objects/Aberthaw B.md
+    - Achlachan: objects/Achlachan.md
+    - Afton: objects/Afton.md
+    - Aikengall 2 Wind Farm Generation: objects/Aikengall 2 Wind Farm Generation.md
+    - Airies Windfarm: objects/Airies Windfarm.md
+    - Aldershot Military Generator: objects/Aldershot Military Generator.md
+    - An Suidhe Windfarm: objects/An Suidhe Windfarm.md
+    - Andershaw Wind Farm: objects/Andershaw Wind Farm.md
+    - Arecleoch Windfarm: objects/Arecleoch Windfarm.md
+    - Assel Valley Wind Farm: objects/Assel Valley Wind Farm.md
+    - Auchrobert Wind Farm: objects/Auchrobert Wind Farm.md
+    - Bad a Cheo: objects/Bad a Cheo.md
+    - Baglan Bay: objects/Baglan Bay.md
+    - Baillie Wind Farm: objects/Baillie Wind Farm.md
+    - Barking 2 MGT: objects/Barking 2 MGT.md
+    - Barrow Offshore Windfarm: objects/Barrow Offshore Windfarm.md
+    - Barry: objects/Barry.md
+    - Beatrice: objects/Beatrice.md
+    - Beauly Cascade: objects/Beauly Cascade.md
+    - Beinn An Tuirc 2 Windfarm: objects/Beinn An Tuirc 2 Windfarm.md
+    - Beinn Tharsuinn: objects/Beinn Tharsuinn.md
+    - Beinneun Wind Farm: objects/Beinneun Wind Farm.md
+    - Bentinck: objects/Bentinck.md
+    - Berry Burn Windfarm: objects/Berry Burn Windfarm.md
+    - Bhlaraidh Windfarm 1: objects/Bhlaraidh Windfarm 1.md
+    - Black Law Wind Farm: objects/Black Law Wind Farm.md
+    - Blackcraig Windfarm: objects/Blackcraig Windfarm.md
+    - Bloxwich: objects/Bloxwich.md
+    - Blyth Offshore Demonstrator Windfarm Generation: objects/Blyth Offshore Demonstrator Windfarm Generation.md
+    - Bradwell: objects/Bradwell.md
+    - Braes of Doune: objects/Braes of Doune.md
+    - Bridgewater District Energy: objects/Bridgewater District Energy.md
+    - Brigg: objects/Brigg.md
+    - Brockloch Rig 2 Windfarm: objects/Brockloch Rig 2 Windfarm.md
+    - Brownieleys Windfarm: objects/Brownieleys Windfarm.md
+    - Burbo Bank Offshore Windfarm: objects/Burbo Bank Offshore Windfarm.md
+    - Burbo Bank Wind Farm Extension: objects/Burbo Bank Wind Farm Extension.md
+    - Burn of Whilk Windfarm: objects/Burn of Whilk Windfarm.md
+    - Cairn Uish - Rothes Windfarm Extension: objects/Cairn Uish - Rothes Windfarm Extension.md
+    - Camster Wind Farm: objects/Camster Wind Farm.md
+    - Carnegie Road: objects/Carnegie Road.md
+    - Carraig Gheal Wind Farm: objects/Carraig Gheal Wind Farm.md
+    - Carrington: objects/Carrington.md
+    - Castleford CCGT: objects/Castleford CCGT.md
+    - Caythorpe: objects/Caythorpe.md
+    - Clachan Flats Windfarm: objects/Clachan Flats Windfarm.md
+    - Clachan Power Station: objects/Clachan Power Station.md
+    - Clashindarroch Wind Farm: objects/Clashindarroch Wind Farm.md
+    - Clunie Cascade: objects/Clunie Cascade.md
+    - Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm: objects/Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm.md
+    - Cockenzie: objects/Cockenzie.md
+    - Coire Na Cloiche: objects/Coire Na Cloiche.md
+    - Connahs Quay: objects/Connahs Quay.md
+    - Conon Cascade: objects/Conon Cascade.md
+    - Corby: objects/Corby.md
+    - Corriegarth Wind Farm: objects/Corriegarth Wind Farm.md
+    - Corriemoillie Wind Farm: objects/Corriemoillie Wind Farm.md
+    - Coryton: objects/Coryton.md
+    - Cottam: objects/Cottam.md
+    - Cottam Development Centre Limited: objects/Cottam Development Centre Limited.md
+    - Cour Wind Farm: objects/Cour Wind Farm.md
+    - Cowes: objects/Cowes.md
+    - Craig 2: objects/Craig 2.md
+    - Crauchan: objects/Crauchan.md
+    - Crossdykes: objects/Crossdykes.md
+    - Crystal Rig Wind Farm: objects/Crystal Rig Wind Farm.md
+    - Cwm Dyli: objects/Cwm Dyli.md
+    - Dalswinton Wind Farm: objects/Dalswinton Wind Farm.md
+    - Damhead Creek: objects/Damhead Creek.md
+    - Deeside: objects/Deeside.md
+    - Dersalloch Windfarm: objects/Dersalloch Windfarm.md
+    - Derwent: objects/Derwent.md
+    - Didcot: objects/Didcot.md
+    - Dinorwig: objects/Dinorwig.md
+    - Dolgarrog: objects/Dolgarrog.md
+    - Dorenell: objects/Dorenell.md
+    - Drakelow: objects/Drakelow.md
+    - Drax: objects/Drax.md
+    - Dudgeon Offshore Wind Farm Generator: objects/Dudgeon Offshore Wind Farm Generator.md
+    - Dun Law Extension Windfarm: objects/Dun Law Extension Windfarm.md
+    - Dungeness B: objects/Dungeness B.md
+    - Dunmglass Wind Farm: objects/Dunmglass Wind Farm.md
+    - East Anglia One: objects/East Anglia One.md
+    - Edinbane Windfarm: objects/Edinbane Windfarm.md
+    - Eggborough: objects/Eggborough.md
+    - Enfield Energy: objects/Enfield Energy.md
+    - Errochty G: objects/Errochty G.md
+    - Ewe Hill II Wind Farm: objects/Ewe Hill II Wind Farm.md
+    - Fallago Rig Wind Farm: objects/Fallago Rig Wind Farm.md
+    - Farr Wind Farm: objects/Farr Wind Farm.md
+    - Fasnakyle G: objects/Fasnakyle G.md
+    - Fawley: objects/Fawley.md
+    - Fawley Cogen: objects/Fawley Cogen.md
+    - Fellside: objects/Fellside.md
+    - Ferrybridge C: objects/Ferrybridge C.md
+    - Ffestiniog: objects/Ffestiniog.md
+    - Fibropower: objects/Fibropower.md
+    - Fiddlers Ferry: objects/Fiddlers Ferry.md
+    - Fife CCGT: objects/Fife CCGT.md
+    - Fifoots: objects/Fifoots.md
+    - Finlarig: objects/Finlarig.md
+    - Fort Dunlop: objects/Fort Dunlop.md
+    - Foyers G: objects/Foyers G.md
+    - Freasdail Wind Farm: objects/Freasdail Wind Farm.md
+    - Galawhistle Wind Farm: objects/Galawhistle Wind Farm.md
+    - Galloper Offshore Windfarm 1: objects/Galloper Offshore Windfarm 1.md
+    - Garry Cascade: objects/Garry Cascade.md
+    - Glen App Wind Farm: objects/Glen App Wind Farm.md
+    - Glenchamber Wind Farm: objects/Glenchamber Wind Farm.md
+    - Glendoe: objects/Glendoe.md
+    - Glens of Foudland: objects/Glens of Foudland.md
+    - Goole Fields 1 Windfarm: objects/Goole Fields 1 Windfarm.md
+    - Gordonbush Wind Farm: objects/Gordonbush Wind Farm.md
+    - Gordonstown Windfarm: objects/Gordonstown Windfarm.md
+    - Grain: objects/Grain.md
+    - Grangemouth CHP Ltd: objects/Grangemouth CHP Ltd.md
+    - Great Yarmouth: objects/Great Yarmouth.md
+    - Greater Gabbard Offshore Windfarm: objects/Greater Gabbard Offshore Windfarm.md
+    - Griffin Wind Farm: objects/Griffin Wind Farm.md
+    - Gunfleet Sands Windfarm: objects/Gunfleet Sands Windfarm.md
+    - Gwynt y Mor Offshore Wind Farm: objects/Gwynt y Mor Offshore Wind Farm.md
+    - Hadyard Hill Wind Farm: objects/Hadyard Hill Wind Farm.md
+    - Halsary: objects/Halsary.md
+    - Harburnhead Wind Farm: objects/Harburnhead Wind Farm.md
+    - Hare Hill Extension Wind Farm: objects/Hare Hill Extension Wind Farm.md
+    - Harestanes Windfarm: objects/Harestanes Windfarm.md
+    - Hartlepool: objects/Hartlepool.md
+    - Heysham: objects/Heysham.md
+    - High Marnham: objects/High Marnham.md
+    - Hill of Glaschyle Windfarm: objects/Hill of Glaschyle Windfarm.md
+    - Hill of Towie Windfarm: objects/Hill of Towie Windfarm.md
+    - Hinkley Point B: objects/Hinkley Point B.md
+    - Hornsea: objects/Hornsea.md
+    - Humber Offshore Wind Farm: objects/Humber Offshore Wind Farm.md
+    - Hunterston Generator: objects/Hunterston Generator.md
+    - Hywind Generator 1: objects/Hywind Generator 1.md
+    - Immingham CHP: objects/Immingham CHP.md
+    - Indian Queens: objects/Indian Queens.md
+    - Ironbridge B: objects/Ironbridge B.md
+    - Keadby: objects/Keadby.md
+    - Keith Hill Windfarm: objects/Keith Hill Windfarm.md
+    - Kilbraur Windfarm: objects/Kilbraur Windfarm.md
+    - Kilgallioch Wind Farm: objects/Kilgallioch Wind Farm.md
+    - Killin Cascade: objects/Killin Cascade.md
+    - Killingholme: objects/Killingholme.md
+    - Kincardine: objects/Kincardine.md
+    - Kings Lynn: objects/Kings Lynn.md
+    - Kingsnorth: objects/Kingsnorth.md
+    - Kype Muir: objects/Kype Muir.md
+    - Langage: objects/Langage.md
+    - Letchworth: objects/Letchworth.md
+    - Lincs Offshore Wind Farm: objects/Lincs Offshore Wind Farm.md
+    - Little Barford: objects/Little Barford.md
+    - Littlebrook D: objects/Littlebrook D.md
+    - Lochluichart Windfarm: objects/Lochluichart Windfarm.md
+    - London Array Windfarm: objects/London Array Windfarm.md
+    - Longannet: objects/Longannet.md
+    - Lynemouth Generator: objects/Lynemouth Generator.md
+    - Maentwrog: objects/Maentwrog.md
+    - Marchwood: objects/Marchwood.md
+    - Mark Hill Windfarm: objects/Mark Hill Windfarm.md
+    - Medway: objects/Medway.md
+    - Mid Hill Windfarm: objects/Mid Hill Windfarm.md
+    - Middle Muir: objects/Middle Muir.md
+    - Millennium Wind Farm: objects/Millennium Wind Farm.md
+    - Minnygap Wind Farm: objects/Minnygap Wind Farm.md
+    - Minsca Wind Farm: objects/Minsca Wind Farm.md
+    - Moray East: objects/Moray East.md
+    - Moriston Cascade: objects/Moriston Cascade.md
+    - Moy Windfarm: objects/Moy Windfarm.md
+    - Nant: objects/Nant.md
+    - Oldbury: objects/Oldbury.md
+    - Ormonde Windfarm: objects/Ormonde Windfarm.md
+    - Pauls Hill Windfarm: objects/Pauls Hill Windfarm.md
+    - Pembroke Power Station -: objects/Pembroke Power Station -.md
+    - Pen y Cymoedd Wind Farm: objects/Pen y Cymoedd Wind Farm.md
+    - Peterborough: objects/Peterborough.md
+    - Peterhead: objects/Peterhead.md
+    - Pogbie: objects/Pogbie.md
+    - Pye Bridge: objects/Pye Bridge.md
+    - Race Bank Offshore Wind Farm: objects/Race Bank Offshore Wind Farm.md
+    - Rampion Offshore Windfarm: objects/Rampion Offshore Windfarm.md
+    - Ratcliffe on Soar: objects/Ratcliffe on Soar.md
+    - Redditch: objects/Redditch.md
+    - Rheidol: objects/Rheidol.md
+    - Robin Rigg: objects/Robin Rigg.md
+    - Rocksavage: objects/Rocksavage.md
+    - Roosecote: objects/Roosecote.md
+    - Rosehall: objects/Rosehall.md
+    - Rothes (Cairn Uish) Wind Farm: objects/Rothes (Cairn Uish) Wind Farm.md
+    - Rothes Bio-Plant CHP: objects/Rothes Bio-Plant CHP.md
+    - Rugeley B: objects/Rugeley B.md
+    - Rye House: objects/Rye House.md
+    - Saltend South: objects/Saltend South.md
+    - Sandbach CHP: objects/Sandbach CHP.md
+    - Sanquhar Community Wind Farm Generation: objects/Sanquhar Community Wind Farm Generation.md
+    - Seabank: objects/Seabank.md
+    - Severn Power: objects/Severn Power.md
+    - Sevington District Energy: objects/Sevington District Energy.md
+    - Sheringham Shoals Windfarm  1: objects/Sheringham Shoals Windfarm  1.md
+    - Shoreham: objects/Shoreham.md
+    - Shotton CHP: objects/Shotton CHP.md
+    - Sizewell: objects/Sizewell.md
+    - Slough: objects/Slough.md
+    - Sloy G: objects/Sloy G.md
+    - Solutia District Energy: objects/Solutia District Energy.md
+    - South Humber Bank: objects/South Humber Bank.md
+    - Spalding: objects/Spalding.md
+    - Staythorpe: objects/Staythorpe.md
+    - Stoke CHP: objects/Stoke CHP.md
+    - Strathy North Wind Farm 1: objects/Strathy North Wind Farm 1.md
+    - Stronelairg Windfarm: objects/Stronelairg Windfarm.md
+    - Sutton Bridge: objects/Sutton Bridge.md
+    - Taylors Lane: objects/Taylors Lane.md
+    - Teesside: objects/Teesside.md
+    - Thanet Offshore Windfarm: objects/Thanet Offshore Windfarm.md
+    - Thornhill CCGT: objects/Thornhill CCGT.md
+    - Tilbury B: objects/Tilbury B.md
+    - Toddleburn Wind Farm: objects/Toddleburn Wind Farm.md
+    - Torness Generator: objects/Torness Generator.md
+    - Tralorg: objects/Tralorg.md
+    - Triton Knoll: objects/Triton Knoll.md
+    - Tullo: objects/Tullo.md
+    - Tullymurdoch: objects/Tullymurdoch.md
+    - Twenty Shillings: objects/Twenty Shillings.md
+    - Uskmouth: objects/Uskmouth.md
+    - Walney Offshore Windfarm  1: objects/Walney Offshore Windfarm  1.md
+    - Wathegar: objects/Wathegar.md
+    - Weaver Power Station: objects/Weaver Power Station.md
+    - West Burton: objects/West Burton.md
+    - West of Duddon Sands: objects/West of Duddon Sands.md
+    - West of Duddon Sands: objects/West of Duddon Sands.md
+    - Westermost Rough Windfarm: objects/Westermost Rough Windfarm.md
+    - Weston Point Power Station: objects/Weston Point Power Station.md
+    - Whitelee Wind Farm: objects/Whitelee Wind Farm.md
+    - Whiteside Hill: objects/Whiteside Hill.md
+    - Windy Rig: objects/Windy Rig.md
+    - Wylfa: objects/Wylfa.md
+    - 10063: objects/10063.md

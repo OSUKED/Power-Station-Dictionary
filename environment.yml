@@ -12,22 +12,19 @@ dependencies:
   - html5lib
   - beautifulsoup4
   - seaborn
-  - mkdocs-material
-  - twine
-  - dagster
-  - dagit
   - mkdocs
   - mkdocs-material
-  - geopandas
-  - descartes
+  - twine
   - typer
+  - tqdm
+  - jinja2
   - pip
   
   - pip:
       - -e .
       - nbdev
-      - ipypb
       - feautils
+      - frictionless
       - mkdocs-material-extensions
       - mkdocstrings
       - configparser

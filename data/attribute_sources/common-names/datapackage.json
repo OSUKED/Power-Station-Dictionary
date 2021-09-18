@@ -1,0 +1,48 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "common-names",
+      "path": "common-names.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "osuked_id",
+            "type": "integer",
+            "format": "default",
+            "title": "OSUKED ID",
+            "description": "The identifier used to refer to power plants in the Subak data cooperative"
+          },
+          {
+            "name": "common_name",
+            "type": "string",
+            "format": "default",
+            "title": "Common Name",
+            "description": "The names used to refer to specific power plants"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "power plants"
+  ],
+  "version": "1.0.0",
+  "name": "common-names",
+  "title": "Power Plant Common Names",
+  "description": "Dataset listing the commonly used names for power plants",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

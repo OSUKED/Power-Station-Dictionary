@@ -1,0 +1,56 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "wind-farms",
+      "path": "wind-farms.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "osuked_id",
+            "type": "integer",
+            "format": "default",
+            "title": "OSUKED ID",
+            "description": "The identifier used to refer to power plants in the Subak data cooperative"
+          },
+          {
+            "name": "plant_type",
+            "type": "string",
+            "format": "default",
+            "title": "Plant Type",
+            "description": "The type of wind farm, primarily onshore/offshore"
+          },
+          {
+            "name": "hub_height",
+            "type": "number",
+            "format": "default",
+            "title": "Hub-Height",
+            "description": "The distance from the turbine platform to the rotor of the installed turbines at a wind farm"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "power plants",
+    "location"
+  ],
+  "version": "1.0.0",
+  "name": "wind-farms",
+  "title": "Wind Farms ",
+  "description": "Dataset listing the plant types and hub-heights of wind farms",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

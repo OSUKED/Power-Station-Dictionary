@@ -172,7 +172,18 @@
               "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json",
               "resource": "verified-emissions",
               "fields": "account_id",
-              "attributes": ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"]
+              "attributes": ["2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021"],
+              "aggregation": "sum"
+            }
+          },
+          {
+            "fields": "ngc_bmu_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json",
+              "resource": "annual-output",
+              "fields": "ngc_bmu_id",
+              "attributes": ["2016", "2017", "2018", "2019", "2020"],
+              "aggregation": "sum"
             }
           }
         ]

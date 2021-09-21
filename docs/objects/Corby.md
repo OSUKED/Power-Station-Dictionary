@@ -44,29 +44,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | GEODB                                                                          |
 | PLATTS-WEPP ID                      | 1013306.0                                                                      |
 | Estimated Annual Generation in 2017 | 1860.66                                                                        |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 |  294519 |
-| Tonnes CO2 2006 |  340108 |
-| Tonnes CO2 2007 |  562212 |
-| Tonnes CO2 2008 |  637026 |
-| Tonnes CO2 2009 |  728752 |
-| Tonnes CO2 2010 |  374201 |
-| Tonnes CO2 2011 |  121892 |
-| Tonnes CO2 2012 |   33532 |
-| Tonnes CO2 2013 |  115686 |
-| Tonnes CO2 2014 |  154331 |
-| Tonnes CO2 2015 |  126270 |
-| Tonnes CO2 2016 |    2256 |
-| Tonnes CO2 2017 |   17488 |
-| Tonnes CO2 2018 |   36500 |
-| Tonnes CO2 2019 |   18639 |
-| Tonnes CO2 2020 |    6647 |

@@ -40,33 +40,7 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 53.3631                                                                        | 53.3604                                                                        | 53.3631                                                                        |
 | Longitude                           | -0.7976                                                                        | -0.8102                                                                        | -0.7976                                                                        |
 | Owner                               | EDF Energy                                                                     | EDF Energy                                                                     | EDF Energy                                                                     |
-| PLATTS-WEPP ID                      | NaN                                                                            | 1013947.0                                                                      | NaN                                                                            |
+| PLATTS-WEPP ID                      | nan                                                                            | 1013947.0                                                                      | NaN                                                                            |
 | Primary Fuel Type                   | Gas                                                                            | Coal                                                                           | Gas                                                                            |
 | Source                              | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |    97220 |   97223 |
-|:----------------|---------:|--------:|
-| Tonnes CO2 2005 |  8419658 |         |
-| Tonnes CO2 2006 |  8900616 |         |
-| Tonnes CO2 2007 |  9324306 |         |
-| Tonnes CO2 2008 |  9650932 |       0 |
-| Tonnes CO2 2009 |  7165862 |       0 |
-| Tonnes CO2 2010 |  5095438 |       0 |
-| Tonnes CO2 2011 |  6075254 |       0 |
-| Tonnes CO2 2012 | 10780107 |  187209 |
-| Tonnes CO2 2013 | 10887300 | 1057877 |
-| Tonnes CO2 2014 |  9208141 | 1842770 |
-| Tonnes CO2 2015 |  7724207 | 2371371 |
-| Tonnes CO2 2016 |  1165058 | 2029550 |
-| Tonnes CO2 2017 |  1766100 | 2491134 |
-| Tonnes CO2 2018 |  1679509 | 2573845 |
-| Tonnes CO2 2019 |   790510 | 2380046 |
-| Tonnes CO2 2020 |  1051651 | 1884207 |

@@ -43,29 +43,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                     | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
 | Geolocation Source      | GEODB                                                                          |
 | PLATTS-WEPP ID          | 1016955.0                                                                      |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 |  624634 |
-| Tonnes CO2 2006 |  560709 |
-| Tonnes CO2 2007 |  551577 |
-| Tonnes CO2 2008 |  453394 |
-| Tonnes CO2 2009 |  462795 |
-| Tonnes CO2 2010 |  421691 |
-| Tonnes CO2 2011 |  312392 |
-| Tonnes CO2 2012 |  323970 |
-| Tonnes CO2 2013 |  411679 |
-| Tonnes CO2 2014 |  371558 |
-| Tonnes CO2 2015 |  432642 |
-| Tonnes CO2 2016 |  386839 |
-| Tonnes CO2 2017 |  358077 |
-| Tonnes CO2 2018 |  318192 |
-| Tonnes CO2 2019 |  268819 |
-| Tonnes CO2 2020 |  230677 |

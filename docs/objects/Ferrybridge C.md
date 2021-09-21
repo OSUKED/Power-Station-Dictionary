@@ -43,25 +43,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                     | https://www.gov.uk/government/collections/renewable-energy-planning-data |
 | Geolocation Source      | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID          | 1076625.0                                                                |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 | 8413055 |
-| Tonnes CO2 2006 | 8865656 |
-| Tonnes CO2 2007 | 8287912 |
-| Tonnes CO2 2008 | 3728402 |
-| Tonnes CO2 2009 | 4052365 |
-| Tonnes CO2 2010 | 4830312 |
-| Tonnes CO2 2011 | 7123621 |
-| Tonnes CO2 2012 | 9010659 |
-| Tonnes CO2 2013 | 8311632 |
-| Tonnes CO2 2014 | 3053338 |
-| Tonnes CO2 2015 | 2328454 |
-| Tonnes CO2 2016 |  742098 |

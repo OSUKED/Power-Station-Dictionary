@@ -41,29 +41,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Secondary Fuel Type                 | Cogeneration |
 | Geolocation Source                  | WRI          |
 | Estimated Annual Generation in 2017 | 5568.06      |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 | 3553376 |
-| Tonnes CO2 2006 | 3109891 |
-| Tonnes CO2 2007 | 3610228 |
-| Tonnes CO2 2008 | 3577320 |
-| Tonnes CO2 2009 | 3417820 |
-| Tonnes CO2 2010 | 3422020 |
-| Tonnes CO2 2011 | 3459221 |
-| Tonnes CO2 2012 | 3298487 |
-| Tonnes CO2 2013 | 2879178 |
-| Tonnes CO2 2014 | 2820501 |
-| Tonnes CO2 2015 | 2239237 |
-| Tonnes CO2 2016 | 2982161 |
-| Tonnes CO2 2017 | 2811044 |
-| Tonnes CO2 2018 | 2733240 |
-| Tonnes CO2 2019 | 2772619 |
-| Tonnes CO2 2020 | 2679112 |

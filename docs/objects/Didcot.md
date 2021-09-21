@@ -40,28 +40,7 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 51.6246                                                                        | 51.6246                                                                        |
 | Longitude                           | -1.2683                                                                        | -1.2683                                                                        |
 | Owner                               | RWE Npower Plc                                                                 | RWE Npower Plc                                                                 |
-| PLATTS-WEPP ID                      | 1023591.0                                                                      | NaN                                                                            |
+| PLATTS-WEPP ID                      | 1023591.0                                                                      | nan                                                                            |
 | Primary Fuel Type                   | Gas                                                                            | Gas                                                                            |
 | Source                              | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 | 6342700 |
-| Tonnes CO2 2006 | 7184281 |
-| Tonnes CO2 2007 | 5231425 |
-| Tonnes CO2 2008 | 5182660 |
-| Tonnes CO2 2009 | 2435748 |
-| Tonnes CO2 2010 | 1795512 |
-| Tonnes CO2 2011 | 2181952 |
-| Tonnes CO2 2012 | 6838317 |
-| Tonnes CO2 2013 | 1737804 |
-| Tonnes CO2 2014 |       0 |
-| Tonnes CO2 2015 |       0 |

@@ -1,0 +1,52 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "annual-output",
+      "path": "annual-output.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "ngc_bmu_id",
+            "type": "string",
+            "format": "default",
+            "description": "The Balancing Mechanism Unit identifier used by the National Grid Company",
+            "title": "NGC BMU ID"
+          },
+          {
+            "name": "year",
+            "type": "year",
+            "format": "default",
+            "title": "Year",
+            "description": "The time period during which the output has been summed"
+          },
+          {
+            "name": "output_MWh",
+            "type": "number",
+            "format": "default",
+            "title": "Annual Output (MWh)",
+            "description": "The total output of the specified power plant during a year"
+          }
+        ]
+      }
+    }
+  ],
+  "version": "1.0.0",
+  "name": "annual-output",
+  "title": "Annual Output",
+  "description": "Total annual production of individual transmission level power plants on the GB power system",
+  "contributors": [
+    {
+      "title": "Ayrton  Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "title": "CC0 1.0",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ]
+}

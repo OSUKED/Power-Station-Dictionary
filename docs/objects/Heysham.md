@@ -33,7 +33,7 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 
 | Attribute                           | GBR1000054                                                                     | GBR1000055                                                                     |
 |:------------------------------------|:-------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Annual Generation in 2017           | NaN                                                                            | 10498.819                                                                      |
+| Annual Generation in 2017           | nan                                                                            | 10498.819                                                                      |
 | Estimated Annual Generation in 2017 | 7632.28                                                                        | 8127.89                                                                        |
 | Generation Source                   |                                                                                | JRC-PPDB-OPEN                                                                  |
 | Geolocation Source                  | GEODB                                                                          | GEODB                                                                          |

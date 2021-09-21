@@ -40,29 +40,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Primary Fuel Type                   | Gas     |
 | Geolocation Source                  | GEO     |
 | Estimated Annual Generation in 2017 | 1948.82 |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 |  942612 |
-| Tonnes CO2 2006 |  788144 |
-| Tonnes CO2 2007 |  296186 |
-| Tonnes CO2 2008 | 1044619 |
-| Tonnes CO2 2009 |  960770 |
-| Tonnes CO2 2010 |  956535 |
-| Tonnes CO2 2011 |  984985 |
-| Tonnes CO2 2012 |  139866 |
-| Tonnes CO2 2013 |  192303 |
-| Tonnes CO2 2014 |  143622 |
-| Tonnes CO2 2015 |  562081 |
-| Tonnes CO2 2016 |  827671 |
-| Tonnes CO2 2017 |  940204 |
-| Tonnes CO2 2018 |  346999 |
-| Tonnes CO2 2019 |   68211 |
-| Tonnes CO2 2020 |  288460 |

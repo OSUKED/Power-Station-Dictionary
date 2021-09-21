@@ -40,34 +40,8 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 53.7356                                                                  | 53.7364                                                                        |
 | Longitude                           | -0.9911                                                                  | -0.9981                                                                        |
 | Owner                               | Drax Power                                                               | Drax Power Ltd                                                                 |
-| PLATTS-WEPP ID                      | 1023594.0                                                                | NaN                                                                            |
+| PLATTS-WEPP ID                      | 1023594.0                                                                | nan                                                                            |
 | Primary Fuel Type                   | Coal                                                                     | Gas                                                                            |
 | Secondary Fuel Type                 | Biomass                                                                  |                                                                                |
 | Source                              | UK Renewable Energy Planning Database                                    | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |    Value |
-|:----------------|---------:|
-| Tonnes CO2 2005 | 20771624 |
-| Tonnes CO2 2006 | 22764847 |
-| Tonnes CO2 2007 | 22160413 |
-| Tonnes CO2 2008 | 22299778 |
-| Tonnes CO2 2009 | 19851702 |
-| Tonnes CO2 2010 | 22392487 |
-| Tonnes CO2 2011 | 21465607 |
-| Tonnes CO2 2012 | 22694684 |
-| Tonnes CO2 2013 | 20317580 |
-| Tonnes CO2 2014 | 16581565 |
-| Tonnes CO2 2015 | 13173987 |
-| Tonnes CO2 2016 |  6171178 |
-| Tonnes CO2 2017 |  6215220 |
-| Tonnes CO2 2018 |  4138782 |
-| Tonnes CO2 2019 |   725751 |
-| Tonnes CO2 2020 |  1527003 |

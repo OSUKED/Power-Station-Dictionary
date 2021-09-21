@@ -34,7 +34,7 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 
 | Attribute                           | GBR1000495                                                                     | GBR1000497                                                                     |
 |:------------------------------------|:-------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Estimated Annual Generation in 2017 | NaN                                                                            | 259.84                                                                         |
+| Estimated Annual Generation in 2017 | nan                                                                            | 259.84                                                                         |
 | Geolocation Source                  | GEODB                                                                          | GEODB                                                                          |
 | Installed Capacity (MW)             | 1404.0                                                                         | 56.0                                                                           |
 | Latitude                            | 51.4444                                                                        | 51.4444                                                                        |
@@ -44,27 +44,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Primary Fuel Type                   | Cogeneration                                                                   | Gas                                                                            |
 | Source                              | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2007 |       0 |
-| Tonnes CO2 2008 |       0 |
-| Tonnes CO2 2009 |       0 |
-| Tonnes CO2 2010 |  301362 |
-| Tonnes CO2 2011 | 1879635 |
-| Tonnes CO2 2012 | 2079280 |
-| Tonnes CO2 2013 | 2064010 |
-| Tonnes CO2 2014 | 2070438 |
-| Tonnes CO2 2015 | 1605023 |
-| Tonnes CO2 2016 | 2517282 |
-| Tonnes CO2 2017 | 1829480 |
-| Tonnes CO2 2018 | 1993264 |
-| Tonnes CO2 2019 | 2438552 |
-| Tonnes CO2 2020 | 2092636 |

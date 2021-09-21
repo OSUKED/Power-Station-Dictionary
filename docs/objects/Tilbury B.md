@@ -21,23 +21,3 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 |:------------|----------:|
 | Longitude   |  0.391677 |
 | Latitude    | 51.4549   |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/eutl/datapackage.json">Eutl</a>
-
-This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
-
-The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
-
-| Attribute       |   Value |
-|:----------------|--------:|
-| Tonnes CO2 2005 | 5151328 |
-| Tonnes CO2 2006 | 4902321 |
-| Tonnes CO2 2007 | 4721907 |
-| Tonnes CO2 2008 | 4254765 |
-| Tonnes CO2 2009 | 2193546 |
-| Tonnes CO2 2010 | 2772386 |
-| Tonnes CO2 2011 |  631390 |
-| Tonnes CO2 2012 |      61 |
-| Tonnes CO2 2013 |     190 |
-| Tonnes CO2 2014 |     271 |

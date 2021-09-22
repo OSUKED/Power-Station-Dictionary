@@ -16,7 +16,22 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -4.40552 |
-| Latitude    | 53.3702  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -4.41 |
+| Latitude    |   53.37 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   WYLF-1 |   WYLF-2 |   WYLF-3 |   WYLF-4 |
+|:--------------------|-------:|---------:|---------:|---------:|---------:|
+| Annual Output (MWh) |   2016 |     0.00 |     0.00 |     0.00 |     0.00 |
+| Annual Output (MWh) |   2017 |     0.00 |     0.00 |     0.00 |     0.00 |
+| Annual Output (MWh) |   2018 |     0.00 |     0.00 |     9.11 |    25.37 |
+| Annual Output (MWh) |   2019 |    13.80 |    16.18 |     0.00 |     0.00 |
+| Annual Output (MWh) |   2020 |     0.00 |     0.00 |     0.00 |     0.00 |

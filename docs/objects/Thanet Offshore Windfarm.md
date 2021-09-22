@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   |  1.46118 |
-| Latitude    | 51.3855  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |    1.46 |
+| Latitude    |   51.39 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -54,3 +54,14 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data |
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | Estimated Annual Generation in 2017 | 756.28                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | THNTO-1   | THNTO-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |

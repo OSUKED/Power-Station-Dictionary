@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -2.91611 |
-| Latitude    | 54.0289  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -2.92 |
+| Latitude    |   54.03 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -33,9 +33,9 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 
 | Attribute                           | GBR1000054                                                                     | GBR1000055                                                                     |
 |:------------------------------------|:-------------------------------------------------------------------------------|:-------------------------------------------------------------------------------|
-| Annual Generation in 2017           | nan                                                                            | 10498.819                                                                      |
+| Annual Generation in 2017           | NaN                                                                            | 10498.819                                                                      |
 | Estimated Annual Generation in 2017 | 7632.28                                                                        | 8127.89                                                                        |
-| Generation Source                   |                                                                                | JRC-PPDB-OPEN                                                                  |
+| Generation Source                   | None                                                                           | JRC-PPDB-OPEN                                                                  |
 | Geolocation Source                  | GEODB                                                                          | GEODB                                                                          |
 | Installed Capacity (MW)             | 1155.0                                                                         | 1230.0                                                                         |
 | Latitude                            | 54.0285                                                                        | 54.0285                                                                        |
@@ -45,3 +45,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Primary Fuel Type                   | Nuclear                                                                        | Nuclear                                                                        |
 | Source                              | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     HEYM11 |     HEYM12 |     HEYM27 |     HEYM28 |
+|:--------------------|-------:|-----------:|-----------:|-----------:|-----------:|
+| Annual Output (MWh) |   2016 | 3480423.32 | 4129181.00 | 5514342.67 | 4498838.44 |
+| Annual Output (MWh) |   2017 | 3058936.44 | 3298364.99 | 5281604.15 | 5427790.74 |
+| Annual Output (MWh) |   2018 | 3687412.07 | 3400931.94 | 3985949.81 | 5136322.86 |
+| Annual Output (MWh) |   2019 | 3597733.01 | 3267867.54 | 5492781.37 | 5225327.81 |
+| Annual Output (MWh) |   2020 | 2678400.76 | 3488480.84 | 5201481.44 | 4160665.54 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | HEYM11   | HEYM12   | HEYM27   | HEYM28   |
+|:------------|:---------|:---------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  | NUCLEAR  | NUCLEAR  |

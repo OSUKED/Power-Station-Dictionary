@@ -17,8 +17,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   | -3.2944 |
-| Latitude    | 56.6717 |
+| Longitude   |   -3.29 |
+| Latitude    |   56.67 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -30,3 +30,29 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 | Attribute   | Value   |
 |:------------|:--------|
 | Plant Type  | onshore |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |    Value |
+|:--------------------|-------:|---------:|
+| Annual Output (MWh) |   2016 |     0.00 |
+| Annual Output (MWh) |   2017 |     0.00 |
+| Annual Output (MWh) |   2018 |     0.00 |
+| Annual Output (MWh) |   2019 | 22760.12 |
+| Annual Output (MWh) |   2020 | 29858.68 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |

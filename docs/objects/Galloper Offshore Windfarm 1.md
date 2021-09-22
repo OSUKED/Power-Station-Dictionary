@@ -22,8 +22,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   |   2.035 |
-| Latitude    |  51.893 |
+| Longitude   |    2.04 |
+| Latitude    |   51.89 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -36,3 +36,29 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 |:------------|:---------|
 | Plant Type  | offshore |
 | Hub-Height  | 88.0     |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   GAOFO-1 |   GAOFO-2 |   GAOFO-3 |   GAOFO-4 |
+|:--------------------|-------:|----------:|----------:|----------:|----------:|
+| Annual Output (MWh) |   2016 |      0.00 |      0.00 |      0.00 |      0.00 |
+| Annual Output (MWh) |   2017 |      0.00 |      0.00 |      0.00 |      0.00 |
+| Annual Output (MWh) |   2018 |      0.00 |      0.00 |      0.00 |      0.00 |
+| Annual Output (MWh) |   2019 |      0.00 |      0.00 |      0.00 |      0.00 |
+| Annual Output (MWh) |   2020 | 124611.95 | 124803.32 | 123607.07 | 121803.71 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GAOFO-1   | GAOFO-2   | GAOFO-3   | GAOFO-4   |
+|:------------|:----------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      | WIND      |

@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   |  1.17444 |
-| Latitude    | 51.7394  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |    1.17 |
+| Latitude    |   51.74 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -51,7 +51,33 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 51.703                                                                   | 51.7272                                                                  | 51.7308                                                                  |
 | Longitude                           | 1.1919                                                                   | 1.2459                                                                   | 1.218                                                                    |
 | Owner                               | Orsted (formerly Dong Energy)                                            | Orsted (formerly Dong Energy)                                            | Orsted (formerly Dong Energy)                                            |
-| PLATTS-WEPP ID                      | 1038553.0                                                                | nan                                                                      | 1038553.0                                                                |
+| PLATTS-WEPP ID                      | 1038553.0                                                                | NaN                                                                      | 1038553.0                                                                |
 | Primary Fuel Type                   | Wind                                                                     | Wind                                                                     | Wind                                                                     |
 | Source                              | UK Renewable Energy Planning Database                                    | UK Renewable Energy Planning Database                                    | UK Renewable Energy Planning Database                                    |
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data | https://www.gov.uk/government/collections/renewable-energy-planning-data | https://www.gov.uk/government/collections/renewable-energy-planning-data |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   GNFSW-1 |   GNFSW-2 |
+|:--------------------|-------:|----------:|----------:|
+| Annual Output (MWh) |   2016 |  96991.69 |  63185.03 |
+| Annual Output (MWh) |   2017 | 324190.03 | 202595.15 |
+| Annual Output (MWh) |   2018 | 316336.28 | 205092.98 |
+| Annual Output (MWh) |   2019 | 314996.21 | 200895.06 |
+| Annual Output (MWh) |   2020 | 366748.71 | 230090.53 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GNFSW-1   | GNFSW-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |

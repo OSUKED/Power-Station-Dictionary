@@ -22,8 +22,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   |   0.839 |
-| Latitude    |  53.478 |
+| Longitude   |    0.84 |
+| Latitude    |   53.48 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -36,3 +36,14 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 |:------------|:---------|
 | Plant Type  | offshore |
 | Hub-Height  | 140.0    |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | TKNEW-1   | TKNWW-1   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |

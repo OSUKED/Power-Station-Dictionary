@@ -18,10 +18,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.33984 |
-| Latitude    | 51.3718  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.34 |
+| Latitude    |   51.37 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -40,3 +40,43 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Primary Fuel Type                   | Gas     |
 | Geolocation Source                  | GEO     |
 | Estimated Annual Generation in 2017 | 1090.41 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json">Verified Emissions</a>
+
+This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
+
+The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
+
+| Attribute              |   Year |     Value |
+|:-----------------------|-------:|----------:|
+| CO2 Emissions (Tonnes) |   2005 | 321303.00 |
+| CO2 Emissions (Tonnes) |   2006 | 237008.00 |
+| CO2 Emissions (Tonnes) |   2007 | 368177.00 |
+| CO2 Emissions (Tonnes) |   2008 | 477501.00 |
+| CO2 Emissions (Tonnes) |   2009 | 454967.00 |
+| CO2 Emissions (Tonnes) |   2010 | 229886.00 |
+| CO2 Emissions (Tonnes) |   2011 |  64092.00 |
+| CO2 Emissions (Tonnes) |   2012 |  33353.00 |
+| CO2 Emissions (Tonnes) |   2013 |   9514.00 |
+| CO2 Emissions (Tonnes) |   2014 |   7401.00 |
+| CO2 Emissions (Tonnes) |   2015 |  21090.00 |
+| CO2 Emissions (Tonnes) |   2016 |   2480.00 |
+| CO2 Emissions (Tonnes) |   2017 |   7072.00 |
+| CO2 Emissions (Tonnes) |   2018 |   3578.00 |
+| CO2 Emissions (Tonnes) |   2019 |    784.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   Value |
+|:--------------------|-------:|--------:|
+| Annual Output (MWh) |   2016 | 2508.51 |
+| Annual Output (MWh) |   2017 | 7577.53 |
+| Annual Output (MWh) |   2018 | 2454.03 |
+| Annual Output (MWh) |   2019 |  228.59 |
+| Annual Output (MWh) |   2020 |    0.00 |

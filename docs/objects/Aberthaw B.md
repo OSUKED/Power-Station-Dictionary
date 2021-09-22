@@ -18,10 +18,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.40487 |
-| Latitude    | 51.3873  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.40 |
+| Latitude    |   51.39 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -40,7 +40,48 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 51.3873                                                                        | 51.3875                                                                        |
 | Longitude                           | -3.4049                                                                        | -3.4068                                                                        |
 | Owner                               | RWE Npower Plc                                                                 | RWE Npower Plc                                                                 |
-| PLATTS-WEPP ID                      | 1023577.0                                                                      | nan                                                                            |
+| PLATTS-WEPP ID                      | 1023577.0                                                                      | NaN                                                                            |
 | Primary Fuel Type                   | Coal                                                                           | Gas                                                                            |
 | Source                              | Department for Business Energy & Industrial Strategy                           | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json">Verified Emissions</a>
+
+This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
+
+The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
+
+| Attribute              |   Year |      Value |
+|:-----------------------|-------:|-----------:|
+| CO2 Emissions (Tonnes) |   2005 | 5264973.00 |
+| CO2 Emissions (Tonnes) |   2006 | 7340340.00 |
+| CO2 Emissions (Tonnes) |   2007 | 4186423.00 |
+| CO2 Emissions (Tonnes) |   2008 | 7027839.00 |
+| CO2 Emissions (Tonnes) |   2009 | 5002555.00 |
+| CO2 Emissions (Tonnes) |   2010 | 4739140.00 |
+| CO2 Emissions (Tonnes) |   2011 | 4829978.00 |
+| CO2 Emissions (Tonnes) |   2012 | 8229115.00 |
+| CO2 Emissions (Tonnes) |   2013 | 8504964.00 |
+| CO2 Emissions (Tonnes) |   2014 | 6038198.00 |
+| CO2 Emissions (Tonnes) |   2015 | 6682528.00 |
+| CO2 Emissions (Tonnes) |   2016 | 5910278.00 |
+| CO2 Emissions (Tonnes) |   2017 | 2296592.00 |
+| CO2 Emissions (Tonnes) |   2018 |  495388.00 |
+| CO2 Emissions (Tonnes) |   2019 |  660075.00 |
+| CO2 Emissions (Tonnes) |   2020 |     235.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |      ABTH7 |   ABTH7G |      ABTH8 |   ABTH8G |      ABTH9 |   ABTH9G |
+|:--------------------|-------:|-----------:|---------:|-----------:|---------:|-----------:|---------:|
+| Annual Output (MWh) |   2016 | 2386727.61 |    30.49 | 2036344.12 |    27.31 | 2476881.29 |    30.24 |
+| Annual Output (MWh) |   2017 |  890904.03 |     0.00 |  935056.72 |     5.31 |  877525.08 |    24.54 |
+| Annual Output (MWh) |   2018 |  173340.22 |   125.46 |  177871.12 |    77.42 |  179066.76 |    81.57 |
+| Annual Output (MWh) |   2019 |  148814.22 |    54.46 |  133844.60 |    51.56 |  435824.00 |    62.01 |
+| Annual Output (MWh) |   2020 |       0.00 |    24.71 |       0.00 |    18.63 |       0.00 |    26.41 |

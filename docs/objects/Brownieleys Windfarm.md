@@ -16,10 +16,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -2.37456 |
-| Latitude    | 56.844   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -2.37 |
+| Latitude    |   56.84 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>

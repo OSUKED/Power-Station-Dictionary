@@ -5,7 +5,7 @@ __all__ = ['get_field_name_tags', 'field_hierarchies_to_root', 'assign_idx_field
            'extract_external_foreignkey_datapackage_refs', 'add_resource_locs_to_external_datapackage_refs',
            'create_dir', 'download_attribute_data_to_temp_dir', 'load_datapackage', 'load_resource_attr_dfs',
            'load_full_id_map', 'determine_matched_ids', 'delete_null_attributes', 'delete_null_values',
-           'extract_attrs_from_resource_dfs', 'flatten_list', 'drop_duplicates_attrs']
+           'extract_attrs_from_resource_dfs', 'flatten_list', 'drop_duplicates_attrs', 'json_nan_to_none']
 
 # Cell
 import numpy as np
@@ -13,7 +13,10 @@ import pandas as pd
 import json
 
 import os
+import typing
 from warnings import warn
+
+import urllib.parse
 from urllib.request import urlopen, urlretrieve
 
 from frictionless import Package
@@ -182,6 +185,8 @@ def download_attribute_data_to_temp_dir(
             if os.path.exists(filepath):
                 os.remove(filepath)
 
+#             file_to_download = urllib.parse.quote(file_to_download)
+            file_to_download = file_to_download.replace(' ', '%20')
             urlretrieve(file_to_download, filepath)
 
     return
@@ -236,7 +241,7 @@ def load_resource_attr_dfs(fk_external_datapackage_refs, temp_dir_loc):
 
 # Cell
 flatten_list = lambda list_: [item for sublist in list_ for item in sublist]
-drop_duplicates_attrs = lambda attrs, subset=None: pd.DataFrame(attrs).drop_duplicates(subset=subset).to_dict(orient='records')
+drop_duplicates_attrs = lambda attrs, subset=None: pd.DataFrame(attrs).pipe(lambda df: df.loc[df.astype(str).drop_duplicates(subset=subset).index]).to_dict(orient='records')
 
 def load_full_id_map(single_site_data):
     full_id_map = {}
@@ -354,3 +359,18 @@ def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, r
     site_data = delete_null_attributes(site_data)
 
     return site_data
+
+# Cell
+def json_nan_to_none(
+    obj: typing.Any,
+    *,
+    json_constant_map: dict={'NaN': None},
+    default: typing.Callable=None
+) -> None:
+    json_string = json.dumps(obj, default=default)
+    cleaned_obj = json.loads(
+        json_string,
+        parse_constant=lambda constant: json_constant_map[constant],
+    )
+
+    return cleaned_obj

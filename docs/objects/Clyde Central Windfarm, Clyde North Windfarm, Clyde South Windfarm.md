@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.35083 |
-| Latitude    | 55.3104  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.35 |
+| Latitude    |   55.31 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -53,3 +53,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data |
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | Estimated Annual Generation in 2017 | 435.62                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   CLDCW-1 |   CLDNW-1 |   CLDSW-1 |
+|:--------------------|-------:|----------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 258211.70 | 300339.19 | 278852.64 |
+| Annual Output (MWh) |   2017 | 387415.42 | 481927.83 | 320280.22 |
+| Annual Output (MWh) |   2018 | 490353.66 | 541773.11 | 320944.80 |
+| Annual Output (MWh) |   2019 | 494431.85 | 533649.56 | 242403.49 |
+| Annual Output (MWh) |   2020 | 503833.89 | 526718.25 | 296734.87 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | CLDCW-1   | CLDNW-1   | CLDSW-1   |
+|:------------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      |

@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |     Value |
-|:------------|----------:|
-| Longitude   |  0.963889 |
-| Latitude    | 50.9139   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |    0.96 |
+| Latitude    |   50.91 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -43,3 +43,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | GEODB                                                                          |
 | PLATTS-WEPP ID                      | 1043125.0                                                                      |
 | Estimated Annual Generation in 2017 | 6938.44                                                                        |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     DNGB21 |     DNGB22 |
+|:--------------------|-------:|-----------:|-----------:|
+| Annual Output (MWh) |   2016 | 4028569.62 | 3816796.17 |
+| Annual Output (MWh) |   2017 | 2452885.25 | 3446814.02 |
+| Annual Output (MWh) |   2018 | 2791474.56 | 2717332.65 |
+| Annual Output (MWh) |   2019 |       0.00 |       0.00 |
+| Annual Output (MWh) |   2020 |       0.00 |       0.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | DNGB21   | DNGB22   |
+|:------------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  |

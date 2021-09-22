@@ -17,7 +17,25 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -1.39944 |
-| Latitude    | 52.9058  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -1.40 |
+| Latitude    |   52.91 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json">Verified Emissions</a>
+
+This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
+
+The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
+
+| Attribute              |   Year |     Value |
+|:-----------------------|-------:|----------:|
+| CO2 Emissions (Tonnes) |   2005 | 795147.00 |
+| CO2 Emissions (Tonnes) |   2006 | 828739.00 |
+| CO2 Emissions (Tonnes) |   2007 | 824638.00 |
+| CO2 Emissions (Tonnes) |   2008 | 876097.00 |
+| CO2 Emissions (Tonnes) |   2009 | 810984.00 |
+| CO2 Emissions (Tonnes) |   2010 | 723534.00 |
+| CO2 Emissions (Tonnes) |   2011 | 452477.00 |
+| CO2 Emissions (Tonnes) |   2012 | 357223.00 |

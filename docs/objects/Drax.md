@@ -18,10 +18,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |     Value |
-|:------------|----------:|
-| Longitude   | -0.626221 |
-| Latitude    | 53.7487   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -0.63 |
+| Latitude    |   53.75 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -40,8 +40,60 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Latitude                            | 53.7356                                                                  | 53.7364                                                                        |
 | Longitude                           | -0.9911                                                                  | -0.9981                                                                        |
 | Owner                               | Drax Power                                                               | Drax Power Ltd                                                                 |
-| PLATTS-WEPP ID                      | 1023594.0                                                                | nan                                                                            |
+| PLATTS-WEPP ID                      | 1023594.0                                                                | NaN                                                                            |
 | Primary Fuel Type                   | Coal                                                                     | Gas                                                                            |
-| Secondary Fuel Type                 | Biomass                                                                  |                                                                                |
+| Secondary Fuel Type                 | Biomass                                                                  | None                                                                           |
 | Source                              | UK Renewable Energy Planning Database                                    | Department for Business Energy & Industrial Strategy                           |
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data | https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json">Verified Emissions</a>
+
+This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
+
+The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
+
+| Attribute              |   Year |       Value |
+|:-----------------------|-------:|------------:|
+| CO2 Emissions (Tonnes) |   2005 | 20771624.00 |
+| CO2 Emissions (Tonnes) |   2006 | 22764847.00 |
+| CO2 Emissions (Tonnes) |   2007 | 22160413.00 |
+| CO2 Emissions (Tonnes) |   2008 | 22299778.00 |
+| CO2 Emissions (Tonnes) |   2009 | 19851702.00 |
+| CO2 Emissions (Tonnes) |   2010 | 22392487.00 |
+| CO2 Emissions (Tonnes) |   2011 | 21465607.00 |
+| CO2 Emissions (Tonnes) |   2012 | 22694684.00 |
+| CO2 Emissions (Tonnes) |   2013 | 20317580.00 |
+| CO2 Emissions (Tonnes) |   2014 | 16581565.00 |
+| CO2 Emissions (Tonnes) |   2015 | 13173987.00 |
+| CO2 Emissions (Tonnes) |   2016 |  6171178.00 |
+| CO2 Emissions (Tonnes) |   2017 |  6215220.00 |
+| CO2 Emissions (Tonnes) |   2018 |  4138782.00 |
+| CO2 Emissions (Tonnes) |   2019 |   725751.00 |
+| CO2 Emissions (Tonnes) |   2020 |  1527003.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |    DRAXX-1 |   DRAXX-10G |   DRAXX-12G |    DRAXX-2 |    DRAXX-3 |    DRAXX-4 |    DRAXX-5 |    DRAXX-6 |   DRAXX-9G |
+|:--------------------|-------:|-----------:|------------:|------------:|-----------:|-----------:|-----------:|-----------:|-----------:|-----------:|
+| Annual Output (MWh) |   2016 | 5014662.68 |       42.71 |       23.04 | 4591242.68 | 3270868.97 | 2832039.08 | 2138424.28 | 2088242.12 |      27.69 |
+| Annual Output (MWh) |   2017 | 4036655.43 |      135.21 |       81.50 | 4165307.98 | 4754720.16 | 2515965.61 | 3020489.48 | 1814090.70 |     134.02 |
+| Annual Output (MWh) |   2018 | 5272782.11 |      194.75 |      200.66 | 3775143.04 | 3765275.16 | 1827026.43 | 1671123.54 | 1979873.84 |     123.50 |
+| Annual Output (MWh) |   2019 | 4759282.28 |      178.77 |      139.35 | 2833499.66 | 3585051.60 | 2607930.56 |  416402.33 |  297244.18 |      44.04 |
+| Annual Output (MWh) |   2020 | 5016991.29 |      218.85 |      242.96 | 3925674.33 | 2675650.95 | 2844261.94 |  838405.28 |  839832.47 |      59.72 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | DRAXX-1   | DRAXX-10G   | DRAXX-12G   | DRAXX-2   | DRAXX-3   | DRAXX-4   | DRAXX-5   | DRAXX-6   | DRAXX-9G   |
+|:------------|:----------|:------------|:------------|:----------|:----------|:----------|:----------|:----------|:-----------|
+| Fuel Type   | BIOMASS   | OCGT        | OCGT        | BIOMASS   | BIOMASS   | BIOMASS   | COAL      | COAL      | OCGT       |

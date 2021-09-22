@@ -16,8 +16,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   | -3.4095 |
-| Latitude    | 58.4332 |
+| Longitude   |   -3.41 |
+| Latitude    |   58.43 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>

@@ -22,10 +22,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   |  1.36231 |
-| Latitude    | 51.6453  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |    1.36 |
+| Latitude    |   51.65 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -59,3 +59,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data |
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | Estimated Annual Generation in 2017 | 1588.2                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   LARYO-1 |   LARYO-2 |   LARYO-3 |   LARYO-4 |
+|:--------------------|-------:|----------:|----------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 551153.80 | 582802.56 | 551014.27 | 556309.16 |
+| Annual Output (MWh) |   2017 | 554880.41 | 529613.13 | 561006.54 | 558952.02 |
+| Annual Output (MWh) |   2018 | 487442.36 | 479026.91 | 440800.47 | 580230.39 |
+| Annual Output (MWh) |   2019 | 474597.84 | 378873.93 | 578701.82 | 547497.09 |
+| Annual Output (MWh) |   2020 | 641209.79 | 654520.60 | 648465.83 | 647593.43 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | LARYO-1   | LARYO-2   | LARYO-3   | LARYO-4   |
+|:------------|:----------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      | WIND      |

@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -4.70215 |
-| Latitude    | 55.2478  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -4.70 |
+| Latitude    |   55.25 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -54,3 +54,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID                      | 1058973.0                                                                |
 | Estimated Annual Generation in 2017 | 301.5                                                                    |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     Value |
+|:--------------------|-------:|----------:|
+| Annual Output (MWh) |   2016 | 180848.72 |
+| Annual Output (MWh) |   2017 | 216386.14 |
+| Annual Output (MWh) |   2018 | 186557.08 |
+| Annual Output (MWh) |   2019 | 180649.75 |
+| Annual Output (MWh) |   2020 | 199368.94 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |

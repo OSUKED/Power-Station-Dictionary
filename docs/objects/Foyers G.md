@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -4.36157 |
-| Latitude    | 57.2374  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -4.36 |
+| Latitude    |   57.24 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -43,3 +43,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Estimated Annual Generation in 2015 | 1099.11 |
 | Estimated Annual Generation in 2016 | 538.5   |
 | Estimated Annual Generation in 2017 | 659.86  |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |    FOYE-1 |    FOYE-2 |
+|:--------------------|-------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 117047.20 | 113004.75 |
+| Annual Output (MWh) |   2017 | 145254.50 | 122335.15 |
+| Annual Output (MWh) |   2018 | 126654.35 | 101084.00 |
+| Annual Output (MWh) |   2019 | 122683.25 |  80375.95 |
+| Annual Output (MWh) |   2020 |  61029.35 | 104882.20 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | FOYE-1   | FOYE-2   |
+|:------------|:---------|:---------|
+| Fuel Type   | PS       | PS       |

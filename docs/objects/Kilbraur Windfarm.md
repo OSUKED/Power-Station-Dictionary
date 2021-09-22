@@ -19,8 +19,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   | -4.0564 |
-| Latitude    | 58.0395 |
+| Longitude   |   -4.06 |
+| Latitude    |   58.04 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -54,3 +54,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID                      | 1068360.0                                                                |
 | Estimated Annual Generation in 2017 | 119.74                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     Value |
+|:--------------------|-------:|----------:|
+| Annual Output (MWh) |   2016 | 151782.14 |
+| Annual Output (MWh) |   2017 | 163585.96 |
+| Annual Output (MWh) |   2018 | 156159.02 |
+| Annual Output (MWh) |   2019 | 159183.23 |
+| Annual Output (MWh) |   2020 | 155267.29 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |

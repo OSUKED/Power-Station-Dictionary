@@ -24,8 +24,8 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   |  -3.584 |
-| Latitude    |  53.459 |
+| Longitude   |   -3.58 |
+| Latitude    |   53.46 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -59,3 +59,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | URL                                 | https://www.gov.uk/government/collections/renewable-energy-planning-data |
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | Estimated Annual Generation in 2017 | 1452.07                                                                  |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   GYMRO-15 |   GYMRO-17 |   GYMRO-26 |   GYMRO-28 |
+|:--------------------|-------:|-----------:|-----------:|-----------:|-----------:|
+| Annual Output (MWh) |   2016 |  408364.89 |  406814.26 |  313351.76 |  459572.75 |
+| Annual Output (MWh) |   2017 |  467193.33 |  472611.62 |  503849.85 |  510219.49 |
+| Annual Output (MWh) |   2018 |  418797.51 |  424367.33 |  437280.87 |  446317.47 |
+| Annual Output (MWh) |   2019 |  434458.82 |  422045.76 |  458049.31 |  432103.22 |
+| Annual Output (MWh) |   2020 |  533674.62 |  369437.61 |  507664.42 |  493621.71 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GYMRO-15   | GYMRO-17   | GYMRO-26   | GYMRO-28   |
+|:------------|:-----------|:-----------|:-----------|:-----------|
+| Fuel Type   | WIND       | WIND       | WIND       | WIND       |

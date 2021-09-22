@@ -22,10 +22,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   |  1.71387 |
-| Latitude    | 52.066   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |    1.71 |
+| Latitude    |   52.07 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -60,3 +60,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID                      | 1061829.0                                                                |
 | Estimated Annual Generation in 2017 | 1270.56                                                                  |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   GRGBW-1 |   GRGBW-2 |   GRGBW-3 |
+|:--------------------|-------:|----------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 572836.86 | 621071.27 | 590806.58 |
+| Annual Output (MWh) |   2017 | 609198.18 | 642323.33 | 607380.74 |
+| Annual Output (MWh) |   2018 | 533116.47 | 564928.18 | 556467.97 |
+| Annual Output (MWh) |   2019 | 499996.53 | 372637.43 | 567777.30 |
+| Annual Output (MWh) |   2020 | 632324.84 | 671951.74 | 623308.87 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GRGBW-1   | GRGBW-2   | GRGBW-3   |
+|:------------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      |

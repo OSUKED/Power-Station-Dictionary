@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.96606 |
-| Latitude    | 53.0808  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.97 |
+| Latitude    |   53.08 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -47,3 +47,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Estimated Annual Generation in 2015 | 6509.32                                                                        |
 | Estimated Annual Generation in 2016 | 4881.59                                                                        |
 | Estimated Annual Generation in 2017 | 4969.86                                                                        |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |    DINO-1 |    DINO-2 |    DINO-3 |    DINO-4 |    DINO-5 |    DINO-6 |
+|:--------------------|-------:|----------:|----------:|----------:|----------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 240348.65 | 592652.70 | 234400.10 | 255204.65 | 191703.10 | 781370.85 |
+| Annual Output (MWh) |   2017 | 485190.80 | 530622.25 | 271695.40 | 167219.90 | 468465.45 | 224121.50 |
+| Annual Output (MWh) |   2018 | 405522.80 | 189587.15 | 365114.35 | 108852.50 | 355582.85 | 439323.05 |
+| Annual Output (MWh) |   2019 | 212005.00 | 188784.50 | 129424.90 | 141173.05 | 220690.90 | 375407.40 |
+| Annual Output (MWh) |   2020 | 121686.80 | 163706.95 | 224881.10 | 203468.85 |  80617.75 | 220470.75 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | DINO-1   | DINO-2   | DINO-3   | DINO-4   | DINO-5   | DINO-6   |
+|:------------|:---------|:---------|:---------|:---------|:---------|:---------|
+| Fuel Type   | PS       | PS       | PS       | PS       | PS       | PS       |

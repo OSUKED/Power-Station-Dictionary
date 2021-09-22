@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.31787 |
-| Latitude    | 51.138   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.32 |
+| Latitude    |   51.14 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -43,3 +43,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | GEODB                                                                          |
 | PLATTS-WEPP ID                      | 1024529.0                                                                      |
 | Estimated Annual Generation in 2017 | 6310.68                                                                        |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     HINB-7 |     HINB-8 |
+|:--------------------|-------:|-----------:|-----------:|
+| Annual Output (MWh) |   2016 | 3343685.25 | 4139550.78 |
+| Annual Output (MWh) |   2017 | 3922398.88 | 3607201.71 |
+| Annual Output (MWh) |   2018 | 3845394.99 | 3296463.88 |
+| Annual Output (MWh) |   2019 | 3069859.16 | 4095906.31 |
+| Annual Output (MWh) |   2020 | 1358961.70 |  588252.28 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | HINB-7   | HINB-8   |
+|:------------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  |

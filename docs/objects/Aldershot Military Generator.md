@@ -17,5 +17,5 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 
 | Attribute   |   Value |
 |:------------|--------:|
-| Longitude   |  0.7598 |
-| Latitude    | 51.2599 |
+| Longitude   |    0.76 |
+| Latitude    |   51.26 |

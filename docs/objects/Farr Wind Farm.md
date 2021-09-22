@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -4.09417 |
-| Latitude    | 57.325   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -4.09 |
+| Latitude    |   57.33 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json">Wind Farms</a>
@@ -54,3 +54,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID                      | 1061620.0                                                                |
 | Estimated Annual Generation in 2017 | 231.92                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   FAARW-1 |   FAARW-2 |
+|:--------------------|-------:|----------:|----------:|
+| Annual Output (MWh) |   2016 | 100606.48 |  94595.29 |
+| Annual Output (MWh) |   2017 | 106058.36 | 104820.45 |
+| Annual Output (MWh) |   2018 |  91780.99 | 105059.10 |
+| Annual Output (MWh) |   2019 |  93931.56 |  90371.21 |
+| Annual Output (MWh) |   2020 |  71577.35 |  82201.85 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | FAARW-1   | FAARW-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |

@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -4.73511 |
-| Latitude    | 56.2006  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -4.74 |
+| Latitude    |   56.20 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -47,3 +47,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Estimated Annual Generation in 2015 | 562.34                                                                         |
 | Estimated Annual Generation in 2016 | 347.17                                                                         |
 | Estimated Annual Generation in 2017 | 351.45                                                                         |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   SLOY-1 |   SLOY-2 |   SLOY-3 |   SLOY-4 |
+|:--------------------|-------:|---------:|---------:|---------:|---------:|
+| Annual Output (MWh) |   2016 | 43059.75 | 43079.86 |  4313.43 | 31155.19 |
+| Annual Output (MWh) |   2017 | 18951.86 | 69213.48 |  2314.96 | 53166.78 |
+| Annual Output (MWh) |   2018 | 49170.32 | 14568.67 | 31056.31 | 37817.43 |
+| Annual Output (MWh) |   2019 | 43686.32 | 41834.88 | 23601.27 | 15493.68 |
+| Annual Output (MWh) |   2020 | 43014.26 | 45239.79 | 43840.69 | 19604.59 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | SLOY-1   | SLOY-2   | SLOY-3   | SLOY-4   |
+|:------------|:---------|:---------|:---------|:---------|
+| Fuel Type   | NPSHYD   | NPSHYD   | NPSHYD   | NPSHYD   |

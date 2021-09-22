@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -5.17456 |
-| Latitude    | 57.1541  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -5.17 |
+| Latitude    |   57.15 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -47,3 +47,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Estimated Annual Generation in 2015 | 435.46                                                                   |
 | Estimated Annual Generation in 2016 | 278.62                                                                   |
 | Estimated Annual Generation in 2017 | 277.86                                                                   |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |     Value |
+|:--------------------|-------:|----------:|
+| Annual Output (MWh) |   2016 | 141758.23 |
+| Annual Output (MWh) |   2017 | 139016.47 |
+| Annual Output (MWh) |   2018 | 149858.21 |
+| Annual Output (MWh) |   2019 | 177515.84 |
+| Annual Output (MWh) |   2020 | 231742.12 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | NPSHYD  |

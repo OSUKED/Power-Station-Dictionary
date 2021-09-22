@@ -18,10 +18,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -2.40582 |
-| Latitude    | 53.1654  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -2.41 |
+| Latitude    |   53.17 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -44,3 +44,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | CARMA                                                                          |
 | PLATTS-WEPP ID                      | 1038548.0                                                                      |
 | Estimated Annual Generation in 2017 | 259.84                                                                         |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json">Verified Emissions</a>
+
+This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
+
+The "eutl_id" field was used to match from the dictionary to the "account_id" field in this dataset.
+
+| Attribute              |   Year |     Value |
+|:-----------------------|-------:|----------:|
+| CO2 Emissions (Tonnes) |   2005 | 140605.00 |
+| CO2 Emissions (Tonnes) |   2006 |  63018.00 |
+| CO2 Emissions (Tonnes) |   2007 |  93313.00 |
+| CO2 Emissions (Tonnes) |   2008 | 144875.00 |
+| CO2 Emissions (Tonnes) |   2009 | 134846.00 |
+| CO2 Emissions (Tonnes) |   2010 | 121962.00 |
+| CO2 Emissions (Tonnes) |   2011 |  51888.00 |
+| CO2 Emissions (Tonnes) |   2012 |  15602.00 |
+| CO2 Emissions (Tonnes) |   2013 |  18344.00 |
+| CO2 Emissions (Tonnes) |   2014 |  12965.00 |
+| CO2 Emissions (Tonnes) |   2015 |  13188.00 |
+| CO2 Emissions (Tonnes) |   2016 |  52297.00 |
+| CO2 Emissions (Tonnes) |   2017 |  16768.00 |
+| CO2 Emissions (Tonnes) |   2018 |  23973.00 |
+| CO2 Emissions (Tonnes) |   2019 |  29509.00 |
+| CO2 Emissions (Tonnes) |   2020 |  27245.00 |

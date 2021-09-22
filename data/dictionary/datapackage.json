@@ -140,6 +140,15 @@
         "primaryKey": "osuked_id",
         "foreignKeys": [
           {
+            "fields": "ngc_bmu_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json",
+              "resource": "bmu-fuel-types",
+              "fields": "NGC_BMU_ID",
+              "attributes": ["FUEL TYPE"]
+            }
+          },
+          {
             "fields": "osuked_id",
             "reference": {
               "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json",

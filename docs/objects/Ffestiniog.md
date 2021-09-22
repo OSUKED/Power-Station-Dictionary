@@ -17,10 +17,10 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |    Value |
-|:------------|---------:|
-| Longitude   | -3.97705 |
-| Latitude    | 53.0082  |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -3.98 |
+| Latitude    |   53.01 |
 
 <br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json">Global Power Plant Database</a>
@@ -47,3 +47,29 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Estimated Annual Generation in 2015 | 1120.05                                                                        |
 | Estimated Annual Generation in 2016 | 795.4                                                                          |
 | Estimated Annual Generation in 2017 | 793.22                                                                         |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json">Annual Output</a>
+
+Total annual production of individual transmission level power plants on the GB power system
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute           |   Year |   FFES-1 |   FFES-2 |   FFES-3 |   FFES-4 |
+|:--------------------|-------:|---------:|---------:|---------:|---------:|
+| Annual Output (MWh) |   2016 | 28963.61 | 51404.65 | 41315.67 | 50171.57 |
+| Annual Output (MWh) |   2017 | 19595.43 | 51362.12 | 23657.77 | 51371.06 |
+| Annual Output (MWh) |   2018 | 19327.44 | 42387.83 | 28273.54 | 17000.81 |
+| Annual Output (MWh) |   2019 |  1888.52 |  4601.45 | 38549.66 | 23465.25 |
+| Annual Output (MWh) |   2020 |     0.00 |     0.00 | 52053.77 | 59505.25 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | FFES-1   | FFES-2   | FFES-3   | FFES-4   |
+|:------------|:---------|:---------|:---------|:---------|
+| Fuel Type   | PS       | PS       | PS       | PS       |

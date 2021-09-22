@@ -15,7 +15,7 @@ Dataset listing the locations of power plants
 
 The "osuked_id" field was used to match from the dictionary to the "osuked_id" field in this dataset.
 
-| Attribute   |     Value |
-|:------------|----------:|
-| Longitude   | -0.201175 |
-| Latitude    | 51.9822   |
+| Attribute   |   Value |
+|:------------|--------:|
+| Longitude   |   -0.20 |
+| Latitude    |   51.98 |

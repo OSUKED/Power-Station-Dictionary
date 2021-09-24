@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                         |
-|:---------------|:--------------------|:----------------------------------------------|
-| root           | osuked_id           | 10248                                         |
-| element-of     | sett_bmu_id         | T_WTMSO-1, T_WTMSD-1                          |
-| element-of     | ngc_bmu_id          | WTMSO-1, WTMSD-1                              |
-| same-as        | gppd_idnr           | GBR0002545                                    |
-| same-as        | esail_id            | WTMSO                                         |
-| same-as        | name                | Westermost Rough Windfarm                     |
-| same-as        | 4c_offshore_id      | westermost-rough-united-kingdom-uk34          |
-| same-as        | windpowernet_id     | windfarm_en_21826_westermost-rough            |
-| same-as        | wikidata_id         | Q7987427                                      |
-| same-as        | wikipedia_id        | Westermost_Rough_Wind_Farm                    |
-| same-as        | power_technology_id | westermost-rough-offshore-wind-farm-yorkshire |
+| Relationship   | ID Type              | ID(s)                                                                                                                                    |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10248                                                                                                                                    |
+| Related        | Settlement BMU ID    | T_WTMSO-1, T_WTMSD-1                                                                                                                     |
+| Related        | National Grid BMU ID | WTMSO-1, WTMSD-1                                                                                                                         |
+| Equivalent     | GPPD ID              | GBR0002545                                                                                                                               |
+| Equivalent     | ESAIL ID             | WTMSO                                                                                                                                    |
+| Equivalent     | Common Name          | Westermost Rough Windfarm                                                                                                                |
+| Equivalent     | 4C-Offshore ID       | [westermost-rough-united-kingdom-uk34](https://www.4coffshore.com/windfarms/united-kingdom/westermost-rough-united-kingdom-uk34.html)    |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_21826_westermost-rough](https://www.thewindpower.net/windfarm_en_21826_westermost-rough.php)                                |
+| Equivalent     | Wikidata ID          | [Q7987427](https://www.wikidata.org/wiki/Q7987427)                                                                                       |
+| Equivalent     | Wikipedia ID         | [Westermost_Rough_Wind_Farm](https://en.wikipedia.org/wiki/Westermost_Rough_Wind_Farm)                                                   |
+| Equivalent     | Power-Technology ID  | [westermost-rough-offshore-wind-farm-yorkshire](https://www.power-technology.com/projects/westermost-rough-offshore-wind-farm-yorkshire) |
+| Equivalent     | EIC ID               | 48W00000WTMSO-1M                                                                                                                         |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -77,12 +89,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 952205.73 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | Value   |
-|:------------|:--------|
-| Fuel Type   | WIND    |
+| Attribute             |   Year |   Value |
+|:----------------------|-------:|--------:|
+| Capture Price (£/MWh) |   2016 |   36.79 |
+| Capture Price (£/MWh) |   2017 |   44.02 |
+| Capture Price (£/MWh) |   2018 |   56.14 |
+| Capture Price (£/MWh) |   2019 |   40.46 |
+| Capture Price (£/MWh) |   2020 |   31.11 |

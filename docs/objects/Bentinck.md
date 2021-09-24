@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10079     |
-| element-of     | sett_bmu_id | E_BENIG-1 |
-| same-as        | esail_id    | BENIG     |
-| same-as        | name        | Bentinck  |
+| Relationship   | ID Type           | ID(s)     |
+|:---------------|:------------------|:----------|
+| Root           | OSUKED ID         | 10079     |
+| Related        | Settlement BMU ID | E_BENIG-1 |
+| Equivalent     | ESAIL ID          | BENIG     |
+| Equivalent     | Common Name       | Bentinck  |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

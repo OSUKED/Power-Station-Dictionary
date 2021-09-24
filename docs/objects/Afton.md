@@ -1,14 +1,25 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10295     |
-| element-of     | sett_bmu_id | T_AFTOW-1 |
-| element-of     | ngc_bmu_id  | AFTOW-1   |
-| same-as        | name        | Afton     |
+| Relationship   | ID Type              | ID(s)     |
+|:---------------|:---------------------|:----------|
+| Root           | OSUKED ID            | 10295     |
+| Related        | Settlement BMU ID    | T_AFTOW-1 |
+| Related        | National Grid BMU ID | AFTOW-1   |
+| Equivalent     | Common Name          | Afton     |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -30,14 +41,3 @@ The "osuked_id" field was used to match from the dictionary to the "osuked_id" f
 | Attribute   | Value   |
 |:------------|:--------|
 | Plant Type  | onshore |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
-
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
-
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
-
-| Attribute   | Value   |
-|:------------|:--------|
-| Fuel Type   | WIND    |

@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10121     |
-| element-of     | sett_bmu_id | E_MAEN-1  |
-| same-as        | esail_id    | MAEN      |
-| same-as        | name        | Maentwrog |
+| Relationship   | ID Type           | ID(s)     |
+|:---------------|:------------------|:----------|
+| Root           | OSUKED ID         | 10121     |
+| Related        | Settlement BMU ID | E_MAEN-1  |
+| Equivalent     | ESAIL ID          | MAEN      |
+| Equivalent     | Common Name       | Maentwrog |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

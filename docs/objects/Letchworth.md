@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)      |
-|:---------------|:------------|:-----------|
-| root           | osuked_id   | 10279      |
-| element-of     | sett_bmu_id | E_LCHWT-1  |
-| same-as        | esail_id    | LCHWT      |
-| same-as        | name        | Letchworth |
+| Relationship   | ID Type           | ID(s)      |
+|:---------------|:------------------|:-----------|
+| Root           | OSUKED ID         | 10279      |
+| Related        | Settlement BMU ID | E_LCHWT-1  |
+| Equivalent     | ESAIL ID          | LCHWT      |
+| Equivalent     | Common Name       | Letchworth |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

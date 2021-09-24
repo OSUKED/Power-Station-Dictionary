@@ -1,17 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)              |
-|:---------------|:------------|:-------------------|
-| root           | osuked_id   | 10027              |
-| element-of     | sett_bmu_id | T_CARR-1, T_CARR-2 |
-| element-of     | ngc_bmu_id  | CARR-1, CARR-2     |
-| same-as        | gppd_idnr   | GBR2000124         |
-| same-as        | esail_id    | CARR               |
-| same-as        | name        | Carrington         |
-| same-as        | eutl_id     | 112433             |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10027                              |
+| Related        | Settlement BMU ID    | T_CARR-1, T_CARR-2                 |
+| Related        | National Grid BMU ID | CARR-1, CARR-2                     |
+| Related        | EIC ID               | 48W000000CARR-1I, 48W000000CARR-2G |
+| Equivalent     | GPPD ID              | GBR2000124                         |
+| Equivalent     | ESAIL ID             | CARR                               |
+| Equivalent     | Common Name          | Carrington                         |
+| Equivalent     | EUTL ID              | 112433                             |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | CARR-1   | CARR-2   |
+|:------------|:---------|:---------|
+| Fuel Type   | CCGT     | CCGT     |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -72,12 +84,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 1292381.80 | 1079629.40 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | CARR-1   | CARR-2   |
-|:------------|:---------|:---------|
-| Fuel Type   | CCGT     | CCGT     |
+| Attribute             |   Year |   CARR-1 |   CARR-2 |
+|:----------------------|-------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    46.82 |    46.34 |
+| Capture Price (£/MWh) |   2017 |    47.50 |    47.92 |
+| Capture Price (£/MWh) |   2018 |    58.70 |    58.38 |
+| Capture Price (£/MWh) |   2019 |    45.10 |    45.67 |
+| Capture Price (£/MWh) |   2020 |    40.64 |    40.94 |

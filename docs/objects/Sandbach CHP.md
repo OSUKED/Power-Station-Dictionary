@@ -1,17 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)        |
-|:---------------|:------------|:-------------|
-| root           | osuked_id   | 10071        |
-| element-of     | sett_bmu_id | 2__DPGEN001  |
-| element-of     | ngc_bmu_id  | MNW-PGU02    |
-| same-as        | gppd_idnr   | GBR1000114   |
-| same-as        | esail_id    | DPGEN001     |
-| same-as        | name        | Sandbach CHP |
-| same-as        | eutl_id     | 97716        |
+| Relationship   | ID Type              | ID(s)        |
+|:---------------|:---------------------|:-------------|
+| Root           | OSUKED ID            | 10071        |
+| Related        | Settlement BMU ID    | 2__DPGEN001  |
+| Related        | National Grid BMU ID | MNW-PGU02    |
+| Equivalent     | GPPD ID              | GBR1000114   |
+| Equivalent     | ESAIL ID             | DPGEN001     |
+| Equivalent     | Common Name          | Sandbach CHP |
+| Equivalent     | EUTL ID              | 97716        |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                  |
-|:---------------|:------------|:---------------------------------------|
-| root           | osuked_id   | 10131                                  |
-| element-of     | gppd_idnr   | GBR1000054, GBR1000055                 |
-| element-of     | sett_bmu_id | T_HEYM11, T_HEYM12, T_HEYM27, T_HEYM28 |
-| element-of     | ngc_bmu_id  | HEYM11, HEYM12, HEYM27, HEYM28         |
-| same-as        | esail_id    | HEYM                                   |
-| same-as        | name        | Heysham                                |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10131                                                                  |
+| Related        | GPPD ID              | GBR1000054, GBR1000055                                                 |
+| Related        | Settlement BMU ID    | T_HEYM11, T_HEYM12, T_HEYM27, T_HEYM28                                 |
+| Related        | National Grid BMU ID | HEYM11, HEYM12, HEYM27, HEYM28                                         |
+| Related        | EIC ID               | 48W000000HEYM11C, 48W000000HEYM12A, 48W000000HEYM27Y, 48W000000HEYM28W |
+| Equivalent     | ESAIL ID             | HEYM                                                                   |
+| Equivalent     | Common Name          | Heysham                                                                |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | HEYM11   | HEYM12   | HEYM27   | HEYM28   |
+|:------------|:---------|:---------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  | NUCLEAR  | NUCLEAR  |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -62,12 +74,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 2678400.76 | 3488480.84 | 5201481.44 | 4160665.54 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | HEYM11   | HEYM12   | HEYM27   | HEYM28   |
-|:------------|:---------|:---------|:---------|:---------|
-| Fuel Type   | NUCLEAR  | NUCLEAR  | NUCLEAR  | NUCLEAR  |
+| Attribute             |   Year |   HEYM11 |   HEYM12 |   HEYM27 |   HEYM28 |
+|:----------------------|-------:|---------:|---------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    38.97 |    38.32 |    38.86 |    36.51 |
+| Capture Price (£/MWh) |   2017 |    45.59 |    43.65 |    44.40 |    44.74 |
+| Capture Price (£/MWh) |   2018 |    57.03 |    56.97 |    57.40 |    56.97 |
+| Capture Price (£/MWh) |   2019 |    41.83 |    40.46 |    41.82 |    41.73 |
+| Capture Price (£/MWh) |   2020 |    29.58 |    33.46 |    34.21 |    35.40 |

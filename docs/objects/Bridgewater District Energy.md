@@ -1,15 +1,15 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                       |
-|:---------------|:------------|:----------------------------|
-| root           | osuked_id   | 10080                       |
-| element-of     | sett_bmu_id | E_BRIDGWTR                  |
-| element-of     | ngc_bmu_id  | BRIDU-1                     |
-| same-as        | esail_id    | BRIDGWTR                    |
-| same-as        | name        | Bridgewater District Energy |
+| Relationship   | ID Type              | ID(s)                       |
+|:---------------|:---------------------|:----------------------------|
+| Root           | OSUKED ID            | 10080                       |
+| Related        | Settlement BMU ID    | E_BRIDGWTR                  |
+| Related        | National Grid BMU ID | BRIDU-1                     |
+| Equivalent     | ESAIL ID             | BRIDGWTR                    |
+| Equivalent     | Common Name          | Bridgewater District Energy |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

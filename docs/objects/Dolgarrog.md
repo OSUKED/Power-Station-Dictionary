@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                        |
-|:---------------|:------------|:-----------------------------|
-| root           | osuked_id   | 10112                        |
-| element-of     | sett_bmu_id | E_DOLG-1, E_DOLG_H, E_DOLG_L |
-| same-as        | esail_id    | DOLG                         |
-| same-as        | name        | Dolgarrog                    |
+| Relationship   | ID Type           | ID(s)                        |
+|:---------------|:------------------|:-----------------------------|
+| Root           | OSUKED ID         | 10112                        |
+| Related        | Settlement BMU ID | E_DOLG-1, E_DOLG_H, E_DOLG_L |
+| Equivalent     | ESAIL ID          | DOLG                         |
+| Equivalent     | Common Name       | Dolgarrog                    |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

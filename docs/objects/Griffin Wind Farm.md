@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                |
-|:---------------|:------------|:---------------------|
-| root           | osuked_id   | 10202                |
-| element-of     | sett_bmu_id | T_GRIFW-1, T_GRIFW-2 |
-| element-of     | ngc_bmu_id  | GRIFW-1, GRIFW-2     |
-| same-as        | gppd_idnr   | GBR0004028           |
-| same-as        | esail_id    | GRIFW                |
-| same-as        | name        | Griffin Wind Farm    |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10202                              |
+| Related        | Settlement BMU ID    | T_GRIFW-1, T_GRIFW-2               |
+| Related        | National Grid BMU ID | GRIFW-1, GRIFW-2                   |
+| Related        | EIC ID               | 48W10000GRIFW-1N, 48W00000GRIFW-2Y |
+| Equivalent     | GPPD ID              | GBR0004028                         |
+| Equivalent     | ESAIL ID             | GRIFW                              |
+| Equivalent     | Common Name          | Griffin Wind Farm                  |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GRIFW-1   | GRIFW-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -70,12 +82,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 127120.17 | 149944.52 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | GRIFW-1   | GRIFW-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   GRIFW-1 |   GRIFW-2 |
+|:----------------------|-------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     38.43 |     38.19 |
+| Capture Price (£/MWh) |   2017 |     44.98 |     44.94 |
+| Capture Price (£/MWh) |   2018 |     58.95 |     58.87 |
+| Capture Price (£/MWh) |   2019 |     40.59 |     40.56 |
+| Capture Price (£/MWh) |   2020 |     33.93 |     34.31 |

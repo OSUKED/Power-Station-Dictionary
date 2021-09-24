@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)              |
-|:---------------|:------------|:-------------------|
-| root           | osuked_id   | 10022              |
-| element-of     | sett_bmu_id | T_BARK-1, T_BARKB2 |
-| element-of     | ngc_bmu_id  | BARK-1, BARKB2     |
-| same-as        | esail_id    | BARK               |
-| same-as        | name        | Barking 2 MGT      |
-| same-as        | eutl_id     | 97034              |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10022                              |
+| Related        | Settlement BMU ID    | T_BARK-1, T_BARKB2                 |
+| Related        | National Grid BMU ID | BARK-1, BARKB2                     |
+| Related        | EIC ID               | 48W000000BARK-1G, 48W000000BARKB2F |
+| Equivalent     | ESAIL ID             | BARK                               |
+| Equivalent     | Common Name          | Barking 2 MGT                      |
+| Equivalent     | EUTL ID              | 97034                              |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

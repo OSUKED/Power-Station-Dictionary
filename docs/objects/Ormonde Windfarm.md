@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                           |
-|:---------------|:--------------------|:--------------------------------|
-| root           | osuked_id           | 10229                           |
-| element-of     | sett_bmu_id         | E_OMNDW-1, T_OMNDW-1, E_OMNDD-1 |
-| element-of     | ngc_bmu_id          | OMNDW-1, OMNDO-1, OMNDD-1       |
-| same-as        | gppd_idnr           | GBR0002509                      |
-| same-as        | esail_id            | OMNDW                           |
-| same-as        | name                | Ormonde Windfarm                |
-| same-as        | 4c_offshore_id      | ormonde-united-kingdom-uk17     |
-| same-as        | windpowernet_id     | windfarm_en_1629_ormonde        |
-| same-as        | wikidata_id         | Q763941                         |
-| same-as        | wikipedia_id        | Ormonde_Wind_Farm               |
-| same-as        | power_technology_id | ormonde-offshore-wind-farm      |
+| Relationship   | ID Type              | ID(s)                                                                                                               |
+|:---------------|:---------------------|:--------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10229                                                                                                               |
+| Related        | Settlement BMU ID    | E_OMNDW-1, T_OMNDW-1, E_OMNDD-1                                                                                     |
+| Related        | National Grid BMU ID | OMNDW-1, OMNDO-1, OMNDD-1                                                                                           |
+| Equivalent     | GPPD ID              | GBR0002509                                                                                                          |
+| Equivalent     | ESAIL ID             | OMNDW                                                                                                               |
+| Equivalent     | Common Name          | Ormonde Windfarm                                                                                                    |
+| Equivalent     | 4C-Offshore ID       | [ormonde-united-kingdom-uk17](https://www.4coffshore.com/windfarms/united-kingdom/ormonde-united-kingdom-uk17.html) |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_1629_ormonde](https://www.thewindpower.net/windfarm_en_1629_ormonde.php)                               |
+| Equivalent     | Wikidata ID          | [Q763941](https://www.wikidata.org/wiki/Q763941)                                                                    |
+| Equivalent     | Wikipedia ID         | [Ormonde_Wind_Farm](https://en.wikipedia.org/wiki/Ormonde_Wind_Farm)                                                |
+| Equivalent     | Power-Technology ID  | [ormonde-offshore-wind-farm](https://www.power-technology.com/projects/ormonde-offshore-wind-farm)                  |
+| Equivalent     | EIC ID               | 48W00000OMNDO-1J                                                                                                    |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -77,12 +89,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 522667.45 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | Value   |
-|:------------|:--------|
-| Fuel Type   | WIND    |
+| Attribute             |   Year |   Value |
+|:----------------------|-------:|--------:|
+| Capture Price (£/MWh) |   2016 |   35.56 |
+| Capture Price (£/MWh) |   2017 |   44.57 |
+| Capture Price (£/MWh) |   2018 |   56.73 |
+| Capture Price (£/MWh) |   2019 |   40.14 |
+| Capture Price (£/MWh) |   2020 |   30.63 |

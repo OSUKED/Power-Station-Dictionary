@@ -1,19 +1,32 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                               |
-|:---------------|:--------------------|:------------------------------------|
-| root           | osuked_id           | 10300                               |
-| element-of     | sett_bmu_id         | T_EAAO-1, T_EAAO-2                  |
-| element-of     | ngc_bmu_id          | EAAO-1, EAAO-2                      |
-| same-as        | name                | East Anglia One                     |
-| same-as        | 4c_offshore_id      | east-anglia-one-united-kingdom-uk64 |
-| same-as        | windpowernet_id     | windfarm_en_16790_east              |
-| same-as        | wikidata_id         | Q19364853                           |
-| same-as        | wikipedia_id        | East_Anglia_Array                   |
-| same-as        | power_technology_id | east-anglia-one-offshore-wind-farm  |
+| Relationship   | ID Type              | ID(s)                                                                                                                               |
+|:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10300                                                                                                                               |
+| Related        | Settlement BMU ID    | T_EAAO-1, T_EAAO-2                                                                                                                  |
+| Related        | National Grid BMU ID | EAAO-1, EAAO-2                                                                                                                      |
+| Related        | EIC ID               | 48W000000EAAO-1R, 48W000000EAAO-2P                                                                                                  |
+| Equivalent     | Common Name          | East Anglia One                                                                                                                     |
+| Equivalent     | 4C-Offshore ID       | [east-anglia-one-united-kingdom-uk64](https://www.4coffshore.com/windfarms/united-kingdom/east-anglia-one-united-kingdom-uk64.html) |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_16790_east](https://www.thewindpower.net/windfarm_en_16790_east.php)                                                   |
+| Equivalent     | Wikidata ID          | [Q19364853](https://www.wikidata.org/wiki/Q19364853)                                                                                |
+| Equivalent     | Wikipedia ID         | [East_Anglia_Array](https://en.wikipedia.org/wiki/East_Anglia_Array)                                                                |
+| Equivalent     | Power-Technology ID  | [east-anglia-one-offshore-wind-farm](https://www.power-technology.com/projects/east-anglia-one-offshore-wind-farm)                  |
+| Equivalent     | CfD ID               | CAA-EAS-168                                                                                                                         |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | EAAO-1   | EAAO-2   |
+|:------------|:---------|:---------|
+| Fuel Type   | WIND     | WIND     |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -53,12 +66,13 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 1252092.42 | 949133.39 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | EAAO-1   | EAAO-2   |
-|:------------|:---------|:---------|
-| Fuel Type   | WIND     | WIND     |
+| Attribute             |   Year |   EAAO-1 |   EAAO-2 |
+|:----------------------|-------:|---------:|---------:|
+| Capture Price (£/MWh) |   2019 |    37.10 |    38.10 |
+| Capture Price (£/MWh) |   2020 |    32.50 |    33.33 |

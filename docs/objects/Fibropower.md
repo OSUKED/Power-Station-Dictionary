@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)      |
-|:---------------|:------------|:-----------|
-| root           | osuked_id   | 10142      |
-| element-of     | sett_bmu_id | E_FIBRE    |
-| same-as        | esail_id    | FIBRE      |
-| same-as        | name        | Fibropower |
+| Relationship   | ID Type           | ID(s)      |
+|:---------------|:------------------|:-----------|
+| Root           | OSUKED ID         | 10142      |
+| Related        | Settlement BMU ID | E_FIBRE    |
+| Equivalent     | ESAIL ID          | FIBRE      |
+| Equivalent     | Common Name       | Fibropower |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

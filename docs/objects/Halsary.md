@@ -1,13 +1,13 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10293     |
-| element-of     | sett_bmu_id | T_HALSW-1 |
-| same-as        | name        | Halsary   |
+| Relationship   | ID Type           | ID(s)     |
+|:---------------|:------------------|:----------|
+| Root           | OSUKED ID         | 10293     |
+| Related        | Settlement BMU ID | T_HALSW-1 |
+| Equivalent     | Common Name       | Halsary   |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

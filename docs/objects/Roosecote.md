@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10050     |
-| element-of     | sett_bmu_id | E_ROOS-1  |
-| element-of     | ngc_bmu_id  | ROOS-1    |
-| same-as        | esail_id    | ROOS      |
-| same-as        | name        | Roosecote |
-| same-as        | eutl_id     | 96938     |
+| Relationship   | ID Type              | ID(s)            |
+|:---------------|:---------------------|:-----------------|
+| Root           | OSUKED ID            | 10050            |
+| Related        | Settlement BMU ID    | E_ROOS-1         |
+| Related        | National Grid BMU ID | ROOS-1           |
+| Equivalent     | ESAIL ID             | ROOS             |
+| Equivalent     | Common Name          | Roosecote        |
+| Equivalent     | EUTL ID              | 96938            |
+| Equivalent     | EIC ID               | 48W000000ROOS-1P |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,17 +1,18 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                      |
-|:---------------|:------------|:-------------------------------------------|
-| root           | osuked_id   | 10003                                      |
-| element-of     | sett_bmu_id | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4 |
-| element-of     | ngc_bmu_id  | COTPS-1, COTPS-2, COTPS-3, COTPS-4         |
-| same-as        | gppd_idnr   | GBR1000142                                 |
-| same-as        | esail_id    | COTPS                                      |
-| same-as        | name        | Cottam                                     |
-| same-as        | eutl_id     | 97778                                      |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10003                                                                  |
+| Related        | Settlement BMU ID    | T_COTPS-1, T_COTPS-2, T_COTPS-3, T_COTPS-4                             |
+| Related        | National Grid BMU ID | COTPS-1, COTPS-2, COTPS-3, COTPS-4                                     |
+| Related        | EIC ID               | 48W00000COTPS-1Q, 48W00000COTPS-2O, 48W00000COTPS-3M, 48W00000COTPS-4K |
+| Equivalent     | GPPD ID              | GBR1000142                                                             |
+| Equivalent     | ESAIL ID             | COTPS                                                                  |
+| Equivalent     | Common Name          | Cottam                                                                 |
+| Equivalent     | EUTL ID              | 97778                                                                  |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -84,3 +85,17 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 | 735835.82 |  860044.00 | 656608.25 | 569976.73 |
 | Annual Output (MWh) |   2019 | 546867.90 |  620486.22 | 378151.60 | 201143.12 |
 | Annual Output (MWh) |   2020 |      0.00 |       0.00 |      0.00 |      0.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   COTPS-1 |   COTPS-2 |   COTPS-3 |   COTPS-4 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     61.44 |     60.33 |     61.75 |     57.83 |
+| Capture Price (£/MWh) |   2017 |     56.51 |     53.75 |     55.58 |     56.68 |
+| Capture Price (£/MWh) |   2018 |     66.14 |     64.48 |     61.44 |     69.53 |
+| Capture Price (£/MWh) |   2019 |     51.03 |     52.76 |     49.39 |     59.93 |

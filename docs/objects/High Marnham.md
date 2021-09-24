@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                 |
-|:---------------|:------------|:------------------------------------------------------|
-| root           | osuked_id   | 10017                                                 |
-| element-of     | sett_bmu_id | T_HMRPS-1, T_HMRPS-2, T_HMRPS-3, T_HMRPS-4, T_HMRPS-5 |
-| same-as        | esail_id    | HMRPS                                                 |
-| same-as        | name        | High Marnham                                          |
+| Relationship   | ID Type           | ID(s)                                                 |
+|:---------------|:------------------|:------------------------------------------------------|
+| Root           | OSUKED ID         | 10017                                                 |
+| Related        | Settlement BMU ID | T_HMRPS-1, T_HMRPS-2, T_HMRPS-3, T_HMRPS-4, T_HMRPS-5 |
+| Equivalent     | ESAIL ID          | HMRPS                                                 |
+| Equivalent     | Common Name       | High Marnham                                          |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

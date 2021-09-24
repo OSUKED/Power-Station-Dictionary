@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10277     |
-| element-of     | sett_bmu_id | E_CRGTW-1 |
-| same-as        | esail_id    | CRGTW     |
-| same-as        | name        | Craig 2   |
+| Relationship   | ID Type           | ID(s)     |
+|:---------------|:------------------|:----------|
+| Root           | OSUKED ID         | 10277     |
+| Related        | Settlement BMU ID | E_CRGTW-1 |
+| Equivalent     | ESAIL ID          | CRGTW     |
+| Equivalent     | Common Name       | Craig 2   |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,17 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                      |
-|:---------------|:------------|:-------------------------------------------|
-| root           | osuked_id   | 10029                                      |
-| element-of     | sett_bmu_id | T_CNQPS-1, T_CNQPS-2, T_CNQPS-3, T_CNQPS-4 |
-| element-of     | ngc_bmu_id  | CNQPS-1, CNQPS-2, CNQPS-3, CNQPS-4         |
-| same-as        | gppd_idnr   | GBR1000492                                 |
-| same-as        | esail_id    | CNQPS                                      |
-| same-as        | name        | Connahs Quay                               |
-| same-as        | eutl_id     | 97054                                      |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10029                                                                  |
+| Related        | Settlement BMU ID    | T_CNQPS-1, T_CNQPS-2, T_CNQPS-3, T_CNQPS-4                             |
+| Related        | National Grid BMU ID | CNQPS-1, CNQPS-2, CNQPS-3, CNQPS-4                                     |
+| Related        | EIC ID               | 48W00000CNQPS-1E, 48W00000CNQPS-2C, 48W00000CNQPS-3A, 48W00000CNQPS-48 |
+| Equivalent     | GPPD ID              | GBR1000492                                                             |
+| Equivalent     | ESAIL ID             | CNQPS                                                                  |
+| Equivalent     | Common Name          | Connahs Quay                                                           |
+| Equivalent     | EUTL ID              | 97054                                                                  |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | CNQPS-1   | CNQPS-2   | CNQPS-3   | CNQPS-4   |
+|:------------|:----------|:----------|:----------|:----------|
+| Fuel Type   | CCGT      | CCGT      | CCGT      | CCGT      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -87,12 +99,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 695340.07 |  400037.97 |  228272.75 |  636543.18 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | CNQPS-1   | CNQPS-2   | CNQPS-3   | CNQPS-4   |
-|:------------|:----------|:----------|:----------|:----------|
-| Fuel Type   | CCGT      | CCGT      | CCGT      | CCGT      |
+| Attribute             |   Year |   CNQPS-1 |   CNQPS-2 |   CNQPS-3 |   CNQPS-4 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     47.48 |     42.47 |     46.32 |     41.95 |
+| Capture Price (£/MWh) |   2017 |     52.92 |     50.86 |     53.63 |     51.24 |
+| Capture Price (£/MWh) |   2018 |     65.10 |     63.94 |     60.35 |     64.31 |
+| Capture Price (£/MWh) |   2019 |     48.82 |     56.51 |     53.06 |     49.53 |
+| Capture Price (£/MWh) |   2020 |     42.62 |     49.55 |     46.70 |     45.04 |

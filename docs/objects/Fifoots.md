@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                           |
-|:---------------|:------------|:--------------------------------|
-| root           | osuked_id   | 10008                           |
-| element-of     | sett_bmu_id | T_FIFO-13, T_FIFO-14, T_FIFO-15 |
-| same-as        | esail_id    | FIFO                            |
-| same-as        | name        | Fifoots                         |
+| Relationship   | ID Type           | ID(s)                           |
+|:---------------|:------------------|:--------------------------------|
+| Root           | OSUKED ID         | 10008                           |
+| Related        | Settlement BMU ID | T_FIFO-13, T_FIFO-14, T_FIFO-15 |
+| Equivalent     | ESAIL ID          | FIFO                            |
+| Equivalent     | Common Name       | Fifoots                         |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

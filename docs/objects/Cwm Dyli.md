@@ -1,15 +1,15 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)    |
-|:---------------|:------------|:---------|
-| root           | osuked_id   | 10111    |
-| element-of     | sett_bmu_id | E_CWMD-1 |
-| element-of     | ngc_bmu_id  | CWMD-1   |
-| same-as        | esail_id    | CWMD     |
-| same-as        | name        | Cwm Dyli |
+| Relationship   | ID Type              | ID(s)    |
+|:---------------|:---------------------|:---------|
+| Root           | OSUKED ID            | 10111    |
+| Related        | Settlement BMU ID    | E_CWMD-1 |
+| Related        | National Grid BMU ID | CWMD-1   |
+| Equivalent     | ESAIL ID             | CWMD     |
+| Equivalent     | Common Name          | Cwm Dyli |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

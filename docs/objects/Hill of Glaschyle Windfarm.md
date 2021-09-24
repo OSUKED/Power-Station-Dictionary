@@ -1,15 +1,27 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                      |
-|:---------------|:------------|:---------------------------|
-| root           | osuked_id   | 10212                      |
-| element-of     | sett_bmu_id | E_HLGLW-1                  |
-| element-of     | ngc_bmu_id  | HLGLW-1                    |
-| same-as        | esail_id    | HLGLW                      |
-| same-as        | name        | Hill of Glaschyle Windfarm |
+| Relationship   | ID Type              | ID(s)                      |
+|:---------------|:---------------------|:---------------------------|
+| Root           | OSUKED ID            | 10212                      |
+| Related        | Settlement BMU ID    | E_HLGLW-1                  |
+| Related        | National Grid BMU ID | HLGLW-1                    |
+| Equivalent     | ESAIL ID             | HLGLW                      |
+| Equivalent     | Common Name          | Hill of Glaschyle Windfarm |
+| Equivalent     | EIC ID               | 48W00000HLGLW-1F           |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -48,12 +60,13 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 50405.25 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | Value   |
-|:------------|:--------|
-| Fuel Type   | WIND    |
+| Attribute             |   Year |   Value |
+|:----------------------|-------:|--------:|
+| Capture Price (£/MWh) |   2019 |   38.87 |
+| Capture Price (£/MWh) |   2020 |   30.79 |

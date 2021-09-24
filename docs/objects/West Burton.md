@@ -1,17 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                                                             |
-|:---------------|:------------|:--------------------------------------------------------------------------------------------------|
-| root           | osuked_id   | 10014                                                                                             |
-| element-of     | gppd_idnr   | GBR1000143, GBR1000146, GBR1000141                                                                |
-| element-of     | sett_bmu_id | T_WBUPS-1, T_WBUPS-2, T_WBUPS-3, T_WBUPS-4, T_WBUGT-1, T_WBUGT-4, T_WBURB-1, T_WBURB-2, T_WBURB-3 |
-| element-of     | ngc_bmu_id  | WBUPS-1, WBUPS-2, WBUPS-3, WBUPS-4, WBUGT-1, WBUGT-4, WBURB-1, WBURB-2, WBURB-3                   |
-| element-of     | eutl_id     | 97220, 97223                                                                                      |
-| same-as        | esail_id    | WBU                                                                                               |
-| same-as        | name        | West Burton                                                                                       |
+| Relationship   | ID Type              | ID(s)                                                                                                                                                            |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10014                                                                                                                                                            |
+| Related        | GPPD ID              | GBR1000143, GBR1000146, GBR1000141                                                                                                                               |
+| Related        | Settlement BMU ID    | T_WBUPS-1, T_WBUPS-2, T_WBUPS-3, T_WBUPS-4, T_WBUGT-1, T_WBUGT-4, T_WBURB-1, T_WBURB-2, T_WBURB-3                                                                |
+| Related        | National Grid BMU ID | WBUPS-1, WBUPS-2, WBUPS-3, WBUPS-4, WBUGT-1, WBUGT-4, WBURB-1, WBURB-2, WBURB-3                                                                                  |
+| Related        | EUTL ID              | 97220, 97223                                                                                                                                                     |
+| Related        | EIC ID               | 48W00000WBUPS-1P, 48W00000WBUPS-2N, 48W00000WBUPS-3L, 48W00000WBUPS-4J, 48W00000WBUGT-1T, 48W00000WBUGT-4N, 48W00000WBURB-19, 48W00000WBURB-27, 48W00000WBURB-35 |
+| Equivalent     | ESAIL ID             | WBU                                                                                                                                                              |
+| Equivalent     | Common Name          | West Burton                                                                                                                                                      |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | WBUGT-1   | WBUGT-4   | WBUPS-1   | WBUPS-2   | WBUPS-3   | WBUPS-4   | WBURB-1   | WBURB-2   | WBURB-3   |
+|:------------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
+| Fuel Type   | OCGT      | OCGT      | COAL      | COAL      | COAL      | COAL      | CCGT      | CCGT      | CCGT      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -87,12 +99,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 |    115.74 |    112.29 | 398596.37 | 338453.17 | 143891.61 | 355083.92 | 1660112.92 | 1325122.71 | 1892671.17 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | WBUGT-1   | WBUGT-4   | WBUPS-1   | WBUPS-2   | WBUPS-3   | WBUPS-4   | WBURB-1   | WBURB-2   | WBURB-3   |
-|:------------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
-| Fuel Type   | OCGT      | OCGT      | COAL      | COAL      | COAL      | COAL      | CCGT      | CCGT      | CCGT      |
+| Attribute             |   Year |   WBUGT-1 |   WBUGT-4 |   WBUPS-1 |   WBUPS-2 |   WBUPS-3 |   WBUPS-4 |   WBURB-1 |   WBURB-2 |   WBURB-3 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |    104.86 |     85.61 |     54.54 |     62.79 |     44.21 |     62.74 |     38.76 |     40.97 |     38.71 |
+| Capture Price (£/MWh) |   2017 |     58.61 |     58.05 |     53.03 |     55.75 |     51.77 |     58.53 |     47.04 |     47.76 |     48.47 |
+| Capture Price (£/MWh) |   2018 |    161.26 |    157.57 |     70.48 |     68.91 |     70.56 |     72.33 |     58.02 |     58.77 |     58.22 |
+| Capture Price (£/MWh) |   2019 |     58.77 |     59.10 |     51.95 |     50.78 |     54.12 |     48.57 |     45.09 |     45.19 |     46.24 |
+| Capture Price (£/MWh) |   2020 |     96.59 |     94.29 |     41.04 |     42.04 |     37.95 |     49.72 |     36.17 |     42.48 |     37.08 |

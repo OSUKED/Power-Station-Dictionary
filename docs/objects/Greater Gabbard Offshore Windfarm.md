@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                                                                                                                                                                                                |
-|:---------------|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| root           | osuked_id           | 10201                                                                                                                                                                                                                |
-| element-of     | sett_bmu_id         | T_GRGBW-1, T_GRGBW-2, T_GRGBW-3                                                                                                                                                                                      |
-| element-of     | ngc_bmu_id          | GRGBW-1, GRGBW-2, GRGBW-3                                                                                                                                                                                            |
-| element-of     | windpowernet_id     | [windfarm_en_1615_greater-gabbard-1](https://www.thewindpower.net/windfarm_en_1615_greater-gabbard-1.php), [windfarm_en_7107_greater-gabbard-2](https://www.thewindpower.net/windfarm_en_7107_greater-gabbard-2.php) |
-| same-as        | gppd_idnr           | GBR0002510                                                                                                                                                                                                           |
-| same-as        | esail_id            | GRGBW                                                                                                                                                                                                                |
-| same-as        | name                | Greater Gabbard Offshore Windfarm                                                                                                                                                                                    |
-| same-as        | 4c_offshore_id      | greater-gabbard-united-kingdom-uk05                                                                                                                                                                                  |
-| same-as        | wikidata_id         | Q820613                                                                                                                                                                                                              |
-| same-as        | wikipedia_id        | Greater_Gabbard_wind_farm                                                                                                                                                                                            |
-| same-as        | power_technology_id | greatergabbardoffsho                                                                                                                                                                                                 |
+| Relationship   | ID Type              | ID(s)                                                                                                                                                                                                                |
+|:---------------|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10201                                                                                                                                                                                                                |
+| Related        | Settlement BMU ID    | T_GRGBW-1, T_GRGBW-2, T_GRGBW-3                                                                                                                                                                                      |
+| Related        | National Grid BMU ID | GRGBW-1, GRGBW-2, GRGBW-3                                                                                                                                                                                            |
+| Related        | WindPowerNet ID      | [windfarm_en_1615_greater-gabbard-1](https://www.thewindpower.net/windfarm_en_1615_greater-gabbard-1.php), [windfarm_en_7107_greater-gabbard-2](https://www.thewindpower.net/windfarm_en_7107_greater-gabbard-2.php) |
+| Related        | EIC ID               | 48W00000GRGBW-1V, 48W00000GRGBW-2T, 48W00000GRGBW-3R                                                                                                                                                                 |
+| Equivalent     | GPPD ID              | GBR0002510                                                                                                                                                                                                           |
+| Equivalent     | ESAIL ID             | GRGBW                                                                                                                                                                                                                |
+| Equivalent     | Common Name          | Greater Gabbard Offshore Windfarm                                                                                                                                                                                    |
+| Equivalent     | 4C-Offshore ID       | [greater-gabbard-united-kingdom-uk05](https://www.4coffshore.com/windfarms/united-kingdom/greater-gabbard-united-kingdom-uk05.html)                                                                                  |
+| Equivalent     | Wikidata ID          | [Q820613](https://www.wikidata.org/wiki/Q820613)                                                                                                                                                                     |
+| Equivalent     | Wikipedia ID         | [Greater_Gabbard_wind_farm](https://en.wikipedia.org/wiki/Greater_Gabbard_wind_farm)                                                                                                                                 |
+| Equivalent     | Power-Technology ID  | [greatergabbardoffsho](https://www.power-technology.com/projects/greatergabbardoffsho)                                                                                                                               |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GRGBW-1   | GRGBW-2   | GRGBW-3   |
+|:------------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -77,12 +89,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 632324.84 | 671951.74 | 623308.87 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | GRGBW-1   | GRGBW-2   | GRGBW-3   |
-|:------------|:----------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      | WIND      |
+| Attribute             |   Year |   GRGBW-1 |   GRGBW-2 |   GRGBW-3 |
+|:----------------------|-------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     36.92 |     36.93 |     36.97 |
+| Capture Price (£/MWh) |   2017 |     44.52 |     44.61 |     44.50 |
+| Capture Price (£/MWh) |   2018 |     55.88 |     54.98 |     56.25 |
+| Capture Price (£/MWh) |   2019 |     39.64 |     40.83 |     40.84 |
+| Capture Price (£/MWh) |   2020 |     31.13 |     31.15 |     30.92 |

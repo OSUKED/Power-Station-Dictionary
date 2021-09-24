@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                                                                                                                                                                                                                                                |
-|:---------------|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| root           | osuked_id           | 10233                                                                                                                                                                                                                                                                |
-| element-of     | sett_bmu_id         | T_RCBKO-1, T_RCBKO-2                                                                                                                                                                                                                                                 |
-| element-of     | ngc_bmu_id          | RCBKO-1, RCBKO-2                                                                                                                                                                                                                                                     |
-| element-of     | 4c_offshore_id      | [race-bank-united-kingdom-uk18](https://www.4coffshore.com/windfarms/united-kingdom/race-bank-united-kingdom-uk18.html), [race-bank-extension-united-kingdom-uk4f](https://www.4coffshore.com/windfarms/united-kingdom/race-bank-extension-united-kingdom-uk4f.html) |
-| element-of     | windpowernet_id     | [windfarm_en_12071_race-bank](https://www.thewindpower.net/windfarm_en_12071_race-bank.php), [windfarm_en_30016_race-bank-extension](https://www.thewindpower.net/windfarm_en_30016_race-bank-extension.php)                                                         |
-| same-as        | gppd_idnr           | GBR0002515                                                                                                                                                                                                                                                           |
-| same-as        | esail_id            | RCBKO                                                                                                                                                                                                                                                                |
-| same-as        | name                | Race Bank Offshore Wind Farm                                                                                                                                                                                                                                         |
-| same-as        | wikidata_id         | Q3364824                                                                                                                                                                                                                                                             |
-| same-as        | wikipedia_id        | Race_Bank_wind_farm                                                                                                                                                                                                                                                  |
-| same-as        | power_technology_id | race-bank-wind-farm                                                                                                                                                                                                                                                  |
+| Relationship   | ID Type              | ID(s)                                                                                                                                                                                                                                                                |
+|:---------------|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10233                                                                                                                                                                                                                                                                |
+| Related        | Settlement BMU ID    | T_RCBKO-1, T_RCBKO-2                                                                                                                                                                                                                                                 |
+| Related        | National Grid BMU ID | RCBKO-1, RCBKO-2                                                                                                                                                                                                                                                     |
+| Related        | 4C-Offshore ID       | [race-bank-united-kingdom-uk18](https://www.4coffshore.com/windfarms/united-kingdom/race-bank-united-kingdom-uk18.html), [race-bank-extension-united-kingdom-uk4f](https://www.4coffshore.com/windfarms/united-kingdom/race-bank-extension-united-kingdom-uk4f.html) |
+| Related        | WindPowerNet ID      | [windfarm_en_12071_race-bank](https://www.thewindpower.net/windfarm_en_12071_race-bank.php), [windfarm_en_30016_race-bank-extension](https://www.thewindpower.net/windfarm_en_30016_race-bank-extension.php)                                                         |
+| Related        | EIC ID               | 48W00000RCBKO-1S, 48W00000RCBKO-2Q                                                                                                                                                                                                                                   |
+| Equivalent     | GPPD ID              | GBR0002515                                                                                                                                                                                                                                                           |
+| Equivalent     | ESAIL ID             | RCBKO                                                                                                                                                                                                                                                                |
+| Equivalent     | Common Name          | Race Bank Offshore Wind Farm                                                                                                                                                                                                                                         |
+| Equivalent     | Wikidata ID          | [Q3364824](https://www.wikidata.org/wiki/Q3364824)                                                                                                                                                                                                                   |
+| Equivalent     | Wikipedia ID         | [Race_Bank_wind_farm](https://en.wikipedia.org/wiki/Race_Bank_wind_farm)                                                                                                                                                                                             |
+| Equivalent     | Power-Technology ID  | [race-bank-wind-farm](https://www.power-technology.com/projects/race-bank-wind-farm)                                                                                                                                                                                 |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | RCBKO-1   | RCBKO-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -76,12 +88,15 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 1190008.20 | 1199973.40 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | RCBKO-1   | RCBKO-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   RCBKO-1 |   RCBKO-2 |
+|:----------------------|-------:|----------:|----------:|
+| Capture Price (£/MWh) |   2017 |     49.45 |     47.10 |
+| Capture Price (£/MWh) |   2018 |     56.54 |     56.46 |
+| Capture Price (£/MWh) |   2019 |     40.01 |     40.31 |
+| Capture Price (£/MWh) |   2020 |     31.11 |     31.21 |

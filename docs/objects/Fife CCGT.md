@@ -1,16 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)     |
-|:---------------|:------------|:----------|
-| root           | osuked_id   | 10037     |
-| element-of     | sett_bmu_id | T_FIFE-1  |
-| element-of     | ngc_bmu_id  | FIFE-1    |
-| same-as        | esail_id    | FIFE      |
-| same-as        | name        | Fife CCGT |
-| same-as        | eutl_id     | 97887     |
+| Relationship   | ID Type              | ID(s)     |
+|:---------------|:---------------------|:----------|
+| Root           | OSUKED ID            | 10037     |
+| Related        | Settlement BMU ID    | T_FIFE-1  |
+| Related        | National Grid BMU ID | FIFE-1    |
+| Equivalent     | ESAIL ID             | FIFE      |
+| Equivalent     | Common Name          | Fife CCGT |
+| Equivalent     | EUTL ID              | 97887     |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                        |
-|:---------------|:------------|:-------------------------------------------------------------|
-| root           | osuked_id   | 10007                                                        |
-| element-of     | sett_bmu_id | T_FIDL-1, T_FIDL-2, T_FIDL-3, T_FIDL-4, T_FIDL-2G, T_FIDL-3G |
-| element-of     | ngc_bmu_id  | FIDL-1, FIDL-2, FIDL-3, FIDL-4, FIDL-2G, FIDL-3G             |
-| same-as        | esail_id    | FIDL                                                         |
-| same-as        | name        | Fiddlers Ferry                                               |
-| same-as        | eutl_id     | 98251                                                        |
+| Relationship   | ID Type              | ID(s)                                                                                                      |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10007                                                                                                      |
+| Related        | Settlement BMU ID    | T_FIDL-1, T_FIDL-2, T_FIDL-3, T_FIDL-4, T_FIDL-2G, T_FIDL-3G                                               |
+| Related        | National Grid BMU ID | FIDL-1, FIDL-2, FIDL-3, FIDL-4, FIDL-2G, FIDL-3G                                                           |
+| Related        | EIC ID               | 48W000000FIDL-16, 48W000000FIDL-24, 48W000000FIDL-32, 48W000000FIDL-40, 48W00000FIDL-2GF, 48W00000FIDL-3GC |
+| Equivalent     | ESAIL ID             | FIDL                                                                                                       |
+| Equivalent     | Common Name          | Fiddlers Ferry                                                                                             |
+| Equivalent     | EUTL ID              | 98251                                                                                                      |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -62,3 +63,18 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 |  42361.80 | 392849.95 |    167.07 | 398405.52 |    237.68 | 333240.77 |
 | Annual Output (MWh) |   2019 |      0.00 |  75802.36 |      5.00 | 468993.96 |     12.94 | 609746.30 |
 | Annual Output (MWh) |   2020 |      0.00 | 157947.10 |     28.05 | 427210.47 |    517.61 | 396788.24 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   FIDL-1 |   FIDL-2 |   FIDL-2G |   FIDL-3 |   FIDL-3G |   FIDL-4 |
+|:----------------------|-------:|---------:|---------:|----------:|---------:|----------:|---------:|
+| Capture Price (£/MWh) |   2016 |    36.26 |    41.82 |     52.04 |    46.56 |     54.88 |    37.38 |
+| Capture Price (£/MWh) |   2017 |    61.54 |    53.74 |     47.84 |    53.45 |     60.08 |    55.17 |
+| Capture Price (£/MWh) |   2018 |   127.43 |    63.51 |    202.95 |    68.98 |    206.74 |    69.47 |
+| Capture Price (£/MWh) |   2019 |   nan    |    54.73 |     51.16 |    41.75 |     27.69 |    40.90 |
+| Capture Price (£/MWh) |   2020 |   nan    |    31.62 |     38.33 |    32.19 |     44.50 |    31.57 |

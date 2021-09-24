@@ -1,16 +1,27 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)             |
-|:---------------|:------------|:------------------|
-| root           | osuked_id   | 10173             |
-| element-of     | sett_bmu_id | 2__PPGEN003       |
-| element-of     | ngc_bmu_id  | CMSTW-1           |
-| same-as        | gppd_idnr   | GBR0004006        |
-| same-as        | esail_id    | PPGEN003          |
-| same-as        | name        | Camster Wind Farm |
+| Relationship   | ID Type              | ID(s)             |
+|:---------------|:---------------------|:------------------|
+| Root           | OSUKED ID            | 10173             |
+| Related        | Settlement BMU ID    | 2__PPGEN003       |
+| Related        | National Grid BMU ID | CMSTW-1           |
+| Equivalent     | GPPD ID              | GBR0004006        |
+| Equivalent     | ESAIL ID             | PPGEN003          |
+| Equivalent     | Common Name          | Camster Wind Farm |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | Value   |
+|:------------|:--------|
+| Fuel Type   | WIND    |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -54,14 +65,3 @@ The "gppd_idnr" field was used to match from the dictionary to the "gppd_idnr" f
 | Geolocation Source                  | UK Renewable Energy Planning Database                                    |
 | PLATTS-WEPP ID                      | 1062545.0                                                                |
 | Estimated Annual Generation in 2017 | 126.04                                                                   |
-
-<br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
-
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
-
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
-
-| Attribute   | Value   |
-|:------------|:--------|
-| Fuel Type   | WIND    |

@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)    |
-|:---------------|:------------|:---------|
-| root           | osuked_id   | 10064    |
-| element-of     | sett_bmu_id | E_DERW-1 |
-| element-of     | ngc_bmu_id  | DERW-1   |
-| same-as        | esail_id    | DERW     |
-| same-as        | name        | Derwent  |
-| same-as        | eutl_id     | 97227    |
+| Relationship   | ID Type              | ID(s)            |
+|:---------------|:---------------------|:-----------------|
+| Root           | OSUKED ID            | 10064            |
+| Related        | Settlement BMU ID    | E_DERW-1         |
+| Related        | National Grid BMU ID | DERW-1           |
+| Equivalent     | ESAIL ID             | DERW             |
+| Equivalent     | Common Name          | Derwent          |
+| Equivalent     | EUTL ID              | 97227            |
+| Equivalent     | EIC ID               | 48W000000DERW-14 |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

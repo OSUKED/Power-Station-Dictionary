@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                 |
-|:---------------|:------------|:------------------------------------------------------|
-| root           | osuked_id   | 10204                                                 |
-| element-of     | gppd_idnr   | GBR0002490, GBR0002489, GBR0002488                    |
-| element-of     | sett_bmu_id | E_GNFSW-1, T_GNFSW-1, E_GNFSW-2, T_GNFSW-2, E_GNFSW-3 |
-| element-of     | ngc_bmu_id  | GNFSW-1, GNFSW-1, GNFSW-2, GNFSW-2                    |
-| same-as        | esail_id    | GNFSW                                                 |
-| same-as        | name        | Gunfleet Sands Windfarm                               |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10204                                                                  |
+| Related        | GPPD ID              | GBR0002490, GBR0002489, GBR0002488                                     |
+| Related        | Settlement BMU ID    | E_GNFSW-1, T_GNFSW-1, E_GNFSW-2, T_GNFSW-2, E_GNFSW-3                  |
+| Related        | National Grid BMU ID | GNFSW-1, GNFSW-1, GNFSW-2, GNFSW-2                                     |
+| Related        | EIC ID               | 48W00000GNFSW-1H, 48W00000GNFSW-1H, 48W00000GNFSW-2F, 48W00000GNFSW-2F |
+| Equivalent     | ESAIL ID             | GNFSW                                                                  |
+| Equivalent     | Common Name          | Gunfleet Sands Windfarm                                                |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GNFSW-1   | GNFSW-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -72,12 +84,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 366748.71 | 230090.53 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | GNFSW-1   | GNFSW-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   GNFSW-1 |   GNFSW-2 |
+|:----------------------|-------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     45.47 |     45.86 |
+| Capture Price (£/MWh) |   2017 |     44.28 |     44.30 |
+| Capture Price (£/MWh) |   2018 |     56.58 |     56.42 |
+| Capture Price (£/MWh) |   2019 |     40.78 |     40.86 |
+| Capture Price (£/MWh) |   2020 |     30.78 |     30.80 |

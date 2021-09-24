@@ -1,17 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)              |
-|:---------------|:------------|:-------------------|
-| root           | osuked_id   | 10060              |
-| element-of     | sett_bmu_id | T_TESI-1, T_TESI-2 |
-| element-of     | ngc_bmu_id  | TESI-1, TESI-2     |
-| same-as        | gppd_idnr   | GBR0002514         |
-| same-as        | esail_id    | TESI               |
-| same-as        | name        | Teesside           |
-| same-as        | eutl_id     | 97075              |
+| Relationship   | ID Type              | ID(s)              |
+|:---------------|:---------------------|:-------------------|
+| Root           | OSUKED ID            | 10060              |
+| Related        | Settlement BMU ID    | T_TESI-1, T_TESI-2 |
+| Related        | National Grid BMU ID | TESI-1, TESI-2     |
+| Equivalent     | GPPD ID              | GBR0002514         |
+| Equivalent     | ESAIL ID             | TESI               |
+| Equivalent     | Common Name          | Teesside           |
+| Equivalent     | EUTL ID              | 97075              |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

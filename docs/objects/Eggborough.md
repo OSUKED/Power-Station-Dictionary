@@ -1,17 +1,18 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                      |
-|:---------------|:------------|:-------------------------------------------|
-| root           | osuked_id   | 10005                                      |
-| element-of     | sett_bmu_id | T_EGGPS-1, T_EGGPS-2, T_EGGPS-3, T_EGGPS-4 |
-| element-of     | ngc_bmu_id  | EGGPS-1, EGGPS-2, EGGPS-3, EGGPS-4         |
-| same-as        | gppd_idnr   | GBR1000147                                 |
-| same-as        | esail_id    | EGGPS                                      |
-| same-as        | name        | Eggborough                                 |
-| same-as        | eutl_id     | 97445                                      |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10005                                                                  |
+| Related        | Settlement BMU ID    | T_EGGPS-1, T_EGGPS-2, T_EGGPS-3, T_EGGPS-4                             |
+| Related        | National Grid BMU ID | EGGPS-1, EGGPS-2, EGGPS-3, EGGPS-4                                     |
+| Related        | EIC ID               | 48W00000EGGPS-1X, 48W00000EGGPS-2V, 48W00000EGGPS-3T, 48W00000EGGPS-4R |
+| Equivalent     | GPPD ID              | GBR1000147                                                             |
+| Equivalent     | ESAIL ID             | EGGPS                                                                  |
+| Equivalent     | Common Name          | Eggborough                                                             |
+| Equivalent     | EUTL ID              | 97445                                                                  |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -83,3 +84,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 |  30842.92 |  17390.11 | 260354.27 | 230801.76 |
 | Annual Output (MWh) |   2019 |      0.00 |      0.00 |      0.00 |      0.00 |
 | Annual Output (MWh) |   2020 |      0.00 |      0.00 |      0.00 |      0.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   EGGPS-1 |   EGGPS-2 |   EGGPS-3 |   EGGPS-4 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     37.14 |     37.25 |     36.21 |     44.96 |
+| Capture Price (£/MWh) |   2017 |     62.09 |     65.50 |     59.76 |     59.21 |
+| Capture Price (£/MWh) |   2018 |     60.48 |     54.22 |     67.51 |     68.39 |

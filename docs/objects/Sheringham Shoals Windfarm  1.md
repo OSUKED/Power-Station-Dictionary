@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                                                                                                                                                                                                                                                                            |
-|:---------------|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| root           | osuked_id           | 10239                                                                                                                                                                                                                                                                                            |
-| element-of     | sett_bmu_id         | E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2                                                                                                                                                                                                                                                       |
-| element-of     | ngc_bmu_id          | SHRSW-1, SHRSO-1, SHRSW-2, SHRSO-2                                                                                                                                                                                                                                                               |
-| element-of     | 4c_offshore_id      | [sheringham-shoal-united-kingdom-uk27](https://www.4coffshore.com/windfarms/united-kingdom/sheringham-shoal-united-kingdom-uk27.html), [sheringham-shoal-extension-united-kingdom-uk4h](https://www.4coffshore.com/windfarms/united-kingdom/sheringham-shoal-extension-united-kingdom-uk4h.html) |
-| element-of     | windpowernet_id     | [windfarm_en_7394_sheringham-shoal](https://www.thewindpower.net/windfarm_en_7394_sheringham-shoal.php), [windfarm_en_30017_sheringham-shoal-extension](https://www.thewindpower.net/windfarm_en_30017_sheringham-shoal-extension.php)                                                           |
-| same-as        | gppd_idnr           | GBR0002512                                                                                                                                                                                                                                                                                       |
-| same-as        | esail_id            | SHRSW                                                                                                                                                                                                                                                                                            |
-| same-as        | name                | Sheringham Shoals Windfarm  1                                                                                                                                                                                                                                                                    |
-| same-as        | wikidata_id         | Q7495028                                                                                                                                                                                                                                                                                         |
-| same-as        | wikipedia_id        | Sheringham_Shoal_Offshore_Wind_Farm                                                                                                                                                                                                                                                              |
-| same-as        | power_technology_id | sheringham-shoal                                                                                                                                                                                                                                                                                 |
+| Relationship   | ID Type              | ID(s)                                                                                                                                                                                                                                                                                            |
+|:---------------|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10239                                                                                                                                                                                                                                                                                            |
+| Related        | Settlement BMU ID    | E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2                                                                                                                                                                                                                                                       |
+| Related        | National Grid BMU ID | SHRSW-1, SHRSO-1, SHRSW-2, SHRSO-2                                                                                                                                                                                                                                                               |
+| Related        | 4C-Offshore ID       | [sheringham-shoal-united-kingdom-uk27](https://www.4coffshore.com/windfarms/united-kingdom/sheringham-shoal-united-kingdom-uk27.html), [sheringham-shoal-extension-united-kingdom-uk4h](https://www.4coffshore.com/windfarms/united-kingdom/sheringham-shoal-extension-united-kingdom-uk4h.html) |
+| Related        | WindPowerNet ID      | [windfarm_en_7394_sheringham-shoal](https://www.thewindpower.net/windfarm_en_7394_sheringham-shoal.php), [windfarm_en_30017_sheringham-shoal-extension](https://www.thewindpower.net/windfarm_en_30017_sheringham-shoal-extension.php)                                                           |
+| Related        | EIC ID               | 48W00000SHRSO-1Y, 48W00000SHRSO-2W                                                                                                                                                                                                                                                               |
+| Equivalent     | GPPD ID              | GBR0002512                                                                                                                                                                                                                                                                                       |
+| Equivalent     | ESAIL ID             | SHRSW                                                                                                                                                                                                                                                                                            |
+| Equivalent     | Common Name          | Sheringham Shoals Windfarm  1                                                                                                                                                                                                                                                                    |
+| Equivalent     | Wikidata ID          | [Q7495028](https://www.wikidata.org/wiki/Q7495028)                                                                                                                                                                                                                                               |
+| Equivalent     | Wikipedia ID         | [Sheringham_Shoal_Offshore_Wind_Farm](https://en.wikipedia.org/wiki/Sheringham_Shoal_Offshore_Wind_Farm)                                                                                                                                                                                         |
+| Equivalent     | Power-Technology ID  | [sheringham-shoal](https://www.power-technology.com/projects/sheringham-shoal)                                                                                                                                                                                                                   |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | SHRSO-1   | SHRSO-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -76,12 +88,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 588697.74 | 575378.54 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | SHRSO-1   | SHRSO-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   SHRSO-1 |   SHRSO-2 |
+|:----------------------|-------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     36.12 |     36.22 |
+| Capture Price (£/MWh) |   2017 |     44.15 |     44.32 |
+| Capture Price (£/MWh) |   2018 |     56.09 |     56.05 |
+| Capture Price (£/MWh) |   2019 |     40.21 |     40.31 |
+| Capture Price (£/MWh) |   2020 |     31.08 |     31.11 |

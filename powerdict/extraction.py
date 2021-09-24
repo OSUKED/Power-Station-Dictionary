@@ -257,7 +257,8 @@ def determine_matched_ids(df_resource_attrs, dict_ids):
     else:
         primary_index = df_resource_attrs.index
 
-    matched_dict_ids = sorted(list(set(primary_index).intersection(set(dict_ids))))
+    matched_dict_ids = list(set(primary_index).intersection(set(dict_ids)))
+    matched_dict_ids = [dict_id for dict_id in dict_ids if dict_id in matched_dict_ids]
 
     return matched_dict_ids
 
@@ -319,9 +320,7 @@ def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, r
                         site_attrs_from_resource = []
 
                         for id_ in matched_dict_ids:
-#                             print(id_, df_resource_attrs.shape[0], df_resource_attrs.name)
                             df_relevant_resource_attrs = df_resource_attrs.xs(id_, level=0)
-#                             print(df_resource_attrs.shape[0])
                             df_relevant_resource_attrs = df_relevant_resource_attrs.dropna(how='all', axis=1)
 
                             if df_relevant_resource_attrs.shape[0] > 0:

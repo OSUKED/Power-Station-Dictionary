@@ -1,17 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                  |
-|:---------------|:------------|:---------------------------------------|
-| root           | osuked_id   | 10058                                  |
-| element-of     | sett_bmu_id | T_STAY-1, T_STAY-2, T_STAY-3, T_STAY-4 |
-| element-of     | ngc_bmu_id  | STAY-1, STAY-2, STAY-3, STAY-4         |
-| same-as        | gppd_idnr   | GBR1000373                             |
-| same-as        | esail_id    | STAY                                   |
-| same-as        | name        | Staythorpe                             |
-| same-as        | eutl_id     | 97185                                  |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10058                                                                  |
+| Related        | Settlement BMU ID    | T_STAY-1, T_STAY-2, T_STAY-3, T_STAY-4                                 |
+| Related        | National Grid BMU ID | STAY-1, STAY-2, STAY-3, STAY-4                                         |
+| Related        | EIC ID               | 48W000000STAY-1Y, 48W000000STAY-2W, 48W000000STAY-3U, 48W000000STAY-4S |
+| Equivalent     | GPPD ID              | GBR1000373                                                             |
+| Equivalent     | ESAIL ID             | STAY                                                                   |
+| Equivalent     | Common Name          | Staythorpe                                                             |
+| Equivalent     | EUTL ID              | 97185                                                                  |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | STAY-1   | STAY-2   | STAY-3   | STAY-4   |
+|:------------|:---------|:---------|:---------|:---------|
+| Fuel Type   | CCGT     | CCGT     | CCGT     | CCGT     |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -82,12 +94,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 1259669.20 | 1213780.50 | 1328482.75 | 1365182.45 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | STAY-1   | STAY-2   | STAY-3   | STAY-4   |
-|:------------|:---------|:---------|:---------|:---------|
-| Fuel Type   | CCGT     | CCGT     | CCGT     | CCGT     |
+| Attribute             |   Year |   STAY-1 |   STAY-2 |   STAY-3 |   STAY-4 |
+|:----------------------|-------:|---------:|---------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    42.09 |    42.43 |    42.12 |    41.76 |
+| Capture Price (£/MWh) |   2017 |    48.81 |    48.87 |    48.72 |    48.75 |
+| Capture Price (£/MWh) |   2018 |    59.95 |    59.22 |    60.73 |    59.54 |
+| Capture Price (£/MWh) |   2019 |    44.94 |    43.92 |    45.30 |    44.25 |
+| Capture Price (£/MWh) |   2020 |    43.37 |    42.22 |    41.65 |    39.68 |

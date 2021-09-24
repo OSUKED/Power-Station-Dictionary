@@ -6,10 +6,19 @@
 
 > A power station dictionary that enables mapping between various naming conventions and associated plant metadata
 
+### Work In Progress
+
+This library, website and ReadMe are all currently a work in progress and subject to potential large changes
+
+To Do:
+
+- [ ] Make the new powerdict CLI for rebuilding the website
+
 <br>
 
 Full documentation can be found [here](https://osuked.github.io/Power-Station-Dictionary/)
 
+<br>
 <br>
 
 The core output of this project is a clean power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. Currently the focus of this work are plants within the GB power system. The `powerdict` module provides a programmatic way in which to combine the raw datasets and apply any additional updates specified in the files contained within the three data directories:

@@ -1,17 +1,18 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                   |
-|:---------------|:------------|:--------------------------------------------------------|
-| root           | osuked_id   | 10002                                                   |
-| element-of     | gppd_idnr   | GBR1000374, GBR1000375                                  |
-| element-of     | sett_bmu_id | T_ABTH7, T_ABTH8, T_ABTH9, T_ABTH7G, T_ABTH8G, T_ABTH9G |
-| element-of     | ngc_bmu_id  | ABTH7, ABTH8, ABTH9, ABTH7G, ABTH8G, ABTH9G             |
-| same-as        | esail_id    | ABTH                                                    |
-| same-as        | name        | Aberthaw B                                              |
-| same-as        | eutl_id     | 97175                                                   |
+| Relationship   | ID Type              | ID(s)                                                                                                      |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10002                                                                                                      |
+| Related        | GPPD ID              | GBR1000374, GBR1000375                                                                                     |
+| Related        | Settlement BMU ID    | T_ABTH7, T_ABTH8, T_ABTH9, T_ABTH7G, T_ABTH8G, T_ABTH9G                                                    |
+| Related        | National Grid BMU ID | ABTH7, ABTH8, ABTH9, ABTH7G, ABTH8G, ABTH9G                                                                |
+| Related        | EIC ID               | 48W0000000ABTH7Y, 48W0000000ABTH8W, 48W0000000ABTH9U, 48W000000ABTH7G2, 48W100000ABTH8GN, 48W000000ABTH9GX |
+| Equivalent     | ESAIL ID             | ABTH                                                                                                       |
+| Equivalent     | Common Name          | Aberthaw B                                                                                                 |
+| Equivalent     | EUTL ID              | 97175                                                                                                      |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -85,3 +86,18 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 |  173340.22 |   125.46 |  177871.12 |    77.42 |  179066.76 |    81.57 |
 | Annual Output (MWh) |   2019 |  148814.22 |    54.46 |  133844.60 |    51.56 |  435824.00 |    62.01 |
 | Annual Output (MWh) |   2020 |       0.00 |    24.71 |       0.00 |    18.63 |       0.00 |    26.41 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   ABTH7 |   ABTH7G |   ABTH8 |   ABTH8G |   ABTH9 |   ABTH9G |
+|:----------------------|-------:|--------:|---------:|--------:|---------:|--------:|---------:|
+| Capture Price (£/MWh) |   2016 |   42.27 |    53.20 |   40.47 |    54.42 |   42.32 |    52.87 |
+| Capture Price (£/MWh) |   2017 |   48.68 |   nan    |   48.86 |    34.94 |   48.55 |    48.60 |
+| Capture Price (£/MWh) |   2018 |   82.90 |   141.50 |   82.38 |    65.79 |   81.82 |    64.34 |
+| Capture Price (£/MWh) |   2019 |   60.73 |    46.74 |   57.23 |    47.61 |   49.96 |    48.81 |
+| Capture Price (£/MWh) |   2020 |  nan    |    39.21 |  nan    |    40.10 |  nan    |    39.60 |

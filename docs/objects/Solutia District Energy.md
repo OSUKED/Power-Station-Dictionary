@@ -1,16 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                   |
-|:---------------|:------------|:------------------------|
-| root           | osuked_id   | 10089                   |
-| element-of     | sett_bmu_id | E_SOLUTIA               |
-| element-of     | ngc_bmu_id  | SOLUU-1                 |
-| same-as        | esail_id    | SOLUTIA                 |
-| same-as        | name        | Solutia District Energy |
-| same-as        | eutl_id     | 97142                   |
+| Relationship   | ID Type              | ID(s)                   |
+|:---------------|:---------------------|:------------------------|
+| Root           | OSUKED ID            | 10089                   |
+| Related        | Settlement BMU ID    | E_SOLUTIA               |
+| Related        | National Grid BMU ID | SOLUU-1                 |
+| Equivalent     | ESAIL ID             | SOLUTIA                 |
+| Equivalent     | Common Name          | Solutia District Energy |
+| Equivalent     | EUTL ID              | 97142                   |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

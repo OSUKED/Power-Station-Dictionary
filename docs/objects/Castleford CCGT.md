@@ -1,17 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)           |
-|:---------------|:------------|:----------------|
-| root           | osuked_id   | 10028           |
-| element-of     | sett_bmu_id | 2__MPGEN002     |
-| element-of     | ngc_bmu_id  | YEP-PGU02       |
-| same-as        | gppd_idnr   | GBR1000113      |
-| same-as        | esail_id    | MPGEN002        |
-| same-as        | name        | Castleford CCGT |
-| same-as        | eutl_id     | 97683           |
+| Relationship   | ID Type              | ID(s)           |
+|:---------------|:---------------------|:----------------|
+| Root           | OSUKED ID            | 10028           |
+| Related        | Settlement BMU ID    | 2__MPGEN002     |
+| Related        | National Grid BMU ID | YEP-PGU02       |
+| Equivalent     | GPPD ID              | GBR1000113      |
+| Equivalent     | ESAIL ID             | MPGEN002        |
+| Equivalent     | Common Name          | Castleford CCGT |
+| Equivalent     | EUTL ID              | 97683           |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

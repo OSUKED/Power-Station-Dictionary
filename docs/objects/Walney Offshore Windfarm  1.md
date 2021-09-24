@@ -1,16 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                 |
-|:---------------|:------------|:------------------------------------------------------|
-| root           | osuked_id   | 10246                                                 |
-| element-of     | gppd_idnr   | GBR0002500, GBR0002506                                |
-| element-of     | sett_bmu_id | T_WLNYW-1, E_WLNYW-2, T_WLNYO-3, T_WLNYO-4, T_WLNYO-2 |
-| element-of     | ngc_bmu_id  | WLNYW-1, WLNYW-2, WLNYO-3, WLNYO-4, WLNYO-2           |
-| same-as        | esail_id    | WLNYW1                                                |
-| same-as        | name        | Walney Offshore Windfarm  1                           |
+| Relationship   | ID Type              | ID(s)                                                                  |
+|:---------------|:---------------------|:-----------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10246                                                                  |
+| Related        | GPPD ID              | GBR0002500, GBR0002506                                                 |
+| Related        | Settlement BMU ID    | T_WLNYW-1, E_WLNYW-2, T_WLNYO-3, T_WLNYO-4, T_WLNYO-2                  |
+| Related        | National Grid BMU ID | WLNYW-1, WLNYW-2, WLNYO-3, WLNYO-4, WLNYO-2                            |
+| Related        | EIC ID               | 48W00000WLNYW-1A, 48W00000WLNYO-31, 48W00000WLNYO-4-, 48W00000WLNYO-23 |
+| Related        | CfD ID               | INV-WAL-001, INV-WAL-002                                               |
+| Equivalent     | ESAIL ID             | WLNYW1                                                                 |
+| Equivalent     | Common Name          | Walney Offshore Windfarm  1                                            |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | WLNYO-2   | WLNYO-3   | WLNYO-4   | WLNYW-1   |
+|:------------|:----------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -71,12 +84,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 754188.00 | 1427744.22 | 1090859.32 | 664786.54 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | WLNYO-2   | WLNYO-3   | WLNYO-4   | WLNYW-1   |
-|:------------|:----------|:----------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      | WIND      | WIND      |
+| Attribute             |   Year |   WLNYO-2 |   WLNYO-3 |   WLNYO-4 |   WLNYW-1 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     38.52 |    nan    |    nan    |     36.05 |
+| Capture Price (£/MWh) |   2017 |     43.90 |     51.80 |     53.94 |     43.68 |
+| Capture Price (£/MWh) |   2018 |     56.39 |     56.30 |     56.45 |     55.94 |
+| Capture Price (£/MWh) |   2019 |     39.70 |     39.91 |     39.48 |     39.38 |
+| Capture Price (£/MWh) |   2020 |     31.03 |     31.73 |     30.77 |     30.64 |

@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                         |
-|:---------------|:------------|:--------------------------------------------------------------|
-| root           | osuked_id   | 10141                                                         |
-| element-of     | sett_bmu_id | T_LITTD1, T_LITTD2, T_LITTD3, T_LITTD1G, T_LITTD2G, T_LITTD3G |
-| element-of     | ngc_bmu_id  | LITTD1, LITTD2, LITTD3, LITT1G, LITT2G, LITT3G                |
-| same-as        | esail_id    | LITTD                                                         |
-| same-as        | name        | Littlebrook D                                                 |
-| same-as        | eutl_id     | 97177                                                         |
+| Relationship   | ID Type              | ID(s)                                                                                                      |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10141                                                                                                      |
+| Related        | Settlement BMU ID    | T_LITTD1, T_LITTD2, T_LITTD3, T_LITTD1G, T_LITTD2G, T_LITTD3G                                              |
+| Related        | National Grid BMU ID | LITTD1, LITTD2, LITTD3, LITT1G, LITT2G, LITT3G                                                             |
+| Related        | EIC ID               | 48W000000LITTD1W, 48W000000LITTD2U, 48W000000LITTD3S, 48W000000LITT1G1, 48W000000LITT2GZ, 48W000000LITT3GW |
+| Equivalent     | ESAIL ID             | LITTD                                                                                                      |
+| Equivalent     | Common Name          | Littlebrook D                                                                                              |
+| Equivalent     | EUTL ID              | 97177                                                                                                      |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

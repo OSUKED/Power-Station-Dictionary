@@ -1,15 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)            |
-|:---------------|:------------|:-----------------|
-| root           | osuked_id   | 10135            |
-| element-of     | sett_bmu_id | T_OLDS1, T_OLDS2 |
-| element-of     | ngc_bmu_id  | OLDS1, OLDS2     |
-| same-as        | esail_id    | OLDS             |
-| same-as        | name        | Oldbury          |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10135                              |
+| Related        | Settlement BMU ID    | T_OLDS1, T_OLDS2                   |
+| Related        | National Grid BMU ID | OLDS1, OLDS2                       |
+| Related        | EIC ID               | 48W0000000OLDS1H, 48W0000000OLDS2F |
+| Equivalent     | ESAIL ID             | OLDS                               |
+| Equivalent     | Common Name          | Oldbury                            |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,16 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                        |
-|:---------------|:------------|:-----------------------------|
-| root           | osuked_id   | 10124                        |
-| element-of     | sett_bmu_id | E_RHEI-1, E_RHEI-2, E_RHEI-3 |
-| element-of     | ngc_bmu_id  | RHEI-1                       |
-| same-as        | gppd_idnr   | GBR0003552                   |
-| same-as        | esail_id    | RHEI                         |
-| same-as        | name        | Rheidol                      |
+| Relationship   | ID Type              | ID(s)                        |
+|:---------------|:---------------------|:-----------------------------|
+| Root           | OSUKED ID            | 10124                        |
+| Related        | Settlement BMU ID    | E_RHEI-1, E_RHEI-2, E_RHEI-3 |
+| Related        | National Grid BMU ID | RHEI-1                       |
+| Equivalent     | GPPD ID              | GBR0003552                   |
+| Equivalent     | ESAIL ID             | RHEI                         |
+| Equivalent     | Common Name          | Rheidol                      |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                |
-|:---------------|:------------|:---------------------|
-| root           | osuked_id   | 10075                |
-| element-of     | sett_bmu_id | T__DICI002           |
-| same-as        | esail_id    | DICI1                |
-| same-as        | name        | Weaver Power Station |
+| Relationship   | ID Type           | ID(s)                |
+|:---------------|:------------------|:---------------------|
+| Root           | OSUKED ID         | 10075                |
+| Related        | Settlement BMU ID | T__DICI002           |
+| Equivalent     | ESAIL ID          | DICI1                |
+| Equivalent     | Common Name       | Weaver Power Station |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                  |
-|:---------------|:------------|:---------------------------------------|
-| root           | osuked_id   | 10136                                  |
-| element-of     | sett_bmu_id | T_SIZEA1, T_SIZEA2, T_SIZB-1, T_SIZB-2 |
-| element-of     | ngc_bmu_id  | SIZB-1, SIZB-2                         |
-| same-as        | gppd_idnr   | GBR1000058                             |
-| same-as        | esail_id    | SIZ                                    |
-| same-as        | name        | Sizewell                               |
+| Relationship   | ID Type              | ID(s)                                  |
+|:---------------|:---------------------|:---------------------------------------|
+| Root           | OSUKED ID            | 10136                                  |
+| Related        | Settlement BMU ID    | T_SIZEA1, T_SIZEA2, T_SIZB-1, T_SIZB-2 |
+| Related        | National Grid BMU ID | SIZB-1, SIZB-2                         |
+| Related        | EIC ID               | 48W000000SIZB-1U, 48W000000SIZB-2S     |
+| Equivalent     | GPPD ID              | GBR1000058                             |
+| Equivalent     | ESAIL ID             | SIZ                                    |
+| Equivalent     | Common Name          | Sizewell                               |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | SIZB-1   | SIZB-2   |
+|:------------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -62,12 +74,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 4618171.89 | 3807720.69 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | SIZB-1   | SIZB-2   |
-|:------------|:---------|:---------|
-| Fuel Type   | NUCLEAR  | NUCLEAR  |
+| Attribute             |   Year |   SIZB-1 |   SIZB-2 |
+|:----------------------|-------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    39.92 |    39.87 |
+| Capture Price (£/MWh) |   2017 |    43.20 |    43.23 |
+| Capture Price (£/MWh) |   2018 |    57.67 |    56.66 |
+| Capture Price (£/MWh) |   2019 |    42.13 |    42.25 |
+| Capture Price (£/MWh) |   2020 |    34.21 |    35.35 |

@@ -1,21 +1,33 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                      |
-|:---------------|:--------------------|:-------------------------------------------|
-| root           | osuked_id           | 10221                                      |
-| element-of     | sett_bmu_id         | T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4 |
-| element-of     | ngc_bmu_id          | LARYO-1, LARYO-2, LARYO-3, LARYO-4         |
-| same-as        | gppd_idnr           | GBR0002511                                 |
-| same-as        | esail_id            | LARYW                                      |
-| same-as        | name                | London Array Windfarm                      |
-| same-as        | 4c_offshore_id      | london-array-united-kingdom-uk14           |
-| same-as        | windpowernet_id     | windfarm_en_1574_london-array              |
-| same-as        | wikidata_id         | Q914264                                    |
-| same-as        | wikipedia_id        | London_Array                               |
-| same-as        | power_technology_id | london-array                               |
+| Relationship   | ID Type              | ID(s)                                                                                                                         |
+|:---------------|:---------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10221                                                                                                                         |
+| Related        | Settlement BMU ID    | T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4                                                                                    |
+| Related        | National Grid BMU ID | LARYO-1, LARYO-2, LARYO-3, LARYO-4                                                                                            |
+| Related        | EIC ID               | 48W00000LARYO-1Z, 48W00000LARYO-2X, 48W00000LARYO-3V, 48W00000LARYO-4T                                                        |
+| Equivalent     | GPPD ID              | GBR0002511                                                                                                                    |
+| Equivalent     | ESAIL ID             | LARYW                                                                                                                         |
+| Equivalent     | Common Name          | London Array Windfarm                                                                                                         |
+| Equivalent     | 4C-Offshore ID       | [london-array-united-kingdom-uk14](https://www.4coffshore.com/windfarms/united-kingdom/london-array-united-kingdom-uk14.html) |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_1574_london-array](https://www.thewindpower.net/windfarm_en_1574_london-array.php)                               |
+| Equivalent     | Wikidata ID          | [Q914264](https://www.wikidata.org/wiki/Q914264)                                                                              |
+| Equivalent     | Wikipedia ID         | [London_Array](https://en.wikipedia.org/wiki/London_Array)                                                                    |
+| Equivalent     | Power-Technology ID  | [london-array](https://www.power-technology.com/projects/london-array)                                                        |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | LARYO-1   | LARYO-2   | LARYO-3   | LARYO-4   |
+|:------------|:----------|:----------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -76,12 +88,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 641209.79 | 654520.60 | 648465.83 | 647593.43 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | LARYO-1   | LARYO-2   | LARYO-3   | LARYO-4   |
-|:------------|:----------|:----------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      | WIND      | WIND      |
+| Attribute             |   Year |   LARYO-1 |   LARYO-2 |   LARYO-3 |   LARYO-4 |
+|:----------------------|-------:|----------:|----------:|----------:|----------:|
+| Capture Price (£/MWh) |   2016 |     36.84 |     37.04 |     36.85 |     37.19 |
+| Capture Price (£/MWh) |   2017 |     44.56 |     44.22 |     44.44 |     44.53 |
+| Capture Price (£/MWh) |   2018 |     55.58 |     56.73 |     55.38 |     56.56 |
+| Capture Price (£/MWh) |   2019 |     41.82 |     38.58 |     40.68 |     40.59 |
+| Capture Price (£/MWh) |   2020 |     31.07 |     31.10 |     30.92 |     30.88 |

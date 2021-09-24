@@ -1,20 +1,32 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                                         |
-|:---------------|:--------------------|:----------------------------------------------|
-| root           | osuked_id           | 10234                                         |
-| element-of     | sett_bmu_id         | T_RMPNO-1, T_RMPNO-2                          |
-| element-of     | ngc_bmu_id          | RMPNO-1, RMPNO-2                              |
-| same-as        | esail_id            | RMPNO                                         |
-| same-as        | name                | Rampion Offshore Windfarm                     |
-| same-as        | 4c_offshore_id      | rampion-united-kingdom-uk36                   |
-| same-as        | windpowernet_id     | windfarm_en_16761_rampion                     |
-| same-as        | wikidata_id         | Q7290043                                      |
-| same-as        | wikipedia_id        | Rampion_Wind_Farm                             |
-| same-as        | power_technology_id | rampion-offshore-wind-project-english-channel |
+| Relationship   | ID Type              | ID(s)                                                                                                                                    |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10234                                                                                                                                    |
+| Related        | Settlement BMU ID    | T_RMPNO-1, T_RMPNO-2                                                                                                                     |
+| Related        | National Grid BMU ID | RMPNO-1, RMPNO-2                                                                                                                         |
+| Related        | EIC ID               | 48W00000RMPNO-17, 48W00000RMPNO-25                                                                                                       |
+| Equivalent     | ESAIL ID             | RMPNO                                                                                                                                    |
+| Equivalent     | Common Name          | Rampion Offshore Windfarm                                                                                                                |
+| Equivalent     | 4C-Offshore ID       | [rampion-united-kingdom-uk36](https://www.4coffshore.com/windfarms/united-kingdom/rampion-united-kingdom-uk36.html)                      |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_16761_rampion](https://www.thewindpower.net/windfarm_en_16761_rampion.php)                                                  |
+| Equivalent     | Wikidata ID          | [Q7290043](https://www.wikidata.org/wiki/Q7290043)                                                                                       |
+| Equivalent     | Wikipedia ID         | [Rampion_Wind_Farm](https://en.wikipedia.org/wiki/Rampion_Wind_Farm)                                                                     |
+| Equivalent     | Power-Technology ID  | [rampion-offshore-wind-project-english-channel](https://www.power-technology.com/projects/rampion-offshore-wind-project-english-channel) |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | RMPNO-1   | RMPNO-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -54,12 +66,15 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 754945.80 | 812825.09 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | RMPNO-1   | RMPNO-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   RMPNO-1 |   RMPNO-2 |
+|:----------------------|-------:|----------:|----------:|
+| Capture Price (£/MWh) |   2017 |     56.23 |    nan    |
+| Capture Price (£/MWh) |   2018 |     56.60 |     58.37 |
+| Capture Price (£/MWh) |   2019 |     40.37 |     44.62 |
+| Capture Price (£/MWh) |   2020 |     32.20 |     30.78 |

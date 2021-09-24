@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)              |
-|:---------------|:------------|:-------------------|
-| root           | osuked_id   | 10130              |
-| element-of     | sett_bmu_id | T_HRTL-1, T_HRTL-2 |
-| element-of     | ngc_bmu_id  | HRTL-1, HRTL-2     |
-| same-as        | gppd_idnr   | GBR1000053         |
-| same-as        | esail_id    | HRTL               |
-| same-as        | name        | Hartlepool         |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10130                              |
+| Related        | Settlement BMU ID    | T_HRTL-1, T_HRTL-2                 |
+| Related        | National Grid BMU ID | HRTL-1, HRTL-2                     |
+| Related        | EIC ID               | 48W000000HRTL-16, 48W000000HRTL-24 |
+| Equivalent     | GPPD ID              | GBR1000053                         |
+| Equivalent     | ESAIL ID             | HRTL                               |
+| Equivalent     | Common Name          | Hartlepool                         |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | HRTL-1   | HRTL-2   |
+|:------------|:---------|:---------|
+| Fuel Type   | NUCLEAR  | NUCLEAR  |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -60,12 +72,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 4594907.03 | 3945040.62 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | HRTL-1   | HRTL-2   |
-|:------------|:---------|:---------|
-| Fuel Type   | NUCLEAR  | NUCLEAR  |
+| Attribute             |   Year |   HRTL-1 |   HRTL-2 |
+|:----------------------|-------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    39.89 |    40.10 |
+| Capture Price (£/MWh) |   2017 |    44.73 |    44.10 |
+| Capture Price (£/MWh) |   2018 |    57.91 |    56.20 |
+| Capture Price (£/MWh) |   2019 |    41.46 |    44.37 |
+| Capture Price (£/MWh) |   2020 |    34.10 |    33.28 |

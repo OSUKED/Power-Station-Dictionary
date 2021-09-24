@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)   |
-|:---------------|:------------|:--------|
-| root           | osuked_id   | 10073   |
-| element-of     | sett_bmu_id | E_SLOUG |
-| same-as        | esail_id    | SLOUG   |
-| same-as        | name        | Slough  |
+| Relationship   | ID Type           | ID(s)   |
+|:---------------|:------------------|:--------|
+| Root           | OSUKED ID         | 10073   |
+| Related        | Settlement BMU ID | E_SLOUG |
+| Equivalent     | ESAIL ID          | SLOUG   |
+| Equivalent     | Common Name       | Slough  |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

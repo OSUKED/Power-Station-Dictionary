@@ -1,21 +1,32 @@
 ### Identifiers
 
-| Relationship   | ID Type             | ID(s)                              |
-|:---------------|:--------------------|:-----------------------------------|
-| root           | osuked_id           | 10214                              |
-| element-of     | sett_bmu_id         | T_HMGTO-1, T_HMGTO-2               |
-| element-of     | ngc_bmu_id          | HMGTO-1, HMGTO-2                   |
-| same-as        | gppd_idnr           | GBR0002544                         |
-| same-as        | esail_id            | HMGTO                              |
-| same-as        | name                | Humber Offshore Wind Farm          |
-| same-as        | 4c_offshore_id      | humber-gateway-united-kingdom-uk10 |
-| same-as        | windpowernet_id     | windfarm_en_12070_humber-gateway   |
-| same-as        | wikidata_id         | Q15226770                          |
-| same-as        | wikipedia_id        | Humber_Gateway_Wind_Farm           |
-| same-as        | power_technology_id | humber-gateway-offshore-wind-farm  |
+| Relationship   | ID Type              | ID(s)                                                                                                                             |
+|:---------------|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10214                                                                                                                             |
+| Related        | Settlement BMU ID    | T_HMGTO-1, T_HMGTO-2                                                                                                              |
+| Related        | National Grid BMU ID | HMGTO-1, HMGTO-2                                                                                                                  |
+| Equivalent     | GPPD ID              | GBR0002544                                                                                                                        |
+| Equivalent     | ESAIL ID             | HMGTO                                                                                                                             |
+| Equivalent     | Common Name          | Humber Offshore Wind Farm                                                                                                         |
+| Equivalent     | 4C-Offshore ID       | [humber-gateway-united-kingdom-uk10](https://www.4coffshore.com/windfarms/united-kingdom/humber-gateway-united-kingdom-uk10.html) |
+| Equivalent     | WindPowerNet ID      | [windfarm_en_12070_humber-gateway](https://www.thewindpower.net/windfarm_en_12070_humber-gateway.php)                             |
+| Equivalent     | Wikidata ID          | [Q15226770](https://www.wikidata.org/wiki/Q15226770)                                                                              |
+| Equivalent     | Wikipedia ID         | [Humber_Gateway_Wind_Farm](https://en.wikipedia.org/wiki/Humber_Gateway_Wind_Farm)                                                |
+| Equivalent     | Power-Technology ID  | [humber-gateway-offshore-wind-farm](https://www.power-technology.com/projects/humber-gateway-offshore-wind-farm)                  |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | HMGTO-1   | HMGTO-2   |
+|:------------|:----------|:----------|
+| Fuel Type   | WIND      | WIND      |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -77,12 +88,14 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 461932.97 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | HMGTO-1   | HMGTO-2   |
-|:------------|:----------|:----------|
-| Fuel Type   | WIND      | WIND      |
+| Attribute             |   Year |   Value |
+|:----------------------|-------:|--------:|
+| Capture Price (£/MWh) |   2018 |   56.10 |
+| Capture Price (£/MWh) |   2019 |   40.34 |
+| Capture Price (£/MWh) |   2020 |   31.16 |

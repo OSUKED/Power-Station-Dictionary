@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                      |
-|:---------------|:------------|:---------------------------|
-| root           | osuked_id   | 10076                      |
-| element-of     | sett_bmu_id | T__DICI001                 |
-| same-as        | esail_id    | DICI2                      |
-| same-as        | name        | Weston Point Power Station |
+| Relationship   | ID Type           | ID(s)                      |
+|:---------------|:------------------|:---------------------------|
+| Root           | OSUKED ID         | 10076                      |
+| Related        | Settlement BMU ID | T__DICI001                 |
+| Equivalent     | ESAIL ID          | DICI2                      |
+| Equivalent     | Common Name       | Weston Point Power Station |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

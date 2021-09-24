@@ -1,17 +1,18 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                        |
-|:---------------|:------------|:-------------------------------------------------------------|
-| root           | osuked_id   | 10006                                                        |
-| element-of     | sett_bmu_id | T_FERR-3, T_FERR-4, T_FERR-1, T_FERR-2, T_FERR-5G, T_FERR-8G |
-| element-of     | ngc_bmu_id  | FERR-3, FERR-4, FERR-1, FERR-2, FERR-5G, FERR-8G             |
-| same-as        | gppd_idnr   | GBR0000116                                                   |
-| same-as        | esail_id    | FERR                                                         |
-| same-as        | name        | Ferrybridge C                                                |
-| same-as        | eutl_id     | 98253                                                        |
+| Relationship   | ID Type              | ID(s)                                                                                                      |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10006                                                                                                      |
+| Related        | Settlement BMU ID    | T_FERR-3, T_FERR-4, T_FERR-1, T_FERR-2, T_FERR-5G, T_FERR-8G                                               |
+| Related        | National Grid BMU ID | FERR-3, FERR-4, FERR-1, FERR-2, FERR-5G, FERR-8G                                                           |
+| Related        | EIC ID               | 48W000000FERR-36, 48W000000FERR-44, 48W000000FERR-1A, 48W000000FERR-28, 48W00000FERR-5GV, 48W00000FERR-8GM |
+| Equivalent     | GPPD ID              | GBR0000116                                                                                                 |
+| Equivalent     | ESAIL ID             | FERR                                                                                                       |
+| Equivalent     | Common Name          | Ferrybridge C                                                                                              |
+| Equivalent     | EUTL ID              | 98253                                                                                                      |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -80,3 +81,14 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 |     0.00 |     0.00 |      0.00 |      0.00 |
 | Annual Output (MWh) |   2019 |     0.00 |     0.00 |      0.00 |      0.00 |
 | Annual Output (MWh) |   2020 |     0.00 |     0.00 |      0.00 |      0.00 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   FERR-1 |   FERR-2 |   FERR-3 |
+|:----------------------|-------:|---------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    97.15 |   122.95 |    34.54 |

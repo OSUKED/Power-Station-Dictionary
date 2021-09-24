@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                        |
-|:---------------|:------------|:-----------------------------|
-| root           | osuked_id   | 10077                        |
-| element-of     | sett_bmu_id | E_ALDMG-1                    |
-| same-as        | esail_id    | ALDMG                        |
-| same-as        | name        | Aldershot Military Generator |
+| Relationship   | ID Type           | ID(s)                        |
+|:---------------|:------------------|:-----------------------------|
+| Root           | OSUKED ID         | 10077                        |
+| Related        | Settlement BMU ID | E_ALDMG-1                    |
+| Equivalent     | ESAIL ID          | ALDMG                        |
+| Equivalent     | Common Name       | Aldershot Military Generator |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

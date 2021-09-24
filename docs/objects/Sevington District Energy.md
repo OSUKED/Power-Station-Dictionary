@@ -1,16 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                     |
-|:---------------|:------------|:--------------------------|
-| root           | osuked_id   | 10088                     |
-| element-of     | sett_bmu_id | E_SEVINGTN                |
-| element-of     | ngc_bmu_id  | SEVIU-1                   |
-| same-as        | esail_id    | SEVINGTN                  |
-| same-as        | name        | Sevington District Energy |
-| same-as        | eutl_id     | 97145                     |
+| Relationship   | ID Type              | ID(s)                     |
+|:---------------|:---------------------|:--------------------------|
+| Root           | OSUKED ID            | 10088                     |
+| Related        | Settlement BMU ID    | E_SEVINGTN                |
+| Related        | National Grid BMU ID | SEVIU-1                   |
+| Equivalent     | ESAIL ID             | SEVINGTN                  |
+| Equivalent     | Common Name          | Sevington District Energy |
+| Equivalent     | EUTL ID              | 97145                     |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

@@ -1,14 +1,14 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                             |
-|:---------------|:------------|:----------------------------------|
-| root           | osuked_id   | 10016                             |
-| element-of     | sett_bmu_id | T_DRKPS-9, T_DRKPS-10, T_DRKPS-12 |
-| same-as        | esail_id    | DRKPS                             |
-| same-as        | name        | Drakelow                          |
+| Relationship   | ID Type           | ID(s)                             |
+|:---------------|:------------------|:----------------------------------|
+| Root           | OSUKED ID         | 10016                             |
+| Related        | Settlement BMU ID | T_DRKPS-9, T_DRKPS-10, T_DRKPS-12 |
+| Equivalent     | ESAIL ID          | DRKPS                             |
+| Equivalent     | Common Name       | Drakelow                          |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

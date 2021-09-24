@@ -41,8 +41,8 @@ extra_javascript:
 nav:
   - Home: 
     - Welcome: index.md
+  - Dictionary: dictionary.md
   - Sites:
-    
     - AChruach Wind Farm: objects/AChruach Wind Farm.md
     - Aberdare District Energy: objects/Aberdare District Energy.md
     - Aberdeen Bay: objects/Aberdeen Bay.md

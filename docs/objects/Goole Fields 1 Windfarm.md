@@ -1,15 +1,16 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                   |
-|:---------------|:------------|:------------------------|
-| root           | osuked_id   | 10198                   |
-| element-of     | sett_bmu_id | E_GFLDW-1               |
-| element-of     | ngc_bmu_id  | GFLDW-1                 |
-| same-as        | esail_id    | GFLDW                   |
-| same-as        | name        | Goole Fields 1 Windfarm |
+| Relationship   | ID Type              | ID(s)                   |
+|:---------------|:---------------------|:------------------------|
+| Root           | OSUKED ID            | 10198                   |
+| Related        | Settlement BMU ID    | E_GFLDW-1               |
+| Related        | National Grid BMU ID | GFLDW-1                 |
+| Equivalent     | ESAIL ID             | GFLDW                   |
+| Equivalent     | Common Name          | Goole Fields 1 Windfarm |
+| Equivalent     | EIC ID               | 48W00000GFLDW-11        |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -46,3 +47,18 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2018 | 80559.51 |
 | Annual Output (MWh) |   2019 | 74774.50 |
 | Annual Output (MWh) |   2020 | 85038.55 |
+
+<br><br>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
+
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
+
+| Attribute             |   Year |   Value |
+|:----------------------|-------:|--------:|
+| Capture Price (£/MWh) |   2016 |   35.70 |
+| Capture Price (£/MWh) |   2017 |   43.49 |
+| Capture Price (£/MWh) |   2018 |   55.96 |
+| Capture Price (£/MWh) |   2019 |   39.85 |
+| Capture Price (£/MWh) |   2020 |   30.04 |

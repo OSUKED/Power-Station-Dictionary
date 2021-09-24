@@ -1,15 +1,15 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                |
-|:---------------|:------------|:---------------------|
-| root           | osuked_id   | 10168                |
-| element-of     | sett_bmu_id | E_BRNLW-1            |
-| element-of     | ngc_bmu_id  | BRNLW-1              |
-| same-as        | esail_id    | BRNLW                |
-| same-as        | name        | Brownieleys Windfarm |
+| Relationship   | ID Type              | ID(s)                |
+|:---------------|:---------------------|:---------------------|
+| Root           | OSUKED ID            | 10168                |
+| Related        | Settlement BMU ID    | E_BRNLW-1            |
+| Related        | National Grid BMU ID | BRNLW-1              |
+| Equivalent     | ESAIL ID             | BRNLW                |
+| Equivalent     | Common Name          | Brownieleys Windfarm |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

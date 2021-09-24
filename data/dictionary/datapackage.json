@@ -240,7 +240,7 @@
   "version": "1.0.0",
   "name": "ids",
   "title": "Power Plant IDs",
-  "description": "Dataset listing the various IDs used to refer to the same power plants. These IDs can represent same-as relationships as well as sets which relate to different elements of the same plant (e.g.BMUs).",
+  "description": "Dataset listing the various IDs used to refer to the same power plants. These IDs can represent same-as relationships as well as sets which relate to different elements of the same plant (e.g. BMUs).",
   "contributors": [
     {
       "title": "Ayrton Bourn",

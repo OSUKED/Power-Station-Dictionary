@@ -1,16 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                |
-|:---------------|:------------|:---------------------|
-| root           | osuked_id   | 10018                |
-| element-of     | sett_bmu_id | T_IRNPS-1, T_IRNPS-2 |
-| element-of     | ngc_bmu_id  | IRNPS-1, IRNPS-2     |
-| same-as        | esail_id    | IRNPS                |
-| same-as        | name        | Ironbridge B         |
-| same-as        | eutl_id     | 97047                |
+| Relationship   | ID Type              | ID(s)                              |
+|:---------------|:---------------------|:-----------------------------------|
+| Root           | OSUKED ID            | 10018                              |
+| Related        | Settlement BMU ID    | T_IRNPS-1, T_IRNPS-2               |
+| Related        | National Grid BMU ID | IRNPS-1, IRNPS-2                   |
+| Related        | EIC ID               | 48W00000IRNPS-1U, 48W00000IRNPS-2S |
+| Equivalent     | ESAIL ID             | IRNPS                              |
+| Equivalent     | Common Name          | Ironbridge B                       |
+| Equivalent     | EUTL ID              | 97047                              |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

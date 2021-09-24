@@ -1,17 +1,17 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)          |
-|:---------------|:------------|:---------------|
-| root           | osuked_id   | 10061          |
-| element-of     | sett_bmu_id | 2__MPGEN001    |
-| element-of     | ngc_bmu_id  | YEP-PGU03      |
-| same-as        | gppd_idnr   | GBR1000115     |
-| same-as        | esail_id    | MPGEN001       |
-| same-as        | name        | Thornhill CCGT |
-| same-as        | eutl_id     | 97720          |
+| Relationship   | ID Type              | ID(s)          |
+|:---------------|:---------------------|:---------------|
+| Root           | OSUKED ID            | 10061          |
+| Related        | Settlement BMU ID    | 2__MPGEN001    |
+| Related        | National Grid BMU ID | YEP-PGU03      |
+| Equivalent     | GPPD ID              | GBR1000115     |
+| Equivalent     | ESAIL ID             | MPGEN001       |
+| Equivalent     | Common Name          | Thornhill CCGT |
+| Equivalent     | EUTL ID              | 97720          |
 
 <br>
-### Datasets
+### Linked Datasets
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants

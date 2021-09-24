@@ -1,16 +1,28 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                      |
-|:---------------|:------------|:-----------------------------------------------------------|
-| root           | osuked_id   | 10144                                                      |
-| element-of     | sett_bmu_id | T_DINO-1, T_DINO-2, T_DINO-3, T_DINO-4, T_DINO-5, T_DINO-6 |
-| element-of     | ngc_bmu_id  | DINO-1, DINO-2, DINO-3, DINO-4, DINO-5, DINO-6             |
-| same-as        | gppd_idnr   | GBR1000151                                                 |
-| same-as        | esail_id    | DINO                                                       |
-| same-as        | name        | Dinorwig                                                   |
+| Relationship   | ID Type              | ID(s)                                                                                                      |
+|:---------------|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10144                                                                                                      |
+| Related        | Settlement BMU ID    | T_DINO-1, T_DINO-2, T_DINO-3, T_DINO-4, T_DINO-5, T_DINO-6                                                 |
+| Related        | National Grid BMU ID | DINO-1, DINO-2, DINO-3, DINO-4, DINO-5, DINO-6                                                             |
+| Related        | EIC ID               | 48W000000DINO-1W, 48W000000DINO-2U, 48W000000DINO-3S, 48W000000DINO-4Q, 48W000000DINO-5O, 48W000000DINO-6M |
+| Equivalent     | GPPD ID              | GBR1000151                                                                                                 |
+| Equivalent     | ESAIL ID             | DINO                                                                                                       |
+| Equivalent     | Common Name          | Dinorwig                                                                                                   |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | DINO-1   | DINO-2   | DINO-3   | DINO-4   | DINO-5   | DINO-6   |
+|:------------|:---------|:---------|:---------|:---------|:---------|:---------|
+| Fuel Type   | PS       | PS       | PS       | PS       | PS       | PS       |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -64,12 +76,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 121686.80 | 163706.95 | 224881.10 | 203468.85 |  80617.75 | 220470.75 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | DINO-1   | DINO-2   | DINO-3   | DINO-4   | DINO-5   | DINO-6   |
-|:------------|:---------|:---------|:---------|:---------|:---------|:---------|
-| Fuel Type   | PS       | PS       | PS       | PS       | PS       | PS       |
+| Attribute             |   Year |   DINO-1 |   DINO-2 |   DINO-3 |   DINO-4 |   DINO-5 |   DINO-6 |
+|:----------------------|-------:|---------:|---------:|---------:|---------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    53.41 |    45.20 |    63.74 |    41.43 |    56.78 |    43.31 |
+| Capture Price (£/MWh) |   2017 |    51.39 |    49.83 |    60.95 |    48.91 |    49.27 |    50.19 |
+| Capture Price (£/MWh) |   2018 |    61.82 |    68.74 |    65.49 |    64.76 |    61.97 |    63.10 |
+| Capture Price (£/MWh) |   2019 |    54.44 |    53.66 |    56.60 |    51.15 |    54.77 |    51.09 |
+| Capture Price (£/MWh) |   2020 |    40.08 |    51.85 |    53.59 |    55.50 |    37.92 |    56.63 |

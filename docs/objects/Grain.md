@@ -1,17 +1,29 @@
 ### Identifiers
 
-| Relationship   | ID Type     | ID(s)                                                                |
-|:---------------|:------------|:---------------------------------------------------------------------|
-| root           | osuked_id   | 10067                                                                |
-| element-of     | gppd_idnr   | GBR1000495, GBR1000497                                               |
-| element-of     | sett_bmu_id | T_GRAI-6, T_GRAI-7, T_GRAI-8, T_GRAI-1, T_GRAI-2, T_GRAI-3, T_GRAI-4 |
-| element-of     | ngc_bmu_id  | GRAI-6, GRAI-7, GRAI-8, GRAI-1, GRAI-2, GRAI-3, GRAI-4               |
-| same-as        | esail_id    | GRAI                                                                 |
-| same-as        | name        | Grain                                                                |
-| same-as        | eutl_id     | 97061                                                                |
+| Relationship   | ID Type              | ID(s)                                                                |
+|:---------------|:---------------------|:---------------------------------------------------------------------|
+| Root           | OSUKED ID            | 10067                                                                |
+| Related        | GPPD ID              | GBR1000495, GBR1000497                                               |
+| Related        | Settlement BMU ID    | T_GRAI-6, T_GRAI-7, T_GRAI-8, T_GRAI-1, T_GRAI-2, T_GRAI-3, T_GRAI-4 |
+| Related        | National Grid BMU ID | GRAI-6, GRAI-7, GRAI-8, GRAI-1, GRAI-2, GRAI-3, GRAI-4               |
+| Related        | EIC ID               | 48W100000GRAI-6N, 48W000000GRAI-7Y, 48W000000GRAI-8W                 |
+| Equivalent     | ESAIL ID             | GRAI                                                                 |
+| Equivalent     | Common Name          | Grain                                                                |
+| Equivalent     | EUTL ID              | 97061                                                                |
 
 <br>
-### Datasets
+### Linked Datasets
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+
+Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+
+The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+
+| Attribute   | GRAI-6   | GRAI-7   | GRAI-8   |
+|:------------|:---------|:---------|:---------|
+| Fuel Type   | CCGT     | CCGT     | CCGT     |
+
+<br><br>
 ##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json">Plant Locations</a>
 
 Dataset listing the locations of power plants
@@ -82,12 +94,16 @@ The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id"
 | Annual Output (MWh) |   2020 | 2355828.50 | 1784480.25 | 1577418.40 |
 
 <br><br>
-##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json">Bmu Fuel Types</a>
+##### <a href="https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json">Capture Prices</a>
 
-Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
+This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
-The "ngc_bmu_id" field was used to match from the dictionary to the "NGC_BMU_ID" field in this dataset.
+The "ngc_bmu_id" field was used to match from the dictionary to the "ngc_bmu_id" field in this dataset.
 
-| Attribute   | GRAI-6   | GRAI-7   | GRAI-8   |
-|:------------|:---------|:---------|:---------|
-| Fuel Type   | CCGT     | CCGT     | CCGT     |
+| Attribute             |   Year |   GRAI-6 |   GRAI-7 |   GRAI-8 |
+|:----------------------|-------:|---------:|---------:|---------:|
+| Capture Price (£/MWh) |   2016 |    44.19 |    41.69 |    42.06 |
+| Capture Price (£/MWh) |   2017 |    47.33 |    48.78 |    51.86 |
+| Capture Price (£/MWh) |   2018 |    59.84 |    59.23 |    60.00 |
+| Capture Price (£/MWh) |   2019 |    44.56 |    45.50 |    46.23 |
+| Capture Price (£/MWh) |   2020 |    36.70 |    39.28 |    38.80 |

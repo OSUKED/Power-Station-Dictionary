@@ -135,6 +135,28 @@
             "title": "EUTL ID",
             "description": "The identifier used in the European (Emissions Trading Scheme) Transaction Logs",
             "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "eic_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "EIC ID",
+            "description": "The Energy Identification Code or EIC is a 16-character code used in Europe to uniquely identify entities and objects related to the electricity and gas sector. The EIC code is used for: Transmission System Operators, Market Participants etc.",
+            "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "cfd_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "CfD ID",
+            "description": "The identifier used by the Low Carbon Contracts Company to uniquely identify Contracts for Difference projects",
+            "hierarchy": "equivalent/child"
           }
         ],
         "primaryKey": "osuked_id",
@@ -194,6 +216,16 @@
               "fields": "ngc_bmu_id",
               "attributes": ["output_MWh"],
               "aggregation": "sum",
+              "alt_indexes": ["year"]
+            }
+          },
+          {
+            "fields": "ngc_bmu_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json",
+              "resource": "capture-prices",
+              "fields": "ngc_bmu_id",
+              "attributes": ["capture_price"],
               "alt_indexes": ["year"]
             }
           }

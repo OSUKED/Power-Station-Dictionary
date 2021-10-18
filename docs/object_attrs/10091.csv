@@ -1,0 +1,51 @@
+attribute,id,value,datapackage,id_type,year
+Fuel Type,COWE1,OCGT,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Fuel Type,COWE2,OCGT,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Longitude,10091,-1.2864,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Latitude,10091,50.7459,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Installed Capacity (MW) ,GBR1000376,140.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Longitude,GBR1000376,-1.2862,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Latitude,GBR1000376,50.7469,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Primary Fuel Type,GBR1000376,Gas,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Owner,GBR1000376,RWE Npower Plc,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Source,GBR1000376,Department for Business Energy & Industrial Strategy,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+URL,GBR1000376,https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Geolocation Source,GBR1000376,GEODB,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+PLATTS-WEPP ID,GBR1000376,1023587.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Estimated Annual Generation in 2017,GBR1000376,649.6,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+CO2 Emissions (Tonnes),97160,4765.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2005
+CO2 Emissions (Tonnes),97160,7012.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2006
+CO2 Emissions (Tonnes),97160,3289.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2007
+CO2 Emissions (Tonnes),97160,6106.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2008
+CO2 Emissions (Tonnes),97160,4225.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2009
+CO2 Emissions (Tonnes),97160,1463.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2010
+CO2 Emissions (Tonnes),97160,2392.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2011
+CO2 Emissions (Tonnes),97160,2628.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2012
+CO2 Emissions (Tonnes),97160,1122.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2013
+CO2 Emissions (Tonnes),97160,1621.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2014
+CO2 Emissions (Tonnes),97160,2224.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2015
+CO2 Emissions (Tonnes),97160,6094.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2016
+CO2 Emissions (Tonnes),97160,4902.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2017
+CO2 Emissions (Tonnes),97160,4070.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2018
+CO2 Emissions (Tonnes),97160,651.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2019
+CO2 Emissions (Tonnes),97160,1158.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2020
+Annual Output (MWh),COWE1,2762.626,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
+Annual Output (MWh),COWE2,2678.788,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
+Annual Output (MWh),COWE1,2204.287,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2017
+Annual Output (MWh),COWE2,2194.659,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2017
+Annual Output (MWh),COWE1,1827.448,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2018
+Annual Output (MWh),COWE2,1841.93,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2018
+Annual Output (MWh),COWE1,262.11899999999997,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2019
+Annual Output (MWh),COWE2,324.323,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2019
+Annual Output (MWh),COWE1,282.781,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
+Annual Output (MWh),COWE2,300.396,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
+Capture Price (£/MWh),COWE1,120.70745020136636,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
+Capture Price (£/MWh),COWE2,107.03016486560341,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
+Capture Price (£/MWh),COWE1,85.16905485991614,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017
+Capture Price (£/MWh),COWE2,85.49792562762597,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017
+Capture Price (£/MWh),COWE1,96.43171792576315,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
+Capture Price (£/MWh),COWE2,95.00958576058808,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
+Capture Price (£/MWh),COWE1,49.79003345808584,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
+Capture Price (£/MWh),COWE2,50.62825880372343,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
+Capture Price (£/MWh),COWE1,93.99090568319654,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Capture Price (£/MWh),COWE2,98.69853050639821,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020

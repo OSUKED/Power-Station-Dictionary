@@ -4,8 +4,10 @@ __all__ = ['get_field_name_tags', 'field_hierarchies_to_root', 'assign_idx_field
            'get_dict_head', 'datapackage_ref_to_ds_schema', 'init_datapackage_ref',
            'extract_external_foreignkey_datapackage_refs', 'add_resource_locs_to_external_datapackage_refs',
            'create_dir', 'download_attribute_data_to_temp_dir', 'load_datapackage', 'load_resource_attr_dfs',
-           'load_full_id_map', 'determine_matched_ids', 'delete_null_attributes', 'delete_null_values',
-           'extract_attrs_from_resource_dfs', 'flatten_list', 'drop_duplicates_attrs', 'json_nan_to_none']
+           'load_dataset_ref', 'get_datapackage_ref', 'load_full_id_map', 'determine_matched_ids',
+           'delete_null_attributes', 'delete_null_values', 'format_attr_value_type', 'format_all_attr_value_types',
+           'extract_attrs_from_resource_dfs', 'flatten_list', 'drop_duplicates_attrs', 'json_nan_to_none',
+           'construct_dictionary_knowledge_graph']
 
 # Cell
 import numpy as np
@@ -14,6 +16,7 @@ import json
 
 import os
 import typing
+import datetime
 from warnings import warn
 
 import urllib.parse
@@ -42,7 +45,7 @@ def field_hierarchies_to_root(field_hierarchies: dict):
 
     return root_field
 
-def assign_idx_fields(df, index, root_field_type, alt_indexes=None):
+def assign_idx_fields(df, index, root_field_type, alt_indexes=None, int_types=['integer']):
     if not isinstance(index, list):
         index = [index]
 
@@ -50,12 +53,19 @@ def assign_idx_fields(df, index, root_field_type, alt_indexes=None):
         index = index + alt_indexes
 
     if df.index.name in index:
-        if root_field_type in ['integer']:
-            df.index = df.index.astype(int)
         df = df.reset_index()
 
+    df = df.dropna(subset=index, how='all').copy()
+
+    if root_field_type in int_types:
+        df.index = df.index.astype(int)
+
     if len(set(index) - set(df.columns)) == 0:
+        if root_field_type in int_types:
+            df[index[0]] = df[index[0]].astype(int)
+
         df = df.set_index(index)
+
         assert df.index.unique().size == df.shape[0], 'There were duplicated values in the primary key field'
     else:
         raise ValueError(f'The expected primary key field, {primary_key_field}, is not within the dataset')
@@ -65,7 +75,7 @@ def assign_idx_fields(df, index, root_field_type, alt_indexes=None):
 # Cell
 get_dict_head = lambda dict_, n=5: pd.Series(dict_).head(n).to_dict()
 
-def initialise_site_data_with_ids(df_ids):
+def initialise_site_data_with_ids(df_ids, field_hierarchies):
     valid_hierarchy_types = ['root', 'parent', 'child', 'equivalent', 'equivalent/parent', 'equivalent/child']
 
     site_data = {}
@@ -157,10 +167,10 @@ def add_resource_locs_to_external_datapackage_refs(fk_external_datapackage_refs:
     return fk_external_datapackage_refs
 
 # Cell
-def create_dir(dir_loc: str='./temp'):
+def create_dir(dir_loc: str='./temp', warn=False):
     if not os.path.isdir(dir_loc):
         os.mkdir(dir_loc)
-    else:
+    elif warn == True:
         warn(f'The directory `{dir_loc}` already exists')
 
     return None
@@ -185,15 +195,14 @@ def download_attribute_data_to_temp_dir(
             if os.path.exists(filepath):
                 os.remove(filepath)
 
-#             file_to_download = urllib.parse.quote(file_to_download)
             file_to_download = file_to_download.replace(' ', '%20')
             urlretrieve(file_to_download, filepath)
 
     return
 
 # Cell
-def load_datapackage(datapackage_ref, dir_loc='./temp', return_type='df', set_index=True):
-    datapackage_fp = f"{temp_dir_loc}/{datapackage_ref['package'].split('/')[-2]}/datapackage.json"
+def load_datapackage(datapackage_ref, temp_dir_loc='./temp', return_type='df', set_index=True):
+    datapackage_fp = f"{temp_dir_loc}/{datapackage_ref['resource']}/datapackage.json"
     datapackage_resource = datapackage_ref['resource']
 
     external_datapackage = Package(datapackage_fp)
@@ -229,7 +238,7 @@ def load_resource_attr_dfs(fk_external_datapackage_refs, temp_dir_loc):
     resource_attr_dfs = []
 
     for datapackage_ref in fk_external_datapackage_refs:
-        df_external_resource_attrs = load_datapackage(datapackage_ref, dir_loc=temp_dir_loc)
+        df_external_resource_attrs = load_datapackage(datapackage_ref, temp_dir_loc=temp_dir_loc)
 
         attrs_to_extract = datapackage_ref['attributes']
         df_external_resource_attrs = df_external_resource_attrs[attrs_to_extract]
@@ -238,6 +247,34 @@ def load_resource_attr_dfs(fk_external_datapackage_refs, temp_dir_loc):
         resource_attr_dfs += [df_external_resource_attrs]
 
     return resource_attr_dfs
+
+# Cell
+get_datapackage_ref = lambda datapackage_refs, datapackage_url: [dp_ref for dp_ref in datapackage_refs if dp_ref['package']==datapackage_url][0]
+
+def load_dataset_ref(datapackage_url, datapackage_refs, temp_dir_loc='./temp'):
+    dp_ref = get_datapackage_ref(datapackage_refs, datapackage_url)
+    package = load_datapackage(dp_ref, temp_dir_loc=temp_dir_loc, return_type='package')
+
+    dataset_ref = {
+        "datapackage_json_url": dp_ref['package'],
+        "datapackage_name": dp_ref['name'],
+        "related_resources": [
+            {
+                "resource_url": dp_ref['resource_loc'],
+                "resource_name": dp_ref['resource'],
+                "dictionary_pk_field": dp_ref['dictionary_pk_field'],
+                "external_fk_field": dp_ref['external_fk_field'],
+                "extracted_attributes": dp_ref['attributes']
+            }
+        ]
+    }
+
+    if 'description' in package.keys():
+        dataset_ref["datapackage_description"]: package['description']
+    if 'alt_indexes' in dp_ref.keys():
+        dataset_ref['related_resources'][0]['alt_indexes'] = dp_ref['alt_indexes']
+
+    return dataset_ref
 
 # Cell
 flatten_list = lambda list_: [item for sublist in list_ for item in sublist]
@@ -285,6 +322,26 @@ def delete_null_values(_dict, null_values=[None, np.nan, 'nan']):
 
     return _dict
 
+def format_attr_value_type(attr_value):
+    if isinstance(attr_value, datetime.date):
+        return attr_value.strftime('%Y-%m-%d')
+
+    if isinstance(attr_value, datetime.datetime):
+        return attr_value.strftime('%Y-%m-%d %H:%M')
+
+    if isinstance(attr_value, pd.Timestamp):
+        return attr_value.strftime('%Y-%m-%d %H:%M')
+
+    return attr_value
+
+def format_all_attr_value_types(site_data):
+    for site, data in site_data.items():
+        if 'attributes' in data.keys():
+            for i, attr in enumerate(data['attributes']):
+                site_data[site]['attributes'][i]['value'] = format_attr_value_type(attr['value'])
+
+    return site_data
+
 def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, root_id='osuked_id'):
     dp_schemas = {}
     resource_attr_dfs = load_resource_attr_dfs(datapackage_refs, temp_dir_loc)
@@ -298,7 +355,7 @@ def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, r
             dp_url = df_resource_attrs.name
 
             datapackage_ref = get_datapackage_ref(datapackage_refs, dp_url)
-            dataset_ref = load_dataset_ref(df_resource_attrs.name, datapackage_refs, dir_loc=temp_dir_loc)
+            dataset_ref = load_dataset_ref(df_resource_attrs.name, datapackage_refs, temp_dir_loc=temp_dir_loc)
 
             if datapackage_ref['dictionary_pk_field'] in full_id_map.keys():
                 dict_ids = full_id_map[datapackage_ref['dictionary_pk_field']]
@@ -329,18 +386,24 @@ def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, r
                     else:
                         site_attrs_from_resource = df_resource_attrs.loc[matched_dict_ids].dropna(how='all', axis=1).to_dict(orient='records')
 
+                    def get_attribute_name(datapackage_ref, attribute):
+                        if 'title' in datapackage_ref['attribute_fields'][attribute]:
+                            return datapackage_ref['attribute_fields'][attribute]['title']
+                        else:
+                            return attribute
+
                     reshaped_site_attrs = flatten_list([
                         [
                             {
                                 'source': dp_url,
                                 'id': dict_id,
-                                'attribute': datapackage_ref['attribute_fields'][k]['title'],
+                                'attribute': get_attribute_name(datapackage_ref, k),
                                 'field_schema': datapackage_ref['attribute_fields'][k],
                                 'value': v
                             }
                             for k, v
                             in dict_.items()
-                            if (not pd.isnull(v)) and (v not in [None, np.nan, 'nan'])
+                            if (not pd.isnull(v)) and (v not in [None, np.nan, 'None', 'nan'])
                         ]
                         for dict_id, dict_
                         in zip(matched_dict_ids, site_attrs_from_resource)
@@ -356,6 +419,7 @@ def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, r
                         site_data[site_id]['attributes'] = drop_duplicates_attrs(site_data[site_id]['attributes'], subset=subset)
 
     site_data = delete_null_attributes(site_data)
+    site_data = format_all_attr_value_types(site_data)
 
     return site_data
 
@@ -373,3 +437,24 @@ def json_nan_to_none(
     )
 
     return cleaned_obj
+
+# Cell
+def construct_dictionary_knowledge_graph(datapackage_fp, temp_dir_loc, resource_name='ids'):
+    package = Package(datapackage_fp, profile='tabular-data-package')
+    ids_resource = package.get_resource(resource_name)
+
+    field_hierarchies = get_field_name_tags(ids_resource.schema)
+    root_field = field_hierarchies_to_root(field_hierarchies)
+    root_field_type = [field['type'] for field in ids_resource.schema['fields'] if field['name']==root_field][0]
+
+    df_ids = assign_idx_fields(ids_resource.to_pandas(), root_field, root_field_type)
+    site_data = initialise_site_data_with_ids(df_ids, field_hierarchies)
+
+    fk_external_datapackage_refs = extract_external_foreignkey_datapackage_refs(ids_resource, primary_key_field=root_field)
+    fk_external_datapackage_refs = add_resource_locs_to_external_datapackage_refs(fk_external_datapackage_refs)
+
+    download_attribute_data_to_temp_dir(fk_external_datapackage_refs, temp_dir_loc=temp_dir_loc)
+    site_data = extract_attrs_from_resource_dfs(site_data, fk_external_datapackage_refs, temp_dir_loc)
+    site_data = json_nan_to_none(site_data)
+
+    return site_data

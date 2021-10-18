@@ -157,6 +157,50 @@
             "title": "CfD ID",
             "description": "The identifier used by the Low Carbon Contracts Company to uniquely identify Contracts for Difference projects",
             "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "jrc_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "JRC ID",
+            "description": "Unique identifier of the hydro-power plant in the JRC data-base",
+            "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "iaea_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "integer"
+            },
+            "title": "IAEA ID",
+            "description": "Unique identifier used by the International Atomic Energy Agency",
+            "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "old_repd_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "REPD ID (Old)",
+            "description": "Unique identifier used by BEIS in the Renewable Energy Planning Database - now superseded by a new ID scheme",
+            "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "new_repd_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "integer"
+            },
+            "title": "REPD ID (New)",
+            "description": "Unique identifier used by BEIS in the Renewable Energy Planning Database",
+            "hierarchy": "equivalent/child"
           }
         ],
         "primaryKey": "osuked_id",
@@ -227,6 +271,33 @@
               "fields": "ngc_bmu_id",
               "attributes": ["capture_price"],
               "alt_indexes": ["year"]
+            }
+          },
+          {
+            "fields": "jrc_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json",
+              "resource": "jrc-hydro-power-plants-database",
+              "fields": "id",
+              "attributes": ["installed_capacity_MW", "pumping_MW", "type", "lat", "lon", "dam_height_m", "volume_Mm3", "storage_capacity_MWh", "avg_annual_generation_GWh", "pypsa_id", "GEO", "WRI"]
+            }
+          },
+          {
+            "fields": "iaea_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json",
+              "resource": "nuclear-power-plants",
+              "fields": "IAEAId",
+              "attributes": ["Name", "Latitude", "Longitude", "Status", "ReactorType", "ReactorModel", "ConstructionStartAt", "OperationalFrom", "OperationalTo", "Capacity", "Source"]
+            }
+          },
+          {
+            "fields": "new_repd_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json",
+              "resource": "renewable-energy-planning-database",
+              "fields": "Ref ID",
+              "attributes": ["Operator (or Applicant)", "Site Name", "Technology Type", "Storage Type", "Storage Co-location REPD Ref ID", "Installed Capacity (MWelec)", "CHP Enabled", "RO Banding (ROC/MWh)", "FiT Tariff (p/kWh)", "CfD Capacity (MW)", "Turbine Capacity (MW)", "No. of Turbines", "Height of Turbines (m)", "Mounting Type for Solar", "Development Status", "Address", "County", "Region", "Country", "Post Code", "X-coordinate", "Y-coordinate", "Planning Authority", "Planning Application Reference", "Appeal Reference", "Secretary of State Reference", "Type of Secretary of State Intervention", "Judicial Review", "Offshore Wind Round", "Planning Application Submitted", "Planning Application Withdrawn", "Planning Permission Refused", "Appeal Lodged", "Appeal Withdrawn", "Appeal Refused", "Appeal Granted", "Planning Permission Granted", "Secretary of State - Intervened", "Secretary of State - Refusal", "Secretary of State - Granted", "Planning Permission Expired", "Under Construction", "Operational", "Heat Network Ref"]
             }
           }
         ]

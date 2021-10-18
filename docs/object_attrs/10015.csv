@@ -1,0 +1,12 @@
+attribute,id,value,datapackage,id_type,year
+Longitude,10015,-2.968404,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Latitude,10015,55.968502,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+CO2 Emissions (Tonnes),96927,2714442.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2005
+CO2 Emissions (Tonnes),96927,4910894.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2006
+CO2 Emissions (Tonnes),96927,5327062.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2007
+CO2 Emissions (Tonnes),96927,4381868.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2008
+CO2 Emissions (Tonnes),96927,2950114.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2009
+CO2 Emissions (Tonnes),96927,3945259.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2010
+CO2 Emissions (Tonnes),96927,1070514.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2011
+CO2 Emissions (Tonnes),96927,2081961.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2012
+CO2 Emissions (Tonnes),96927,383294.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2013

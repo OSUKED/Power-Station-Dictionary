@@ -1,0 +1,4 @@
+attribute,id,value,datapackage,id_type
+Longitude,10277,-3.0676,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
+Latitude,10277,55.1641,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
+Plant Type,10277,onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id

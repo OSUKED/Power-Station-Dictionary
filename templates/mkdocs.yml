@@ -39,8 +39,7 @@ extra_javascript:
   - js/tables.js
   
 nav:
-  - Home: 
-    - Welcome: index.md
-  - Sites:
-    {% for object_name in object_names %}
-    - {{object_name}}: objects/{{object_name}}.md{% endfor %}
+  - Home: index.md
+  - Dictionary: dictionary.md
+  - Sites:{% for object_id in object_ids_to_names %}
+    - {{object_ids_to_names[object_id]}}: objects/{{object_id}}.md{% endfor %}

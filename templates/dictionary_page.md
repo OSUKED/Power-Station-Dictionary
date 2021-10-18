@@ -10,6 +10,10 @@ hide:
 
 <br>
 
+[Download Object Attributes](https://osuked.github.io/Power-Station-Dictionary/object_attrs/dictionary_attributes.csv){ .md-button }
+
+<br>
+
 ### Metadata
 
 {{metadata_table}}

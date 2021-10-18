@@ -1,0 +1,69 @@
+attribute,id,value,datapackage,id_type,year
+Fuel Type,SIZB-1,NUCLEAR,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Fuel Type,SIZB-2,NUCLEAR,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Longitude,10136,1.61972,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Latitude,10136,52.215,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Installed Capacity (MW) ,GBR1000058,1198.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Longitude,GBR1000058,1.6206,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Latitude,GBR1000058,52.2145,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Primary Fuel Type,GBR1000058,Nuclear,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Owner,GBR1000058,British Energy (now part of EDF),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Source,GBR1000058,Department for Business Energy & Industrial Strategy,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+URL,GBR1000058,https://www.gov.uk/government/collections/digest-of-uk-energy-statistics-dukes,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Geolocation Source,GBR1000058,GEODB,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+PLATTS-WEPP ID,GBR1000058,1024533.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Annual Generation in 2015,GBR1000058,7416.812,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Generation Source,GBR1000058,JRC-PPDB-OPEN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Estimated Annual Generation in 2017,GBR1000058,7916.43,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Annual Output (MWh),SIZB-1,4302033.49,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
+Annual Output (MWh),SIZB-2,4315374.01,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
+Annual Output (MWh),SIZB-1,4404928.63,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2017
+Annual Output (MWh),SIZB-2,4396461.335,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2017
+Annual Output (MWh),SIZB-1,4527418.77,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2018
+Annual Output (MWh),SIZB-2,4386923.295,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2018
+Annual Output (MWh),SIZB-1,4269543.825,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2019
+Annual Output (MWh),SIZB-2,4182403.145,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2019
+Annual Output (MWh),SIZB-1,4618171.89,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
+Annual Output (MWh),SIZB-2,3807720.69,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
+Capture Price (£/MWh),SIZB-1,39.916685791102935,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
+Capture Price (£/MWh),SIZB-2,39.86544836067916,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
+Capture Price (£/MWh),SIZB-1,43.1950618920173,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017
+Capture Price (£/MWh),SIZB-2,43.225911995805575,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017
+Capture Price (£/MWh),SIZB-1,57.67290360739577,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
+Capture Price (£/MWh),SIZB-2,56.66147136937113,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
+Capture Price (£/MWh),SIZB-1,42.130804284525134,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
+Capture Price (£/MWh),SIZB-2,42.25098596890828,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
+Capture Price (£/MWh),SIZB-1,34.20951118543836,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Capture Price (£/MWh),SIZB-2,35.3458331370227,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Capacity (MW),235,290,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Capacity (MW),236,290,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Capacity (MW),263,1188,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Construction Start Date,235,1961-04-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Construction Start Date,236,1961-04-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Construction Start Date,263,1988-07-18,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Data Source,235,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Data Source,236,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Data Source,263,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Latitude,235,52.212,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Latitude,236,52.212,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Latitude,263,52.212,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Longitude,235,1.621,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Longitude,236,1.621,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Longitude,263,1.621,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Name,235,Sizewell-A1,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Name,236,Sizewell-A2,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Name,263,Sizewell-B,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Operational End Date,235,2006-12-31,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Operational End Date,236,2006-12-31,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Operational Start Date,235,1966-03-25,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Operational Start Date,236,1966-09-15,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Operational Start Date,263,1995-09-22,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Model,235,MAGNOX,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Model,236,MAGNOX,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Model,263,SNUPPS,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Type,235,GCR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Type,236,GCR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Reactor Type,263,PWR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Status,235,Shutdown,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Status,236,Shutdown,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
+Status,263,Operational,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,

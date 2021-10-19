@@ -1,11 +1,11 @@
 attribute,id,value,datapackage,id_type
-Name,239,Winfrith SGHWR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Latitude,239,50.68,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Longitude,239,-2.272,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Status,239,Shutdown,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Reactor Type,239,SGHWR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Construction Start Date,239,1963-05-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational Start Date,239,1968-01-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational End Date,239,1990-09-11,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Capacity (MW),239,92,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Data Source,239,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Name,239,Winfrith SGHWR,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Latitude,239,50.68,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Longitude,239,-2.272,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Status,239,Shutdown,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Reactor Type,239,SGHWR,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Construction Start Date,239,1963-05-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational Start Date,239,1968-01-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational End Date,239,1990-09-11,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Capacity (MW),239,92,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Data Source,239,WNA/IAEA,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id

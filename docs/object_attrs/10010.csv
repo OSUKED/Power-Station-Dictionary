@@ -44,3 +44,9 @@ Capture Price (£/MWh),LNMTH-3,41.49026046794776,https://raw.githubusercontent.c
 Capture Price (£/MWh),LNMTH-1,33.89701463317309,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),LNMTH-2,33.59313163456859,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),LNMTH-3,33.38995021339951,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Name of CfD Unit,INV-LYN-001,Lynemouth Power Station,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Allocation Round,INV-LYN-001,Investment Contract,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Technology Type,INV-LYN-001,Biomass Conversion,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Transmission or Distribution Connection,INV-LYN-001,Distribution,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Status,INV-LYN-001,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Maximum Contract Capacity (MW),INV-LYN-001,406.79,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,

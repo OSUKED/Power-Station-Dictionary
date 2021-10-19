@@ -21,3 +21,9 @@ X-coordinate,2532,591183,https://raw.githubusercontent.com/OSUKED/Dictionary-Dat
 Y-coordinate,2532,372179,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
 Planning Authority,2532,The Planning Inspectorate - National Infrastructure,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
 Offshore Wind Round,2532,2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
+Name of CfD Unit,AR2-TKN-303,Triton Knoll Offshore Wind Farm Phase 3,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Allocation Round,AR2-TKN-303,Allocation Round 2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Technology Type,AR2-TKN-303,Offshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Transmission or Distribution Connection,AR2-TKN-303,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Status,AR2-TKN-303,Pre-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Maximum Contract Capacity (MW),AR2-TKN-303,429.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id

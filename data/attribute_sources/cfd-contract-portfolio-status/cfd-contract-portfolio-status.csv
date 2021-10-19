@@ -1,0 +1,81 @@
+CFD_ID,Name_of_CFD_Unit,Allocation_Round,Technology_Type,Transmission_or_Distribution_connection,Status,Expected_Start_Date,Maximum_Contract_Capacity_MW
+AAA-ACH-183,Achlachan Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-04-08 00:00:00,10.000
+AAA-BAD-185,Bad A Cheo Wind Farm,Allocation Round 1,Onshore Wind,Transmission,Post-Start Date,2019-03-31 00:00:00,26.340
+AAA-BAN-189,Kype Muir Wind Farm,Allocation Round 1,Onshore Wind,Transmission,Post-Start Date,2019-03-28 00:00:00,87.230
+AAA-BAN-190,Moor House Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2018-04-03 00:00:00,11.960
+AAA-BAN-192,Middle Muir Wind Farm,Allocation Round 1,Onshore Wind,Transmission,Post-Start Date,2019-01-09 00:00:00,50.730
+AAA-BRE-177,Brenig Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-03-29 00:00:00,37.600
+AAA-CAM-197,Triangle Farm Solar Park,Allocation Round 1,Solar PV,Distribution,Post-Start Date,2017-07-18 00:00:00,10.900
+AAA-CLO-186,Clocaenog Forest Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-10-31 00:00:00,95.680
+AAA-COI-196,Coire Na Cloiche Windfarm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-06-25 00:00:00,30.000
+AAA-COM-191,Common Barn Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-06-18 00:00:00,6.070
+AAA-DOR-182,Dorenell Wind Farm,Allocation Round 1,Onshore Wind,Transmission,Post-Start Date,2018-12-20 00:00:00,173.700
+AAA-ENE-171,Energy Works (Hull),Allocation Round 1,Advanced Conversion Technology,Distribution,Post-Start Date,2019-12-09 00:00:00,25.000
+AAA-ENV-169,Enviroparks Hirwaun Generation Site,Allocation Round 1,Advanced Conversion Technology,Distribution,Terminated,,11.000
+AAA-GEN-188,Wren Power and Pulp,Allocation Round 1,Energy from Waste with CHP,Distribution,Terminated,,49.750
+AAA-K3C-180,K3 CHP Facility,Allocation Round 1,Energy from Waste with CHP,Distribution,Post-Start Date,2020-07-17 00:00:00,45.000
+AAA-LIG-176,Charity Farm,Allocation Round 1,Solar PV,Distribution,Post-Start Date,2016-06-30 00:00:00,11.940
+AAA-MYN-178,Mynydd Y Gwair Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-03-20 00:00:00,32.215
+AAA-NAN-184,Nanclach Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2019-10-01 00:00:00,39.100
+AAA-NEA-195,Neart na Gaoithe,Allocation Round 1,Offshore Wind,Transmission,Pre-Start Date,2022-09-15 00:00:00,448.000
+AAA-PNE-187,Tralorg Wind Farm,Allocation Round 1,Onshore Wind,Transmission,Post-Start Date,2020-11-13 00:00:00,18.684
+AAA-REG-175,Netley Landfill Solar,Allocation Round 1,Solar PV,Distribution,Terminated,,12.000
+AAA-ROY-172,BHEG Walsall,Allocation Round 1,Advanced Conversion Technology,Distribution,Terminated,,23.400
+AAA-SNE-179,Sneddon Law Community Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Pre-Start Date,,30.000
+AAA-SOL-181,Solwaybank Wind Farm,Allocation Round 1,Onshore Wind,Distribution,Post-Start Date,2020-11-27 00:00:00,29.930
+AR2-DRK-414,Drakelow Renewable Energy Centre,Allocation Round 2,Advanced Conversion Technology,Distribution,Terminated,,15.000
+AR2-GRN-401,Grangemouth Renewable Energy Plant,Allocation Round 2,Dedicated Biomass with CHP,Distribution,Terminated,,85.000
+AR2-HRN-106,Hornsea Project 2 Phase 1,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2023-03-28 00:00:00,462.000
+AR2-HRN-206,Hornsea Project 2 Phase 2,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2024-03-28 00:00:00,462.000
+AR2-HRN-306,Hornsea Project 2 Phase 3,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2024-03-28 00:00:00,462.000
+AR2-IFI-410,IPIF Fort Industrial REC,Allocation Round 2,Advanced Conversion Technology,Distribution,Terminated,2022-03-01 00:00:00,10.200
+AR2-MRY-107,Moray Offshore Windfarm (East) Phase 1,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2022-04-01 00:00:00,313.500
+AR2-MRY-207,Moray Offshore Windfarm (East) Phase 2,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2022-04-02 00:00:00,313.500
+AR2-MRY-307,Moray Offshore Windfarm (East) Phase 3,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2022-04-03 00:00:00,323.000
+AR2-NTC-404,Northacre Renewable Energy Centre,Allocation Round 2,Advanced Conversion Technology,Distribution,Pre-Start Date,,25.500
+AR2-PRO-005,Blackbridge TGS1 Limited,Allocation Round 2,Advanced Conversion Technology,Distribution,Pre-Start Date,2024-06-01 00:00:00,5.560
+AR2-RBL-412,Rebellion,Allocation Round 2,Dedicated Biomass with CHP,Distribution,Terminated,,0.640
+AR2-STY-002,Station Yard CFD 1,Allocation Round 2,Advanced Conversion Technology,Distribution,Terminated,,0.050
+AR2-TKN-103,Triton Knoll Offshore Wind Farm Phase 1,Allocation Round 2,Offshore Wind,Transmission,Post-Start Date,2021-05-17 00:00:00,219.000
+AR2-TKN-203,Triton Knoll Offshore Wind Farm Phase 2,Allocation Round 2,Offshore Wind,Transmission,Post-Start Date,2021-07-06 00:00:00,212.000
+AR2-TKN-303,Triton Knoll Offshore Wind Farm Phase 3,Allocation Round 2,Offshore Wind,Transmission,Pre-Start Date,2022-04-01 00:00:00,429.000
+AR3-BEL-001,Bulwell Energy Limited,Allocation Round 3,Advanced Conversion Technology,Distribution,Terminated,2023-06-30 00:00:00,27.500
+AR3-CHW-002,Costa Head Wind Farm,Allocation Round 3,Remote Island Wind,Transmission,Pre-Start Date,2025-06-24 00:00:00,16.320
+AR3-DLW-112,Druim Leathann Wind Farm Limited,Allocation Round 3,Remote Island Wind,Distribution,Pre-Start Date,2027-03-31 00:00:00,49.500
+AR3-DP1-101,Dogger Bank A P1,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2024-07-01 00:00:00,302.400
+AR3-DP1-102,Dogger Bank A P2,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2024-07-01 00:00:00,441.000
+AR3-DP1-103,Dogger Bank A P3,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2024-07-01 00:00:00,456.600
+AR3-DP2-201,Dogger Bank B P1,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2025-07-01 00:00:00,302.400
+AR3-DP2-202,Dogger Bank B P2,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2025-07-01 00:00:00,441.000
+AR3-DP2-203,Dogger Bank B P3,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2025-07-01 00:00:00,456.600
+AR3-DP3-301,Dogger Bank C P1,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2026-07-01 00:00:00,302.400
+AR3-DP3-302,Dogger Bank C P2,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2026-07-01 00:00:00,441.000
+AR3-DP3-303,Dogger Bank C P3,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2026-07-01 00:00:00,456.600
+AR3-FWL-321,Forthwind,Allocation Round 3,Offshore Wind,Distribution,Pre-Start Date,2024-04-01 00:00:00,12.000
+AR3-HHW-001,Hesta Head Wind Farm,Allocation Round 3,Remote Island Wind,Transmission,Pre-Start Date,2025-08-01 00:00:00,20.400
+AR3-SEW-101,Seagreen Phase 1,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2026-03-30 00:00:00,138.000
+AR3-SEW-102,Seagreen Phase 2,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2027-03-30 00:00:00,158.000
+AR3-SEW-103,Seagreen Phase 3,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2028-03-29 00:00:00,158.000
+AR3-SHB-101,Small Heath Bio Power Limited,Allocation Round 3,Advanced Conversion Technology,Distribution,Terminated,2024-12-31 00:00:00,6.100
+AR3-SOW-101,Sofia Offshore Wind Farm Phase 1,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2025-06-27 00:00:00,364.000
+AR3-SOW-102,Sofia Offshore Wind Farm Phase 2,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2025-10-11 00:00:00,420.000
+AR3-SOW-103,Sofia Offshore Wind Farm Phase 3,Allocation Round 3,Offshore Wind,Transmission,Pre-Start Date,2026-05-22 00:00:00,616.000
+AR3-UPL-123,Muaitheabhal Wind Farm,Allocation Round 3,Remote Island Wind,Transmission,Pre-Start Date,2023-10-31 00:00:00,189.000
+CAA-EAS-166,EA 1 Phase 1,Allocation Round 1,Offshore Wind,Transmission,Post-Start Date,2019-10-30 00:00:00,172.786
+CAA-EAS-167,EA 1 Phase 2,Allocation Round 1,Offshore Wind,Transmission,Post-Start Date,2020-03-31 00:00:00,283.369
+CAA-EAS-168,EA 1 Phase 3,Allocation Round 1,Offshore Wind,Transmission,Post-Start Date,2020-05-30 00:00:00,248.812
+INV-BEA-001,Beatrice Offshore Wind Farm Limited (Phase 1),Investment Contract,Offshore Wind,Transmission,Post-Start Date,2018-11-06 00:00:00,252.000
+INV-BEA-002,Beatrice Offshore Wind Farm Limited (Phase 2),Investment Contract,Offshore Wind,Transmission,Post-Start Date,2019-04-28 00:00:00,336.000
+INV-BUR-001,Burbo Bank Extension Offshore Wind Farm,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2017-04-11 00:00:00,258.000
+INV-DRX-001,Drax 3rd conversion unit (unit 1),Investment Contract,Biomass Conversion,Transmission,Post-Start Date,2016-12-21 00:00:00,645.000
+INV-DUD-001,Dudgeon Phase 1,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2017-04-27 00:00:00,88.540
+INV-DUD-002,Dudgeon Phase 2,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2017-08-02 00:00:00,206.230
+INV-DUD-003,Dudgeon Phase 3,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2017-10-01 00:00:00,100.140
+INV-HOR-001,Hornsea Offshore Wind Farm Phase 1,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2019-05-02 00:00:00,400.000
+INV-HOR-002,Hornsea Offshore Wind Farm Phase 2,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2020-03-31 00:00:00,400.000
+INV-HOR-003,Hornsea Offshore Wind Farm Phase 3,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2021-03-31 00:00:00,400.000
+INV-LYN-001,Lynemouth Power Station,Investment Contract,Biomass Conversion,Distribution,Post-Start Date,2018-06-23 00:00:00,406.790
+INV-TEE-001,Teesside Renewable Energy Project,Investment Contract,Dedicated Biomass with CHP,Transmission,Pre-Start Date,2021-10-18 00:00:00,299.000
+INV-WAL-001,Walney Extension Offshore Wind Farm Phase 1,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2017-12-19 00:00:00,330.000
+INV-WAL-002,Walney Extension Offshore Wind Farm Phase 2,Investment Contract,Offshore Wind,Transmission,Post-Start Date,2018-04-13 00:00:00,330.000
+NUC-HPC-198,Hinkley Point C,Bespoke,Nuclear,Transmission,Pre-Start Date,,3277.200

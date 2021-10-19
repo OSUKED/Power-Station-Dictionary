@@ -1,25 +1,25 @@
 attribute,id,value,datapackage,id_type
 Longitude,10127,0.89694,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
 Latitude,10127,51.74139,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
-Capacity (MW),266,150,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Capacity (MW),267,150,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Construction Start Date,266,1957-01-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Construction Start Date,267,1957-01-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Data Source,266,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Data Source,267,WNA/IAEA,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Latitude,266,51.742,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Latitude,267,51.742,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Longitude,266,0.899,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Longitude,267,0.899,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Name,266,Bradwell-1,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Name,267,Bradwell-2,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational End Date,266,2002-03-31,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational End Date,267,2002-03-30,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational Start Date,266,1962-07-01,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Operational Start Date,267,1962-11-12,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Reactor Model,266,MAGNOX,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Reactor Model,267,MAGNOX,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Reactor Type,266,GCR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Reactor Type,267,GCR,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Status,266,Shutdown,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
-Status,267,Shutdown,https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Capacity (MW),266,150,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Capacity (MW),267,150,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Construction Start Date,266,1957-01-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Construction Start Date,267,1957-01-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Data Source,266,WNA/IAEA,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Data Source,267,WNA/IAEA,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Latitude,266,51.742,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Latitude,267,51.742,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Longitude,266,0.899,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Longitude,267,0.899,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Name,266,Bradwell-1,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Name,267,Bradwell-2,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational End Date,266,2002-03-31,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational End Date,267,2002-03-30,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational Start Date,266,1962-07-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Operational Start Date,267,1962-11-12,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Reactor Model,266,MAGNOX,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Reactor Model,267,MAGNOX,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Reactor Type,266,GCR,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Reactor Type,267,GCR,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Status,266,Shutdown,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id
+Status,267,Shutdown,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id

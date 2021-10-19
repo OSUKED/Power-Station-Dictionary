@@ -137,3 +137,9 @@ Capture Price (£/MWh),DRAXX-4,36.38332361573421,https://raw.githubusercontent.c
 Capture Price (£/MWh),DRAXX-5,37.69713801750123,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),DRAXX-6,46.34732966876417,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),DRAXX-9G,27.312009377093094,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Name of CfD Unit,INV-DRX-001,Drax 3rd conversion unit (unit 1),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Allocation Round,INV-DRX-001,Investment Contract,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Technology Type,INV-DRX-001,Biomass Conversion,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Transmission or Distribution Connection,INV-DRX-001,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Status,INV-DRX-001,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Maximum Contract Capacity (MW),INV-DRX-001,645.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,

@@ -285,7 +285,7 @@
           {
             "fields": "iaea_id",
             "reference": {
-              "package": "https://raw.githubusercontent.com/AyrtonB/GeoNuclearData/master/data/csv/denormalized/datapackage.json",
+              "package": "https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json",
               "resource": "nuclear-power-plants",
               "fields": "IAEAId",
               "attributes": ["Name", "Latitude", "Longitude", "Status", "ReactorType", "ReactorModel", "ConstructionStartAt", "OperationalFrom", "OperationalTo", "Capacity", "Source"]
@@ -298,6 +298,15 @@
               "resource": "renewable-energy-planning-database",
               "fields": "Ref ID",
               "attributes": ["Operator (or Applicant)", "Site Name", "Technology Type", "Storage Type", "Storage Co-location REPD Ref ID", "Installed Capacity (MWelec)", "CHP Enabled", "RO Banding (ROC/MWh)", "FiT Tariff (p/kWh)", "CfD Capacity (MW)", "Turbine Capacity (MW)", "No. of Turbines", "Height of Turbines (m)", "Mounting Type for Solar", "Development Status", "Address", "County", "Region", "Country", "Post Code", "X-coordinate", "Y-coordinate", "Planning Authority", "Planning Application Reference", "Appeal Reference", "Secretary of State Reference", "Type of Secretary of State Intervention", "Judicial Review", "Offshore Wind Round", "Planning Application Submitted", "Planning Application Withdrawn", "Planning Permission Refused", "Appeal Lodged", "Appeal Withdrawn", "Appeal Refused", "Appeal Granted", "Planning Permission Granted", "Secretary of State - Intervened", "Secretary of State - Refusal", "Secretary of State - Granted", "Planning Permission Expired", "Under Construction", "Operational", "Heat Network Ref"]
+            }
+          },
+          {
+            "fields": "cfd_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json",
+              "resource": "cfd-contract-portfolio-status",
+              "fields": "CFD_ID",
+              "attributes": ["Name_of_CFD_Unit", "Allocation_Round", "Technology_Type", "Transmission_or_Distribution_connection", "Status", "Expected_Start_Date", "Maximum_Contract_Capacity_MW"]
             }
           }
         ]

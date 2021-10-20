@@ -21,3 +21,21 @@ X-coordinate,2537,331721,https://raw.githubusercontent.com/OSUKED/Dictionary-Dat
 Y-coordinate,2537,907867,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
 Planning Authority,2537,Scottish Government (S36),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
 Offshore Wind Round,2537,3,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id
+Allocation Round,AR2-MRY-107,Allocation Round 2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Allocation Round,AR2-MRY-207,Allocation Round 2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Allocation Round,AR2-MRY-307,Allocation Round 2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Maximum Contract Capacity (MW),AR2-MRY-107,313.5,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Maximum Contract Capacity (MW),AR2-MRY-207,313.5,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Maximum Contract Capacity (MW),AR2-MRY-307,323.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Name of CfD Unit,AR2-MRY-107,Moray Offshore Windfarm (East) Phase 1,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Name of CfD Unit,AR2-MRY-207,Moray Offshore Windfarm (East) Phase 2,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Name of CfD Unit,AR2-MRY-307,Moray Offshore Windfarm (East) Phase 3,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Status,AR2-MRY-107,Pre-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Status,AR2-MRY-207,Pre-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Status,AR2-MRY-307,Pre-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Technology Type,AR2-MRY-107,Offshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Technology Type,AR2-MRY-207,Offshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Technology Type,AR2-MRY-307,Offshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Transmission or Distribution Connection,AR2-MRY-107,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Transmission or Distribution Connection,AR2-MRY-207,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+Transmission or Distribution Connection,AR2-MRY-307,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id

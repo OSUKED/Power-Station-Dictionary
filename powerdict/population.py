@@ -249,7 +249,7 @@ def extract_combined_attrs_df(single_site_data, attr_to_field_schema):
         if (df_attrs.columns.size == 1) and (df_attrs.columns[0].lower()=='value'):
             df_attrs.columns = ['value']
             attr_ids = sorted(list(set(extract_datapackage_url_to_ids(single_site_data)[datapackage_url])))
-            assert len(attr_ids) == 1
+            assert len(attr_ids) == 1, f'Expected to have only one ID, instead got: {", ".join(attr_ids)}'
             df_attrs.columns.name = 'id'
             df_attrs = df_attrs.rename(columns={'value': attr_ids[0]})
 

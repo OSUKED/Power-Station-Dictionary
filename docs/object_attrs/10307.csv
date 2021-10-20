@@ -1,11 +1,13 @@
-attribute,id,value,datapackage,id_type
-Fuel Type,TRLGW-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id
-Longitude,10307,-4.8074,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
-Latitude,10307,55.2337,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
-Plant Type,10307,onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id
-Name of CfD Unit,AAA-PNE-187,Tralorg Wind Farm,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Allocation Round,AAA-PNE-187,Allocation Round 1,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Technology Type,AAA-PNE-187,Onshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Transmission or Distribution Connection,AAA-PNE-187,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Status,AAA-PNE-187,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Maximum Contract Capacity (MW),AAA-PNE-187,18.684,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+attribute,id,value,datapackage,id_type,financial_year
+Fuel Type,TRLGW-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Longitude,10307,-4.8074,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Latitude,10307,55.2337,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Plant Type,10307,onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,
+Name of CfD Unit,AAA-PNE-187,Tralorg Wind Farm,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Allocation Round,AAA-PNE-187,Allocation Round 1,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Technology Type,AAA-PNE-187,Onshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Transmission or Distribution Connection,AAA-PNE-187,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Status,AAA-PNE-187,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Maximum Contract Capacity (MW),AAA-PNE-187,18.684,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Strike Price (GBP/MWh),AAA-PNE-187,96.37,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,2020
+Strike Price (GBP/MWh),AAA-PNE-187,98.23,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,2021

@@ -1,11 +1,14 @@
-attribute,id,value,datapackage,id_type
-Fuel Type,ACHLW-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id
-Longitude,10288,-3.4565,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
-Latitude,10288,58.4479,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id
-Plant Type,10288,onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id
-Name of CfD Unit,AAA-ACH-183,Achlachan Wind Farm,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Allocation Round,AAA-ACH-183,Allocation Round 1,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Technology Type,AAA-ACH-183,Onshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Transmission or Distribution Connection,AAA-ACH-183,Distribution,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Status,AAA-ACH-183,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
-Maximum Contract Capacity (MW),AAA-ACH-183,10.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id
+attribute,id,value,datapackage,id_type,financial_year
+Fuel Type,ACHLW-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
+Longitude,10288,-3.4565,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Latitude,10288,58.4479,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Plant Type,10288,onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,
+Name of CfD Unit,AAA-ACH-183,Achlachan Wind Farm,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Allocation Round,AAA-ACH-183,Allocation Round 1,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Technology Type,AAA-ACH-183,Onshore Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Transmission or Distribution Connection,AAA-ACH-183,Distribution,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Status,AAA-ACH-183,Post-Start Date,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Maximum Contract Capacity (MW),AAA-ACH-183,10.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,
+Strike Price (GBP/MWh),AAA-ACH-183,92.8,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,2019
+Strike Price (GBP/MWh),AAA-ACH-183,94.46,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,2020
+Strike Price (GBP/MWh),AAA-ACH-183,95.16,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,2021

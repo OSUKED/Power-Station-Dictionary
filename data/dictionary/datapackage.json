@@ -308,6 +308,16 @@
               "fields": "CFD_ID",
               "attributes": ["Name_of_CFD_Unit", "Allocation_Round", "Technology_Type", "Transmission_or_Distribution_connection", "Status", "Expected_Start_Date", "Maximum_Contract_Capacity_MW"]
             }
+          },
+          {
+            "fields": "cfd_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json",
+              "resource": "cfd-strike-prices",
+              "fields": "cfd_id",
+              "attributes": ["strike_price_GBP_per_MWh"],
+              "alt_indexes": ["financial_year"]
+            }
           }
         ]
       }

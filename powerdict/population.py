@@ -163,23 +163,26 @@ def create_multi_index_attrs_df(attributes, alt_indexes):
         .pipe(set_multi_index_names, ['attribute']+alt_indexes)
     )
 
+    attr_ids = list(df_attrs.columns)
+
     if df_attrs.shape[1] == 1:
         df_attrs.columns.name = ''
         df_attrs.columns = ['value']
 
-    return df_attrs
+    return df_attrs, attr_ids
 
 # Cell
 def create_single_index_attrs_df(attributes):
     df_attrs = pd.DataFrame(attributes)
+    attr_ids = list(df_attrs['id'].unique())
 
-    if df_attrs['id'].unique().size > 1:
+    if len(attr_ids) > 1:
         df_attrs = df_attrs.pivot('attribute', 'id', 'value')
     else:
         df_attrs = df_attrs.set_index('attribute').drop(columns='id')
         df_attrs = df_attrs.rename(columns={'value': 'Value'})
 
-    return df_attrs
+    return df_attrs, attr_ids
 
 # Cell
 from frictionless.types.array import type_to_class
@@ -242,13 +245,12 @@ def extract_combined_attrs_df(single_site_data, attr_to_field_schema):
         alt_indexes = datapackage_url_to_alt_indexes[datapackage_url]
 
         if len(alt_indexes) > 0:
-            df_attrs = create_multi_index_attrs_df(attrs, alt_indexes)
+            df_attrs, attr_ids = create_multi_index_attrs_df(attrs, alt_indexes)
         else:
-            df_attrs = create_single_index_attrs_df(attrs)
+            df_attrs, attr_ids = create_single_index_attrs_df(attrs)
 
         if (df_attrs.columns.size == 1) and (df_attrs.columns[0].lower()=='value'):
             df_attrs.columns = ['value']
-            attr_ids = sorted(list(set(extract_datapackage_url_to_ids(single_site_data)[datapackage_url])))
             assert len(attr_ids) == 1, f'Expected to have only one ID, instead got: {", ".join(attr_ids)}'
             df_attrs.columns.name = 'id'
             df_attrs = df_attrs.rename(columns={'value': attr_ids[0]})
@@ -278,9 +280,9 @@ def get_datapackage_url_to_attrs_md_str(single_site_data):
         alt_indexes = datapackage_url_to_alt_indexes[datapackage_url]
 
         if len(alt_indexes) > 0:
-            df_attrs = create_multi_index_attrs_df(attributes, alt_indexes)
+            df_attrs, attr_ids = create_multi_index_attrs_df(attributes, alt_indexes)
         else:
-            df_attrs = create_single_index_attrs_df(attributes)
+            df_attrs, attr_ids = create_single_index_attrs_df(attributes)
 
         df_attrs = format_attribute_value_types(df_attrs, attr_to_field_schema)
 
@@ -296,9 +298,8 @@ def get_datapackage_url_to_attrs_md_str(single_site_data):
 # Cell
 clean_dp_name = lambda dp_name: dp_name.replace('-', ' ').title()
 
-def construct_dataset_md_str(dataset_metadata, dataset_attributes):
+def construct_dataset_md_str(dataset_metadata, dataset_attributes, dataset_page_url):
     title = clean_dp_name(dataset_metadata['datapackage_name'])
-    url = dataset_metadata['datapackage_json_url']
     dictionary_column_match = dataset_metadata['related_resources'][0]['dictionary_pk_field']
     dataset_column_match = dataset_metadata['related_resources'][0]['external_fk_field']
 
@@ -308,7 +309,7 @@ def construct_dataset_md_str(dataset_metadata, dataset_attributes):
     else:
         description = ''
 
-    dataset_str = f"""##### <a href="{url}">{title}</a>
+    dataset_str = f"""##### <a href="{dataset_page_url}">{title}</a>
 
 {description}
 
@@ -324,8 +325,9 @@ def single_site_data_to_datasets_md_str(single_site_data):
 
     for dataset_metadata in single_site_data['datasets'].values():
         dataset_url = dataset_metadata['datapackage_json_url']
+        dataset_page_url = f'https://osuked.github.io/Power-Station-Dictionary/datasets/{dataset_metadata["datapackage_name"]}'
         dataset_attributes = datapackage_url_to_attrs_md_str[dataset_url]
-        dataset_str = construct_dataset_md_str(dataset_metadata, dataset_attributes)
+        dataset_str = construct_dataset_md_str(dataset_metadata, dataset_attributes, dataset_page_url)
 
         dataset_url_to_md_str[dataset_url] = dataset_str
 

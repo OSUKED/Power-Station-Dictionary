@@ -41,5 +41,6 @@ extra_javascript:
 nav:
   - Home: index.md
   - Dictionary: dictionary.md
+  - Datasets: placeholder.md
   - Sites:{% for object_id in object_ids_to_names %}
     - {{object_ids_to_names[object_id]}}: objects/{{object_id}}.md{% endfor %}

@@ -1,0 +1,56 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "plant-locations",
+      "path": "plant-locations.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "osuked_id",
+            "type": "integer",
+            "format": "default",
+            "title": "OSUKED ID",
+            "description": "The identifier used to refer to power plants in the Subak data cooperative"
+          },
+          {
+            "name": "longitude",
+            "type": "number",
+            "format": "default",
+            "title": "Longitude",
+            "description": "The east–west position of a point on the Earth's surface"
+          },
+          {
+            "name": "latitude",
+            "type": "number",
+            "format": "default",
+            "title": "Latitude",
+            "description": "The north-south position of a point on the Earth's surface"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "power plants",
+    "location"
+  ],
+  "version": "1.0.0",
+  "name": "plant-locations",
+  "title": "Power Plant Locations",
+  "description": "Dataset listing the locations of power plants",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

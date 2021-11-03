@@ -139,7 +139,7 @@ osuked_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,windpowe
 10163,"GBR0003116, GBR0004253",BLLA,Black Law Wind Farm,"T_BLLA-1, T_BLLA-2","BLLA-1, BLLA-2",,,,,,,"48W000000BLLA-1K, 48W000000BLLA-2I",,,,N00056W,3116
 10165,,BODW,Blyth Offshore Demonstrator Windfarm Generation,E_BODW-1,,"blyth-offshore-demonstrator---phase-2-united-kingdom-uk79, blyth-offshore-demonstrator---phase-1-united-kingdom-uk70","windfarm_en_16663_blyth-offshore, windfarm_en_16688_blyth-offshore-3a-4",Q4930860,Blyth_Offshore_Wind_Farm,blyth,,,,,,,
 10166,GBR0003119,BRDUW,Braes of Doune,E_BRDUW-1,BRDUW-1,,,,,,,48W00000BRDUW-1V,,,,,
-10167,GBR0004431,WISTW,Brockloch Rig 2 Windfarm,T_WISTW-2,WISTW-2,,,,,,,,,,,,
+10167,GBR0004431,WISTW,Brockloch Rig 2 Windfarm,T_WISTW-2,WISTW-2,,windfarm_en_22062_windy-standard-extension,,,,,,,,,B1290,4615
 10168,,BRNLW,Brownieleys Windfarm,E_BRNLW-1,BRNLW-1,,,,,,,,,,,,
 10169,"GBR0002487, GBR0002539",BURB,Burbo Bank Offshore Windfarm,"E_BURBO, T_BRBEO-1","BURBW-1, BRBEO-1","burbo-bank-united-kingdom-uk02, burbo-bank-extension-united-kingdom-uk59",windfarm_en_10684_burbo-bank,Q2583856,Burbo_Bank_Offshore_Wind_Farm,"burbowind, burbo-bank-extension-offshore-wind-farm-liverpool-bay",,"48W00000BURBW-1L, 48W00000BRBEO-17",INV-BUR-001,,,AA066,2539
 10171,,BNWKW,Burn of Whilk Windfarm,E_BNWKW-1,BNWKW-1,,,,,,,48W00000BNWKW-1W,,,,,

@@ -29,7 +29,7 @@ class SheetManager:
         if os.path.exists(self.creds_fp) == True:
             creds = ServiceAccountCredentials.from_json_keyfile_name(self.creds_fp, scope)
         elif 'GCP_SA_KEY' in os.environ.keys():
-            creds = json.loads(os.environ['GCP_SA_KEY'])
+            creds = json.loads(os.getenv('GCP_SA_KEY'))
         else:
             raise ValueError('No valid credentials (or filepath) was passed')
 

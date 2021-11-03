@@ -102,7 +102,7 @@ def assign_new_id_value(
     elif no_previous_id:
         df_powerdict_ids.loc[dictionary_id, new_id_name] = new_id_value
     else:
-        df_powerdict_ids.loc[dictionary_id, new_id_name] = str(current_id) + ', ' + new_id_value
+        df_powerdict_ids.loc[dictionary_id, new_id_name] = f'{current_id}, {new_id_value}'
 
     return df_powerdict_ids
 

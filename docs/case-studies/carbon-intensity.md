@@ -4,7 +4,6 @@
 
 ### Imports
 
-
 ```python
 import numpy as np
 import pandas as pd
@@ -19,7 +18,6 @@ import matplotlib.pyplot as plt
 
 We'll start by loading in the attribute data
 
-
 ```python
 attributes_fp = 'https://osuked.github.io/Power-Station-Dictionary/object_attrs/0_dictionary_attributes.csv'
 
@@ -27,9 +25,6 @@ df_attrs = pd.read_csv(attributes_fp)
 
 df_attrs.head()
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -44,6 +39,7 @@ df_attrs.head()
     .dataframe thead th {
         text-align: right;
     }
+
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -75,7 +71,7 @@ df_attrs.head()
       <td>10000</td>
       <td>-3.603516</td>
       <td>https://raw.githubusercontent.com/OSUKED/Dicti...</td>
-      <td>osuked_id</td>
+      <td>dictionary_id</td>
       <td>NaN</td>
       <td>10000</td>
     </tr>
@@ -85,7 +81,7 @@ df_attrs.head()
       <td>10000</td>
       <td>57.480403</td>
       <td>https://raw.githubusercontent.com/OSUKED/Dicti...</td>
-      <td>osuked_id</td>
+      <td>dictionary_id</td>
       <td>NaN</td>
       <td>10000</td>
     </tr>
@@ -113,12 +109,9 @@ df_attrs.head()
 </table>
 </div>
 
-
-
 <br>
 
 We'll then extract the CO2 emissions data
-
 
 ```python
 co2_attr = 'CO2 Emissions (Tonnes)'
@@ -142,21 +135,13 @@ sns.histplot(s_site_co2, ax=ax)
 ax.set_xlabel(co2_attr)
 ```
 
-
-
-
     Text(0.5, 0, 'CO2 Emissions (Tonnes)')
 
-
-
-
 ![png](output_5_1.png)
-
 
 <br>
 
 As well as the power output data
-
 
 ```python
 output_attr = 'Annual Output (MWh)'
@@ -180,21 +165,13 @@ sns.histplot(s_site_output, ax=ax)
 ax.set_xlabel(output_attr)
 ```
 
-
-
-
     Text(0.5, 0, 'Annual Output (MWh)')
 
-
-
-
 ![png](output_7_1.png)
-
 
 <br>
 
 And lastly the fuel types of each plant
-
 
 ```python
 fuel_attr = 'Fuel Type'
@@ -213,9 +190,6 @@ s_site_fuel_type = (
 s_site_fuel_type.value_counts()
 ```
 
-
-
-
     WIND                   113
     CCGT                    34
     NPSHYD                  13
@@ -231,14 +205,11 @@ s_site_fuel_type.value_counts()
     COAL, BIOMASS, OCGT      1
     Name: value, dtype: int64
 
-
-
 <br>
 
 ### Visualising Annual Carbon Intensities
 
 We'll quickly check the data coverage
-
 
 ```python
 sites_with_co2_data = s_site_co2.index
@@ -249,23 +220,17 @@ sites_with_both_datasets = sites_with_co2_data.intersection(sites_with_output_da
 sites_with_co2_data.size, sites_with_output_data.size, sites_with_both_datasets.size
 ```
 
-
-
-
     (978, 830, 239)
-
-
 
 <br>
 
-And then visualise the annual carbon intensity estimates for OCGT and CCGT plants 
-
+And then visualise the annual carbon intensity estimates for OCGT and CCGT plants
 
 ```python
 def hide_spines(ax, positions=["top", "right"]):
     """
     Pass a matplotlib axis and list of positions with spines to be removed
-    
+
     args:
         ax:          Matplotlib axis object
         positions:   Python list e.g. ['top', 'bottom']
@@ -275,7 +240,6 @@ def hide_spines(ax, positions=["top", "right"]):
     for position in positions:
         ax.spines[position].set_visible(False)
 ```
-
 
 ```python
 ccgt_sites = s_site_fuel_type.index[s_site_fuel_type=='CCGT'].intersection(s_site_co2.index.get_level_values(0)).intersection(s_site_output.index.get_level_values(0))
@@ -298,13 +262,6 @@ hide_spines(ax)
 ax.legend(frameon=False)
 ```
 
-
-
-
     <matplotlib.legend.Legend at 0x1f99c4ba190>
 
-
-
-
 ![png](output_14_1.png)
-

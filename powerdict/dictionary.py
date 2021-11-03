@@ -132,7 +132,7 @@ def construct_linked_ids_table_str(package, datapackage_json_fp, resource='ids',
 
     df_ids_clean = pd.DataFrame(index=df_ids.index, columns=id_field_to_title.values())
 
-    for osuked_id, row in df_ids.iterrows():
+    for dictionary_id, row in df_ids.iterrows():
         row = pd.Series({
             id_field_to_title[id_type]: (
                 ', '.join([str(id_) for id_ in format_id_values(id_values, id_type, id_field_to_url_format_str)]) if isinstance(id_values, list)
@@ -143,11 +143,11 @@ def construct_linked_ids_table_str(package, datapackage_json_fp, resource='ids',
             in row.items()
         }).fillna('-')
 
-        df_ids_clean.loc[osuked_id] = row
+        df_ids_clean.loc[dictionary_id] = row
 
-    df_ids_clean = df_ids_clean.drop(columns='OSUKED ID')
+    df_ids_clean = df_ids_clean.drop(columns='Dictionary ID')
     df_ids_clean.index = construct_linked_idxs(df_ids_clean)
-    df_ids_clean.index.name = 'OSUKED ID'
+    df_ids_clean.index.name = 'Dictionary ID'
 
     linked_ids_table_str = df_ids_clean.to_markdown()+'{#id}'
 

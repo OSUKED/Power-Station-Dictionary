@@ -61,7 +61,7 @@ def load_powerdict_data(
     metadata_fp: str='../data/dictionary/datapackage.json'
 ):
     df_powerdict_ids = pd.read_csv(ids_fp)
-    df_powerdict_ids = df_powerdict_ids.set_index('osuked_id')
+    df_powerdict_ids = df_powerdict_ids.set_index('dictionary_id')
 
     with open(metadata_fp) as f:
         powerdict_metadata = json.load(f)

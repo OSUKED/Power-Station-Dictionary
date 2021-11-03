@@ -342,7 +342,7 @@ def format_all_attr_value_types(site_data):
 
     return site_data
 
-def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, root_id='osuked_id'):
+def extract_attrs_from_resource_dfs(site_data, datapackage_refs, temp_dir_loc, root_id='dictionary_id'):
     dp_schemas = {}
     resource_attr_dfs = load_resource_attr_dfs(datapackage_refs, temp_dir_loc)
 

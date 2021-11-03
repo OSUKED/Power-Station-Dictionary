@@ -8,12 +8,12 @@
       "schema": {
         "fields": [
           {
-            "name": "osuked_id",
+            "name": "dictionary_id",
             "required": true,
             "type": "integer",
             "format": "default",
             "description": "The identifier used to refer to power plants in the Subak data cooperative",
-            "title": "OSUKED ID",
+            "title": "Dictionary ID",
             "hierarchy": "root"
           },
           {
@@ -203,7 +203,7 @@
             "hierarchy": "equivalent/child"
           }
         ],
-        "primaryKey": "osuked_id",
+        "primaryKey": "dictionary_id",
         "foreignKeys": [
           {
             "fields": "ngc_bmu_id",
@@ -215,20 +215,20 @@
             }
           },
           {
-            "fields": "osuked_id",
+            "fields": "dictionary_id",
             "reference": {
               "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json",
               "resource": "plant-locations",
-              "fields": "osuked_id",
+              "fields": "dictionary_id",
               "attributes": ["longitude", "latitude"]
             }
           },
           {
-            "fields": "osuked_id",
+            "fields": "dictionary_id",
             "reference": {
               "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json",
               "resource": "wind-farms",
-              "fields": "osuked_id",
+              "fields": "dictionary_id",
               "attributes": ["plant_type", "hub_height"]
             }
           },

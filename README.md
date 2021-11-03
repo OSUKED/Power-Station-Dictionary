@@ -24,7 +24,7 @@ Full documentation can be found [here](https://osuked.github.io/Power-Station-Di
 The core output of this project is a clean power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. Currently the focus of this work are plants within the GB power system. The `powerdict` module provides a programmatic way in which to combine the raw datasets and apply any additional updates specified in the files contained within the three data directories:
 
 - _raw_ - source datasets as csvs
-- _updates_ - JSON mappings from an osuked_id to a new attribute value
+- _updates_ - JSON mappings from an dictionary_id to a new attribute value
 - _definitions_ - JSON specification of how to process the raw sources and what the output should look like
 
 CI/CD is set-up so that any changes in this repository will trigger a reconstruction of the output dataset, additionally a new GitHub release will automatically trigger a new release on Zenodo and produce an updated DOI. The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv). As with projects such as the [Global Power Plant Database](https://github.com/wri/global-power-plant-database), `powerdict` provides a clear data lineage from the raw sources/updates to the output. Furthermore, integrating this with GitHub enables version control of the underlying datasets and updates/corrections.

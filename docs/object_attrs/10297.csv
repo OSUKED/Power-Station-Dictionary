@@ -3,10 +3,10 @@ Fuel Type,BEATO-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datas
 Fuel Type,BEATO-2,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,BEATO-3,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,BEATO-4,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
-Longitude,10297,-3.07,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Latitude,10297,58.1299,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Plant Type,10297,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
-Hub-Height,10297,101.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
+Longitude,10297,-3.07,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Latitude,10297,58.1299,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Plant Type,10297,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
+Hub-Height,10297,101.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
 Annual Output (MWh),BEATO-1,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
 Annual Output (MWh),BEATO-2,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
 Annual Output (MWh),BEATO-3,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
@@ -64,7 +64,6 @@ Technology Type,INV-BEA-002,Offshore Wind,https://raw.githubusercontent.com/OSUK
 Transmission or Distribution Connection,INV-BEA-001,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Transmission or Distribution Connection,INV-BEA-002,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Strike Price (GBP/MWh),INV-BEA-001,155.53,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2018
-Strike Price (GBP/MWh),INV-BEA-002,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2018
 Strike Price (GBP/MWh),INV-BEA-001,158.73,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
 Strike Price (GBP/MWh),INV-BEA-002,158.73,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
 Strike Price (GBP/MWh),INV-BEA-001,162.33,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020

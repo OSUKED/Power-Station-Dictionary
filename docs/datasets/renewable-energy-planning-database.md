@@ -12,7 +12,7 @@ The Renewable Energy Planning Database ('REPD') is managed by Barbour ABI on beh
 The REPD is updated on a quarterly basis, and contains information on all Renewable Electricity and CHP projects up to the end of the previous calendar month.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                        |
 |:-------------|:--------------------------------|

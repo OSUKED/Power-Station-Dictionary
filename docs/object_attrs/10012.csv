@@ -1,6 +1,6 @@
 attribute,id,value,datapackage,id_type,year
-Longitude,10012,-1.94458,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
-Latitude,10012,52.729639,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Longitude,10012,-1.94458,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
+Latitude,10012,52.729639,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
 CO2 Emissions (Tonnes),97192,4211713.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2005
 CO2 Emissions (Tonnes),97192,4063802.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2006
 CO2 Emissions (Tonnes),97192,4893162.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/verified-emissions/datapackage.json,eutl_id,2007
@@ -29,6 +29,4 @@ Annual Output (MWh),RUGGT-6,0.0,https://raw.githubusercontent.com/OSUKED/Diction
 Annual Output (MWh),RUGPS-6,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Annual Output (MWh),RUGPS-7,2.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),RUGPS-6,33.648165081958034,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
-Capture Price (£/MWh),RUGPS-7,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
-Capture Price (£/MWh),RUGPS-6,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),RUGPS-7,23.58,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020

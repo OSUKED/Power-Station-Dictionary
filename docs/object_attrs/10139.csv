@@ -1,6 +1,6 @@
 attribute,id,value,datapackage,id_type,year
-Longitude,10139,-4.405518,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
-Latitude,10139,53.370221,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,
+Longitude,10139,-4.405518,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
+Latitude,10139,53.370221,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
 Annual Output (MWh),WYLF-1,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
 Annual Output (MWh),WYLF-2,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
 Annual Output (MWh),WYLF-3,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016
@@ -21,14 +21,10 @@ Annual Output (MWh),WYLF-1,0.0,https://raw.githubusercontent.com/OSUKED/Dictiona
 Annual Output (MWh),WYLF-2,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Annual Output (MWh),WYLF-3,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Annual Output (MWh),WYLF-4,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
-Capture Price (£/MWh),WYLF-1,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
-Capture Price (£/MWh),WYLF-2,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),WYLF-3,69.59303106817433,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),WYLF-4,90.94453355929534,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),WYLF-1,49.437503079487,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),WYLF-2,63.241414622087625,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
-Capture Price (£/MWh),WYLF-3,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
-Capture Price (£/MWh),WYLF-4,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capacity (MW),240,550,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
 Capacity (MW),241,550,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
 Construction Start Date,240,1963-09-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,

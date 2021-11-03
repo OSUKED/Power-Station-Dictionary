@@ -2,7 +2,7 @@
 
 __all__ = ['resource_to_title', 'resource_to_description', 'package_to_homepage', 'resource_to_fields_table_str',
            'extract_resource_elements', 'extract_package_elements', 'resource_to_download_url',
-           'identify_valid_datasets', 'update_mkdocs_config', 'populate_dataset_pages',
+           'identify_datapackage_datasets', 'update_mkdocs_config', 'populate_dataset_pages',
            'move_attribute_source_data_to_docs']
 
 # Cell
@@ -19,7 +19,7 @@ from tqdm import tqdm
 from pathlib import Path
 from jinja2 import Template
 
-from powerdict import dictionary
+from powerdict import dictionary, openapi
 
 # Cell
 resource_to_download_url = lambda resource, package_name, root_path='https://osuked.github.io/Power-Station-Dictionary/attribute_sources': f'{root_path}/{package_name}/{resource["path"]}'
@@ -84,7 +84,7 @@ def extract_package_elements(package):
     return package_elements
 
 # Cell
-def identify_valid_datasets(datasets_dir):
+def identify_datapackage_datasets(datasets_dir):
     dataset_dirs = [
         elem
         for elem
@@ -92,14 +92,14 @@ def identify_valid_datasets(datasets_dir):
         if elem != '.ipynb_checkpoints'
     ]
 
-    valid_datasets = [
+    datapackage_datasets = [
         dataset_dir
         for dataset_dir
         in dataset_dirs
         if 'datapackage.json' in os.listdir(f'{datasets_dir}/{dataset_dir}')
     ]
 
-    return valid_datasets
+    return datapackage_datasets
 
 # Cell
 def update_mkdocs_config(
@@ -124,7 +124,7 @@ def populate_dataset_pages(
     mkdocs_config_fp: str='../mkdocs.yml'
 ):
     dataset_to_name = {}
-    valid_datasets = identify_valid_datasets(datasets_dir)
+    valid_datasets = identify_datapackage_datasets(datasets_dir)
 
     for dataset in tqdm(valid_datasets):
         datapackage_json_fp = f'../data/attribute_sources/{dataset}/datapackage.json'

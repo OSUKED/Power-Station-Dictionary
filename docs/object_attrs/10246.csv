@@ -3,10 +3,10 @@ Fuel Type,WLNYO-2,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datas
 Fuel Type,WLNYO-3,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,WLNYO-4,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,WLNYW-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
-Longitude,10246,-3.522,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Latitude,10246,54.044,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Plant Type,10246,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
-Hub-Height,10246,88.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
+Longitude,10246,-3.522,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Latitude,10246,54.044,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Plant Type,10246,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
+Hub-Height,10246,88.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
 Estimated Annual Generation in 2017,GBR0002500,463.85,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Estimated Annual Generation in 2017,GBR0002506,463.85,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Geolocation Source,GBR0002500,UK Renewable Energy Planning Database,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
@@ -46,8 +46,6 @@ Annual Output (MWh),WLNYO-3,1427744.217,https://raw.githubusercontent.com/OSUKED
 Annual Output (MWh),WLNYO-4,1090859.321,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020,
 Annual Output (MWh),WLNYW-1,664786.543,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020,
 Capture Price (£/MWh),WLNYO-2,38.51687175105441,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016,
-Capture Price (£/MWh),WLNYO-3,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016,
-Capture Price (£/MWh),WLNYO-4,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016,
 Capture Price (£/MWh),WLNYW-1,36.04703797578487,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016,
 Capture Price (£/MWh),WLNYO-2,43.90489402639229,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017,
 Capture Price (£/MWh),WLNYO-3,51.8048310984343,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017,
@@ -68,8 +66,6 @@ Capture Price (£/MWh),WLNYW-1,30.639734525674665,https://raw.githubusercontent.
 Address,2500,"14km off Walney Island, Irish Sea",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Address,2506,"14km off Walney Island, Irish Sea",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Address,2533,"14km off Walney Island, Irish Sea",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
-CfD Capacity (MW),2500,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
-CfD Capacity (MW),2506,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 CfD Capacity (MW),2533,660.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2500,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2506,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -80,8 +76,6 @@ County,2533,Offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Dataset
 Development Status,2500,Operational,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Development Status,2506,Operational,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Development Status,2533,Operational,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
-Height of Turbines (m),2500,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
-Height of Turbines (m),2506,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Height of Turbines (m),2533,222.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Installed Capacity (MWelec),2500,183.6,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Installed Capacity (MWelec),2506,183.6,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -129,7 +123,6 @@ Technology Type,INV-WAL-002,Offshore Wind,https://raw.githubusercontent.com/OSUK
 Transmission or Distribution Connection,INV-WAL-001,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Transmission or Distribution Connection,INV-WAL-002,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Strike Price (GBP/MWh),INV-WAL-001,161.71,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2017
-Strike Price (GBP/MWh),INV-WAL-002,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2017
 Strike Price (GBP/MWh),INV-WAL-001,166.59,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2018
 Strike Price (GBP/MWh),INV-WAL-002,166.59,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2018
 Strike Price (GBP/MWh),INV-WAL-001,170.03,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019

@@ -10,7 +10,7 @@ hide:
 This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|

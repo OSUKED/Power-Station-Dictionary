@@ -10,7 +10,7 @@ hide:
 This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|

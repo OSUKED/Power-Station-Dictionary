@@ -10,7 +10,7 @@ hide:
 Dataset published by Elexon describing the fuel types of the Balancing Mechanism Units (BMUs) that they process market settlement for. This dataset was retrieved from Elexon at 2021-08-09
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                                                            |
 |:-------------|:----------------------------------------------------------------------------------------------------|

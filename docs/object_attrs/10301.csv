@@ -2,10 +2,10 @@ attribute,id,value,datapackage,id_type,year,financial_year
 Fuel Type,HOWAO-1,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,HOWAO-2,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
 Fuel Type,HOWAO-3,WIND,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,,
-Longitude,10301,1.791,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Latitude,10301,53.8849,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,osuked_id,,
-Plant Type,10301,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
-Hub-Height,10301,153.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,osuked_id,,
+Longitude,10301,1.791,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Latitude,10301,53.8849,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,,
+Plant Type,10301,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
+Hub-Height,10301,153.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,,
 Annual Output (MWh),HOWAO-1,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
 Annual Output (MWh),HOWAO-2,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
 Annual Output (MWh),HOWAO-3,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2016,
@@ -27,8 +27,6 @@ Capture Price (£/MWh),HOWAO-3,36.30407744299195,https://raw.githubusercontent.c
 Capture Price (£/MWh),HOWAO-1,32.32939407240706,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020,
 Capture Price (£/MWh),HOWAO-2,31.986584278809072,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020,
 Capture Price (£/MWh),HOWAO-3,32.5708396234301,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020,
-CfD Capacity (MW),2472,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
-CfD Capacity (MW),2502,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 CfD Capacity (MW),2525,1200.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2472,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2502,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -109,7 +107,6 @@ Transmission or Distribution Connection,INV-HOR-001,Transmission,https://raw.git
 Transmission or Distribution Connection,INV-HOR-002,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Transmission or Distribution Connection,INV-HOR-003,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Strike Price (GBP/MWh),INV-HOR-001,158.75,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
-Strike Price (GBP/MWh),INV-HOR-003,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
 Strike Price (GBP/MWh),INV-HOR-001,162.47,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),INV-HOR-003,162.47,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),INV-HOR-001,164.96,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2021

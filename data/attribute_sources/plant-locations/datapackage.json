@@ -32,10 +32,7 @@
       }
     }
   ],
-  "keywords": [
-    "power plants",
-    "location"
-  ],
+  "keywords": ["power plants", "location"],
   "version": "1.0.0",
   "name": "plant-locations",
   "title": "Power Plant Locations",

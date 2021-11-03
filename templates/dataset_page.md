@@ -10,7 +10,7 @@ hide:
 {% if package_elements['description'] != false  %}{{package_elements.description}}{% endif %}
 
 {% if package_elements['metadata'] != false  %}<br>
-**Metadata**
+**Additional Metadata**
 
 {{package_elements.metadata}}{% endif %}
 

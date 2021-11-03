@@ -10,7 +10,7 @@ hide:
 Dataset listing the locations of power plants
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|
@@ -29,11 +29,11 @@ Dataset listing the locations of power plants
 <br>
 **Fields**
 
-| Column    | Type    | Format   | Title     | Description                                                                |
-|:----------|:--------|:---------|:----------|:---------------------------------------------------------------------------|
-| osuked_id | integer | default  | OSUKED ID | The identifier used to refer to power plants in the Subak data cooperative |
-| longitude | number  | default  | Longitude | The east–west position of a point on the Earth's surface                   |
-| latitude  | number  | default  | Latitude  | The north-south position of a point on the Earth's surface                 |
+| Column        | Type    | Format   | Title         | Description                                                                |
+|:--------------|:--------|:---------|:--------------|:---------------------------------------------------------------------------|
+| dictionary_id | integer | default  | Dictionary ID | The identifier used to refer to power plants in the Subak data cooperative |
+| longitude     | number  | default  | Longitude     | The east–west position of a point on the Earth's surface                   |
+| latitude      | number  | default  | Latitude      | The north-south position of a point on the Earth's surface                 |
 
 <br>
 

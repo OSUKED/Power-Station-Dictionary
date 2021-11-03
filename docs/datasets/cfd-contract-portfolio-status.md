@@ -12,7 +12,7 @@ This dataset includes each CfD Contract, its Maximum Contract Capacity and lates
 Status of each CfD project is determined based on the notices issued by LCCC when different milestones get past. Start date is the best estimate date on which the generator will start generating.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                                                 |
 |:-------------|:-----------------------------------------------------------------------------------------|

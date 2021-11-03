@@ -79,11 +79,14 @@ index = {"convert_file_to_json": "00-documentation.ipynb",
          "single_site_data_to_datasets_md_str": "03-page-population.ipynb",
          "clean_dp_name": "03-page-population.ipynb",
          "construct_downloads_md_str": "03-page-population.ipynb",
+         "construct_contributors_str": "03-page-population.ipynb",
          "extract_name_from_single_site_data": "03-page-population.ipynb",
          "single_site_data_to_md_str": "03-page-population.ipynb",
          "clean_object_ids_to_names": "03-page-population.ipynb",
          "get_object_ids_to_names": "03-page-population.ipynb",
          "construct_object_docs": "03-page-population.ipynb",
+         "app": "09-id-submission.ipynb",
+         "rebuild_site_docs": "04-cli.ipynb",
          "resource_to_title": "07-dataset-pages.ipynb",
          "resource_to_description": "07-dataset-pages.ipynb",
          "package_to_homepage": "07-dataset-pages.ipynb",
@@ -91,16 +94,24 @@ index = {"convert_file_to_json": "00-documentation.ipynb",
          "extract_resource_elements": "07-dataset-pages.ipynb",
          "extract_package_elements": "07-dataset-pages.ipynb",
          "resource_to_download_url": "07-dataset-pages.ipynb",
-         "identify_valid_datasets": "07-dataset-pages.ipynb",
+         "identify_datapackage_datasets": "07-dataset-pages.ipynb",
          "update_mkdocs_config": "07-dataset-pages.ipynb",
          "populate_dataset_pages": "07-dataset-pages.ipynb",
-         "move_attribute_source_data_to_docs": "07-dataset-pages.ipynb"}
+         "move_attribute_source_data_to_docs": "07-dataset-pages.ipynb",
+         "SheetManager": "09-id-submission.ipynb",
+         "load_powerdict_data": "09-id-submission.ipynb",
+         "construct_field_title_to_name_map": "09-id-submission.ipynb",
+         "assign_new_id_value": "09-id-submission.ipynb",
+         "assign_all_new_id_values": "09-id-submission.ipynb",
+         "update_powerdict_ids_df": "09-id-submission.ipynb"}
 
 modules = ["dev/docs.py",
            "dictionary.py",
            "extraction.py",
            "population.py",
-           "datasets.py"]
+           "siteupdate.py",
+           "datasets.py",
+           "idupdate.py"]
 
 doc_url = "https://OSUKED.github.io/Power-Station-Dictionary/"
 

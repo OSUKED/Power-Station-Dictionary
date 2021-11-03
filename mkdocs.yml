@@ -23,6 +23,7 @@ nav:
 - Datasets:
     Annual Output: datasets/annual-output.md
     BMU Fuel Types: datasets/bmu-fuel-types.md
+    Carbon Intensity: datasets/carbon-intensity.md
     CfD Contract Portfolio Status: datasets/cfd-contract-portfolio-status.md
     CfD Strike Prices: datasets/cfd-strike-prices.md
     EUTL Verified Emissions: datasets/verified-emissions.md

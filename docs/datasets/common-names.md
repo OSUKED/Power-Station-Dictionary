@@ -10,7 +10,7 @@ hide:
 Dataset listing the commonly used names for power plants
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|
@@ -29,10 +29,10 @@ Dataset listing the commonly used names for power plants
 <br>
 **Fields**
 
-| Column      | Type    | Format   | Title       | Description                                                                |
-|:------------|:--------|:---------|:------------|:---------------------------------------------------------------------------|
-| osuked_id   | integer | default  | OSUKED ID   | The identifier used to refer to power plants in the Subak data cooperative |
-| common_name | string  | default  | Common Name | The names used to refer to specific power plants                           |
+| Column        | Type    | Format   | Title         | Description                                                                |
+|:--------------|:--------|:---------|:--------------|:---------------------------------------------------------------------------|
+| dictionary_id | integer | default  | Dictionary ID | The identifier used to refer to power plants in the Subak data cooperative |
+| common_name   | string  | default  | Common Name   | The names used to refer to specific power plants                           |
 
 <br>
 

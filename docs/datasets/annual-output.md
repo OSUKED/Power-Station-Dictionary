@@ -10,7 +10,7 @@ hide:
 Total annual production of individual transmission level power plants on the GB power system
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                      |
 |:-------------|:--------------------------------------------------------------|

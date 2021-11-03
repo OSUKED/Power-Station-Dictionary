@@ -12,7 +12,7 @@ The Global Power Plant Database is a comprehensive, open source database of powe
 The methodology for the dataset creation is given in the World Resources Institute publication ["A Global Database of Power Plants"](https://www.wri.org/research/global-database-power-plants). Data updates may occur without associated updates to this manuscript.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|

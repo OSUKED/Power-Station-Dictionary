@@ -12,7 +12,7 @@ This dataset provides data on the nominal strike prices for each generator withi
 The values provided here have been extracted from the `Actual CfD Generation and avoided GHG emissions` dataset.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                                                 |
 |:-------------|:-----------------------------------------------------------------------------------------|

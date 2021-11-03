@@ -219,7 +219,10 @@ def load_datapackage(datapackage_ref, temp_dir_loc='./temp', return_type='df', s
 
         if set_index == True:
             assert isinstance(datapackage_ref['external_fk_field'], str) or len(datapackage_ref['external_fk_field']==1), 'Only one primary key was expected to be matched on in the external datapackage'
-            field_type = [field['type'] for field in resource.schema['fields'] if field['name']==datapackage_ref['external_fk_field']][0]
+            field_types = [field['type'] for field in resource.schema['fields'] if field['name']==datapackage_ref['external_fk_field']]
+            field_names = [field['name'] for field in resource.schema['fields']]
+            assert len(field_types) == 1, f'Expected only one field type, instead received: {", ".join(field_types)} for {datapackage_ref["external_fk_field"]}, {field_names}'
+            field_type = field_types[0]
 
             if 'alt_indexes' in datapackage_ref.keys():
                 alt_indexes = datapackage_ref['alt_indexes']

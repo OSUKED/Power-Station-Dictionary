@@ -7,8 +7,9 @@ __all__ = ['get_dp_field_to_url_format_str', 'get_dp_field_to_title', 'format_id
            'construct_attr_to_field_schema', 'extract_datapackage_url_to_ids', 'extract_combined_attrs_df',
            'extract_datapackage_url_to_dict_id_type', 'get_datapackage_url_to_attrs_md_str', 'construct_dataset_md_str',
            'single_site_data_to_datasets_md_str', 'clean_dp_name', 'construct_downloads_md_str',
-           'extract_name_from_single_site_data', 'single_site_data_to_md_str', 'populate_and_save_template',
-           'clean_object_ids_to_names', 'get_object_ids_to_names', 'construct_object_docs']
+           'construct_contributors_str', 'extract_name_from_single_site_data', 'single_site_data_to_md_str',
+           'populate_and_save_template', 'clean_object_ids_to_names', 'get_object_ids_to_names',
+           'construct_object_docs']
 
 # Cell
 import json
@@ -62,7 +63,7 @@ def format_id_values(id_values, id_type, id_field_to_url_format_str):
     return id_values_strs
 
 # Cell
-def single_site_data_to_ids_df(single_site_data, root_id, datapackage_json_fp, root_id_type='osuked_id'):
+def single_site_data_to_ids_df(single_site_data, root_id, datapackage_json_fp, root_id_type='dictionary_id'):
     id_field_to_url_format_str = get_dp_field_to_url_format_str(datapackage_json_fp)
     id_field_to_title = get_dp_field_to_title(datapackage_json_fp)
 
@@ -348,6 +349,11 @@ def construct_downloads_md_str(object_id):
     return downloads_str
 
 # Cell
+construct_contributors_str = (lambda object_id: f"""### Contribute
+
+[Link a new ID](https://docs.google.com/forms/d/e/1FAIpQLSc5jRsQ7NgiLLXbwo9PUdwTQyuqbRwThltG56-o6NVSe7E_nw/viewform?usp=pp_url&entry.251912331={object_id}){{ .md-button }}""")
+
+# Cell
 def extract_name_from_single_site_data(single_site_data):
     potential_names = [v['name'] for k, v in single_site_data['id_hierarchies'].items() if'name' in v.keys()]
 
@@ -361,8 +367,9 @@ def single_site_data_to_md_str(single_site_data, root_id, datapackage_json_fp):
     site_ids_md_str = single_site_data_to_ids_md_str(single_site_data, root_id, datapackage_json_fp)
     datasets_md_str = single_site_data_to_datasets_md_str(single_site_data)
     downloads_md_str = construct_downloads_md_str(root_id)
+    contributors_str = construct_contributors_str(root_id)
 
-    site_md_str = site_ids_md_str + '\n\n<br>\n' + datasets_md_str + '\n\n<br>\n' + downloads_md_str
+    site_md_str = site_ids_md_str + '\n\n<br>\n' + datasets_md_str + '\n\n<br>\n' + downloads_md_str + '\n\n<br>\n' + contributors_str
 
     return site_md_str
 
@@ -401,13 +408,13 @@ def get_object_ids_to_names(
     object_ids_to_names = {}
     df_all_sites_combined_attrs = pd.DataFrame()
 
-    for osuked_id, single_site_data in tqdm(site_data.items()):
+    for dictionary_id, single_site_data in tqdm(site_data.items()):
         if 'attributes' in single_site_data.keys():
             attr_to_field_schema = construct_attr_to_field_schema(single_site_data)
             df_combined_attrs = extract_combined_attrs_df(single_site_data, attr_to_field_schema)
-            df_combined_attrs.to_csv(f'{docs_fp}/object_attrs/{osuked_id}.csv', index=False)
+            df_combined_attrs.to_csv(f'{docs_fp}/object_attrs/{dictionary_id}.csv', index=False)
 
-            df_combined_attrs = df_combined_attrs.assign(dictionary_id=osuked_id)
+            df_combined_attrs = df_combined_attrs.assign(dictionary_id=dictionary_id)
             df_all_sites_combined_attrs = df_all_sites_combined_attrs.append(df_combined_attrs)
 
             name = extract_name_from_single_site_data(single_site_data)
@@ -415,16 +422,16 @@ def get_object_ids_to_names(
             if name is not None:
                 name = name.replace('/', '-').strip()
             else:
-                name = osuked_id
+                name = dictionary_id
 
-            object_ids_to_names[osuked_id] = name
+            object_ids_to_names[dictionary_id] = name
 
             if use_name_as_suffix == True:
                 save_fp = f'{docs_fp}/objects/{name}.md'
             else:
-                save_fp = f'{docs_fp}/objects/{osuked_id}.md'
+                save_fp = f'{docs_fp}/objects/{dictionary_id}.md'
 
-            render_kwargs = {'site_ids_md_string': single_site_data_to_md_str(single_site_data, osuked_id, datapackage_json_fp)}
+            render_kwargs = {'site_ids_md_string': single_site_data_to_md_str(single_site_data, dictionary_id, datapackage_json_fp)}
             populate_and_save_template(template_fp, save_fp, render_kwargs)
 
     object_ids_to_names = clean_object_ids_to_names(object_ids_to_names)

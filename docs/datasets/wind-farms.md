@@ -10,7 +10,7 @@ hide:
 Dataset listing the plant types and hub-heights of wind farms
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                  |
 |:-------------|:----------------------------------------------------------|
@@ -29,11 +29,11 @@ Dataset listing the plant types and hub-heights of wind farms
 <br>
 **Fields**
 
-| Column     | Type    | Format   | Title      | Description                                                                                  |
-|:-----------|:--------|:---------|:-----------|:---------------------------------------------------------------------------------------------|
-| osuked_id  | integer | default  | OSUKED ID  | The identifier used to refer to power plants in the Subak data cooperative                   |
-| plant_type | string  | default  | Plant Type | The type of wind farm, primarily onshore/offshore                                            |
-| hub_height | number  | default  | Hub-Height | The distance from the turbine platform to the rotor of the installed turbines at a wind farm |
+| Column        | Type    | Format   | Title         | Description                                                                                  |
+|:--------------|:--------|:---------|:--------------|:---------------------------------------------------------------------------------------------|
+| dictionary_id | integer | default  | Dictionary ID | The identifier used to refer to power plants in the Subak data cooperative                   |
+| plant_type    | string  | default  | Plant Type    | The type of wind farm, primarily onshore/offshore                                            |
+| hub_height    | number  | default  | Hub-Height    | The distance from the turbine platform to the rotor of the installed turbines at a wind farm |
 
 <br>
 

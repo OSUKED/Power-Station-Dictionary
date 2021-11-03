@@ -10,7 +10,7 @@ hide:
 This repository contains a database with information about Nuclear Power Plants worldwide.
 
 <br>
-**Metadata**
+**Additional Metadata**
 
 | Attribute    | Value(s)                                                    |
 |:-------------|:------------------------------------------------------------|

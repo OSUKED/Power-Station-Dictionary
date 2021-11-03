@@ -128,7 +128,7 @@ osuked_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,windpowe
 10152,GBR0003258,ARCHW,Arecleoch Windfarm,T_ARCHW-1,ARCHW-1,,,,,,,48W10000ARCHW-1N,,,,,
 10153,,ASLVW,Assel Valley Wind Farm,E_ASLVW-1,ASLVW-1,,,,,,,,,,,,
 10154,,ABRTW,Auchrobert Wind Farm,E_ABRTW-1,ABRTW-1,,,,,,,48W00000ABRTW-1Z,,,,,
-10155,GBR0004021,BABAW,Baillie Wind Farm,E_BABAW-1,BABAW-1,,,,,,,48W00000BABAW-13,,,,,
+10155,GBR0004021,BABAW,Baillie Wind Farm,E_BABAW-1,BABAW-1,,,,,,,48W00000BABAW-13,,,,N00225W,4021
 10156,GBR0002546,BOWLW,Barrow Offshore Windfarm,T_BOWLW-1,BOWLW-1,barrow-united-kingdom-uk01,windfarm_en_1503_barrow,Q2016017,Barrow_Offshore_Wind_Farm,,,48W00000BOWLW-1K,,,,,
 10157,GBR0004525,BTUIW,Beinn An Tuirc 2 Windfarm,"E_BTUIW-2, E_BTUIW-3","BTUIW-2, BTUIW-3",,,,,,,48W00000BTUIW-2A,,,,,
 10158,GBR0003787,BEINW,Beinneun Wind Farm,T_BEINW-1,BEINW-1,,,,,,,48W00000BEINW-1G,,,,,

@@ -133,9 +133,9 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10157,GBR0004525,BTUIW,Beinn An Tuirc 2 Windfarm,"E_BTUIW-2, E_BTUIW-3","BTUIW-2, BTUIW-3",,,,,,,48W00000BTUIW-2A,,,,,
 10158,GBR0003787,BEINW,Beinneun Wind Farm,T_BEINW-1,BEINW-1,,,,,,,48W00000BEINW-1G,,,,"AA182, B1325","3787, 3619"
 10159,,BETHW,Beinn Tharsuinn,E_BETHW-1,BETHW-1,,,,,,,48W00000BETHW-1H,,,,,
-10160,GBR0004261,BRYBW,Berry Burn Windfarm,E_BRYBW-1,BRYBW-1,,,,,,,48W00000BRYBW-10,,,,,
-10161,GBR0004640,BHLAW,Bhlaraidh Windfarm 1,T_BHLAW-1,BHLAW-1,,,,,,,48W00000BHLAW-15,,,,,
-10162,,BLKWW,Blackcraig Windfarm,T_BLKWW-1,BLKWW-1,,,,,,,48W00000BLKWW-1L,,,,,
+10160,GBR0004261,BRYBW,Berry Burn Windfarm,E_BRYBW-1,BRYBW-1,,,,,,,48W00000BRYBW-10,,,,N00229W,"6797, 4261"
+10161,GBR0004640,BHLAW,Bhlaraidh Windfarm 1,T_BHLAW-1,BHLAW-1,,,,,,,48W00000BHLAW-15,,,,AA202,4640
+10162,,BLKWW,Blackcraig Windfarm,T_BLKWW-1,BLKWW-1,,,,,,,48W00000BLKWW-1L,,,,N00279W,4032
 10163,"GBR0003116, GBR0004253",BLLA,Black Law Wind Farm,"T_BLLA-1, T_BLLA-2","BLLA-1, BLLA-2",,,,,,,"48W000000BLLA-1K, 48W000000BLLA-2I",,,,N00056W,3116
 10165,,BODW,Blyth Offshore Demonstrator Windfarm Generation,E_BODW-1,,"blyth-offshore-demonstrator---phase-2-united-kingdom-uk79, blyth-offshore-demonstrator---phase-1-united-kingdom-uk70","windfarm_en_16663_blyth-offshore, windfarm_en_16688_blyth-offshore-3a-4",Q4930860,Blyth_Offshore_Wind_Farm,blyth,,,,,,,
 10166,GBR0003119,BRDUW,Braes of Doune,E_BRDUW-1,BRDUW-1,,,,,,,48W00000BRDUW-1V,,,,,
@@ -151,12 +151,12 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10177,GBR0004178,CLDW,"Clyde Central Windfarm, Clyde North Windfarm, Clyde South Windfarm","T_CLDCW-1, T_CLDNW-1, T_CLDSW-1","CLDCW-1, CLDNW-1, CLDSW-1",,,,,,,"48W00000CLDCW-17, 48W00000CLDNW-1Q, 48W00000CLDSW-11",,,,"N00139W, AA509","4011, 4178"
 10178,GBR0004664,CGTHW,Corriegarth Wind Farm,T_CGTHW-1,CGTHW-1,,,,,,,48W00000CGTHW-1W,,,,,
 10179,GBR0004120,CRMLW,Corriemoillie Wind Farm,T_CRMLW-1,CRMLW-1,,,,,,,48W00000CRMLW-1E,,,,,
-10180,,COUWW,Cour Wind Farm,T_COUWW-1,COUWW-1,,,,,,,48W00000COUWW-16,,,,,
+10180,,COUWW,Cour Wind Farm,T_COUWW-1,COUWW-1,,,,,,,48W00000COUWW-16,,,,AA121,3772
 10181,"GBR0004215, GBR0003440",CRYRW,Crystal Rig Wind Farm,"T_CRYRW-2, T_CRYRW-3","CRYRW-2, CRYRW-3",,,,,,,48W00000CRYRW-2L,,,,EN00297,3440
-10183,,DALSW,Dalswinton Wind Farm,E_DALSW-1,DALSW-1,,,,,,,48W00000DALSW-1M,,,,,
-10184,GBR0004269,DRSLW,Dersalloch Windfarm,T_DRSLW-1,DRSLW-1,,,,,,,48W00000DRSLW-17,,,,,
+10183,,DALSW,Dalswinton Wind Farm,E_DALSW-1,DALSW-1,,,,,,,48W00000DALSW-1M,,,,N00178W,4520
+10184,GBR0004269,DRSLW,Dersalloch Windfarm,T_DRSLW-1,DRSLW-1,,,,,,,48W00000DRSLW-17,,,,N00552W,4269
 10185,,DDGNO,Dudgeon Offshore Wind Farm Generator,"T_DDGNO-1, T_DDGNO-2, T_DDGNO-3, T_DDGNO-4","DDGNO-1, DDGNO-2, DDGNO-3, DDGNO-4",dudgeon-united-kingdom-uk04,windfarm_en_12072_dudgeon,Q5311735,Dudgeon_Offshore_Wind_Farm,dudgeon-offshore-wind-farm,,"48W00000DDGNO-1E, 48W00000DDGNO-2C, 48W00000DDGNO-3A, 48W00000DDGNO-48","INV-DUD-001, INV-DUD-002, INV-DUD-003",,,N00558W,2538
-10186,,DNLWW,Dun Law Extension Windfarm,T_DNLWW-1,DNLWW-1,,,,,,,,,,,,
+10186,,DNLWW,Dun Law Extension Windfarm,T_DNLWW-1,DNLWW-1,,,,,,,,,,,N00241W,3579
 10187,,DUNGW,Dunmglass Wind Farm,T_DUNGW-1,DUNGW-1,,,,,,,48W00000DUNGW-14,,,,,
 10188,GBR0004674,EDINW,Edinbane Windfarm,T_EDINW-1,EDINW-1,,,,,,,48W10000EDINW-1N,,,,,
 10189,,EWHLW,Ewe Hill II Wind Farm,T_EWHLW-1,EWHLW-1,,,,,,,48W00000EWHLW-1U,,,,,

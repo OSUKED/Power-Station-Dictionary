@@ -131,7 +131,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10155,GBR0004021,BABAW,Baillie Wind Farm,E_BABAW-1,BABAW-1,,,,,,,48W00000BABAW-13,,,,N00225W,4021
 10156,GBR0002546,BOWLW,Barrow Offshore Windfarm,T_BOWLW-1,BOWLW-1,barrow-united-kingdom-uk01,windfarm_en_1503_barrow,Q2016017,Barrow_Offshore_Wind_Farm,,,48W00000BOWLW-1K,,,,,
 10157,GBR0004525,BTUIW,Beinn An Tuirc 2 Windfarm,"E_BTUIW-2, E_BTUIW-3","BTUIW-2, BTUIW-3",,,,,,,48W00000BTUIW-2A,,,,,
-10158,GBR0003787,BEINW,Beinneun Wind Farm,T_BEINW-1,BEINW-1,,,,,,,48W00000BEINW-1G,,,,,
+10158,GBR0003787,BEINW,Beinneun Wind Farm,T_BEINW-1,BEINW-1,,,,,,,48W00000BEINW-1G,,,,"AA182, B1325","3787, 3619"
 10159,,BETHW,Beinn Tharsuinn,E_BETHW-1,BETHW-1,,,,,,,48W00000BETHW-1H,,,,,
 10160,GBR0004261,BRYBW,Berry Burn Windfarm,E_BRYBW-1,BRYBW-1,,,,,,,48W00000BRYBW-10,,,,,
 10161,GBR0004640,BHLAW,Bhlaraidh Windfarm 1,T_BHLAW-1,BHLAW-1,,,,,,,48W00000BHLAW-15,,,,,

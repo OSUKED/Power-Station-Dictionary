@@ -31,7 +31,7 @@ class SheetManager:
         elif 'GCP_SA_KEY' in os.environ.keys():
             creds = json.loads(os.getenv('GCP_SA_KEY'))
         else:
-            raise ValueError("No valid credentials (or filepath) was passed, GCP_SA_KEY: {'GCP_SA_KEY' in os.environ.keys()}")
+            raise ValueError(f"No valid credentials (or filepath) was passed, GCP_SA_KEY: {'GCP_SA_KEY' in os.environ.keys()}")
 
         self.client = gspread.authorize(creds)
 

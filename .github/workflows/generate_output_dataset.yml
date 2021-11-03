@@ -22,3 +22,15 @@ jobs:
       - name: Install dependencies
         run: |
           conda env update --file environment.yml --name base
+        
+      - name: Running pipeline
+        shell: bash
+        run: |
+          python powerdict/siteupdate.py
+      
+      - name: Saving changes to repo
+        uses: stefanzweifel/git-auto-commit-action@v4 
+      
+      - name: "step-log"
+        run: |
+          echo "[D] job-deploy: github.ref: ${{github.ref}}"

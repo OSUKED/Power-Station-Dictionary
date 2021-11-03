@@ -33,3 +33,7 @@ jobs:
       
       - name: Saving changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4 
+      
+      - name: "step-log"
+        run: |
+          echo "[D] job-deploy: github.ref: ${{github.ref}}"

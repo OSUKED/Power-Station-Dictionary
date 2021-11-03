@@ -4,6 +4,8 @@ on: [workflow_dispatch]
 jobs:
   miniconda:
     environment: id-update
+    env:
+        GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
     name: Miniconda ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:

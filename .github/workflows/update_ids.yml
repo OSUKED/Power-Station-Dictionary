@@ -1,5 +1,8 @@
 name: update_ids
-on: [workflow_dispatch]
+on: 
+  schedule:
+    - cron:  '00 * * * *'
+  workflow_dispatch:
 
 jobs:
   miniconda:

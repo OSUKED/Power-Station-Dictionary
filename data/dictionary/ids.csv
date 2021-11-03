@@ -123,7 +123,7 @@ osuked_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,windpowe
 10147,GBR0004331,ACHRW,AChruach Wind Farm,T_ACHRW-1,ACHRW-1,,,,,,,48W00000ACHRW-1O,,,,,
 10148,GBR0004332,AKGLW,Aikengall 2 Wind Farm Generation,"T_AKGLW-2, T_AKGLW-3","AKGLW-2, AKGLW-3",,,,,,,48W00000AKGLW-22,,,,,
 10149,,AIRSW,Airies Windfarm,E_AIRSW-1,AIRSW-1,,,,,,,,,,,,
-10150,,ASHWW,Andershaw Wind Farm,E_ASHWW-1,ASHWW-1,,,,,,,48W00000ASHWW-1Z,,,,,
+10150,,ASHWW,Andershaw Wind Farm,E_ASHWW-1,ASHWW-1,,windfarm_en_23094_andershaw,,,,,48W00000ASHWW-1Z,,,,EN00273,4110
 10151,,ANSUW,An Suidhe Windfarm,T_ANSUW-1,ANSUW-1,,,,,,,48W00000ANSUW-1E,,,,,
 10152,GBR0003258,ARCHW,Arecleoch Windfarm,T_ARCHW-1,ARCHW-1,,,,,,,48W10000ARCHW-1N,,,,,
 10153,,ASLVW,Assel Valley Wind Farm,E_ASLVW-1,ASLVW-1,,,,,,,,,,,,

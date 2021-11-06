@@ -28,6 +28,7 @@ jobs:
         shell: bash
         run: |
           python powerdict/siteupdate.py
+          mkdocs gh-deploy
       
       - name: Saving changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4 

@@ -187,7 +187,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10217,GBR0003202,KILBW,Kilbraur Windfarm,T_KILBW-1,KILBW-1,,,,,,,48W00000KILBW-1W,,,,,
 10218,,KLGLW,Kilgallioch Wind Farm,T_KLGLW-1,KLGLW-1,,,,,,,48W00000KLGLW-1S,,,,A0334,4386
 10219,GBR0002513,LNCSW,Lincs Offshore Wind Farm,"T_LNCSW-1, T_LNCSW-2, T_LNCSW-3","LNCSO-1, LNCSO-2, LNCSW-3",lincs-united-kingdom-uk13,windfarm_en_10526_lincs,Q6551320,Lincs_Wind_Farm,centricalincs,,"48W00000LNCSO-1R, 48W00000LNCSO-2P",,,,N00455W,2513
-10220,GBR0004123,LCLTW,Lochluichart Windfarm,T_LCLTW-1,LCLTW-1,,,,,,,48W00000LCLTW-1D,,,,,
+10220,GBR0004123,LCLTW,Lochluichart Windfarm,T_LCLTW-1,LCLTW-1,,,,,,,48W00000LCLTW-1D,,,,N00223W,4123
 10221,GBR0002511,LARYW,London Array Windfarm,"T_LARYW-1, T_LARYW-2, T_LARYW-3, T_LARYW-4","LARYO-1, LARYO-2, LARYO-3, LARYO-4",london-array-united-kingdom-uk14,windfarm_en_1574_london-array,Q914264,London_Array,london-array,,"48W00000LARYO-1Z, 48W00000LARYO-2X, 48W00000LARYO-3V, 48W00000LARYO-4T",,,,"N00447W, B0551","2511, 2507"
 10222,GBR0003260,MKHLW,Mark Hill Windfarm,T_MKHLW-1,MKHLW-1,,,,,,,48W00000MKHLW-1D,,,,,
 10223,GBR0004667,PSTAT002,Mid Hill Windfarm,2__PSTAT002,MDHLW-1,,,,,,,48W00000MDHLW-1P,,,,,

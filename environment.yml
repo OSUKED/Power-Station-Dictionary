@@ -24,7 +24,7 @@ dependencies:
       - -e .
       - nbdev
       - feautils
-      - git+https://github.com/AyrtonB/frictionless-py
+      - git+https://github.com/ayrtonb/frictionless-py.git@60789d30fe7729ed898a20d4dd50fe823381e325
       - mkdocs-material-extensions
       - mkdocstrings
       - configparser

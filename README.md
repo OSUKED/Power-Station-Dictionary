@@ -1,33 +1,49 @@
 # Power Station Dictionary
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/OSUKED/Power-Station-Dictionary/main?urlpath=lab) [![DOI](https://zenodo.org/badge/322407102.svg)](https://zenodo.org/badge/latestdoi/322407102) [![PyPI version](https://badge.fury.io/py/powerdict.svg)](https://badge.fury.io/py/powerdict)
+> The *Power Station Dictionary* is a [site](https://osuked.github.io/Power-Station-Dictionary/) that enables mapping between various power plant ids and automatically extracts data relating to those plants from Frictionless Data packages.
 
-<br>
-
-> A power station dictionary that enables mapping between various naming conventions and associated plant metadata
-
-### Work In Progress
-
-This library, website and ReadMe are all currently a work in progress and subject to potential large changes
-
-To Do:
-
-- [ ] Make the new powerdict CLI for rebuilding the website
-
-<br>
-
-Full documentation can be found [here](https://osuked.github.io/Power-Station-Dictionary/)
+N.b. This project is currently in active development.
 
 <br>
 <br>
 
-The core output of this project is a clean power plant dataset that includes relevant attributes such as location and capacity, as well as id mappings that can be used to connect them to other datasets. Currently the focus of this work are plants within the GB power system. The `powerdict` module provides a programmatic way in which to combine the raw datasets and apply any additional updates specified in the files contained within the three data directories:
+### Motivation
 
-- _raw_ - source datasets as csvs
-- _updates_ - JSON mappings from an dictionary_id to a new attribute value
-- _definitions_ - JSON specification of how to process the raw sources and what the output should look like
+Existing work into increasing the visibility of energy data has focused on improving the ability of humans to find datasets, which has historically been a key issue within a highly fragmented energy data landscape. Groups such as the Energy Data Taskforce have prompted a new wave of metadata standardisation and data cataloguing initiatives which have gone a long way to solving this issue, opening up new opportunities such as the creation of digital twins of the power grid. However, these new opportunities bring new challenges. To enable a digital twin of the energy system we need to be able to ["describe relationships between assets and datasets"](https://docs.google.com/document/d/1X8PIP4f0K2abKjyQiGJQaxdcflQ36GeATBfhJqFevxA), requiring two core extensions to our existing toolset:
 
-CI/CD is set-up so that any changes in this repository will trigger a reconstruction of the output dataset, additionally a new GitHub release will automatically trigger a new release on Zenodo and produce an updated DOI. The output dataset can be found [here](https://github.com/OSUKED/Power-Station-Dictionary/blob/main/data/output/power_stations.csv). As with projects such as the [Global Power Plant Database](https://github.com/wri/global-power-plant-database), `powerdict` provides a clear data lineage from the raw sources/updates to the output. Furthermore, integrating this with GitHub enables version control of the underlying datasets and updates/corrections.
+1. Field-level metadata that describes the contents of individual columns in a dataset
+2. "Mapping" datasets that are able to express the relationships between other datasets
+
+![Dictionary Diagram](img/dictionary_diagram.png)
+
+These additions enable us to move from improving the ability of humans to discover datasets to making it easier for machines to automatically find and extract relevant data - a need that will only increase as the number and size of datasets continues to grow. The benefits extend beyond our digital colleagues though - by pivoting data exploration to be about finding objects/assets, which then reveal the datasets (and attributes) they are linked to, we can create a more intuitive search experience. Similar to Google’s move from searching for ["Things not Strings"](https://blog.google/products/search/introducing-knowledge-graph-things-not/), the data dictionary lets us search for "Assets not Datasets".
+
+To illustrate the benefits of such a framework we are building a pilot dictionary focused on improving the discoverability, linkage, and automated extraction of data relating to power stations on the GB system. Power stations were chosen due to the high number of datasets they relate to, the wide range of ids used to describe them, and the current duplication in efforts to link them across industry and academia. We will then demonstrate how the dictionary can be used for analysis with two case studies: one researching the carbon intensity of individual generators by matching power output and carbon emission datasets, the second linking wholesale price and renewable subsidy data to help explain why wind subsidies have fallen below the average market price.
+
+<br>
+<br>
+
+### Dictionary Framework
+
+##### Dictionary Schema & Core Dataset
+
+The dictionary is composed of two files, a [csv containing ids](https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/shiro/data/dictionary/ids.csv) that relate to different power stations and a [json containing metadata](https://raw.githubusercontent.com/OSUKED/Power-Station-Dictionary/shiro/data/dictionary/datapackage.json) written as an extension to the [Frictionless Data Tabular schema](https://specs.frictionlessdata.io/table-schema/). "Frictionless Data (FD) is an open-source toolkit that brings simplicity to the data experience" through an open-source standard that defines a specification for describing metadata relating to different types of datasets. Once a dataset has been described using the specification it then becomes incredibly easy to load it using different programming languages as well as export it into a wide range of different formats. What makes FD different to most other specifications is that they provide a comprehensive way to describe individual columns within a dataset, including their formats and constraints.
+
+The majority of the schema is the same as the Tabular Schema published by FD. The core change is the use of `foreignKeys` to link to external datasets that use ids specified in the dictionary, a separate `attributes` entry then describes the columns which should be extracted from the dataset. The `hierarchy` attribute for each column then describes whether the ids in that column have a `same-as` or `part-of` relationship with the asset they’re linked to. A further `url_format` entry then provides a way to convert specific IDs into urls (e.g. with wikidata ids).
+
+The datasets linked to the dictionary must be described using the FD tabular schema, however, the metadata does not need to be stored adjacent to the raw source and could be generated by a third party rather than the original data provider. Data-providers from within the energy sector already using this format include [Public Utility Data Library](https://catalyst.coop/pudl/) and [Open Power System Data](https://open-power-system-data.org/). As well as being able to link into the dictionary by publishing your datasets using this standard you can make use of a [wider ecosystem of data tools](https://frictionlessdata.io/software/).
+
+<br>
+
+##### Building the Knowledge Graph/Website
+
+Once the dictionary has been created a Python library then uses it to programmatically identify the different assets it contains, and then extract data relating to those assets from the datasets linked to the dictionary. The generation steps are as follows:
+
+1. Each row of the dictionary is iterated over with the associated ids extracted for each asset
+2. The datasets linked to the dictionary which contain an id relating to the current asset are identified
+3. The relevant attributes for each asset which are contained in the linked datasets are then extracted
+4. For each asset the outputted linked ids, datasets, and attributes are then used to populate a markdown template which forms the basis of a webpage within the dictionary site
+
 
 <br>
 <br>

@@ -1,5 +1,9 @@
 name: generate_output_dataset
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+  push:
+    paths:
+      - data/dictionary/**
 
 jobs:
   build-linux:

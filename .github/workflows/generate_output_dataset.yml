@@ -5,7 +5,7 @@ on:
     branches:
       - shiro
     paths:
-      - data/**
+      - 'data/dictionary/**'
 
 jobs:
   build-linux:

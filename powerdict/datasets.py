@@ -119,20 +119,21 @@ def update_mkdocs_config(
     return
 
 def populate_dataset_pages(
-    datasets_dir: str,
-    dataset_template_fp: str,
-    mkdocs_config_fp: str='../mkdocs.yml'
+    datasets_dir: str='data/attribute_sources',
+    dataset_template_fp: str='templates/dataset_page.md',
+    mkdocs_config_fp: str='mkdocs.yml',
+    dataset_docs_dir: str='docs/datasets'
 ):
     dataset_to_name = {}
     valid_datasets = identify_datapackage_datasets(datasets_dir)
 
     for dataset in tqdm(valid_datasets):
-        datapackage_json_fp = f'../data/attribute_sources/{dataset}/datapackage.json'
+        datapackage_json_fp = f'{datasets_dir}/{dataset}/datapackage.json'
         package = Package(datapackage_json_fp, profile='tabular-data-package')
 
         package_elements = extract_package_elements(package)
         dataset_to_name[dataset] = package_elements['title'].strip()
-        save_fp = f'../docs/datasets/{package["name"]}.md'
+        save_fp = f'{dataset_docs_dir}/{package["name"]}.md'
         dictionary.populate_and_save_template(dataset_template_fp, save_fp, package_elements=package_elements)
 
     update_mkdocs_config(valid_datasets, dataset_to_name, mkdocs_config_fp)
@@ -141,9 +142,12 @@ def populate_dataset_pages(
 
 # Cell
 def move_attribute_source_data_to_docs(
-    src_path: str='../data/attribute_sources/',
-    trg_path: str='../docs/attribute_sources/'
+    src_path: str='data/attribute_sources/',
+    trg_path: str='docs/attribute_sources/'
 ):
+    if not os.path.exists(trg_path):
+        os.mkdir(trg_path)
+
     shutil.rmtree(trg_path)
     shutil.copytree(src_path, trg_path)
 

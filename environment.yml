@@ -12,7 +12,7 @@ dependencies:
   - html5lib
   - beautifulsoup4
   - seaborn
-  - mkdocs
+  - mkdocs==1.2.1
   - mkdocs-material
   - twine
   - typer

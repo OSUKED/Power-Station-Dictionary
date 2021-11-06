@@ -260,7 +260,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10299,,,Dorenell,"T_DOREW-1, T_DOREW-2","DOREW-1, DOREW-2",,,,,,,,AAA-DOR-182,,,EN00299,"4244, 5051"
 10300,,,East Anglia,"T_EAAO-1, T_EAAO-2","EAAO-1, EAAO-2",east-anglia-one-united-kingdom-uk64,windfarm_en_16790_east,Q19364853,East_Anglia_Array,east-anglia-one-offshore-wind-farm,,"48W000000EAAO-1R, 48W000000EAAO-2P","CAA-EAS-166, CAA-EAS-167, CAA-EAS-168",,,"A0250, B0263, B0585","2484, 6483, 2525, 2470"
 10301,,,Hornsea,"T_HOWAO-1, T_HOWAO-2, T_HOWAO-3","HOWAO-1, HOWAO-2, HOWAO-3","hornsea-project-one-united-kingdom-uk81, hornsea-project-two-united-kingdom-uk1u, hornsea-project-three-united-kingdom-uk1k, hornsea-project-four-united-kingdom-uk1j","windfarm_en_16677_hornsea-project-one-heron-wind, windfarm_en_16685_hornsea-project-three",Q23013079,Hornsea_Wind_Farm,hornsea-project-one-north-sea,,"48W00000HOWAO-1M, 48W00000HOWAO-2K, 48W00000HOWAO-3I","AR2-HRN-106, AR2-HRN-206, AR2-HRN-306, INV-HOR-001, INV-HOR-002, INV-HOR-003",,,"A0249, B0850, B0263","2502, 2472, 2525"
-10302,,,Kype Muir,T_KPMRW-1,KPMRW-1,,,,,,,,AAA-BAN-189,,,,
+10302,,,Kype Muir,T_KPMRW-1,KPMRW-1,,,,,,,,AAA-BAN-189,,,AA451,4643
 10303,,,Middle Muir,T_MIDMW-1,MIDMW-1,,,,,,,48W00000MIDMW-19,AAA-BAN-192,,,,
 10304,,,Moray East,"T_MOWEO-1, T_MOWEO-2, T_MOWEO-3","MOWEO-1, MOWEO-2, MOWEO-3",moray-east-united-kingdom-uk40,windfarm_en_16772_moray-east,,,moray-offshore-windfarm-east-scotland,,"48W000000MOWEO11, 48W00000MOWEO-2Y, 48W00000MOWEO-3W","AR2-MRY-107, AR2-MRY-207, AR2-MRY-307",,,C0476,2537
 10305,,,Pogbie,T_PGBIW-1,PGBIW-1,,,,,,,,,,,,

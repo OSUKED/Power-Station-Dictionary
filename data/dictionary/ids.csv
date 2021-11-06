@@ -206,7 +206,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10239,GBR0002512,SHRSW,Sheringham Shoals Windfarm ,"E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2","SHRSW-1, SHRSO-1, SHRSW-2, SHRSO-2","sheringham-shoal-united-kingdom-uk27, sheringham-shoal-extension-united-kingdom-uk4h","windfarm_en_7394_sheringham-shoal, windfarm_en_30017_sheringham-shoal-extension",Q7495028,Sheringham_Shoal_Offshore_Wind_Farm,sheringham-shoal,,"48W00000SHRSO-1Y, 48W00000SHRSO-2W",,,,N00453W,2512
 10240,GBR0004625,STRNW,Strathy North Wind Farm 1,T_STRNW-1,STRNW-1,,,,,,,48W00000STRNW-1H,,,,,
 10242,GBR0002499,THNT,Thanet Offshore Windfarm,"T_THNTO-1, T_THNTO-2, E_THNTW-2, E_THNTW-1","THNTO-1, THNTO-2, THNTW-2, THNTW-1",,,,,,,"48W00000THNTW-2B, 48W00000THNTW-1D",,,,N00452W,"6299, 2499"
-10243,,TDBNW,Toddleburn Wind Farm,T_TDBNW-1,TDBNW-1,,,,,,,48W00000TDBNW-1W,,,,,
+10243,,TDBNW,Toddleburn Wind Farm,T_TDBNW-1,TDBNW-1,,,,,,,48W00000TDBNW-1W,,,,N00251W,
 10244,,TULWW,Tullo,"E_TULWW-1, E_TULWW-2","TULWW-1, TULWW-2",,,,,,,"48W00000TULWW-1U, 48W00000TULWW-2S",,,,,
 10246,"GBR0002500, GBR0002506",WLNYW1,Walney Offshore Windfarm,"T_WLNYW-1, E_WLNYW-2, T_WLNYO-3, T_WLNYO-4, T_WLNYO-2","WLNYW-1, WLNYW-2, WLNYO-3, WLNYO-4, WLNYO-2",,,,,,,"48W00000WLNYW-1A, 48W00000WLNYO-31, 48W00000WLNYO-4-, 48W00000WLNYO-23","INV-WAL-001, INV-WAL-002",,,"A0374, N00550W, AA183","2533, 2500, 2506"
 10248,GBR0002545,WTMSO,Westermost Rough Windfarm,"T_WTMSO-1, T_WTMSD-1","WTMSO-1, WTMSD-1",westermost-rough-united-kingdom-uk34,windfarm_en_21826_westermost-rough,Q7987427,Westermost_Rough_Wind_Farm,westermost-rough-offshore-wind-farm-yorkshire,,48W00000WTMSO-1M,,,,N00556W,2545

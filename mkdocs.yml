@@ -283,7 +283,7 @@ nav:
   - Wylfa: objects/10139.md
   - 10063: objects/10063.md
 - Use Cases:
-  - 05-carbon-intensity.md
+  - use-cases/carbon-intensity.md
 plugins:
 - search
 repo_name: Power-Station-Dictionary

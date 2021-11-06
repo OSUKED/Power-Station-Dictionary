@@ -196,7 +196,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10226,GBR0004517,MINSW,Minsca Wind Farm,E_MINSW-1,MINSW-1,,,,,,,48W00000MINSW-1U,,,,,
 10227,GBR0003647,MOYE,Moy Windfarm,"E_MOYE-1, E_MOYEW-1",MOYEW-1,,,,,,,,,,,,
 10229,GBR0002509,OMNDW,Ormonde Windfarm,"E_OMNDW-1, T_OMNDW-1, E_OMNDD-1","OMNDW-1, OMNDO-1, OMNDD-1",ormonde-united-kingdom-uk17,windfarm_en_1629_ormonde,Q763941,Ormonde_Wind_Farm,ormonde-offshore-wind-farm,,48W00000OMNDO-1J,,,,N00435W,2509
-10231,GBR0004687,PPGEN002,Pauls Hill Windfarm,2__PPGEN002,PAUHW-1,,,,,,,,,,,,
+10231,GBR0004687,PPGEN002,Pauls Hill Windfarm,2__PPGEN002,PAUHW-1,,,,,,,,,,,,6407
 10232,GBR0004595,PNYCW,Pen y Cymoedd Wind Farm,T_PNYCW-1,PNYCW-1,,,,,,,,,,,A0232,4595
 10233,GBR0002515,RCBKO,Race Bank Offshore Wind Farm,"T_RCBKO-1, T_RCBKO-2","RCBKO-1, RCBKO-2","race-bank-united-kingdom-uk18, race-bank-extension-united-kingdom-uk4f","windfarm_en_12071_race-bank, windfarm_en_30016_race-bank-extension",Q3364824,Race_Bank_wind_farm,race-bank-wind-farm,,"48W00000RCBKO-1S, 48W00000RCBKO-2Q",,,,N00463W,"2515, 6501"
 10234,,RMPNO,Rampion Offshore Windfarm,"T_RMPNO-1, T_RMPNO-2","RMPNO-1, RMPNO-2",rampion-united-kingdom-uk36,windfarm_en_16761_rampion,Q7290043,Rampion_Wind_Farm,rampion-offshore-wind-project-english-channel,,"48W00000RMPNO-17, 48W00000RMPNO-25",,,,A0251,2520

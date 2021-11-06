@@ -237,7 +237,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10276,,CHICK,,E_CHICK-1,,,,,,,,,,,,,
 10277,,CRGTW,Craig 2,E_CRGTW-1,,,,,,,,,,,,,
 10278,,CRSSB,Carnegie Road,E_CRSSB-1,,,,,,,,,,,,,
-10279,,LCHWT,Letchworth,E_LCHWT-1,,,,,,,,,,,,,
+10279,,LCHWT,Letchworth,E_LCHWT-1,,,,,,,,,,,,,8190
 10280,,LSTWY,,E_LSTWY-1,,,,,,,,,,,,,
 10281,,RDFRB,,E_RDFRB-1,,,,,,,,,,,,,
 10282,,RDFRD,,E_RDFRD-1,,,,,,,,,,,,,

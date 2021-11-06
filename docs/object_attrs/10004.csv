@@ -23,6 +23,7 @@ Longitude,GBR1000112,-0.9981,https://raw.githubusercontent.com/OSUKED/Dictionary
 Owner,GBR0000174,Drax Power,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Owner,GBR1000112,Drax Power Ltd,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 PLATTS-WEPP ID,GBR0000174,1023594.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
+PLATTS-WEPP ID,GBR1000112,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Primary Fuel Type,GBR0000174,Coal,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Primary Fuel Type,GBR1000112,Gas,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,
 Secondary Fuel Type,GBR0000174,Biomass,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,,

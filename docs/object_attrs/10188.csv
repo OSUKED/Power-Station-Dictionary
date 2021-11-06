@@ -23,3 +23,19 @@ Capture Price (£/MWh),EDINW-1,45.357534577910776,https://raw.githubusercontent.
 Capture Price (£/MWh),EDINW-1,56.918906875994416,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),EDINW-1,41.89007592778874,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),EDINW-1,34.95041850980964,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Operator (or Applicant),4674,Vattenfall,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Site Name,4674,Edinbane Wind Farm,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Technology Type,4674,Wind Onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Installed Capacity (MWelec),4674,41.4,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Turbine Capacity (MW),4674,2.3,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+No. of Turbines,4674,18.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Development Status,4674,Operational,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Address,4674,"Cruachan Brinn Mhicaskill, Edinbane, Portree, Highlands",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+County,4674,Highland,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Region,4674,Scotland,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Country,4674,Scotland,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Post Code,4674,IV51 9PW,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+X-coordinate,4674,134353,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Y-coordinate,4674,850769,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Planning Authority,4674,Highland Council,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Planning Application Reference,4674,02/00089/FULSL,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,

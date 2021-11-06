@@ -2,8 +2,10 @@ name: generate_output_dataset
 on: 
   workflow_dispatch:
   push:
+    branches:
+      - shiro
     paths:
-      - data/dictionary/**
+      - data/**
 
 jobs:
   build-linux:

@@ -29,7 +29,7 @@ def rebuild_site_docs(
     datasets.populate_dataset_pages(datasets_dir, dataset_template_fp, mkdocs_config_fp)
     datasets.move_attribute_source_data_to_docs(src_path, trg_path)
 
-    return
+    return site_data
 
 # Cell
 if __name__ == '__main__' and '__file__' in globals():

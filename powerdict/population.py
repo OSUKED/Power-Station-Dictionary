@@ -351,6 +351,8 @@ def construct_downloads_md_str(object_id):
 # Cell
 construct_contributors_str = (lambda object_id: f"""### Contribute
 
+We need your help! If you know of any IDs associated with this power plant which are currently missing then please add them using the Google form which will open with the button below. If you are adding an ID type which is already known you need to only complete the first page of the form, if the ID type is not currently in the dictionary you will need to fill the whole form out\n\nThank You!
+
 [Link a new ID](https://docs.google.com/forms/d/e/1FAIpQLSc5jRsQ7NgiLLXbwo9PUdwTQyuqbRwThltG56-o6NVSe7E_nw/viewform?usp=pp_url&entry.251912331={object_id}){{ .md-button }}""")
 
 # Cell
@@ -402,8 +404,8 @@ def get_object_ids_to_names(
     site_data: dict,
     datapackage_json_fp,
     use_name_as_suffix: bool=False,
-    template_fp: str='../templates/objects_page.md',
-    docs_fp: str='../docs'
+    object_template_fp: str='templates/objects_page.md',
+    docs_fp: str='docs'
 ):
     object_ids_to_names = {}
     df_all_sites_combined_attrs = pd.DataFrame()
@@ -432,7 +434,7 @@ def get_object_ids_to_names(
                 save_fp = f'{docs_fp}/objects/{dictionary_id}.md'
 
             render_kwargs = {'site_ids_md_string': single_site_data_to_md_str(single_site_data, dictionary_id, datapackage_json_fp)}
-            populate_and_save_template(template_fp, save_fp, render_kwargs)
+            populate_and_save_template(object_template_fp, save_fp, render_kwargs)
 
     object_ids_to_names = clean_object_ids_to_names(object_ids_to_names)
     df_all_sites_combined_attrs.to_csv(f'{docs_fp}/object_attrs/dictionary_attributes.csv', index=False)
@@ -442,15 +444,17 @@ def get_object_ids_to_names(
 # Cell
 def construct_object_docs(
     datapackage_fp,
-    site_data: str='../data/intermediate/site_data.json',
-    template_fp: str='../templates/mkdocs.yml',
-    save_fp: str=f'../mkdocs.yml'
+    site_data: str='data/intermediate/site_data.json',
+    mkdocs_template_fp: str='templates/mkdocs.yml',
+    object_template_fp: str='templates/objects_page.md',
+    save_fp: str='mkdocs.yml',
+    docs_fp: str='docs'
 ):
     if isinstance(site_data, str):
         with open(site_data, 'r') as f:
             site_data = json.load(f)
 
-    object_ids_to_names = get_object_ids_to_names(site_data, datapackage_fp)
+    object_ids_to_names = get_object_ids_to_names(site_data, datapackage_fp, object_template_fp=object_template_fp, docs_fp=docs_fp)
 
     render_kwargs = {'object_ids_to_names': object_ids_to_names}
-    populate_and_save_template(template_fp, save_fp, render_kwargs)
+    populate_and_save_template(mkdocs_template_fp, save_fp, render_kwargs)

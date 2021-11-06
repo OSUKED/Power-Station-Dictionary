@@ -216,15 +216,16 @@ def clean_md_files_img_fps(md_fp):
     return
 
 # Cell
-def convert_and_clean_nb_to_md(nbs_dir, docs_nb_img_dir, docs_dir):
+def convert_and_clean_nb_to_md(nbs_dir, docs_nb_img_dir, docs_dir, nbs_filter=['05-carbon-intensity.ipynb']):
     nb_files = [f for f in os.listdir(nbs_dir) if f[-6:]=='.ipynb' and f!='00-documentation.ipynb']
 
     for nb_file in tqdm(nb_files):
-        convert_nb_to_md(nb_file, nbs_dir, docs_nb_img_dir, docs_dir)
+        if nb_file in nbs_filter:
+            convert_nb_to_md(nb_file, nbs_dir, docs_nb_img_dir, docs_dir)
 
-        md_fp = docs_dir + '/' + nb_file.replace('ipynb', 'md')
+            md_fp = docs_dir + '/' + nb_file.replace('ipynb', 'md')
 
-        clean_md_file_tables(md_fp)
-        clean_progress_bars(md_fp)
-        specify_nb_in_img_fp(md_fp, img_dir=docs_nb_img_dir)
-        clean_md_files_img_fps(md_fp)
+            clean_md_file_tables(md_fp)
+            clean_progress_bars(md_fp)
+            specify_nb_in_img_fp(md_fp, img_dir=docs_nb_img_dir)
+            clean_md_files_img_fps(md_fp)

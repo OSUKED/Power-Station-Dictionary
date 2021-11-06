@@ -1,5 +1,7 @@
 # Carbon Intensity
 
+
+
 ```python
 import numpy as np
 import pandas as pd
@@ -12,7 +14,7 @@ import matplotlib.pyplot as plt
 
 ### Data Preparation
 
-We'll start by loading in the attribute data
+We'll start by loading the dictionary’s attribute data. This data has been automatically extracted from other datasets which have been linked to assets in the dictionary.
 
 ```python
 attributes_fp = 'https://osuked.github.io/Power-Station-Dictionary/object_attrs/dictionary_attributes.csv'
@@ -22,13 +24,18 @@ df_attrs = pd.read_csv(attributes_fp)
 df_attrs.head()
 ```
 
-| attribute           | id     | value      | datapackage                                       | id_type       | year | dictionary_id | financial_year |
-| :------------------ | :----- | :--------- | :------------------------------------------------ | :------------ | ---: | ------------: | -------------: | ------ |
-| Fuel Type           | MARK-1 | BIOMASS    | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    |  nan |         10000 |            nan |
-| Longitude           | 10000  | -3.603516  | https://raw.githubusercontent.com/OSUKED/Dicti... | dictionary_id |  nan |         10000 |            nan |
-| Latitude            | 10000  | 57.480403  | https://raw.githubusercontent.com/OSUKED/Dicti... | dictionary_id |  nan |         10000 |            nan |
-| Annual Output (MWh) | MARK-1 | 355704.933 | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    | 2016 |         10000 |            nan |
-| Annual Output (MWh) | MARK-1 | 387311.364 | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    | 2017 |         10000 |            nan | </div> |
+
+
+
+| attribute           | id     | value      | datapackage                                       | id_type       |   year |   dictionary_id |   financial_year |
+|:--------------------|:-------|:-----------|:--------------------------------------------------|:--------------|-------:|----------------:|-----------------:|
+| Fuel Type           | MARK-1 | BIOMASS    | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    |    nan |           10000 |              nan |
+| Longitude           | 10000  | -3.603516  | https://raw.githubusercontent.com/OSUKED/Dicti... | dictionary_id |    nan |           10000 |              nan |
+| Latitude            | 10000  | 57.480403  | https://raw.githubusercontent.com/OSUKED/Dicti... | dictionary_id |    nan |           10000 |              nan |
+| Annual Output (MWh) | MARK-1 | 355704.933 | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    |   2016 |           10000 |              nan |
+| Annual Output (MWh) | MARK-1 | 387311.364 | https://raw.githubusercontent.com/OSUKED/Dicti... | ngc_bmu_id    |   2017 |           10000 |              nan |</div>
+
+
 
 <br>
 
@@ -38,7 +45,7 @@ We'll then extract the CO2 emissions data
 def hide_spines(ax, positions=["top", "right"]):
     """
     Pass a matplotlib axis and list of positions with spines to be removed
-
+    
     args:
         ax:          Matplotlib axis object
         positions:   Python list e.g. ['top', 'bottom']
@@ -72,7 +79,9 @@ ax.set_xlabel(co2_attr)
 hide_spines(ax)
 ```
 
+
 ![png](img/nbs/05-carbon-intensity_cell_6_output_0.png)
+
 
 <br>
 
@@ -101,7 +110,9 @@ ax.set_xlabel(output_attr)
 hide_spines(ax)
 ```
 
+
 ![png](img/nbs/05-carbon-intensity_cell_8_output_0.png)
+
 
 <br>
 
@@ -124,6 +135,9 @@ s_site_fuel_type = (
 s_site_fuel_type.value_counts()
 ```
 
+
+
+
     WIND                   112
     CCGT                    34
     NPSHYD                  13
@@ -138,6 +152,8 @@ s_site_fuel_type.value_counts()
     BIOMASS, OCGT, COAL      1
     OTHER                    1
     Name: value, dtype: int64
+
+
 
 <br>
 
@@ -154,13 +170,23 @@ sites_with_both_datasets = sites_with_co2_data.intersection(sites_with_output_da
 sites_with_co2_data.size, sites_with_output_data.size, sites_with_both_datasets.size
 ```
 
+
+
+
     (978, 825, 239)
+
+
 
 ```python
 sites_with_both_datasets.get_level_values(0).unique().size
 ```
 
+
+
+
     52
+
+
 
 <br>
 
@@ -172,19 +198,24 @@ s_site_carbon_intensity = 1000 * s_site_co2.loc[sites_with_both_datasets]/s_site
 s_site_carbon_intensity
 ```
 
+
+
+
     dictionary_id  year
     10002          2016     856.556931
                    2017     849.483513
                    2018     933.703289
                    2019     918.491921
                    2020    3368.789243
-                              ...
+                              ...     
     10104          2016    1104.226297
                    2017    1110.856183
                    2018    1103.122391
                    2019    1125.497186
                    2020    1070.007876
     Name: value, Length: 239, dtype: float64
+
+
 
 <br>
 
@@ -201,7 +232,12 @@ sites_with_relevant_fuel_types = s_site_fuel_type_mod[s_site_fuel_type_mod.isin(
 sites_with_relevant_fuel_types.size
 ```
 
+
+
+
     47
+
+
 
 <br>
 
@@ -214,19 +250,24 @@ s_site_focus_fuel_types = pd.Series(s_site_focus_carbon_intensity.index.get_leve
 s_site_focus_carbon_intensity
 ```
 
+
+
+
     dictionary_id  year
     10004          2016     309.556085
                    2017     306.054191
                    2018     226.265042
                    2019      50.052577
                    2020      94.602010
-                              ...
+                              ...     
     10104          2016    1104.226297
                    2017    1110.856183
                    2018    1103.122391
                    2019    1125.497186
                    2020    1070.007876
     Name: value, Length: 215, dtype: float64
+
+
 
 <br>
 
@@ -262,13 +303,20 @@ ax.set_xlabel('Annual Output (TWh)')
 ax.set_ylabel('Annual Carbon Intensity (gCO2/kWh)')
 ```
 
+
+
+
     Text(0, 0.5, 'Annual Carbon Intensity (gCO2/kWh)')
+
+
+
 
 ![png](img/nbs/05-carbon-intensity_cell_23_output_1.png)
 
+
 <br>
 
-And then create a histogram for only the OCGT and CCGT plants
+And then create a histogram for only the OCGT and CCGT plants 
 
 ```python
 ccgt_sites = s_site_fuel_type.index[s_site_fuel_type=='CCGT'].intersection(s_site_co2.index.get_level_values(0)).intersection(s_site_output.index.get_level_values(0))
@@ -291,6 +339,13 @@ hide_spines(ax)
 ax.legend(frameon=False)
 ```
 
+
+
+
     <matplotlib.legend.Legend at 0x1e04c6a7b20>
 
+
+
+
 ![png](img/nbs/05-carbon-intensity_cell_25_output_1.png)
+

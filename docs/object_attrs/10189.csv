@@ -10,3 +10,17 @@ Annual Output (MWh),EWHLW-1,82048.669,https://raw.githubusercontent.com/OSUKED/D
 Annual Output (MWh),EWHLW-1,76159.853,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),EWHLW-1,40.63149774280063,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),EWHLW-1,32.845049203089246,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Operator (or Applicant),3627,Scottish Power Renewables,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Site Name,3627,Ewe Hill (extension),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Technology Type,3627,Wind Onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Installed Capacity (MWelec),3627,36.8,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Turbine Capacity (MW),3627,2.3,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+No. of Turbines,3627,16.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Development Status,3627,Operational,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Address,3627,Near Langham and Lockerbie,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+County,3627,Dumfries and Galloway,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Region,3627,Scotland,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Country,3627,Scotland,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+X-coordinate,3627,315000,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Y-coordinate,3627,580000,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
+Planning Authority,3627,Scottish Government (S36),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,

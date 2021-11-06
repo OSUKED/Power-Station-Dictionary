@@ -179,7 +179,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10209,GBR0004225,HBHDW,Harburnhead Wind Farm,E_HBHDW-1,HBHDW-1,,,,,,,48W00000HBHDW-18,,,,,
 10210,,HRHLW,Hare Hill Extension Wind Farm,E_HRHLW-1,HRHLW-1,,,,,,,,,,,,
 10211,GBR0004119,HRSTW,Harestanes Windfarm,T_HRSTW-1,HRSTW-1,,,,,,,48W00000HRSTW-19,,,,N00099W,4119
-10212,,HLGLW,Hill of Glaschyle Windfarm,E_HLGLW-1,HLGLW-1,,,,,,,48W00000HLGLW-1F,,,,,
+10212,,HLGLW,Hill of Glaschyle Windfarm,E_HLGLW-1,HLGLW-1,,,,,,,48W00000HLGLW-1F,,,,B0420,
 10213,GBR0004014,HLTWW,Hill of Towie Windfarm ,E_HLTWW-1,HLTWW-1,,,,,,,48W00000HLTWW-1U,,,,,
 10214,GBR0002544,HMGTO,Humber Offshore Wind Farm,"T_HMGTO-1, T_HMGTO-2","HMGTO-1, HMGTO-2",humber-gateway-united-kingdom-uk10,windfarm_en_12070_humber-gateway,Q15226770,Humber_Gateway_Wind_Farm,humber-gateway-offshore-wind-farm,,,,,,N00448W,2544
 10215,,HYWDW,Hywind Generator 1,E_HYWDW-1,HYWDW-1,hywind-scotland-pilot-park-united-kingdom-uk76,windfarm_en_16758_hywind-scotland-pilot-park,Q6989526,Hywind_Scotland,hywind-pilot-park-aberdeenshire,,48W00000HYWDW-1G,,,,,

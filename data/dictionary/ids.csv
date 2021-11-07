@@ -121,11 +121,11 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10145,GBR1000152,FFES,Ffestiniog,"T_FFES-1, T_FFES-2, T_FFES-3, T_FFES-4","FFES-1, FFES-2, FFES-3, FFES-4",,,,,,,"48W000000FFES-1S, 48W000000FFES-2Q, 48W000000FFES-3O, 48W000000FFES-4M",,H112,,,
 10146,GBR2000657,FOYE,Foyers G,"T_FOYE-1, T_FOYE-2","FOYE-1, FOYE-2",,,,,,,"48W000000FOYE-14, 48W000000FOYE-22",,H144,,,
 10147,GBR0004331,ACHRW,AChruach Wind Farm,T_ACHRW-1,ACHRW-1,,,,,,,48W00000ACHRW-1O,,,,,
-10148,GBR0004332,AKGLW,Aikengall 2 Wind Farm Generation,"T_AKGLW-2, T_AKGLW-3","AKGLW-2, AKGLW-3",,,,,,,48W00000AKGLW-22,,,,,
-10149,,AIRSW,Airies Windfarm,E_AIRSW-1,AIRSW-1,,,,,,,,,,,,
+10148,GBR0004332,AKGLW,Aikengall 2 Wind Farm Generation,"T_AKGLW-2, T_AKGLW-3","AKGLW-2, AKGLW-3",,,,,,,48W00000AKGLW-22,,,,,7015
+10149,,AIRSW,Airies Windfarm,E_AIRSW-1,AIRSW-1,,,,,,,,,,,B0333,4462
 10150,,ASHWW,Andershaw Wind Farm,E_ASHWW-1,ASHWW-1,,windfarm_en_23094_andershaw,,,,,48W00000ASHWW-1Z,,,,EN00273,4110
-10151,,ANSUW,An Suidhe Windfarm,T_ANSUW-1,ANSUW-1,,,,,,,48W00000ANSUW-1E,,,,,
-10152,GBR0003258,ARCHW,Arecleoch Windfarm,T_ARCHW-1,ARCHW-1,,,,,,,48W10000ARCHW-1N,,,,,
+10151,,ANSUW,An Suidhe Windfarm,T_ANSUW-1,ANSUW-1,,,,,,,48W00000ANSUW-1E,,,,S0005W2,3298
+10152,GBR0003258,ARCHW,Arecleoch Windfarm,T_ARCHW-1,ARCHW-1,,,,,,,48W10000ARCHW-1N,,,,N00366W,3258
 10153,,ASLVW,Assel Valley Wind Farm,E_ASLVW-1,ASLVW-1,,,,,,,,,,,,
 10154,,ABRTW,Auchrobert Wind Farm,E_ABRTW-1,ABRTW-1,,,,,,,48W00000ABRTW-1Z,,,,,
 10155,GBR0004021,BABAW,Baillie Wind Farm,E_BABAW-1,BABAW-1,,,,,,,48W00000BABAW-13,,,,N00225W,4021
@@ -246,14 +246,14 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10285,,TDRVE,,E_TDRVE-1,,,,,,,,,,,,,
 10286,,TRFPK,,E_TRFPK-1,,,,,,,,,,,,,
 10287,,WTRLN,,E_WTRLN-1,,,,,,,,,,,,,
-10288,,,Achlachan,C__PSMAR001,ACHLW-1,,,,,,,,AAA-ACH-183,,,,
+10288,,,Achlachan,C__PSMAR001,ACHLW-1,,,,,,,,AAA-ACH-183,,,C1202,4330
 10289,,,Coire Na Cloiche,E_CNCLW-1,CNCLW-1,,,,,,,,AAA-COI-196,,,,
 10290,,,Kincardine,E_KINCW-1,KINCW-1,"kincardine---phase-1-united-kingdom-uk2h, kincardine---phase-2-united-kingdom-uk4n, kincardine---dolphyn---2-mw-demo-united-kingdom-uk4u",windfarm_en_17376_kincardine-offshore-windfarm,,,,,,,,,,
 10291,,,Rosehall,E_RSHLW-1,RSHLW-1,,,,,,,,,,,,
 10292,,,Tullymurdoch,E_TLYMW-1,TLYMW-1,,,,,,,48W00000TLYMW-1S,,,,,
 10293,,,Halsary,T_HALSW-1,,,,,,,,,,,,,
-10294,,,Aberdeen Bay,T_ABRBO-1,ABRBO-1,aberdeen-(eowdc)-united-kingdom-uk47,windfarm_en_16769_eowdc,Q17509465,European_Offshore_Wind_Deployment_Centre,european-offshore-wind-deployment-centre-aberdeen,,48W00000ABRBO-19,,,,,
-10295,,,Afton,T_AFTOW-1,AFTOW-1,,,,,,,,,,,,
+10294,,,Aberdeen Bay,T_ABRBO-1,ABRBO-1,aberdeen-(eowdc)-united-kingdom-uk47,windfarm_en_16769_eowdc,Q17509465,European_Offshore_Wind_Deployment_Centre,european-offshore-wind-deployment-centre-aberdeen,,48W00000ABRBO-19,,,,A0440,2505
+10295,,,Afton,T_AFTOW-1,AFTOW-1,,,,,,,,,,,N00302W,4262
 10296,,,Bad a Cheo,T_BDCHW-1,BDCHW-1,,,,,,,,AAA-BAD-185,,,,
 10297,,,Beatrice,"T_BEATO-1, T_BEATO-2, T_BEATO-3, T_BEATO-4","BEATO-1, BEATO-2, BEATO-3, BEATO-4","united-kingdom/beatrice-demonstration-united-kingdom-uk46, united-kingdom/beatrice-united-kingdom-uk53","windfarm_en_10664_beatrice-demonstration, windfarm_en_12051_beatrice",Q4877211,Beatrice_Wind_Farm,beatrice-offshore-wind-farm,,"48W00000BEATO-1T, 48W00000BEATO-2R, 48W00000BEATO-3P, 48W00000BEATO-4N","INV-BEA-001, INV-BEA-002",,,A0275,2521
 10298,,,Crossdykes,"T_CRDEW-1, T_CRDEW-2","CRDEW-1, CRDEW-2",,,,,,,,,,,,

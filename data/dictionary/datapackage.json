@@ -274,6 +274,16 @@
             }
           },
           {
+            "fields": "ngc_bmu_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json",
+              "resource": "load-factors",
+              "fields": "ngc_bmu_id",
+              "attributes": ["load_factor"],
+              "alt_indexes": ["year"]
+            }
+          },
+          {
             "fields": "jrc_id",
             "reference": {
               "package": "https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json",

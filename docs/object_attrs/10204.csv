@@ -55,3 +55,15 @@ Capture Price (£/MWh),GNFSW-1,40.777795042937,https://raw.githubusercontent.com
 Capture Price (£/MWh),GNFSW-2,40.86125657706168,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),GNFSW-1,30.77983254639883,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),GNFSW-2,30.803539483651402,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,GNFSW-1,0.32470021243238295,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,GNFSW-2,0.3458936308957089,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,GNFSW-1,0.35098628772839713,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,GNFSW-2,0.35867401452576,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,GNFSW-1,0.35614367915321066,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,GNFSW-2,0.3775786373536322,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,GNFSW-1,0.3410325463723228,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,GNFSW-2,0.355664182444452,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,GNFSW-1,0.3959778314689973,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,GNFSW-2,0.4062387904553508,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,GNFSW-1,0.3915798262109218,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
+Load Factor,GNFSW-2,0.40497965939577846,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021

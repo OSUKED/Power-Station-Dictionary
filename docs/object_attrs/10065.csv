@@ -28,3 +28,10 @@ Capture Price (£/MWh),FAWN-1,44.47696902167379,https://raw.githubusercontent.co
 Capture Price (£/MWh),FAWN-1,56.840475263930365,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),FAWN-1,42.58224338831808,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),FAWN-1,33.3235748507105,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,FAWN-1,0.805739685659255,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,FAWN-1,0.7897274651477127,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,FAWN-1,0.8131926000549502,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,FAWN-1,0.8520039571526534,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,FAWN-1,0.782774776611755,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,FAWN-1,0.7929813739862556,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,FAWN-1,0.7707768760134106,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021

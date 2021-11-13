@@ -44,3 +44,15 @@ Capture Price (£/MWh),SVRP-10,48.26845860789546,https://raw.githubusercontent.c
 Capture Price (£/MWh),SVRP-20,50.263010388638605,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),SVRP-10,31.668031340628342,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),SVRP-20,33.52544013555264,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,SVRP-10,0.08052607211775578,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,SVRP-20,0.08651504533113039,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,SVRP-10,0.5387121084621439,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,SVRP-20,0.5221501038748483,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,SVRP-10,0.580439892605517,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,SVRP-20,0.548319515992778,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,SVRP-10,0.46760099750710654,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,SVRP-20,0.4059143107797301,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,SVRP-10,0.36461822140841543,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,SVRP-20,0.1975281991713644,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,SVRP-10,0.3815408332746303,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,SVRP-20,0.20614388267246914,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020

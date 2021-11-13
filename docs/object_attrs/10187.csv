@@ -10,3 +10,6 @@ Annual Output (MWh),DUNGW-1,241480.018,https://raw.githubusercontent.com/OSUKED/
 Annual Output (MWh),DUNGW-1,227680.27,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),DUNGW-1,41.514708012224204,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),DUNGW-1,35.83493551532757,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,DUNGW-1,0.3092466076003129,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,DUNGW-1,0.28042112058826957,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,DUNGW-1,0.32158899701187227,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021

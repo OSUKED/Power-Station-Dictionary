@@ -33,6 +33,20 @@ Capture Price (£/MWh),HRTL-1,41.46038509635819,https://raw.githubusercontent.co
 Capture Price (£/MWh),HRTL-2,44.368077813058385,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),HRTL-1,34.10481584360903,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),HRTL-2,33.28416870053154,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,HRTL-1,0.4034600361859699,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,HRTL-2,0.7327660378051518,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,HRTL-1,0.6924635597816668,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,HRTL-2,0.8448603492583182,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,HRTL-1,0.8894858937606246,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,HRTL-2,0.8788513899270389,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,HRTL-1,0.8727792282283473,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,HRTL-2,0.8630713475777532,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,HRTL-1,0.8623009562391901,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,HRTL-2,0.8332107781698085,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,HRTL-1,0.8868204436324209,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,HRTL-2,0.8224012271232348,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,HRTL-1,0.914553765178295,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
+Load Factor,HRTL-2,0.7113414708119413,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
 Capacity (MW),250,590,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
 Capacity (MW),251,595,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,
 Construction Start Date,250,1968-10-01,https://raw.githubusercontent.com/cristianst85/GeoNuclearData/master/data/csv/denormalized/datapackage.json,iaea_id,

@@ -23,6 +23,9 @@ Annual Output (MWh),CAS-CLU01,234777.468,https://raw.githubusercontent.com/OSUKE
 Annual Output (MWh),CAS-CLU01,305671.353,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),CAS-CLU01,41.22747332538725,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),CAS-CLU01,36.05276160651649,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,CAS-CLU01,0.37339364569341654,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,CAS-CLU01,0.4671860798550584,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,CAS-CLU01,0.44111582853912673,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
 installed_capacity_MW,H725,61.0,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,
 type,H725,HDAM,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,
 lat,H725,56.771999,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,

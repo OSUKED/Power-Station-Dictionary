@@ -1,0 +1,52 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "load-factors",
+      "path": "load-factors.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "year",
+            "type": "year",
+            "format": "default",
+            "title": "Year",
+            "description": "The year over which the load factor has been calculated"
+          },
+          {
+            "name": "ngc_bmu_id",
+            "type": "string",
+            "format": "default",
+            "title": "NGC BMU ID",
+            "description": "The Balancing Mechanism Unit identifier used by the National Grid Company"
+          },
+          {
+            "name": "load_factor",
+            "type": "number",
+            "format": "default",
+            "title": "Load Factor",
+            "description": "The ratio between the average load over a given period relative to the maximum load"
+          }
+        ]
+      }
+    }
+  ],
+  "title": "Load Factors",
+  "name": "load-factors",
+  "description": "This dataset contains load factors at a BMU granularity level for GB power plants. Please note that the load factor value for 2021 is incomplete and was based on data up to April of that year.",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

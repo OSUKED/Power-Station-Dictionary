@@ -23,6 +23,13 @@ Capture Price (£/MWh),HRSTW-1,44.744648059776104,https://raw.githubusercontent.
 Capture Price (£/MWh),HRSTW-1,58.79864003821798,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),HRSTW-1,41.343074304855776,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),HRSTW-1,32.79270652268033,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,HRSTW-1,0.23181700615804335,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,HRSTW-1,0.16583866133783734,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,HRSTW-1,0.1782848424287401,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,HRSTW-1,0.18657021217461683,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,HRSTW-1,0.17364798234186432,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,HRSTW-1,0.19986624961243876,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,HRSTW-1,0.20528339408179214,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
 Operator (or Applicant),4119,Scottish Power Renewables,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
 Site Name,4119,Harestanes,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
 Technology Type,4119,Wind Onshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,

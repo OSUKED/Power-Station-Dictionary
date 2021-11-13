@@ -30,3 +30,7 @@ Annual Output (MWh),DEEP-1,0.0,https://raw.githubusercontent.com/OSUKED/Dictiona
 Capture Price (£/MWh),DEEP-1,51.651375802133465,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2016
 Capture Price (£/MWh),DEEP-1,56.07924188786419,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2017
 Capture Price (£/MWh),DEEP-1,60.848141487139955,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
+Load Factor,DEEP-1,0.09500636021580632,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,DEEP-1,0.1601764143529566,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,DEEP-1,0.20587963889460512,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,DEEP-1,0.3132983571800135,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018

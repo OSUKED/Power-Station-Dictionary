@@ -11,6 +11,9 @@ Annual Output (MWh),ABRBO-1,290247.215,https://raw.githubusercontent.com/OSUKED/
 Annual Output (MWh),ABRBO-1,312950.561,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/annual-output/datapackage.json,ngc_bmu_id,2020
 Capture Price (£/MWh),ABRBO-1,39.429609690850285,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),ABRBO-1,32.75941462103361,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,ABRBO-1,0.3555438638790055,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,ABRBO-1,0.3686909174305735,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,ABRBO-1,0.447473086372513,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
 Operator (or Applicant),2505,Vattenfall,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
 Site Name,2505,European Offshore Wind Deployment Centre (EOWDC) (Aberdeen Bay - Demonstration site),https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,
 Technology Type,2505,Wind Offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,

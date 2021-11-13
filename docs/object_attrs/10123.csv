@@ -12,6 +12,13 @@ Capture Price (£/MWh),NANT-1,52.2587418894066,https://raw.githubusercontent.com
 Capture Price (£/MWh),NANT-1,65.80265992166808,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2018
 Capture Price (£/MWh),NANT-1,48.03696888302914,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2019
 Capture Price (£/MWh),NANT-1,41.450806653347385,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json,ngc_bmu_id,2020
+Load Factor,NANT-1,0.5654555837368085,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2015
+Load Factor,NANT-1,0.26556179609698727,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2016
+Load Factor,NANT-1,0.32085959944177384,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2017
+Load Factor,NANT-1,0.31951202270657425,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2018
+Load Factor,NANT-1,0.2533932044950911,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2019
+Load Factor,NANT-1,0.33890910765822774,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2020
+Load Factor,NANT-1,0.2644523497668374,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021
 installed_capacity_MW,H1556,15.0,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,
 type,H1556,HROR,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,
 lat,H1556,56.345001,https://raw.githubusercontent.com/energy-modelling-toolkit/hydro-power-database/master/data/datapackage.json,jrc_id,

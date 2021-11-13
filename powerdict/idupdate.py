@@ -19,7 +19,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Cell
 @dataclass
 class SheetManager:
-    creds_fp: str='../gcloud/power-station-dictionary-9cca2a03718d.json'
+    creds_fp: str='../gcloud/power-station-dictionary-f6814eb419e1.json'
     sheet_name: str='Power Station Dictionary - ID Submission (Responses)'
     sheet_index: int=0
 
@@ -113,7 +113,7 @@ def assign_all_new_id_values(
 ):
     idxs_to_process = df_sheet.index[df_sheet['Processed'].replace('', np.nan).isnull()]
 
-    for dictionary_id, (new_id_title, new_id_value) in df_sheet.loc[idxs_to_process].set_index('Dictionary ID Value')[['ID Type', 'ID Value']].iterrows():
+    for dictionary_id, (new_id_title, new_id_value) in df_sheet.loc[idxs_to_process].set_index('Primary Key')[['ID Type', 'ID Value']].iterrows():
         df_powerdict_ids = assign_new_id_value(
             df_powerdict_ids,
             dictionary_id,
@@ -131,7 +131,7 @@ app = typer.Typer()
 
 @app.command()
 def update_powerdict_ids_df(
-    creds_fp: str ='gcloud/power-station-dictionary-9cca2a03718d.json',
+    creds_fp: str ='gcloud/power-station-dictionary-f6814eb419e1.json',
     sheet_name: str ='Power Station Dictionary - ID Submission (Responses)',
     sheet_index: int=0,
     ids_fp: str ='data/dictionary/ids.csv',

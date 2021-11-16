@@ -351,9 +351,10 @@ def construct_downloads_md_str(object_id):
 # Cell
 construct_contributors_str = (lambda object_id: f"""### Contribute
 
-We need your help! If you know of any IDs associated with this power plant which are currently missing then please add them using the Google form which will open with the button below. If you are adding an ID type which is already known you need to only complete the first page of the form, if the ID type is not currently in the dictionary you will need to fill the whole form out\n\nThank You!
+We need your help! If you know of any data associated with this power plant which is currently missing then please add it using the relevant Google form which can be accessed with the buttons below.  If you are adding an ID from a linkage which is already known you need to only complete the *Add New Link* form, if the link type is not currently in the dictionary you will need to use the *Add New Link Type* form.\n\nThank You!
 
-[Link a new ID](https://docs.google.com/forms/d/e/1FAIpQLSc5jRsQ7NgiLLXbwo9PUdwTQyuqbRwThltG56-o6NVSe7E_nw/viewform?usp=pp_url&entry.251912331={object_id}){{ .md-button }}""")
+[Add New Link](https://docs.google.com/forms/d/e/1FAIpQLSc5jRsQ7NgiLLXbwo9PUdwTQyuqbRwThltG56-o6NVSe7E_nw/viewform?usp=pp_url&entry.251912331={object_id}){{ .md-button }}\n
+[Add New Link Type](https://docs.google.com/forms/d/e/1FAIpQLSdQfLmfOR0Vw4Z7gDQAIhBbqIifd1RuSFPKmDQpROhOqjo7ew/viewform?usp=pp_url&entry.2141539628={object_id}){{ .md-button }}""")
 
 # Cell
 def extract_name_from_single_site_data(single_site_data):

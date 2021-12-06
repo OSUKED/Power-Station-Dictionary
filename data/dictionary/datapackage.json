@@ -14,7 +14,8 @@
             "format": "default",
             "description": "The identifier used to refer to power plants in the Subak data cooperative",
             "title": "Dictionary ID",
-            "hierarchy": "root"
+            "hierarchy": "root",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00000031"
           },
           {
             "name": "gppd_idnr",

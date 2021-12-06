@@ -51,7 +51,7 @@ def package_to_homepage(package):
 def resource_to_fields_table_str(resource):
     df_fields = pd.DataFrame(resource['schema']['fields'])
 
-    df_fields = df_fields.rename(columns={'name': 'column'})
+    df_fields = df_fields.rename(columns={'name': 'column'}).replace(np.nan, '-')
     df_fields.columns = df_fields.columns.str.capitalize()
 
     md_str = df_fields.to_markdown(index=False)

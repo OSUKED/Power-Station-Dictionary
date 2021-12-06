@@ -20,8 +20,6 @@ hide:
 ### Endpoints
 
 
-
-
 Endpoint URL: [https://data.elexon.co.uk/bmrs/api/v1/generation/availability/rawUOU2T14D](https://data.elexon.co.uk/bmrs/api/v1/generation/availability/rawUOU2T14D)
 
 Keywords: Availability

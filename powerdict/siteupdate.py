@@ -18,15 +18,19 @@ def rebuild_site_docs(
     dict_template_fp: str='templates/dictionary_page.md',
     dict_save_fp: str=f'docs/dictionary.md',
     mkdocs_config_fp: str='mkdocs.yml',
+    mkdocs_template_fp: str='templates/mkdocs.yml',
+    object_template_fp: str='templates/objects_page.md',
+    docs_fp: str='docs',
     src_path: str='data/attribute_sources/',
     trg_path: str='docs/attribute_sources/',
     datasets_dir: str='data/attribute_sources',
-    dataset_template_fp: str='templates/dataset_page.md'
+    dataset_template_fp: str='templates/dataset_page.md',
+    dataset_docs_dir: str = 'docs/datasets'
 ):
     site_data = extraction.construct_dictionary_knowledge_graph(datapackage_fp, temp_dir_loc)
-    population.construct_object_docs(datapackage_fp, site_data)
+    population.construct_object_docs(datapackage_fp, site_data, mkdocs_template_fp=mkdocs_template_fp, object_template_fp=object_template_fp, save_fp=mkdocs_config_fp, docs_fp=docs_fp)
     dictionary.populate_dictionary_page(datapackage_fp, dict_template_fp, dict_save_fp)
-    datasets.populate_dataset_pages(datasets_dir, dataset_template_fp, mkdocs_config_fp)
+    datasets.populate_dataset_pages(datasets_dir, dataset_template_fp, mkdocs_config_fp, dataset_docs_dir)
     datasets.move_attribute_source_data_to_docs(src_path, trg_path)
 
     return site_data

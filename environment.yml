@@ -25,6 +25,7 @@ dependencies:
       - nbdev
       - feautils
       - git+https://github.com/ayrtonb/frictionless-py.git@60789d30fe7729ed898a20d4dd50fe823381e325
+      - git+https://github.com/allevo/mkdocs-swagger-plugin#egg=SwaggerPlugin
       - mkdocs-material-extensions
       - mkdocstrings
       - configparser

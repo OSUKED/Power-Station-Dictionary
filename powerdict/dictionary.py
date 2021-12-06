@@ -2,8 +2,8 @@
 
 __all__ = ['construct_contributor_txt', 'construct_licence_txt', 'construct_metadata_table_str',
            'construct_field_desc_table_str', 'get_dp_field_to_url_format_str', 'get_dp_field_to_title',
-           'format_id_values', 'construct_linked_ids_table_str', 'construct_linked_idxs', 'populate_and_save_template',
-           'populate_dictionary_page']
+           'format_url_ids', 'format_id_values', 'construct_linked_idxs', 'construct_linked_ids_table_str',
+           'populate_and_save_template', 'populate_dictionary_page']
 
 # Cell
 import json
@@ -110,22 +110,49 @@ def get_dp_field_to_title(datapackage_json_fp):
 
     return id_field_to_title
 
-def format_id_values(id_values, id_type, id_field_to_url_format_str):
+def format_url_ids(id_type, id_values, id_field_to_url_format_str, output_format='html'):
+    if (id_type in id_field_to_url_format_str.keys()) and (id_values is not None):
+        if output_format == 'markdown':
+            return f'[{id_values}]({id_field_to_url_format_str[id_type].format(value=id_values)})'
+        elif output_format == 'html':
+            return f'<a href="{id_field_to_url_format_str[id_type].format(value=id_values)}">{id_values}</a>'
+        else:
+            raise ValueError(f'`output_format` must be one of: `html` or `markdown`')
+
+    else:
+        return id_values
+
+def format_id_values(id_values, id_type, id_field_to_url_format_str, output_format='html'):
     if id_type in id_field_to_url_format_str.keys():
-        url_format_str = id_field_to_url_format_str[id_type]
-        id_values_strs = [f'[{id_value}]({url_format_str.format(value=id_value)})' for id_value in id_values]
+        id_values_strs = [format_url_ids(id_type, id_value, id_field_to_url_format_str, output_format) for id_value in id_values]
     else:
         id_values_strs = [str(id_value) for id_value in id_values]
 
     return id_values_strs
 
-construct_linked_idxs = lambda df_ids_clean: [
-    f'[{idx}](https://osuked.github.io/Power-Station-Dictionary/objects/{idx})'
-    for idx
-    in df_ids_clean.index
-]
+def construct_linked_idxs(df_ids_clean, output_format='html', root_url='https://osuked.github.io/Power-Station-Dictionary/objects'):
+    index = []
 
-def construct_linked_ids_table_str(package, datapackage_json_fp, resource='ids', table_id='dictionary'):
+    for idx in df_ids_clean.index:
+        if output_format == 'markdown':
+            index += [f'[{idx}]({root_url}/{idx})']
+        elif output_format == 'html':
+            index += [f'<a href="{root_url}/{idx}">{idx}</a>']
+        else:
+            raise ValueError(f'`output_format` must be one of: `html` or `markdown`')
+
+    return index
+
+def construct_linked_ids_table_str(
+    package,
+    datapackage_json_fp,
+    resource='ids',
+    output_format='html',
+    output_kwargs={
+        'index': False,
+        'table_id': 'dictionary'
+    }
+):
     id_field_to_url_format_str = get_dp_field_to_url_format_str(datapackage_json_fp)
     id_field_to_title = get_dp_field_to_title(datapackage_json_fp)
     df_ids = package.get_resource(resource).to_pandas()
@@ -135,9 +162,8 @@ def construct_linked_ids_table_str(package, datapackage_json_fp, resource='ids',
     for dictionary_id, row in df_ids.iterrows():
         row = pd.Series({
             id_field_to_title[id_type]: (
-                ', '.join([str(id_) for id_ in format_id_values(id_values, id_type, id_field_to_url_format_str)]) if isinstance(id_values, list)
-                else f'[{id_values}]({id_field_to_url_format_str[id_type].format(value=id_values)})' if (id_type in id_field_to_url_format_str.keys()) and (id_values is not None)
-                else id_values
+                ', '.join([str(id_) for id_ in format_id_values(id_values, id_type, id_field_to_url_format_str, output_format)]) if isinstance(id_values, list)
+                else format_url_ids(id_type, id_values, id_field_to_url_format_str, output_format)
             )
             for id_type, id_values
             in row.items()
@@ -146,10 +172,14 @@ def construct_linked_ids_table_str(package, datapackage_json_fp, resource='ids',
         df_ids_clean.loc[dictionary_id] = row
 
     df_ids_clean = df_ids_clean.drop(columns='Dictionary ID')
-    df_ids_clean.index = construct_linked_idxs(df_ids_clean)
+    df_ids_clean.index = construct_linked_idxs(df_ids_clean, output_format)
     df_ids_clean.index.name = 'Dictionary ID'
 
-    linked_ids_table_str = df_ids_clean.to_markdown()+'{#id}'
+    linked_ids_table_str = getattr(df_ids_clean.reset_index(), f'to_{output_format}')(**output_kwargs)
+
+    linked_ids_table_str = linked_ids_table_str.replace('&lt;', '<')
+    linked_ids_table_str = linked_ids_table_str.replace('&gt;', '>')
+    linked_ids_table_str = linked_ids_table_str.replace('<td>', '<td class="truncate">')
 
     return linked_ids_table_str
 
@@ -168,7 +198,8 @@ def populate_and_save_template(template_fp, save_fp, **render_kwargs):
 def populate_dictionary_page(
     datapackage_json_fp: str='../data/dictionary/datapackage.json',
     template_fp: str='../templates/dictionary_page.md',
-    save_fp: str=f'../docs/dictionary.md'
+    save_fp: str=f'../docs/dictionary.md',
+    output_format: str='html'
 ):
     package = Package(datapackage_json_fp, profile='tabular-data-package')
 
@@ -177,7 +208,7 @@ def populate_dictionary_page(
         'description': package.description,
         'metadata_table': construct_metadata_table_str(package),
         'field_desc_table': construct_field_desc_table_str(package),
-        'linked_ids_table': construct_linked_ids_table_str(package, datapackage_json_fp),
+        'linked_ids_table': construct_linked_ids_table_str(package, datapackage_json_fp, output_format=output_format),
     }
 
     populate_and_save_template(template_fp, save_fp, **render_kwargs)

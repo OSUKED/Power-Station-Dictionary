@@ -16,6 +16,7 @@ theme:
 
 extra:
   generator: false
+  swagger_url: 'https://petstore.swagger.io/v2/swagger.json'
       
 markdown_extensions:
   - toc:
@@ -31,12 +32,19 @@ markdown_extensions:
   
 plugins:
   - search
+  - swagger
       
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - https://code.jquery.com/jquery-3.5.1.js
+  - https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js
   - js/tables.js
+  - https://cdn.datatables.net/plug-ins/1.11.3/dataRender/ellipsis.js
+
+extra_css:
+  - css/truncate.css
+  - https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
   
 nav:
   - Home: index.md

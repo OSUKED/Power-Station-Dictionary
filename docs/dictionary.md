@@ -125,8 +125,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">ABTH7, ABTH8, ABTH9, ABTH7G, ABTH8G, ABTH9G</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q4667192">Q4667192</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Aberthaw_power_stations">Aberthaw_power_stations</a></td>
       <td class="truncate">-</td>
       <td class="truncate">97175</td>
       <td class="truncate">48W0000000ABTH7Y, 48W0000000ABTH8W, 48W0000000ABTH9U, 48W000000ABTH7G2, 48W100000ABTH8GN, 48W000000ABTH9GX</td>
@@ -145,8 +145,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">COTPS-1, COTPS-2, COTPS-3, COTPS-4</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q11964143">Q11964143</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Cottam_power_stations">Cottam_power_stations</a></td>
       <td class="truncate">-</td>
       <td class="truncate">97778</td>
       <td class="truncate">48W00000COTPS-1Q, 48W00000COTPS-2O, 48W00000COTPS-3M, 48W00000COTPS-4K</td>
@@ -165,8 +165,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">DRAXX-1, DRAXX-2, DRAXX-3, DRAXX-4, DRAXX-5, DRAXX-6, DRAXX-10G, DRAXX-12G, DRAXX-9G</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q1629859">Q1629859</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Drax_Power_Station">Drax_Power_Station</a></td>
       <td class="truncate">-</td>
       <td class="truncate">96842</td>
       <td class="truncate">48W00000DRAXX-56, 48W00000DRAXX-64, 48W000DRAXX-10G9, 48W000DRAXX-12G3, 48W0000DRAXX-9GR</td>

@@ -1,10 +1,10 @@
 edit_uri: edit/main/docs/
 extra:
   generator: false
-  swagger_url: 'https://petstore.swagger.io/v2/swagger.json'
+  swagger_url: https://petstore.swagger.io/v2/swagger.json
 extra_css:
-- https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
 - css/truncate.css
+- https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
 extra_javascript:
 - https://polyfill.io/v3/polyfill.min.js?features=es6
 - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
@@ -43,7 +43,6 @@ nav:
     Renewable Energy Planning Database: datasets/renewable-energy-planning-database.md
     Wind Farms: datasets/wind-farms.md
     jrc-hydro-power-plants-database: datasets/jrc-hydro-power-plants-database.md
-    bmrs: datasets/generation_availability_rawUOU2T14D.md
 - Sites:
   - AChruach Wind Farm: objects/10147.md
   - Aberdare District Energy: objects/10078.md

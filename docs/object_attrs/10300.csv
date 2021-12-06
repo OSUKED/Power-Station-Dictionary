@@ -28,7 +28,10 @@ Load Factor,EAAO-2,0.539031227161547,https://raw.githubusercontent.com/OSUKED/Di
 Address,2470,"East Anglia Offshore Wind Three, Underground Cabling Between Bramford And Bawdsey, Lowestoft",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Address,2484,"North Sea, off the East Anglia coast",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Address,6483,"North Sea, off the East Anglia coast",https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+CfD Capacity (MW),2470,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+CfD Capacity (MW),2484,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 CfD Capacity (MW),2525,1200.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+CfD Capacity (MW),6483,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2470,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2484,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2525,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -43,6 +46,8 @@ Development Status,2525,Operational,https://raw.githubusercontent.com/OSUKED/Dic
 Development Status,6483,Planning Application Submitted,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Height of Turbines (m),2470,247.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Height of Turbines (m),2484,350.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+Height of Turbines (m),2525,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+Height of Turbines (m),6483,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Installed Capacity (MWelec),2470,1400.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Installed Capacity (MWelec),2484,1800.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Installed Capacity (MWelec),2525,1200.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -106,6 +111,7 @@ Transmission or Distribution Connection,CAA-EAS-166,Transmission,https://raw.git
 Transmission or Distribution Connection,CAA-EAS-167,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Transmission or Distribution Connection,CAA-EAS-168,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Strike Price (GBP/MWh),CAA-EAS-166,136.08,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
+Strike Price (GBP/MWh),CAA-EAS-168,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
 Strike Price (GBP/MWh),CAA-EAS-166,139.35,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),CAA-EAS-168,139.35,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),CAA-EAS-166,141.63,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2021

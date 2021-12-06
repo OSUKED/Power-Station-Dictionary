@@ -36,6 +36,8 @@ Load Factor,HOWAO-3,0.4480959279587506,https://raw.githubusercontent.com/OSUKED/
 Load Factor,HOWAO-1,0.4505466367678069,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021,
 Load Factor,HOWAO-2,0.5178349297247469,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021,
 Load Factor,HOWAO-3,0.5284363442399551,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/load-factors/datapackage.json,ngc_bmu_id,2021,
+CfD Capacity (MW),2472,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
+CfD Capacity (MW),2502,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 CfD Capacity (MW),2525,1200.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2472,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
 Country,2502,England,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/renewable-energy-planning-database/datapackage.json,new_repd_id,,
@@ -116,6 +118,7 @@ Transmission or Distribution Connection,INV-HOR-001,Transmission,https://raw.git
 Transmission or Distribution Connection,INV-HOR-002,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Transmission or Distribution Connection,INV-HOR-003,Transmission,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-contract-portfolio-status/datapackage.json,cfd_id,,
 Strike Price (GBP/MWh),INV-HOR-001,158.75,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
+Strike Price (GBP/MWh),INV-HOR-003,NaN,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2019
 Strike Price (GBP/MWh),INV-HOR-001,162.47,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),INV-HOR-003,162.47,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2020
 Strike Price (GBP/MWh),INV-HOR-001,164.96,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/cfd-strike-prices/datapackage.json,cfd_id,,2021

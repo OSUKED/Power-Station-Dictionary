@@ -36,7 +36,7 @@ Dataset published by Elexon describing the fuel types of the Balancing Mechanism
 | FUEL TYPE   | string   | default        | Fuel Type           | The fuel type consumed by the specified BMU                                      |
 | EFF_FROM    | datetime | %d/%m/%Y %H:%M | Date Effective From | Date from which this BMU id has been utilised                                    |
 | EFF_TO      | datetime | %d/%m/%Y %H:%M | Date Effective To   | Date that this BMU id has been utilised up to                                    |
-| Comments    | any      | default        | Comments            | nan                                                                              |
+| Comments    | any      | default        | Comments            | -                                                                                |
 | EELPS?      | any      | default        | EELPS               | EELPS refers to whether the site is an Embedded                                  |
 |             |          |                |                     | Exemptable Large Power Station. EELPS sites do not normally have settlement ids. |
 

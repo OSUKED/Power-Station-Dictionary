@@ -33,7 +33,7 @@ This dataset provides plant-level carbon intensities for GB power stations
 |:------------------------------|:--------|:---------|:----------------------------|:---------------------------------------------------------------|
 | dictionary_id                 | integer | default  | Dictionary ID               | Dictionary ID                                                  |
 | year                          | year    | default  | Year                        | The year during which the carbon intensity has been calculated |
-| carbon_intensity_gco2_per_kwh | number  | default  | Carbon Intensity (gCO2/kWh) | nan                                                            |
+| carbon_intensity_gco2_per_kwh | number  | default  | Carbon Intensity (gCO2/kWh) | -                                                              |
 
 <br>
 

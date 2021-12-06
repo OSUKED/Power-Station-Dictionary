@@ -2,7 +2,7 @@ attribute,id,value,datapackage,id_type,year
 Fuel Type,HUMR-1,CCGT,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/bmu-fuel-types/datapackage.json,ngc_bmu_id,
 Longitude,10070,0.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
 Latitude,10070,53.690201,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
-Installed Capacity (MW) ,GBR1000517,1240.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Installed Capacity (MW),GBR1000517,1240.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Longitude,GBR1000517,-0.2395,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Latitude,GBR1000517,53.6366,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Primary Fuel Type,GBR1000517,Cogeneration,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,

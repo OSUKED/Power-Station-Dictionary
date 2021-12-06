@@ -40,21 +40,24 @@
             "type": "number",
             "format": "default",
             "description": "Installed electrical capacity of eachpower plant (MW) ",
-            "title": "Installed Capacity (MW) "
+            "title": "Installed Capacity (MW)",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00230003"
           },
           {
             "name": "latitude",
             "type": "number",
             "format": "default",
             "description": "The north-south position of a point on the Earth's surface",
-            "title": "Latitude"
+            "title": "Latitude",
+            "rdfType": "http://www.w3.org/2003/01/geo/wgs84_pos#lat"
           },
           {
             "name": "longitude",
             "type": "number",
             "format": "default",
             "description": "The east–west position of a point on the Earth's surface",
-            "title": "Longitude"
+            "title": "Longitude",
+            "rdfType": "http://www.w3.org/2003/01/geo/wgs84_pos#long"
           },
           {
             "name": "primary_fuel",

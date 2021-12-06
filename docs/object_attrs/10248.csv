@@ -4,7 +4,7 @@ Longitude,10248,0.681152,https://raw.githubusercontent.com/OSUKED/Dictionary-Dat
 Latitude,10248,53.943155,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json,dictionary_id,
 Plant Type,10248,offshore,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,
 Hub-Height,10248,102.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/wind-farms/datapackage.json,dictionary_id,
-Installed Capacity (MW) ,GBR0002545,210.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
+Installed Capacity (MW),GBR0002545,210.0,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Longitude,GBR0002545,0.5615,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Latitude,GBR0002545,53.0977,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,
 Primary Fuel Type,GBR0002545,Wind,https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json,gppd_idnr,

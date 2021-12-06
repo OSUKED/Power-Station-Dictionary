@@ -68,7 +68,8 @@
             "type": "number",
             "format": "default",
             "title": "Installed Capacity (MWelec)",
-            "description": "Installed electrical capacity in megawatts (MW)"
+            "description": "Installed electrical capacity in megawatts (MW)",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00230003"
           },
           {
             "name": "CHP Enabled",
@@ -117,7 +118,8 @@
             "type": "number",
             "format": "default",
             "title": "Height of Turbines (m)",
-            "description": "For windfarms, the height of the wind turbines in metres (m)"
+            "description": "For windfarms, the height of the wind turbines in metres (m)",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00140000"
           },
           {
             "name": "Mounting Type for Solar",

@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Wind Farms 
+# GB Wind Farm Database
 
 
 

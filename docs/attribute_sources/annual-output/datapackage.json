@@ -34,7 +34,7 @@
   ],
   "version": "1.0.0",
   "name": "annual-output",
-  "title": "Annual Output",
+  "title": "Power Plant Annual Output",
   "description": "Total annual production of individual transmission level power plants on the GB power system",
   "contributors": [
     {

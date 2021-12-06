@@ -27,21 +27,21 @@ nav:
 - Home: index.md
 - Dictionary: dictionary.md
 - Datasets:
-    Annual Output: datasets/annual-output.md
     BMU Fuel Types: datasets/bmu-fuel-types.md
+    BMU Utilisation Statistics: datasets/load-factors.md
     Carbon Intensity: datasets/carbon-intensity.md
     CfD Contract Portfolio Status: datasets/cfd-contract-portfolio-status.md
     CfD Strike Prices: datasets/cfd-strike-prices.md
     EU Transation Lag: datasets/eutl.md
     EUTL Verified Emissions: datasets/verified-emissions.md
+    GB Wind Farm Database: datasets/wind-farms.md
     Global Power Plant Database: datasets/global-power-plant-database.md
-    Load Factors: datasets/load-factors.md
     Nuclear Power Plants Database: datasets/nuclear-power-plants.md
+    Power Plant Annual Output: datasets/annual-output.md
     Power Plant Capture Prices: datasets/capture-prices.md
     Power Plant Common Names: datasets/common-names.md
     Power Plant Locations: datasets/plant-locations.md
     Renewable Energy Planning Database: datasets/renewable-energy-planning-database.md
-    Wind Farms: datasets/wind-farms.md
     jrc-hydro-power-plants-database: datasets/jrc-hydro-power-plants-database.md
 - Sites:
   - AChruach Wind Farm: objects/10147.md

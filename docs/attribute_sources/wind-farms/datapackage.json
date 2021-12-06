@@ -35,7 +35,7 @@
   "keywords": ["power plants", "location"],
   "version": "1.0.0",
   "name": "wind-farms",
-  "title": "Wind Farms ",
+  "title": "GB Wind Farm Database",
   "description": "Dataset listing the plant types and hub-heights of wind farms",
   "contributors": [
     {

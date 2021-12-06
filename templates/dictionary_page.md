@@ -29,9 +29,3 @@ hide:
 ### Linked IDs
 
 {{linked_ids_table}}
-
-<br>
-
-### Linked Datasets
-
-WIP

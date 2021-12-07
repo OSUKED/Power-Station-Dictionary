@@ -2,6 +2,8 @@
 gcloud/**
 notes/**
 nbs/temp/**
+docs/object_attrs/**
+docs/objects/**
 
 # Git
 *.bak

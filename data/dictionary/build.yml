@@ -1,0 +1,15 @@
+entity_attributes:
+  http://openenergy-platform.org/ontology/oeo/OEO_00230003:
+    priority: 
+      - "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json"
+    aggregation: "sum"
+  "http://www.w3.org/2003/01/geo/wgs84_pos#lat":
+    priority: 
+      - "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json"
+      - "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json"
+    aggregation: "mean"
+  "http://www.w3.org/2003/01/geo/wgs84_pos#long":
+    priority: 
+      - "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/plant-locations/datapackage.json"
+      - "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/global-power-plant-database/datapackage.json"
+    aggregation: "mean"

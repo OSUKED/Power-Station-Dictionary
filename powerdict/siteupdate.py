@@ -5,7 +5,7 @@ __all__ = ['app', 'rebuild_site_docs']
 # Cell
 import typer
 
-from powerdict import extraction, population, dictionary, datasets
+from powerdict import extraction, population, dictionary, datasets, kg
 
 # Cell
 app = typer.Typer()
@@ -25,13 +25,16 @@ def rebuild_site_docs(
     trg_path: str='docs/attribute_sources/',
     datasets_dir: str='data/attribute_sources',
     dataset_template_fp: str='templates/dataset_page.md',
-    dataset_docs_dir: str = 'docs/datasets'
+    dataset_docs_dir: str='docs/datasets',
+    build_data_fp: str='data/dictionary/build.yml',
+    cleaned_triplets_fp: str='data/knowledge_graph/triplets.json'
 ):
     site_data = extraction.construct_dictionary_knowledge_graph(datapackage_fp, temp_dir_loc)
     population.construct_object_docs(datapackage_fp, site_data, mkdocs_template_fp=mkdocs_template_fp, object_template_fp=object_template_fp, save_fp=mkdocs_config_fp, docs_fp=docs_fp)
     dictionary.populate_dictionary_page(datapackage_fp, dict_template_fp, dict_save_fp)
     datasets.populate_dataset_pages(datasets_dir, dataset_template_fp, mkdocs_config_fp, dataset_docs_dir)
     datasets.move_attribute_source_data_to_docs(src_path, trg_path)
+    kg.construct_knowledge_graph_triplets(site_data, build_data_fp, cleaned_triplets_fp)
 
     return site_data
 

@@ -19,6 +19,7 @@ import typing
 import datetime
 from warnings import warn
 
+import urllib
 import urllib.parse
 from urllib.request import urlopen, urlretrieve
 
@@ -144,8 +145,11 @@ def extract_external_foreignkey_datapackage_refs(resource, primary_key_field):
     ]
 
     for i, datapackage_ref in enumerate(fk_external_datapackage_refs):
-        ds_schema = datapackage_ref_to_ds_schema(datapackage_ref)
-        fk_external_datapackage_refs[i]['attribute_fields'] = {field['name']: field for field in ds_schema['schema']['fields']}
+        try:
+            ds_schema = datapackage_ref_to_ds_schema(datapackage_ref)
+            fk_external_datapackage_refs[i]['attribute_fields'] = {field['name']: field for field in ds_schema['schema']['fields']}
+        except urllib.error.URLError as exception:
+            warn(f'{datapackage_ref["resource"]} could not be processed.\n\n{exception}')
 
     return fk_external_datapackage_refs
 
@@ -153,16 +157,20 @@ def extract_external_foreignkey_datapackage_refs(resource, primary_key_field):
 def add_resource_locs_to_external_datapackage_refs(fk_external_datapackage_refs: str) -> dict:
     for i, fk_external_datapackage_ref in enumerate(fk_external_datapackage_refs):
         external_datapackage_basepath = '/'.join(fk_external_datapackage_ref['package'].split('/')[:-1])
-        external_datapackage_json = json.load(urlopen(fk_external_datapackage_ref['package']))
 
-        fk_external_datapackage_refs[i]['resource_loc'] = [
-            f"{external_datapackage_basepath}/{resource['path']}"
-            for resource
-            in external_datapackage_json['resources']
-            if resource['name'] == fk_external_datapackage_ref['resource']
-        ][0]
+        try:
+            external_datapackage_json = json.load(urlopen(fk_external_datapackage_ref['package']))
 
-        fk_external_datapackage_refs[i]['name'] = external_datapackage_json['name']
+            fk_external_datapackage_refs[i]['resource_loc'] = [
+                f"{external_datapackage_basepath}/{resource['path']}"
+                for resource
+                in external_datapackage_json['resources']
+                if resource['name'] == fk_external_datapackage_ref['resource']
+            ][0]
+
+            fk_external_datapackage_refs[i]['name'] = external_datapackage_json['name']
+        except urllib.error.URLError as exception:
+            warn(f'{fk_external_datapackage_ref["resource"]} could not be processed.\n\n{exception}')
 
     return fk_external_datapackage_refs
 

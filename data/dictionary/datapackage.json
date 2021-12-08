@@ -267,7 +267,7 @@
           {
             "fields": "dictionary_id",
             "reference": {
-              "package": "https://raw.githubusercontent.com/OSUKED/GB-Carbon-Intensity/main/data/carbon-intensity/datapackage.json?token=AG5UV56RY2LOECMXT32QOE3BWDNYC",
+              "package": "https://raw.githubusercontent.com/OSUKED/GB-Carbon-Intensity/main/data/carbon-intensity/datapackage.json",
               "resource": "carbon-intensity",
               "fields": "dictionary_id",
               "attributes": ["carbon_intensity_gco2_per_kwh"],

@@ -141,7 +141,7 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10166,GBR0003119,BRDUW,Braes of Doune,E_BRDUW-1,BRDUW-1,,,,,,,48W00000BRDUW-1V,,,,,
 10167,GBR0004431,WISTW,Brockloch Rig 2 Windfarm,T_WISTW-2,WISTW-2,,windfarm_en_22062_windy-standard-extension,,,,,,,,,B1290,4615
 10168,,BRNLW,Brownieleys Windfarm,E_BRNLW-1,BRNLW-1,,,,,,,,,,,,
-10169,"GBR0002487, GBR0002539",BURB,Burbo Bank Offshore Windfarm,"E_BURBO, T_BRBEO-1","BURBW-1, BRBEO-1","burbo-bank-united-kingdom-uk02, burbo-bank-extension-united-kingdom-uk59",windfarm_en_10684_burbo-bank,Q2583856,Burbo_Bank_Offshore_Wind_Farm,"burbowind, burbo-bank-extension-offshore-wind-farm-liverpool-bay",,"48W00000BURBW-1L, 48W00000BRBEO-17",INV-BUR-001,,,AA066,2539
+10169,"GBR0002487, GBR0002539",BURB,Burbo Bank Offshore Windfarm,"E_BURBO, T_BRBEO-1","BURBW-1, BRBEO-1","burbo-bank-united-kingdom-uk02, burbo-bank-extension-united-kingdom-uk59",windfarm_en_10684_burbo-bank,Q2583856,Burbo_Bank_Offshore_Wind_Farm,"burbowind, burbo-bank-extension-offshore-wind-farm-liverpool-bay",,"48W00000BURBW-1L, 48W00000BRBEO-17",INV-BUR-001,,,"AA066, N00445W","2539, 2487"
 10171,,BNWKW,Burn of Whilk Windfarm,E_BNWKW-1,BNWKW-1,,,,,,,48W00000BNWKW-1W,,,,,
 10172,GBR0003951,PSTAT001,Cairn Uish / Rothes Windfarm Extension,2__PSTAT001,CAIRW-2,,,,,,,48W00000CAIRW-2E,,,,,
 10173,GBR0004006,PPGEN003,Camster Wind Farm,2__PPGEN003,CMSTW-1,,,,,,,,,,,,

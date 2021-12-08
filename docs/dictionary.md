@@ -105,8 +105,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">DIDC1, DIDC2, DIDC4, DIDC3, DIDC1G, DIDC2G, DIDC3G, DIDC4G, DIDC01G, DIDC02G, DIDC03G, DIDC04G, DIDCB5, DIDCB6</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q3298465">Q3298465</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Didcot_power_stations">Didcot_power_stations</a></td>
       <td class="truncate">-</td>
       <td class="truncate">97165</td>
       <td class="truncate">48W00000DIDC01G1, 48W00000DIDC02GZ, 48W00000DIDC03GW, 48W00000DIDC04GT, 48W000000DIDCB5C, 48W000000DIDCB6A</td>
@@ -185,8 +185,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">EGGPS-1, EGGPS-2, EGGPS-3, EGGPS-4</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q5347869">Q5347869</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Eggborough_power_station">Eggborough_power_station</a></td>
       <td class="truncate">-</td>
       <td class="truncate">97445</td>
       <td class="truncate">48W00000EGGPS-1X, 48W00000EGGPS-2V, 48W00000EGGPS-3T, 48W00000EGGPS-4R</td>
@@ -205,8 +205,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">FERR-3, FERR-4, FERR-1, FERR-2, FERR-5G, FERR-8G</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">-</td>
-      <td class="truncate">-</td>
+      <td class="truncate"><a href="https://www.wikidata.org/wiki/Q5445531">Q5445531</a></td>
+      <td class="truncate"><a href="https://en.wikipedia.org/wiki/Ferrybridge_power_stations">Ferrybridge_power_stations</a></td>
       <td class="truncate">-</td>
       <td class="truncate">98253</td>
       <td class="truncate">48W000000FERR-36, 48W000000FERR-44, 48W000000FERR-1A, 48W000000FERR-28, 48W00000FERR-5GV, 48W00000FERR-8GM</td>
@@ -2933,8 +2933,8 @@ Dataset listing the various IDs used to refer to the same power plants. These ID
       <td class="truncate">INV-BUR-001</td>
       <td class="truncate">-</td>
       <td class="truncate">-</td>
-      <td class="truncate">AA066</td>
-      <td class="truncate">2539</td>
+      <td class="truncate">AA066, N00445W</td>
+      <td class="truncate">2539, 2487</td>
     </tr>
     <tr>
       <td class="truncate"><a href="https://osuked.github.io/Power-Station-Dictionary/objects/10171">10171</a></td>

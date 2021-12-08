@@ -265,6 +265,16 @@
             }
           },
           {
+            "fields": "dictionary_id",
+            "reference": {
+              "package": "https://raw.githubusercontent.com/OSUKED/GB-Carbon-Intensity/main/data/carbon-intensity/datapackage.json?token=AG5UV56RY2LOECMXT32QOE3BWDNYC",
+              "resource": "carbon-intensity",
+              "fields": "dictionary_id",
+              "attributes": ["carbon_intensity_gco2_per_kwh"],
+              "alt_indexes": ["year"]
+            }
+          },
+          {
             "fields": "ngc_bmu_id",
             "reference": {
               "package": "https://raw.githubusercontent.com/OSUKED/Dictionary-Datasets/main/datasets/capture-prices/datapackage.json",

@@ -42,7 +42,7 @@ def load_raw_triplets_df(
 def load_build_data(
     build_data_fp: str='data/dictionary/build.yml'
 ):
-    with open('../data/dictionary/build.yml', 'r') as f:
+    with open(build_data_fp, 'r') as f:
         build_data = yaml.safe_load(f)
 
     return build_data

@@ -37,6 +37,6 @@ This dataset provides plant-level carbon intensities for GB power stations
 
 <br>
 
-[Download](https://osuked.github.io/Power-Station-Dictionary/attribute_sources/carbon-intensity/carbon_intensity.csv){ .md-button }
+[Download](https://osuked.github.io/Power-Station-Dictionary/attribute_sources/carbon-intensity/plant_carbon_intensity.csv){ .md-button }
 
 <br>

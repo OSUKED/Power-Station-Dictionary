@@ -3,7 +3,7 @@
   "resources": [
     {
       "name": "carbon-intensity",
-      "path": "carbon_intensity.csv",
+      "path": "plant_carbon_intensity.csv",
       "profile": "tabular-data-resource",
       "schema": {
         "fields": [

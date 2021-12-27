@@ -10,9 +10,10 @@ __all__ = ['get_field_name_tags', 'field_hierarchies_to_root', 'assign_idx_field
            'construct_dictionary_knowledge_graph']
 
 # Cell
+import json
+from json.decoder import JSONDecodeError
 import numpy as np
 import pandas as pd
-import json
 
 import os
 import typing
@@ -111,7 +112,10 @@ def datapackage_ref_to_ds_schema(datapackage_ref):
     dp_url = datapackage_ref['package']
     resource = datapackage_ref['resource']
 
-    dp_schema = json.load(urlopen(dp_url))
+    try:
+        dp_schema = json.load(urlopen(dp_url))
+    except JSONDecodeError:
+        raise Exception(f'Failed to decode {resource}')
 
     ds_schema = [
         resource

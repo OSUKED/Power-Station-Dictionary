@@ -24,7 +24,7 @@ markdown_extensions:
 - pymdownx.highlight
 - pymdownx.superfences
 nav:
-- Home: 
+- Home:
   - Overview: index.md
   - Contributing: about/contributing.md
   - Dictionary Schema: about/dictionary_schema.md

@@ -19,10 +19,14 @@ Dataset published by Elexon describing the fuel types of the Balancing Mechanism
 | Version      | 1.0.0                                                                                               |
 | Licenses     | [Elexon Licence](https://www.elexon.co.uk/using-this-website/disclaimer-and-reservation-of-rights/) |
 
+<br>
+<br>
+<br>
+
+### Resources
 
 
-
-
+##### bmu-fuel-types
 
 
 
@@ -43,5 +47,24 @@ Dataset published by Elexon describing the fuel types of the Balancing Mechanism
 <br>
 
 [Download](https://osuked.github.io/Power-Station-Dictionary/attribute_sources/bmu-fuel-types/BMUFuelType 2021-08-09.csv){ .md-button }
+
+<br>
+
+##### detailed-bmu-fuel-types
+
+
+
+<br>
+**Fields**
+
+| Column     | Type   | Format   | Title      | Description                                                               |
+|:-----------|:-------|:---------|:-----------|:--------------------------------------------------------------------------|
+| ngc_bmu_id | string | default  | NGC BMU ID | The Balancing Mechanism Unit identifier used by the National Grid Company |
+| fuel_type  | string | default  | Fuel Type  | The fuel type consumed by the specified BMU                               |
+| comments   | string | default  | Comments   | -                                                                         |
+
+<br>
+
+[Download](https://osuked.github.io/Power-Station-Dictionary/attribute_sources/bmu-fuel-types/fuel_types.csv){ .md-button }
 
 <br>

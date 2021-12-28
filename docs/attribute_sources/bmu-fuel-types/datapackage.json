@@ -57,6 +57,35 @@
           }
         ]
       }
+    },
+    {
+      "name": "detailed-bmu-fuel-types",
+      "path": "fuel_types.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "ngc_bmu_id",
+            "type": "string",
+            "format": "default",
+            "title": "NGC BMU ID",
+            "description": "The Balancing Mechanism Unit identifier used by the National Grid Company"
+          },
+          {
+            "name": "fuel_type",
+            "type": "string",
+            "format": "default",
+            "title": "Fuel Type",
+            "description": "The fuel type consumed by the specified BMU"
+          },
+          {
+            "name": "comments",
+            "type": "string",
+            "format": "default",
+            "title": "Comments"
+          }
+        ]
+      }
     }
   ],
   "keywords": [

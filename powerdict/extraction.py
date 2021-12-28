@@ -214,10 +214,8 @@ def download_attribute_data_to_temp_dir(
 
 # Cell
 def load_datapackage(datapackage_ref, temp_dir_loc='./temp', return_type='df', set_index=True):
-    datapackage_fp = f"{temp_dir_loc}/{datapackage_ref['resource']}/datapackage.json"
     datapackage_resource = datapackage_ref['resource']
-
-    external_datapackage = Package(datapackage_fp)
+    external_datapackage = Package(datapackage_ref['package'])
     resource = external_datapackage.get_resource(datapackage_resource)
 
     if return_type == 'package':

@@ -47,10 +47,15 @@ extra_css:
   - https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
   
 nav:
-  - Home: index.md
+  - Home: 
+    - Overview: index.md
+    - Contributing: about/contributing.md
+    - Dictionary Schema: about/dictionary_schema.md
+    - About: about/about.md
   - Dictionary: dictionary.md
   - Datasets: placeholder.md
   - Sites:{% for object_id in object_ids_to_names %}
     - {{object_ids_to_names[object_id]}}: objects/{{object_id}}.md{% endfor %}
-  - Use Cases:
-    - use-cases/carbon-intensity.md
+  - Blog:
+    - Making Sense of (Energy) Data: blog/launch.md
+    - Granular Carbon Intensity: blog/carbon-intensity.md

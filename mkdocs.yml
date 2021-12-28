@@ -24,7 +24,11 @@ markdown_extensions:
 - pymdownx.highlight
 - pymdownx.superfences
 nav:
-- Home: index.md
+- Home: 
+  - Overview: index.md
+  - Contributing: about/contributing.md
+  - Dictionary Schema: about/dictionary_schema.md
+  - About: about/about.md
 - Dictionary: dictionary.md
 - Datasets:
     BMU Fuel Types: datasets/bmu-fuel-types.md
@@ -289,8 +293,9 @@ nav:
   - Winfrith: objects/10317.md
   - Wylfa: objects/10139.md
   - 10063: objects/10063.md
-- Use Cases:
-  - use-cases/carbon-intensity.md
+- Blog:
+  - Making Sense of (Energy) Data: blog/launch.md
+  - Granular Carbon Intensity: blog/carbon-intensity.md
 plugins:
 - search
 - swagger

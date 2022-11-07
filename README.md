@@ -5,6 +5,10 @@
 N.b. This project is currently in active development.
 
 <br>
+
+>**Any and all contributions are very welcome. If you are less comfortable editing via GitHub please contribute via [this Google Sheet](https://docs.google.com/spreadsheets/d/1cn4zJ3Eyn9tqMdPal_QnC4eZUqq6nUCJXtQOyJYXChY/edit?usp=sharing) (GitHub is still preferred if possible).**
+
+<br>
 <br>
 
 ### Motivation

@@ -202,6 +202,17 @@
             "title": "REPD ID (New)",
             "description": "Unique identifier used by BEIS in the Renewable Energy Planning Database",
             "hierarchy": "equivalent/child"
+          },
+          {
+            "name": "crown_estate_id",
+            "type": "array",
+            "format": ", ",
+            "array_item": {
+              "type": "string"
+            },
+            "title": "Crown Estate Windfarm ID",
+            "description": "The identifier used by the Crown Estate Windfarm API",
+            "hierarchy": "equivalent/child"
           }
         ],
         "primaryKey": "dictionary_id",

@@ -30,14 +30,14 @@ jobs:
           conda env update --file environment.yml --name base
           pip install git+https://github.com/ayrtonb/frictionless-py.git@60789d30fe7729ed898a20d4dd50fe823381e325
         
-      - name: Running pipeline
-        shell: bash
-        run: |
-          python powerdict/siteupdate.py
-          mkdocs gh-deploy --force
+      # - name: Running pipeline
+      #   shell: bash
+      #   run: |
+      #     python powerdict/siteupdate.py
+      #     mkdocs gh-deploy --force
       
-      - name: Saving changes to repo
-        uses: stefanzweifel/git-auto-commit-action@v4 
+      # - name: Saving changes to repo
+      #   uses: stefanzweifel/git-auto-commit-action@v4 
       
       - name: "step-log"
         run: |

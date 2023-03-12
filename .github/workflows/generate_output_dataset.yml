@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Load in repo
         uses: actions/checkout@v3
+        run: |
+          git checkout origin pinned_dependencies
     
       - name: Set up Python
         uses: actions/setup-python@v4

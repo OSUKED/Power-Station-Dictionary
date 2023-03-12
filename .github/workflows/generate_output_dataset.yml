@@ -30,7 +30,6 @@ jobs:
         run: |
           conda activate base
           conda env update --file environment.yml --name base
-          pip install git+https://github.com/ayrtonb/frictionless-py.git@60789d30fe7729ed898a20d4dd50fe823381e325
         
       - name: Running pipeline
         shell: bash

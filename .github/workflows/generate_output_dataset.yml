@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - shiro
+      - pinned_dependencies
     paths:
       - 'data/dictionary/**'
 

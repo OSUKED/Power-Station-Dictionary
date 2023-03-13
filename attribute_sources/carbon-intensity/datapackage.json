@@ -1,0 +1,57 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "carbon-intensity",
+      "path": "plant_carbon_intensity.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "dictionary_id",
+            "type": "integer",
+            "format": "default",
+            "title": "Dictionary ID",
+            "description": "Dictionary ID"
+          },
+          {
+            "name": "year",
+            "type": "year",
+            "format": "default",
+            "description": "The year during which the carbon intensity has been calculated",
+            "title": "Year"
+          },
+          {
+            "name": "carbon_intensity_gco2_per_kwh",
+            "type": "number",
+            "format": "default",
+            "title": "Carbon Intensity (gCO2/kWh)"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "carbon intensity",
+    "co2",
+    "emissions",
+    "power station"
+  ],
+  "name": "carbon-intensity",
+  "title": "Carbon Intensity",
+  "description": "This dataset provides plant-level carbon intensities for GB power stations",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

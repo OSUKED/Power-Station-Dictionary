@@ -1,13 +1,34 @@
 name: generate_output_dataset
 on: 
   workflow_dispatch:
+  branches:
+  - shiro
+  inputs:
+    logLevel:
+      description: 'Log level'     
+      required: true
+      default: 'warning'
+    tags:
+      description: 'Test scenario tags'
   push:
     branches:
       - shiro
     paths:
       - 'data/dictionary/**'
 
+
 jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
   build-linux:
     runs-on: ubuntu-latest
 

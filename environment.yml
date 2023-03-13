@@ -1,6 +1,7 @@
 name: PowerDict
 
 channels:
+  - defaults
   - conda-forge
   
 dependencies:

@@ -1,8 +1,6 @@
 name: generate_output_dataset
 on: 
   workflow_dispatch:
-  branches:
-  - shiro
   inputs:
     logLevel:
       description: 'Log level'     

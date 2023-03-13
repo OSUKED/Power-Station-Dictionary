@@ -299,6 +299,7 @@ nav:
 plugins:
 - search
 - swagger
+- git-revision-date-localized
 repo_name: Power-Station-Dictionary
 repo_url: https://github.com/OSUKED/Power-Station-Dictionary
 site_name: Power-Station-Dictionary

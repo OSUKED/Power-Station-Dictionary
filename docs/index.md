@@ -2,6 +2,10 @@
 
 > The *Power Station Dictionary* is a site that enables mapping between various power plant ids and automatically extracts data relating to those plants from Frictionless Data packages.
 
+Power Station Dictionary last updated: *{{ git_site_revision_date_localized }}*
+
+Contributors: [Ayrton Bourn](https://github.com/AyrtonB), [Jessica Steinemann](https://github.com/Jess-St), [Clem Attwood](https://github.com/ClemAtt)
+
 <br>
 <br>
 

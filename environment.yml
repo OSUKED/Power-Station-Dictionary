@@ -19,6 +19,7 @@ dependencies:
   - typer==0.3.2
   - tqdm==4.62.3
   - jinja2==3.0
+  - pygments>2.12
   - pip
   
   - pip:

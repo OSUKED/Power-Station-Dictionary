@@ -1,41 +1,22 @@
 name: generate_output_dataset
 on: 
   workflow_dispatch:
-  inputs:
-    logLevel:
-      description: 'Log level'     
-      required: true
-      default: 'warning'
-    tags:
-      description: 'Test scenario tags'
   push:
     branches:
       - shiro
     paths:
       - 'data/dictionary/**'
 
-
 jobs:
-  log-the-inputs:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-          ENVIRONMENT: ${{ inputs.environment }}
   build-linux:
     runs-on: ubuntu-latest
 
     steps:
       - name: Load in repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
     
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v1
         with:
           python-version: '3.9'
         
@@ -47,6 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           conda env update --file environment.yml --name base
+          pip install git+https://github.com/ayrtonb/frictionless-py.git@60789d30fe7729ed898a20d4dd50fe823381e325
         
       - name: Running pipeline
         shell: bash

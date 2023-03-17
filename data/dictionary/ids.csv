@@ -196,12 +196,12 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10226,GBR0004517,MINSW,Minsca Wind Farm,E_MINSW-1,MINSW-1,,,,,,,48W00000MINSW-1U,,,,,,
 10227,GBR0003647,MOYE,Moy Windfarm,"E_MOYE-1, E_MOYEW-1",MOYEW-1,,,,,,,,,,,,,
 10229,GBR0002509,OMNDW,Ormonde Windfarm,"E_OMNDW-1, T_OMNDW-1, E_OMNDD-1","OMNDW-1, OMNDO-1, OMNDD-1",ormonde-united-kingdom-uk17,windfarm_en_1629_ormonde,Q763941,Ormonde_Wind_Farm,ormonde-offshore-wind-farm,,48W00000OMNDO-1J,,,,N00435W,2509,OMNDO-1
-10231,GBR0004687,PPGEN002,Pauls Hill Windfarm,2__PPGEN002,PAUHW-1,,,,,,,,,,,,6407,
+10231,GBR0004687,PPGEN002,Pauls Hill Windfarm,"2__PPGEN002, 2__PENEC002",PAUHW-1,,,,,,,,,,,N00052W,4687,
 10232,GBR0004595,PNYCW,Pen y Cymoedd Wind Farm,T_PNYCW-1,PNYCW-1,,,,,,,,,,,A0232,4595,
 10233,GBR0002515,RCBKO,Race Bank Offshore Wind Farm,"T_RCBKO-1, T_RCBKO-2","RCBKO-1, RCBKO-2","race-bank-united-kingdom-uk18, race-bank-extension-united-kingdom-uk4f","windfarm_en_12071_race-bank, windfarm_en_30016_race-bank-extension",Q3364824,Race_Bank_wind_farm,race-bank-wind-farm,,"48W00000RCBKO-1S, 48W00000RCBKO-2Q",,,,N00463W,"2515, 6501",RCBKO
 10234,,RMPNO,Rampion Offshore Windfarm,"T_RMPNO-1, T_RMPNO-2","RMPNO-1, RMPNO-2",rampion-united-kingdom-uk36,windfarm_en_16761_rampion,Q7290043,Rampion_Wind_Farm,rampion-offshore-wind-project-english-channel,,"48W00000RMPNO-17, 48W00000RMPNO-25",,,,A0251,2520,RMPNO
 10235,"GBR0002496, GBR0002497","RREW, RRWW",Robin Rigg,"T_RREW-1, T_RRWW-1","RREW-1, RRWW-1",robin-rigg-united-kingdom-uk20,windfarm_en_7392_robin-rigg,Q1724197,Robin_Rigg_Wind_Farm,robinriggwind,,"48W000000RREW-14, 48W000000RRWW-1P",,,,,,"RRWW-1, RREW-1"
-10237,GBR0003534,PPGEN001,Rothes (Cairn Uish) Wind Farm,2__PPGEN001,CAIRW-1,,,,,,,,,,,,,
+10237,GBR0003534,PPGEN001,Rothes (Cairn Uish) Wind Farm,"2__PPGEN001, 2__PENEC001","CAIRW-1, ROTH-1",,,,,,,,,,,,,
 10238,,SANQW,Sanquhar Community Wind Farm Generation,T_SANQW-1,SANQW-1,,,,,,,48W00000SANQW-1B,,,,,6629,
 10239,GBR0002512,SHRSW,Sheringham Shoals Windfarm ,"E_SHRSW-1, T_SHRSW-1, E_SHRSW-2, T_SHRSW-2","SHRSW-1, SHRSO-1, SHRSW-2, SHRSO-2","sheringham-shoal-united-kingdom-uk27, sheringham-shoal-extension-united-kingdom-uk4h","windfarm_en_7394_sheringham-shoal, windfarm_en_30017_sheringham-shoal-extension",Q7495028,Sheringham_Shoal_Offshore_Wind_Farm,sheringham-shoal,,"48W00000SHRSO-1Y, 48W00000SHRSO-2W",,,,N00453W,2512,SHRSO
 10240,GBR0004625,STRNW,Strathy North Wind Farm 1,T_STRNW-1,STRNW-1,,,,,,,48W00000STRNW-1H,,,,,,
@@ -276,4 +276,10 @@ dictionary_id,gppd_idnr,esail_id,name,sett_bmu_id,ngc_bmu_id,4c_offshore_id,wind
 10315,,,Trawsfynydd,,,,,,,,,,,,"273, 274",,,
 10316,,,Windscale,,,,,,,,,,,,268,,,
 10317,,,Winfrith,,,,,,,,,,,,239,,,
-10318,,,Seagreen Offshore Wind Farm,"T_SGRWO-3, T_SGRWO-4, T_SGRWO-5, T_SGRWO-6","SGRWO-3, SGRWO-4, SGRWO-5, SGRWO-6",,,,,,,,,,,B0267,2540,
+10318,,,Seagreen Offshore Wind Farm,"T_SGRWO-3, T_SGRWO-4, T_SGRWO-5, T_SGRWO-6","SGRWO-3, SGRWO-4, SGRWO-5, SGRWO-6",UK44,,,,,,,,,,B0267,2540,
+10319,,,Tilbury Green Power One,E_TGP1,TGP1,,,,,,,,,,,EN00550,152,
+10320,,,,2__ASMAR000,EAS-SEL01,,,,,,,,,,,,,
+10321,,,Lochaber Hydro,2__PMARB001,LCSMH-1,,,,,,,,,,,,6601,
+10322,,,Sandy Knowe Wind Farm,T_SAKNW-1,SAKNW-1,,,,,,,,,,,B0315,4574,
+10323,,,Creag Riabhach Wind Farm,T_CREAW-1,CREAW-1,,,,,,,,,,,C0814,4300,
+10324,,,Tom Nan Clach Wind Farm,C__PSTAT011,,,,,,,,,,,,B1493,4420,

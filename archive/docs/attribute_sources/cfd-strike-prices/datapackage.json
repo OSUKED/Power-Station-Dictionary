@@ -1,0 +1,57 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "cfd-strike-prices",
+      "path": "cfd-strike-prices.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "cfd_id",
+            "type": "string",
+            "format": "default",
+            "title": "CfD ID",
+            "description": "ID which identifies each CfD generator"
+          },
+          {
+            "name": "financial_year",
+            "type": "integer",
+            "format": "default",
+            "title": "Financial Year",
+            "description": "The financial year for which the strike price has been set"
+          },
+          {
+            "name": "strike_price_GBP_per_MWh",
+            "type": "number",
+            "format": "default",
+            "title": "Strike Price (GBP/MWh)",
+            "description": "The strike price is a guaranteed price to be paid to wholesale generators of electricity who have a contract within the CfD scheme"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "strike price",
+    "cfd"
+  ],
+  "name": "cfd-strike-prices",
+  "title": "CfD Strike Prices",
+  "description": "This dataset provides data on the nominal strike prices for each generator within the CfD scheme. A detailed methodology on how the strike price changes are calculated can be found [here](https://www.lowcarboncontracts.uk/sites/default/files/Strike%20Price%20Adjustment%20Guide%20-%20January%202017.pdf).\n\nThe values provided here have been extracted from the `Actual CfD Generation and avoided GHG emissions` dataset.",
+  "homepage": "https://www.lowcarboncontracts.uk/data-portal/dataset/actual-cfd-generation-and-avoided-ghg-emissions",
+  "contributors": [
+    {
+      "title": "LCCC",
+      "role": "author"
+    }
+  ],
+  "version": "2021-10-19",
+  "licenses": [
+    {
+      "name": "OGL-UK-3.0",
+      "title": "Open Government Licence 3.0 (United Kingdom)",
+      "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+site_name: Power-Station-Dictionary
+repo_url: https://github.com/OSUKED/Power-Station-Dictionary
+edit_uri: edit/main/docs/
+repo_name: Power-Station-Dictionary
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/git-alt
+  features:
+    - header.autohide
+    - navigation.tabs
+    - navigation.instant
+    - search.suggest
+  palette:
+    primary: black
+
+extra:
+  generator: false
+  swagger_url: 'https://petstore.swagger.io/v2/swagger.json'
+      
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist
+  - footnotes
+  - attr_list
+  - pymdownx.snippets
+  - pymdownx.highlight
+  - pymdownx.superfences
+  
+plugins:
+  - search
+  - swagger
+      
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://code.jquery.com/jquery-3.5.1.js
+  - https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js
+  - js/tables.js
+  - https://cdn.datatables.net/plug-ins/1.11.3/dataRender/ellipsis.js
+
+extra_css:
+  - css/truncate.css
+  - https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css
+  
+nav:
+  - Home: 
+    - Overview: index.md
+    - Contributing: about/contributing.md
+    - Dictionary Schema: about/dictionary_schema.md
+    - About: about/about.md
+  - Dictionary: dictionary.md
+  - Datasets: placeholder.md
+  - Sites:{% for object_id in object_ids_to_names %}
+    - {{object_ids_to_names[object_id]}}: objects/{{object_id}}.md{% endfor %}
+  - Blog:
+    - Making Sense of (Energy) Data: blog/launch.md
+    - Granular Carbon Intensity: blog/carbon-intensity.md

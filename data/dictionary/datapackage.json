@@ -9,6 +9,7 @@
         "fields": [
           {
             "name": "dictionary_id",
+            "required": true,
             "type": "integer",
             "format": "default",
             "description": "The identifier used to refer to power plants in the Subak data cooperative",

@@ -2,25 +2,22 @@ import uuid
 import datetime
 import pathlib
 import pandas as pd
-from typing import Any, Sequence, Union, Optional, List
-from loguru import logger
-from sqlalchemy.exc import IntegrityError
+from typing import Any, Union, Optional
 
 from enum import Enum
-from pydantic import BaseModel, AnyHttpUrl, EmailStr, validator, constr, parse_obj_as
-from sqlmodel import Field, SQLModel, Session, Relationship, create_engine, select, desc
-from sqlalchemy import Column, DateTime, func, and_, text
+from pydantic import AnyHttpUrl, EmailStr, validator, constr, parse_obj_as
+from sqlmodel import Field, SQLModel, Session, Relationship, create_engine, select
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import NoResultFound
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.future import select
 import sys, inspect
 
 
 ## SQLModel Schema Base
-class EnrichedSQLModel(SQLModel):
+class ExtendedSQLModel(SQLModel):
     @classmethod
-    def by_id(
+    def get_record(
         cls, 
         session: Session, 
         id_: Any
@@ -31,18 +28,12 @@ class EnrichedSQLModel(SQLModel):
         return obj
 
     @classmethod
-    def all(cls, session: Session):
+    def get_all_records(cls, session: Session):
         res = session.execute(select(cls))
         return res.scalars().all()
 
     @classmethod
-    def all_currently_valid(cls, session: Session):
-        # TODO make this work when valid_to is a parameter
-        res = session.execute(select(cls).filter_by(valid_to=None))
-        return res.scalars().all()
-
-    @classmethod
-    def create(
+    def create_record(
         cls, session: Session, source: Union[dict[Any, Any], SQLModel]
     ):
         if isinstance(source, SQLModel) or isinstance(source, dict):
@@ -52,85 +43,6 @@ class EnrichedSQLModel(SQLModel):
 
         session.add(obj)
         session.flush()
-
-        return obj
-
-    @classmethod
-    def create_multiple(
-        cls, 
-        session: Session, 
-        sources: Sequence[Union[dict[str, Any], SQLModel]]
-    ) -> None:
-        for source in sources:
-            if isinstance(source, SQLModel):
-                obj = cls.from_orm(source)
-            elif isinstance(source, dict):
-                obj = cls.parse_obj(source)
-            else:
-                raise ValueError(f"The input type {type(source)} can not be processed")
-
-            session.add(obj)
-        
-        try:
-            session.commit()
-        except IntegrityError as e:
-            err_msg = f'{str(e.orig).strip()}\nN.b. this error was caught with the first entry but could apply to subsequent rows'
-            logger.warning(err_msg)
-
-    def save(self, session: Session) -> None:
-        session.add(self)
-        session.flush()
-
-    def update(
-        self, 
-        session: Session, 
-        source: Union[dict[Any, Any], SQLModel]
-    ):
-        if isinstance(source, SQLModel):
-            source = source.dict(exclude_unset=True)
-
-        for key, value in source.items():
-            setattr(self, key, value)
-
-        session.flush()
-        return self
-
-    @classmethod
-    def update_by_id(
-        cls, 
-        session: Session, 
-        id_: Union[uuid.UUID, int], 
-        update_values: dict[Any, Any]
-    ):
-        obj = session.get(cls, id_)
-
-        if obj is None:
-            raise NoResultFound(f"{cls.__name__} with id {id_} not found")
-
-        for key, value in update_values.items():
-            setattr(obj, key, value)
-
-        obj.save(session)
-
-        return obj
-
-    def delete(self, session: Session) -> None:
-        session.delete(self)
-        session.commit()
-
-    @classmethod
-    def delete_by_id(
-        cls, 
-        session: Session, 
-        id_: Union[uuid.UUID, int]
-    ):
-        obj = session.get(cls, id_)
-
-        if obj is None:
-            raise NoResultFound(f"{cls.__name__} with id {id_} not found")
-
-        obj.delete(session)
-        session.commit()
 
         return obj
     
@@ -161,7 +73,7 @@ class DataResourceFormat(str, Enum):
 
 
 ## Frictionless Schemas
-class DataLicence(EnrichedSQLModel):
+class DataLicense(ExtendedSQLModel):
     name: Optional[str]
     path: Optional[Union[pathlib.Path, AnyHttpUrl]]
     title: Optional[str]
@@ -170,6 +82,7 @@ class DataLicence(EnrichedSQLModel):
     def check_name_or_path(cls, v, values):
         if v is None and values['name'] is None:
             raise ValueError('One of `name` or `path` is required')
+        return v
 
     class Config:
         @staticmethod
@@ -179,9 +92,9 @@ class DataLicence(EnrichedSQLModel):
             
             schema['anyOf'] += [{'required' : ['path']}]
             schema['anyOf'] += [{'required' : ['name']}]
-
-
-class DataContributor(EnrichedSQLModel):
+            
+            
+class DataContributor(ExtendedSQLModel):
     title: str
     path: Optional[Union[pathlib.Path, AnyHttpUrl]]
     email: Optional[EmailStr]
@@ -189,31 +102,34 @@ class DataContributor(EnrichedSQLModel):
     organization: Optional[str]
 
 
-class DataSource(EnrichedSQLModel):
+class DataSource(ExtendedSQLModel):
     title: str
     path: Optional[Union[pathlib.Path, AnyHttpUrl]]
     email: Optional[EmailStr]
     
     
-class FieldDescriptor(EnrichedSQLModel):
+class FieldDescriptor(ExtendedSQLModel):
     name: str
     title: Optional[str]
-    description: Optional[Any]
+    description: Optional[Union[str, Any]]
     type: Optional[str]
     format: Optional[str]
-    example: Optional[Any]
+    example: Optional[Union[str, Any]]
     rdfType: Optional[Union[pathlib.Path, AnyHttpUrl]]
-    constraints: Optional[Any]
+    constraints: Optional[Union[str, Any]]
 
     
-class DataSchema(EnrichedSQLModel):
+class DataSchemaBase(ExtendedSQLModel):
+    missingValues: Optional[list[str]]
+    primaryKey: Optional[str]
+    foreignKeys: Optional[list[str]]
+
+    
+class DataSchema(DataSchemaBase):
     fields: list[FieldDescriptor]
-    missingValues: list[str]
-    primaryKey: str
-    foreignKeys: list[str]
 
 
-class DataResource(EnrichedSQLModel):
+class DataResourceBase(ExtendedSQLModel):
     name: constr(regex='^[a-z0-9_\.,-]*$')
     data: Optional[list[dict[str, Any]]]
     path: Optional[Union[pathlib.Path, AnyHttpUrl]]
@@ -225,14 +141,12 @@ class DataResource(EnrichedSQLModel):
     encoding: Optional[str]
     bytes: Optional[int]
     hash: Optional[str]
-    # schema
-    sources: Optional[list[DataSource]]
-    licenses: Optional[list[DataLicence]]
 
     @validator('path')
     def check_data_or_path(cls, v, values):
         if v is None and values['data'] is None:
             raise ValueError('One of `data` or `path` is required')
+        return v
 
     class Config:
         @staticmethod
@@ -244,14 +158,16 @@ class DataResource(EnrichedSQLModel):
             schema['anyOf'] += [{'required' : ['data']}]
 
 
-class DataPackage(EnrichedSQLModel):
-    name: constr(regex='^[a-z0-9_\.,-]*$')
-    resources: list[DataResource]
-    id: Optional[Union[uuid.UUID, Any]]
-    licenses: Optional[list[DataLicence]]
+class DataResource(DataResourceBase):
+    fd_schema: Optional[DataSchema] = Field(alias='schema')
     sources: Optional[list[DataSource]]
-    contributors: Optional[list[DataContributor]]
-    profile: Optional[DataPackageProfile] = 'tabular-data-resource'
+    licenses: Optional[list[DataLicense]]
+
+
+class DataPackageBase(ExtendedSQLModel):
+    name: constr(regex='^[a-z0-9_\.,-]*$')
+    id: Optional[Union[uuid.UUID, Any]]
+    profile: Optional[DataPackageProfile] = DataPackageProfile.tabular_data_package
     title: Optional[str]
     description: Optional[str]
     homepage: Optional[pathlib.Path]
@@ -261,17 +177,91 @@ class DataPackage(EnrichedSQLModel):
     created: Optional[datetime.datetime]
 
 
+class DataPackage(DataPackageBase):
+    resources: list[DataResource]
+    licenses: Optional[list[DataLicense]]
+    sources: Optional[list[DataSource]]
+    contributors: Optional[list[DataContributor]]
+
+
 ## Dictionary Schemas
 
 
 ## DB Tables
+class DataLicenseTable(DataLicense, table=True):
+    __tablename__ = 'fd__data_license'
+    path: str
+    data_license_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    data_resource_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_resource.data_resource_id')
+    data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
+    data_resource: Optional['DataResourceTable'] = Relationship(back_populates='licenses')
+    data_package: Optional['DataPackageTable'] = Relationship(back_populates='licenses')
+
+
+class DataContributorTable(DataContributor, table=True):
+    __tablename__ = 'fd__data_contributor'
+    path: str
+    data_contributor_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
+    data_package: Optional['DataPackageTable'] = Relationship(back_populates='contributors')
+
+
+class DataSourceTable(DataSource, table=True):
+    __tablename__ = 'fd__data_source'
+    path: str
+    data_source_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    data_resource_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_resource.data_resource_id')
+    data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
+    data_resource: Optional['DataResourceTable'] = Relationship(back_populates='sources')
+    data_package: Optional['DataPackageTable'] = Relationship(back_populates='sources')
+    
+
+class FieldDescriptorTable(FieldDescriptor, table=True):
+    __tablename__ = 'fd__field_descriptor'
+    rdfType: str
+    description: str
+    example: str
+    constraints: str
+    field_descriptor_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    data_schema_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_schema.data_schema_id')
+    data_schema: Optional['DataSchemaTable'] = Relationship(back_populates='fields')
+
+    
+class DataSchemaTable(DataSchemaBase, table=True):
+    __tablename__ = 'fd__data_schema'
+    data_schema_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    fields: Optional[list[FieldDescriptorTable]] = Relationship()
+
+
+class DataResourceTable(DataResourceBase, table=True):
+    __tablename__ = 'fd__data_resource'
+    data: str
+    path: str
+    data_resource_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
+    data_schema_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_schema.data_schema_id')
+    schema: Optional[DataSchemaTable] = Relationship()
+    sources: Optional[list[DataSourceTable]] = Relationship()
+    licenses: Optional[list[DataLicenseTable]] = Relationship()
+
+
+class DataPackageTable(DataPackageBase, table=True):
+    __tablename__ = 'fd__data_package'
+    id: str
+    homepage: str
+    image: str
+    data_package_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    resources: Optional[list[DataResourceTable]] = Relationship()
+    licenses: Optional[list[DataLicenseTable]] = Relationship()
+    sources: Optional[list[DataSourceTable]] = Relationship()
+    contributors: Optional[list[DataContributorTable]] = Relationship()
 
 
 # Creating a helper mapping from the table name to the SQLModel class
 is_class_member = lambda member: inspect.isclass(member) and member.__module__ == __name__
 cls_members = inspect.getmembers(sys.modules[__name__], is_class_member)
-    
-tablename_to_schema = {
+
+table_name_to_schema = {
     cls_member[-1].__tablename__: cls_member[-1]
     for cls_member
     in cls_members
@@ -279,8 +269,8 @@ tablename_to_schema = {
 }
 
 
-## DB manager
-class DbManager:
+## DB client
+class DbClient:
     def __init__(
         self,
         user: Optional[str] = 'postgres',
@@ -325,7 +315,7 @@ class DbManager:
         record: Any,
         tablename: str
     ): 
-        schema = tablename_to_schema[tablename]
+        schema = table_name_to_schema[tablename]
         
         if isinstance(record, dict):
             record = schema(**record)
@@ -338,10 +328,9 @@ class DbManager:
     def create_multiple(
         self,
         records: Union[Any, pd.DataFrame],
-        tablename: str,
-        handle_nulls: bool = True
+        table_name: str
     ):      
-        schema = tablename_to_schema[tablename]
+        schema = table_name_to_schema[table_name]
         
         if isinstance(records, pd.DataFrame):
             records = records.fillna(-99999).replace(-99999, None)
@@ -358,10 +347,10 @@ class DbManager:
 
     def get_all(
         self,
-        tablename: str,
+        table_name: str,
         return_df: bool = True
     ):
-        schema = tablename_to_schema[tablename]
+        schema = table_name_to_schema[table_name]
         
         with Session(self._engine) as session:
             obj = schema.all(session)

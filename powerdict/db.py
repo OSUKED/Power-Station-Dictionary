@@ -1,4 +1,5 @@
 import json
+import logging
 import uuid
 import pathlib
 from typing import Optional
@@ -253,7 +254,9 @@ class DbClient:
             FieldDescriptorTable.__table__,
             DataSchemaTable.__table__,
             DataResourceTable.__table__,
-            DataPackageTable.__table__
+            DataPackageTable.__table__,
+            SecureAPIUserTable.__table__,
+            TokenRecordTable.__table__
         ]
     ):
         SQLModel.metadata.create_all(self._engine, tables=tables_to_create)

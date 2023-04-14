@@ -139,10 +139,6 @@ class ExtendedSQLModel(SQLModel):
 
         return obj
 
-    # @classmethod
-    # def to_dict(cls) -> dict:
-    #     return sqlmodel_obj_to_dict(cls)
-
 
 ## Enumerations
 class DataContributorRole(str, Enum):

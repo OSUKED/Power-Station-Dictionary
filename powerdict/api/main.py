@@ -22,13 +22,3 @@ app.add_middleware(SessionMiddleware, secret_key=middleware_secret_key)
 
 app.include_router(frictionless.router, prefix="/frictionless")
 app.include_router(authentication.router, prefix="/authentication")
-
-if environment in ['local', 'test']:
-    if authentication.get_user('ayrton') is None:
-        authentication.create_user(
-            username = 'ayrton',
-            name = 'ayrton',
-            email = 'ayrtonbourn@outlook.com',
-            password = 'password',
-            is_superuser = True
-        )

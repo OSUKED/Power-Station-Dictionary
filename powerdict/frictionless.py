@@ -1,3 +1,5 @@
+import json
+import logging
 import pathlib
 import uuid
 from enum import Enum
@@ -239,13 +241,9 @@ def parse_fd_package_obj(
     package: dict, 
     use_table_schemas: bool = False
 ):
-    package_is_sqlmodel = hasattr(package, '__table__') 
-    
-    if package_is_sqlmodel and (use_table_schemas == False):
+    if not isinstance(package, dict):
         package = python_obj_to_dict_repr(package)
-    
-    obj_schema = select_schema(db.DataPackageTable, use_table_schemas)
-    
+
     if 'resources' in package.keys():
         package['resources'] = parse_fd_resource_objs(package['resources'], use_table_schemas)
         
@@ -255,6 +253,7 @@ def parse_fd_package_obj(
     if 'contributors' in package.keys():
         package['contributors'] = parse_obj_list(package['contributors'], db.DataContributorTable, use_table_schemas)
 
+    obj_schema = select_schema(db.DataPackageTable, use_table_schemas)
     parsed_package = obj_schema.parse_obj(package)
     
     if use_table_schemas:

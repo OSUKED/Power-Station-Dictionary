@@ -78,7 +78,7 @@ def test_data_package_roundtrip(test_app, token, example_data_package):
     assert post_response.status_code == status.HTTP_200_OK
 
     # retrieving data package
-    data_package_id = post_response.json()['data_package_id']
+    data_package_id = post_response.json()
 
     get_response = test_app.get(
         f'/frictionless/data-packages/{data_package_id}',

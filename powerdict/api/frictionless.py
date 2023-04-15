@@ -1,3 +1,4 @@
+import uuid
 import json
 import logging
 
@@ -24,6 +25,7 @@ async def hello(
 @router.get(
     '/data-packages',
     response_model=list[schemas.DataPackage],
+    response_model_exclude_none=True,
     status_code=200
 )
 async def get_data_packages(
@@ -35,6 +37,7 @@ async def get_data_packages(
 @router.get(
     '/data-packages/{data_package_id}',
     response_model=schemas.DataPackage,
+    response_model_exclude_none=True,
     status_code=200
 )
 async def get_data_package(
@@ -46,12 +49,18 @@ async def get_data_package(
 
 @router.post(
     '/data-packages',
-    # response_model=schemas.DataPackage,
+    response_model=uuid.UUID,
     status_code=200
 )
 async def post_data_packages(
     data_package: schemas.DataPackage,
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
 ):
+    # for i, resource in enumerate(data_package['resources']):
+    #     if 'schema' in resource.keys():
+    #         resource['fd_schema'] = resource.pop('schema')
+
+    # add a validator to DataPackage that does the schema -> fd_schema conversion
+
     data_package = frictionless.save_fd_package_to_db(data_package, db_client)
-    return data_package
+    return data_package.data_package_id

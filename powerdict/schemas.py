@@ -5,7 +5,7 @@ import pathlib
 from typing import Any, Union, Optional
 
 from enum import Enum
-from pydantic import EmailStr, validator, constr, BaseModel
+from pydantic import EmailStr, validator, constr, BaseModel, Field
 from sqlmodel import SQLModel, select
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import NoResultFound
@@ -171,6 +171,23 @@ class DataPackageReturnType(str, Enum):
     raw_dict = 'raw_dict'
 
 
+class AssetType(str, Enum):
+    power_station = 'power_station'
+
+
+class UserEventType(str, Enum):
+    link_id = 'link_id'
+    data_package = 'data_package'
+    dictionary_id = 'dictionary_id'
+
+
+class UserEventCrud(str, Enum):
+    create = 'create'
+    read = 'read'
+    update = 'update'
+    delete = 'delete'
+
+
 ## Frictionless Schemas
 class DataLicense(ExtendedSQLModel):
     name: Optional[str]
@@ -309,3 +326,40 @@ class SecureAPIUser(APIUser):
 
 
 ## Dictionary Schemas
+class Dictionary(ExtendedSQLModel):
+    osuked_id: int
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    asset_type: AssetType = AssetType.power_station
+
+
+class RepdIdLink(ExtendedSQLModel):
+    osuked_id: int
+    repd_id: int
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    # can later look at adding a 'relationship' field: PartOf, SameAs, etc
+
+
+class SourceIngestion(ExtendedSQLModel):
+    data_package_id: uuid.UUID
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    source_table_name: str
+
+
+class SourceIngestion(ExtendedSQLModel):
+    data_package_id: uuid.UUID
+    linked_id_column: str
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    linked_id_type: str # with a 1:1 mapping to a link table name
+
+
+class UserEvent(ExtendedSQLModel):
+    # need to work out whether this is actually needed ...
+    # and if so how we link these to specific records in the other tables
+    username: str
+    asset_type: UserEventType
+    event_crud: UserEventCrud
+    datetime: datetime.datetime

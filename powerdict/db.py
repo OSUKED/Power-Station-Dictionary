@@ -4,6 +4,8 @@ import uuid
 import pathlib
 from typing import Optional
 import datetime
+import os
+from dotenv import load_dotenv
 from enum import Enum
 from sqlmodel import Field, SQLModel, Session, Relationship, create_engine
 from sqlalchemy import text
@@ -255,7 +257,7 @@ class DbClient:
         user: Optional[str] = 'postgres',
         password: Optional[str] = None,
         host: Optional[str] = 'localhost',
-        port: Optional[int] = 5632,
+        port: Optional[int] = 5432,
         database_name: str = 'powerdict',
         dialect: str = 'postgresql',
         driver: Optional[str] = 'psycopg2'
@@ -280,7 +282,7 @@ class DbClient:
         
     def create_tables(
         self,
-        tables_to_create: Optional[list] = [
+        tables: Optional[list] = [
             DataLicenseTable.__table__,
             DataContributorTable.__table__,
             DataSourceTable.__table__,
@@ -297,7 +299,7 @@ class DbClient:
             RepdIdLinkTable.__table__
         ]
     ):
-        SQLModel.metadata.create_all(self._engine, tables=tables_to_create)
+        SQLModel.metadata.create_all(self._engine, tables=tables)
 
     def run_query(
         self,
@@ -406,3 +408,23 @@ class DbClient:
                 for record
                 in records
             ]
+
+
+## Initialising the database client
+def get_db_client(
+    database_name: Optional[str] = None,
+    dialect: Optional[str] = None,
+):
+    load_dotenv()
+
+    if database_name is None and 'DATABASE_NAME' in os.environ:
+        database_name = os.environ['DATABASE_NAME']
+
+    if dialect is None and 'DATABASE_DIALECT' in os.environ:
+        dialect = os.environ['DATABASE_DIALECT']
+
+    return DbClient(
+        database_name=database_name,
+        dialect=dialect,
+        driver=None,
+    )

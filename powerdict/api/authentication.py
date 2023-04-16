@@ -10,7 +10,8 @@ from fastapi import Depends, APIRouter, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from powerdict import schemas, db
-from powerdict.api.db import db_client
+
+db_client = db.get_db_client()
 
 
 # Inputs

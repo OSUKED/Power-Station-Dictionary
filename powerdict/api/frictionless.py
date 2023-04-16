@@ -6,7 +6,9 @@ from fastapi import APIRouter, Depends
 from powerdict.api import authentication
 
 from powerdict import schemas, frictionless, db
-from powerdict.api.db import db_client
+
+
+db_client = db.get_db_client()
 
 
 router = APIRouter(tags=["Frictionless"])

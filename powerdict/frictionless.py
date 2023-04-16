@@ -4,7 +4,13 @@ import pathlib
 import uuid
 from enum import Enum
 from typing import Optional
+import typer
+
 from powerdict import schemas, db
+
+
+typer_app = typer.Typer()
+
 
 def filter_db_table_attrs(
     db_class: schemas.ExtendedSQLModel,
@@ -300,10 +306,34 @@ def fd_package_to_db_records(
 
 def save_fd_package_to_db(
     raw_package_metadata: dict, 
-    db_client
+    db_client: db.DbClient = db.get_db_client()
 ):
     fd_package = parse_fd_package_obj(raw_package_metadata, use_table_schemas=True)
     db_records = fd_package_to_db_records(fd_package)
     db_client.create_multi_table_records(db_records)
     
     return fd_package
+
+
+@typer_app.command()
+def data_package_fp_to_db(
+    data_package_fp: str
+):
+    """Save a frictionless data package to the database
+
+    Example:
+    ```bash
+    python powerdict/frictionless.py "tests/data/repd-metadata.json"
+    ```
+
+    Args:
+        data_package_fp (str): path to a frictionless data-package metadata file
+    """
+    # poetry run python powerdict/frictionless.py "tests/data/repd-metadata.json"
+    data_package = json.load(open(data_package_fp))
+    save_fd_package_to_db(data_package)
+    return data_package
+
+
+if __name__ == "__main__":
+    typer_app()

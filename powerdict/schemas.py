@@ -175,7 +175,7 @@ class AssetType(str, Enum):
     power_station = 'power_station'
 
 
-class UserEventType(str, Enum):
+class UserEventSubject(str, Enum):
     link_id = 'link_id'
     data_package = 'data_package'
     dictionary_id = 'dictionary_id'
@@ -325,8 +325,31 @@ class SecureAPIUser(APIUser):
     hashed_password: Optional[str] = None
 
 
+class UserEvent(ExtendedSQLModel):
+    event_id: uuid.UUID
+    username: str
+    datetime: datetime.datetime
+    asset_type: UserEventSubject
+    event_crud: UserEventCrud
+
+
 ## Dictionary Schemas
-class Dictionary(ExtendedSQLModel):
+class SourceIngestion(ExtendedSQLModel):
+    data_package_id: uuid.UUID
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    source_table_name: str  
+
+
+class SourceLink(ExtendedSQLModel):
+    data_package_id: uuid.UUID
+    linked_id_column: str
+    date_added: datetime.datetime
+    date_removed: datetime.datetime
+    linked_id_type: str # with a 1:1 mapping to a link table name
+
+
+class Register(ExtendedSQLModel):
     osuked_id: int
     date_added: datetime.datetime
     date_removed: datetime.datetime
@@ -339,27 +362,3 @@ class RepdIdLink(ExtendedSQLModel):
     date_added: datetime.datetime
     date_removed: datetime.datetime
     # can later look at adding a 'relationship' field: PartOf, SameAs, etc
-
-
-class SourceIngestion(ExtendedSQLModel):
-    data_package_id: uuid.UUID
-    date_added: datetime.datetime
-    date_removed: datetime.datetime
-    source_table_name: str
-
-
-class SourceIngestion(ExtendedSQLModel):
-    data_package_id: uuid.UUID
-    linked_id_column: str
-    date_added: datetime.datetime
-    date_removed: datetime.datetime
-    linked_id_type: str # with a 1:1 mapping to a link table name
-
-
-class UserEvent(ExtendedSQLModel):
-    # need to work out whether this is actually needed ...
-    # and if so how we link these to specific records in the other tables
-    username: str
-    asset_type: UserEventType
-    event_crud: UserEventCrud
-    datetime: datetime.datetime

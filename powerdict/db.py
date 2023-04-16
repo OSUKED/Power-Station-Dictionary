@@ -100,6 +100,39 @@ class TokenRecordTable(schemas.ExtendedSQLModel, table=True):
     )
 
 
+class UserEventTable(schemas.UserEvent, table=True):
+    __tablename__ = 'api__user_event'
+    event_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
+    username: str = Field(foreign_key='api__secure_user.username')
+
+
+class SourceIngestionTable(schemas.SourceIngestion, table=True):
+    __tablename__ = 'dict__source_ingestion'
+    data_package_id: uuid.UUID = Field(primary_key=True, foreign_key='fd__data_package.data_package_id')
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class SourceLinkTable(schemas.SourceLink, table=True):
+    __tablename__ = 'dict__source_link'
+    data_package_id: uuid.UUID = Field(primary_key=True, foreign_key='fd__data_package.data_package_id')
+    linked_id_column: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class RegisterTable(schemas.Register, table=True):
+    __tablename__ = 'dict__register'
+    osuked_id: int = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class RepdIdLinkTable(schemas.RepdIdLink, table=True):
+    __tablename__ = 'dict__link_repd'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    repd_id: int = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+
 # Creating a helper mapping from the table name to the SQLModel class
 is_class_member = lambda member: inspect.isclass(member) and member.__module__ == __name__
 cls_members = inspect.getmembers(sys.modules[__name__], is_class_member)
@@ -223,7 +256,7 @@ class DbClient:
         password: Optional[str] = None,
         host: Optional[str] = 'localhost',
         port: Optional[int] = 5632,
-        database_name: str = 'analytics',
+        database_name: str = 'powerdict',
         dialect: str = 'postgresql',
         driver: Optional[str] = 'psycopg2'
     ):
@@ -256,7 +289,12 @@ class DbClient:
             DataResourceTable.__table__,
             DataPackageTable.__table__,
             SecureAPIUserTable.__table__,
-            TokenRecordTable.__table__
+            TokenRecordTable.__table__,
+            SourceIngestionTable.__table__,
+            SourceLinkTable.__table__,
+            UserEventTable.__table__,
+            RegisterTable.__table__,
+            RepdIdLinkTable.__table__
         ]
     ):
         SQLModel.metadata.create_all(self._engine, tables=tables_to_create)

@@ -175,13 +175,13 @@ class AssetType(str, Enum):
     power_station = 'power_station'
 
 
-class UserEventSubject(str, Enum):
+class Subject(str, Enum):
     link_id = 'link_id'
     data_package = 'data_package'
     dictionary_id = 'dictionary_id'
 
 
-class UserEventCrud(str, Enum):
+class Crud(str, Enum):
     create = 'create'
     read = 'read'
     update = 'update'
@@ -329,8 +329,9 @@ class UserEvent(ExtendedSQLModel):
     event_id: uuid.UUID
     username: str
     datetime: datetime.datetime
-    asset_type: UserEventSubject
-    event_crud: UserEventCrud
+    subject: Subject
+    crud: Crud
+    # could look at saving the full request body here
 
 
 ## Dictionary Schemas

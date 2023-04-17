@@ -27,6 +27,7 @@ python-multipart = "^0.0.6"
 bcrypt = "^4.0.1"
 httpx = "^0.24.0"
 ipykernel = "^6.22.0"
+lxml = "^4.9.2"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^6.19.2"
@@ -53,5 +54,5 @@ skip-string-normalization = true
 strict = true
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.5.0"]
 build-backend = "poetry.core.masonry.api"

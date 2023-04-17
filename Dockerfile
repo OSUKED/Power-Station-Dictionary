@@ -11,4 +11,6 @@ COPY ./powerdict /code/powerdict
 RUN poetry run pip install -e .
 
 COPY ./.env /code/.env
+COPY ./tests /code/tests
+RUN poetry run python powerdict/utils.py
 CMD ["poetry", "run", "uvicorn", "powerdict.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

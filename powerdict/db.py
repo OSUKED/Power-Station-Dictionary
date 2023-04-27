@@ -2,7 +2,7 @@ import json
 import logging
 import uuid
 import pathlib
-from typing import Optional
+from typing import Optional, Callable, Union, Any
 import datetime
 import os
 from dotenv import load_dotenv
@@ -23,8 +23,8 @@ class DataLicenseTable(schemas.DataLicense, table=True):
     data_license_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
     data_resource_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_resource.data_resource_id')
     data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
-    data_resource: Optional['DataResourceTable'] = Relationship(back_populates='licenses')
-    data_package: Optional['DataPackageTable'] = Relationship(back_populates='licenses')
+    # data_resource: Optional['DataResourceTable'] = Relationship(back_populates='licenses')
+    # data_package: Optional['DataPackageTable'] = Relationship(back_populates='licenses')
 
 
 class DataContributorTable(schemas.DataContributor, table=True):
@@ -32,7 +32,7 @@ class DataContributorTable(schemas.DataContributor, table=True):
     path: Optional[str]
     data_contributor_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
     data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
-    data_package: Optional['DataPackageTable'] = Relationship(back_populates='contributors')
+    # data_package: Optional['DataPackageTable'] = Relationship(back_populates='contributors')
 
 
 class DataSourceTable(schemas.DataSource, table=True):
@@ -41,8 +41,8 @@ class DataSourceTable(schemas.DataSource, table=True):
     data_source_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
     data_resource_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_resource.data_resource_id')
     data_package_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_package.data_package_id')
-    data_resource: Optional['DataResourceTable'] = Relationship(back_populates='sources')
-    data_package: Optional['DataPackageTable'] = Relationship(back_populates='sources')
+    # data_resource: Optional['DataResourceTable'] = Relationship(back_populates='sources')
+    # data_package: Optional['DataPackageTable'] = Relationship(back_populates='sources')
     
 
 class FieldDescriptorTable(schemas.FieldDescriptor, table=True):
@@ -53,7 +53,7 @@ class FieldDescriptorTable(schemas.FieldDescriptor, table=True):
     constraints: Optional[str]
     field_descriptor_id: uuid.UUID = Field(primary_key=True, default_factory=uuid.uuid4)
     data_schema_id: Optional[uuid.UUID] = Field(foreign_key='fd__data_schema.data_schema_id')
-    data_schema: Optional['DataSchemaTable'] = Relationship(back_populates='fields')
+    # data_schema: Optional['DataSchemaTable'] = Relationship(back_populates='fields')
 
     
 class DataSchemaTable(schemas.DataSchemaBase, table=True):
@@ -108,15 +108,9 @@ class UserEventTable(schemas.UserEvent, table=True):
     username: str = Field(foreign_key='api__secure_user.username')
 
 
-class SourceIngestionTable(schemas.SourceIngestion, table=True):
-    __tablename__ = 'dict__source_ingestion'
-    data_package_id: uuid.UUID = Field(primary_key=True, foreign_key='fd__data_package.data_package_id')
-    date_added: datetime.datetime = Field(primary_key=True)
-
-
 class SourceLinkTable(schemas.SourceLink, table=True):
     __tablename__ = 'dict__source_link'
-    data_package_id: uuid.UUID = Field(primary_key=True, foreign_key='fd__data_package.data_package_id')
+    data_resource_id: uuid.UUID = Field(primary_key=True, foreign_key='fd__data_package.data_package_id')
     linked_id_column: str = Field(primary_key=True)
     date_added: datetime.datetime = Field(primary_key=True)
 
@@ -132,6 +126,21 @@ class RepdIdLinkTable(schemas.RepdIdLink, table=True):
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     repd_id: int = Field(primary_key=True)
     date_added: datetime.datetime = Field(primary_key=True)
+
+
+class BmuIdLinkTable(schemas.BmuIdLink, table=True):
+    __tablename__ = 'dict__link_bmu'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    bmu_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class BmrsPhysicalDataTable(schemas.BmrsPhysicalData, table=True):
+    __tablename__ = 'bmrs__physical_data'
+    dataset: schemas.BmrsPhysicalType = Field(primary_key=True)
+    timeFrom: datetime.datetime = Field(primary_key=True)
+    timeTo: datetime.datetime = Field(primary_key=True)
+    nationalGridBmUnit: str = Field(primary_key=True)
 
 
 
@@ -292,21 +301,26 @@ class DbClient:
             DataPackageTable.__table__,
             SecureAPIUserTable.__table__,
             TokenRecordTable.__table__,
-            SourceIngestionTable.__table__,
             SourceLinkTable.__table__,
             UserEventTable.__table__,
             RegisterTable.__table__,
-            RepdIdLinkTable.__table__
+            RepdIdLinkTable.__table__,
+            BmuIdLinkTable.__table__,
+            BmrsPhysicalDataTable.__table__
         ]
     ):
         SQLModel.metadata.create_all(self._engine, tables=tables)
 
     def run_query(
         self,
-        query_str: str
+        query_str: str,
+        results_func: Optional[Callable] = None
     ):
         with Session(self._engine) as session:
             results = session.execute(text(query_str))
+
+            if results_func is not None:
+                return results_func(results)
         
         return results
 
@@ -325,6 +339,37 @@ class DbClient:
         
         return record
 
+    def create_records(
+        self,
+        records: list[dict],
+        tablename: str
+    ): 
+        schema = table_name_to_schema[tablename]
+
+        with Session(self._engine) as session:
+            schema.create_records(session, records)
+        
+        return 
+
+    def create_multi_table_records(
+        self,
+        db_records: dict[str, list[Union[dict[Any, Any], SQLModel]]]
+    ):
+        with Session(self._engine) as session:
+            for table_name, table_records in db_records.items():
+                table_schema = table_name_to_schema[table_name]
+
+                for table_record in table_records:
+                    if isinstance(table_record, SQLModel) or isinstance(table_record, dict):
+                        obj = table_schema.parse_obj(table_record)
+                        session.add(obj)
+                    else:
+                        raise ValueError(f"The input type {type(table_record)} can not be processed")
+
+            session.commit()
+
+        return 
+
     def get_record(
         self,
         record_id: str,
@@ -340,37 +385,22 @@ class DbClient:
     def get_all(
         self,
         table_name: str,
-        return_dicts: bool = True
+        return_dicts: bool = True,
+        flat_table: bool = False
     ):
         schema = table_name_to_schema[table_name]
         
         with Session(self._engine) as session:
             obj = schema.get_all_records(session)
-
-            if return_dicts:
+            
+            if return_dicts and flat_table:
+                return [obj.dict() for obj in obj]
+            elif return_dicts and flat_table == False:
                 # need a way to load any nested sqlmodel attrs
                 base_schema = select_schema(schema, use_table_schema=False)
                 return [schemas.sqlmodel_obj_to_dict(parse_obj_as(base_schema, elem)) for elem in obj]
 
         return obj
-    
-    def create_multi_table_records(
-        self,
-        db_records: dict[str, list]
-    ):
-        with Session(self._engine) as session:
-            for table_name, table_records in db_records.items():
-                table_schema = table_name_to_schema[table_name]
-
-                for table_record in table_records:
-                    if isinstance(table_record, SQLModel) or isinstance(table_record, dict):
-                        record_obj = table_schema.parse_obj(table_record)
-                    else:
-                        raise ValueError(f"The input type {type(table_record)} can not be processed for table: {table_name}")
-
-                    session.add(record_obj)
-
-            session.commit()
 
     def get_data_package(
         self, 
@@ -390,6 +420,7 @@ class DbClient:
             if return_type == schemas.DataPackageReturnType.data_package:
                 return data_package
             elif return_type == schemas.DataPackageReturnType.dictionary:
+                # data_package = schemas.DataPackage.parse_obj(data_package)
                 return db_record_to_dict_repr(data_package)
             elif return_type == schemas.DataPackageReturnType.raw_dict:
                 return json.loads(data_package.json(exclude_none=True))
@@ -426,5 +457,5 @@ def get_db_client(
     return DbClient(
         database_name=database_name,
         dialect=dialect,
-        driver=None,
+        driver=None
     )

@@ -68,7 +68,8 @@ def jsonise_attr_value(attr_value):
 
     str_types = [
         uuid.UUID,
-        pathlib.PosixPath
+        pathlib.PosixPath,
+        datetime.datetime
     ]
 
     if type(attr_value) in json_obj_types:
@@ -79,7 +80,7 @@ def jsonise_attr_value(attr_value):
         return str(attr_value)
     else:
         raise ValueError(
-            f'{attr_value} of type `{type(attr_value)}` could not be converted into a JSON friendly format')
+            f'{attr_value} of type `{str(type(attr_value))}` could not be converted into a JSON friendly format')
 
 
 def sqlmodel_obj_to_dict(
@@ -139,6 +140,23 @@ class ExtendedSQLModel(SQLModel):
 
         return obj
 
+    @classmethod
+    def create_records(
+        cls,
+        session: Session,
+        sources: list[Union[dict[Any, Any], SQLModel]]
+    ):
+        for source in sources:
+            if isinstance(source, SQLModel) or isinstance(source, dict):
+                obj = cls.parse_obj(source)
+                session.add(obj)
+            else:
+                raise ValueError(f"The input type {type(source)} can not be processed")
+
+        session.commit()
+
+        return 
+
 
 ## Enumerations
 class DataContributorRole(str, Enum):
@@ -186,6 +204,26 @@ class Crud(str, Enum):
     read = 'read'
     update = 'update'
     delete = 'delete'
+
+
+class BmrsPhysicalDataset(str, Enum):
+    PN = 'PN'
+    QPN = 'QPN'
+    MILS = 'MILS'
+    MELS = 'MELS'
+
+
+class BmrsPhysicalType(str, Enum):
+    PN = 'PN'
+    QPN = 'QPN'
+    MILS = 'MILS'
+    MELS = 'MELS'
+
+
+class BmrsResponseFormat(str, Enum):
+    json = 'json'
+    xml = 'xml'
+    csv = 'csv'
 
 
 ## Frictionless Schemas
@@ -335,31 +373,60 @@ class UserEvent(ExtendedSQLModel):
 
 
 ## Dictionary Schemas
-class SourceIngestion(ExtendedSQLModel):
-    data_package_id: uuid.UUID
-    date_added: datetime.datetime
-    date_removed: datetime.datetime
-    source_table_name: str  
-
-
 class SourceLink(ExtendedSQLModel):
-    data_package_id: uuid.UUID
+    data_resource_id: uuid.UUID
     linked_id_column: str
     date_added: datetime.datetime
-    date_removed: datetime.datetime
+    date_removed: Optional[datetime.datetime]
     linked_id_type: str # with a 1:1 mapping to a link table name
+    resource_table_name: str
 
 
 class Register(ExtendedSQLModel):
     osuked_id: int
     date_added: datetime.datetime
-    date_removed: datetime.datetime
+    date_removed: Optional[datetime.datetime]
     asset_type: AssetType = AssetType.power_station
+    common_name: str
 
 
 class RepdIdLink(ExtendedSQLModel):
     osuked_id: int
     repd_id: int
     date_added: datetime.datetime
-    date_removed: datetime.datetime
+    date_removed: Optional[datetime.datetime]
     # can later look at adding a 'relationship' field: PartOf, SameAs, etc
+
+
+class BmuIdLink(ExtendedSQLModel):
+    osuked_id: int
+    bmu_id: int
+    date_added: datetime.datetime
+    date_removed: Optional[datetime.datetime]
+
+
+# BMRS Schemas
+class BmrsPhysicalData(ExtendedSQLModel):
+    dataset: BmrsPhysicalType
+    settlementDate: datetime.date
+    settlementPeriod: int
+    timeFrom: datetime.datetime
+    timeTo: datetime.datetime
+    levelFrom: int
+    levelTo: float
+    nationalGridBmUnit: str
+    bmUnit: str | None
+
+class BmrsPhysicalMetadata(BaseModel):
+    datasets: list[BmrsPhysicalType]
+
+class BmrsPhysicalResponse(BaseModel):
+    data: list[BmrsPhysicalData]
+    metadata: BmrsPhysicalMetadata
+
+class BmrsPhysicalRequest(BaseModel):
+    dataset: BmrsPhysicalType
+    settlementDate: datetime.date
+    settlementPeriod: int | None
+    bmUnit: str | None
+    format: BmrsResponseFormat | None = BmrsResponseFormat.json

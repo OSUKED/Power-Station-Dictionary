@@ -3,9 +3,10 @@
   "resources": [
     {
       "name": "renewable-energy-planning-database",
-      "path": "renewable-energy-planning-database-q2-june-2021.csv",
+      "path": "repd-january-2023.csv",
       "profile": "tabular-data-resource",
       "schema": {
+        "primaryKey": "Ref ID",
         "fields": [
           {
             "name": "Old Ref ID",
@@ -19,7 +20,8 @@
             "type": "integer",
             "format": "default",
             "title": "Ref ID",
-            "description": "Project reference ID number in REPD database"
+            "description": "Project reference ID number in REPD database",
+            "x-psd-foreign-key": "dict__link_repd.repd_id"
           },
           {
             "name": "Record Last Updated (dd/mm/yyyy)",
@@ -228,8 +230,8 @@
           },
           {
             "name": "Judicial Review",
-            "type": "integer",
-            "format": "default",
+            "type": "date",
+            "format": "%d/%m/%Y",
             "title": "Judicial Review",
             "description": "The latest date of when a legal challenge has been launched to review the lawfulness of a planning application and/or appeal decision"
           },

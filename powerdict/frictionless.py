@@ -1,15 +1,32 @@
+import re
 import json
+import uuid
 import logging
 import pathlib
-import uuid
+import typer
+import datetime
+import numpy as np
+import pandas as pd
 from enum import Enum
 from typing import Optional
-import typer
+from copy import deepcopy
+from typing import Optional, Type
+from pydantic import parse_obj_as
+from pydantic.class_validators import Validator
+from sqlmodel import SQLModel, Field
 
 from powerdict import schemas, db
 
 
 typer_app = typer.Typer()
+
+
+# General helpers
+def load_raw_fd_package(fd_fp):
+    with open(fd_fp, 'r') as f:
+        raw_fd_package = json.load(f)
+        
+    return raw_fd_package
 
 
 def filter_db_table_attrs(
@@ -52,6 +69,7 @@ def filter_db_table_attrs(
             
     return attr_names
 
+
 def jsonise_attr_value(attr_value):
     json_obj_types = [
         dict,
@@ -77,6 +95,7 @@ def jsonise_attr_value(attr_value):
     else:
         raise ValueError(f'{attr_value} of type `{type(attr_value)}` could not be converted into a JSON friendly format')
 
+
 def python_obj_to_dict_repr(
     table_obj: schemas.ExtendedSQLModel
 ) -> dict:
@@ -97,6 +116,7 @@ def python_obj_to_dict_repr(
 
     return dict_repr
 
+
 def select_schema(
     schema_class: schemas.ExtendedSQLModel,
     use_table_schema: bool = False
@@ -107,6 +127,7 @@ def select_schema(
         return schema_class
     
     return getattr(schemas, schema_class.__name__.replace('Table', ''))
+
 
 def parse_obj_list(
     raw_objs: list[dict],
@@ -123,6 +144,8 @@ def parse_obj_list(
         in raw_objs
     ]
 
+
+# FD metadata extraction
 def parse_fd_schema_obj(
     schema: dict, 
     use_table_schema: bool = False
@@ -315,6 +338,217 @@ def save_fd_package_to_db(
     return fd_package
 
 
+# FD raw resource data ingestion
+def rename_field(
+    name: str,
+    replace_dict: dict = {
+        ' ': '_',
+        '-': '_',
+        '/kwh': '_per_kwh',
+        '/mwh': '_per_mwh',
+        '/gwh': '_per_gwh',
+    }
+):
+    name = name.lower()
+    
+    for k, v in replace_dict.items():
+        name = name.replace(k, v)
+
+    name = re.sub(r'[^A-Za-z0-9_]+', '', name)
+
+    return name
+
+
+def json_schema_to_python_type(field):
+    str_to_python_type = {
+        'string': str,
+        'date': datetime.date,
+        'number': float,
+        'integer': int,
+    }
+
+    # should also use the `format` attribute here
+
+    return str_to_python_type[field['type']]
+
+
+def fields_to_columns(
+    fields: list,
+    field_keys_to_ignore: list[str] = [
+        'name', 
+        'type',
+        'format',
+        'rdfType',
+        'x-psd-foreign-key'
+    ]
+):
+    return {
+        field['name']: Field(**{
+            k: field[k] 
+            for k
+            in field 
+            if k not in field_keys_to_ignore
+        }) 
+        for field 
+        in fields
+    }
+
+
+def add_datetime_validator(
+    cls,
+    field_name: str,
+    date_type: str,
+    date_format: str = '%d/%m/%Y'
+):
+    def format_date(cls, value):
+        if value is not None:
+            return datetime.datetime.strptime(value, date_format).date()
+    
+    def format_datetime(cls, value):
+        if value is not None:
+            return datetime.datetime.strptime(value, date_format)
+    
+    validator_func = {'date': format_date, 'datetime': format_datetime}[date_type]
+
+    cls.__fields__[field_name].class_validators = {field_name: Validator(validator_func, pre=True)}
+    cls.__fields__[field_name].populate_validators()
+
+    return cls
+
+
+def add_field_validators(sqlmodel_obj, fields):
+    for field in fields:
+        if field['type'] == datetime.date:
+            sqlmodel_obj = add_datetime_validator(sqlmodel_obj, field['name'], 'date', date_format=field['format'])
+        if field['type'] == datetime.datetime:
+            sqlmodel_obj = add_datetime_validator(sqlmodel_obj, field['name'], 'datetime', date_format=field['format'])
+
+    return sqlmodel_obj
+
+
+def construct_sqlmodel_obj(
+        table_name, 
+        fields
+    ) -> Type[schemas.ExtendedSQLModel]:
+    annotations = {field['name']: Optional[field['type']] for field in fields}
+    columns = fields_to_columns(fields)
+
+    sqlmodel_obj = type(
+        table_name.replace('-', ' ').title().replace(' ', '') + 'Table',
+        (schemas.ExtendedSQLModel,),
+        {
+            '__annotations__': annotations,
+            '__tablename__': f"dict__source_{table_name.replace('-', '_')}",
+            **columns,
+        },
+        table=True,
+    )
+
+    return sqlmodel_obj
+
+
+def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
+    table_metadata = deepcopy(fd_resource)
+
+    table_name = table_metadata['name']
+
+    fields = table_metadata['schema']['fields']
+    [field.update({'name': rename_field(field['name'])}) for field in fields]
+    [field.update({'type': json_schema_to_python_type(field)}) for field in fields]
+    [field.update({'foreign_key': field['x-psd-foreign-key']}) for field in fields if 'x-psd-foreign-key' in field.keys()]
+
+    if 'primaryKey' in fd_resource['schema']:
+        pk = rename_field(fd_resource['schema']['primaryKey'])
+        [field.update({'primary_key': True}) for field in fields if field['name'] == pk]
+
+    sqlmodel_obj = construct_sqlmodel_obj(table_name, fields)
+    sqlmodel_obj = add_field_validators(sqlmodel_obj, fields)
+
+    return sqlmodel_obj
+
+
+def get_resource_table_schema(
+    fd_resource: schemas.DataResource, 
+    db_client: Optional[db.DbClient] = None
+):
+    if db_client is None:
+        db_client = db.get_db_client()
+
+    table_name = f"dict__source_{fd_resource['name'].replace('-', '_')}"
+
+
+    if table_name not in db.table_name_to_schema:
+        table_schema = create_table_from_fd_resource(fd_resource)
+        
+        db.table_name_to_schema[table_schema.__tablename__] = table_schema
+        db_client.create_tables([table_schema.__table__])
+
+    else:
+        table_schema = db.table_name_to_schema[table_name]
+
+    return table_schema
+
+def source_df_to_records(
+    df_resource: pd.DataFrame,
+    resource_table: schemas.ExtendedSQLModel
+    ):
+    db_records = parse_obj_as(list[resource_table], (
+        df_resource
+        .rename(columns=dict(zip(
+            df_resource.columns,
+            [rename_field(col) for col in df_resource.columns]
+        )))
+        .loc[:, resource_table.__table__.columns.keys()]
+        .replace(np.nan, None)
+        .to_dict(orient='records')
+    ))
+
+    return db_records
+
+
+def fd_fp_to_saved_metadata_and_resources(
+    fd_fp: str, 
+    db_client: db.DbClient
+) -> schemas.DataPackage:
+    raw_package_metadata = load_raw_fd_package(fd_fp)
+    fd_package = save_fd_package_to_db(deepcopy(raw_package_metadata), db_client)
+
+    for i, fd_resource in enumerate(raw_package_metadata['resources']):
+        assert fd_package.resources[i].path == fd_resource['path']
+        resource_id = str(fd_package.resources[i].data_resource_id)
+
+        if fd_resource['path'][:5] == 'https':
+            resource_fp = fd_resource['path']
+        else:
+            resource_fp = '/'.join(fd_fp.split('/')[:-1]) + '/' +fd_resource['path']
+        
+        assert resource_fp.split('.')[-1] == 'csv', 'Currently we only support ingestion of CSV files'
+        df_resource = pd.read_csv(resource_fp)
+
+        resource_table = get_resource_table_schema(fd_resource, db_client)
+        repd_records = source_df_to_records(df_resource, resource_table)
+        db_client.create_records(repd_records, resource_table.__tablename__)
+
+        fks = {field['name']: field['x-psd-foreign-key'] for field in fd_resource['schema']['fields'] if 'x-psd-foreign-key' in field.keys()}
+        assert len(fks) <= 1
+
+        if len(fks) == 1:
+            linked_id_type = list(fks.values())[0].split('.')[0]
+            linked_id_column = list(fks.keys())[0]
+
+            db_client.create_record({
+                'data_resource_id': resource_id,
+                'linked_id_column': rename_field(linked_id_column),
+                'date_added': datetime.datetime.now(),
+                'date_removed': None,
+                'linked_id_type': linked_id_type,
+                'resource_table_name': resource_table.__tablename__
+            }, tablename='dict__source_link')
+
+    return fd_package
+
+
+# CLI helpers
 @typer_app.command()
 def data_package_fp_to_db(
     data_package_fp: str

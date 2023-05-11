@@ -2,7 +2,7 @@ import uuid
 import json
 import logging
 from typing import Optional
-from fastapi import APIRouter, Depends, UploadFile
+from fastapi import APIRouter, Depends, UploadFile, HTTPException
 from powerdict.api import authentication
 
 from powerdict import schemas, frictionless, db
@@ -70,7 +70,11 @@ async def post_data_package_fp(
     data_package_fp: str,
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
 ):
-    data_package = frictionless.fd_fp_to_saved_metadata_and_resources(data_package_fp, db_client)
+    try:
+        data_package = frictionless.fd_fp_to_saved_metadata_and_resources(data_package_fp, db_client)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f'Could not find file at {data_package_fp}')
+    
     return data_package.data_package_id
 
 # @router.post(

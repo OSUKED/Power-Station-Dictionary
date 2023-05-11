@@ -1,0 +1,102 @@
+{% extends "base.jinja" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block static_dir %}{{ static_dir }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="blog-post-container">
+            <h1 class="my-4">Asset Details</h1>
+
+            <h2>Linked IDs</h2>
+
+            The asset has the following linked IDs and data sources
+
+            <br>
+            <br>
+
+            <table id="linked-ids-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>External ID</th>
+                        <th>External ID Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for external_id_type, external_ids in asset.linked_ids.items() %}
+                        {% for external_id in external_ids %}
+                            <tr>
+                                <td>{{ external_id }}</td>
+                                <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <br>
+
+            <table id="linked-datasets-table" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Data Source</th>
+                        <th>External ID Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for external_id_type, dataset_dict in asset.linked_data.items() %}
+                        {% for dataset_name in dataset_dict %}
+                            <tr>
+                                <td>{{ dataset_name.replace("dict__source_", "").replace("_", " ") }}</td>
+                                <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <h2>Extracted Features</h2>
+            <table id="extracted-features-table" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>External ID</th>
+                        <th>External ID Type</th>
+                        <th>Attribute Name</th>
+                        <th>Attribute Value</th>
+                        <th>Data Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for external_id_type, dataset_dict in asset.linked_data.items() %}
+                        {% for dataset_name, dataset in dataset_dict.items() %}
+                            {% for external_id, attribute_dict in dataset.items() %}
+                                {% for attribute_name, attribute_value in attribute_dict.items() %}
+                                    <tr>
+                                        <td>{{ external_id }}</td>
+                                        <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                                        <td>{{ attribute_name.replace("_", " ") }}</td>
+                                        <td>{{ attribute_value }}</td>
+                                        <td>{{ dataset_name.replace("dict__source_", "").replace("_", " ") }}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+
+    <script src="../static/js/jquery-3.7.0.min.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#extracted-features-table').DataTable();
+        });
+    </script>
+
+{% endblock %}

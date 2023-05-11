@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import markdown2
 
 from powerdict.api import authentication
-from powerdict import schemas, db
+from powerdict import schemas, db, dictionary
 
 
 load_dotenv()
@@ -118,3 +118,10 @@ async def get_blog(
     }
 
     return templates.TemplateResponse("blog.jinja", template_kwargs)
+
+
+@router.get("/asset/{asset_id}")
+async def get_asset(request: Request, asset_id: int):
+    source_links = db_client.get_all('dict__source_link')
+    asset = dictionary.load_site_data(asset_id, db_client, source_links)
+    return templates.TemplateResponse("asset.jinja", {"request": request, "asset": asset})

@@ -1,0 +1,13 @@
+{% extends "base.jinja" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block static_dir %}{{ static_dir }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="blog-post-container">
+        <br>
+        {{ content|safe }}
+        </div>
+    </div>
+{% endblock %}

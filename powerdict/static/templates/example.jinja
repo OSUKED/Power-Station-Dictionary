@@ -1,0 +1,11 @@
+{% extends "base.jinja" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block static_dir %}{{ static_dir }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Title</h1>
+        {{ content|safe }}
+    </div>
+{% endblock %}

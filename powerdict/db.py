@@ -8,7 +8,7 @@ import os
 from dotenv import load_dotenv
 from enum import Enum
 from sqlmodel import Field, SQLModel, Session, Relationship, create_engine
-from sqlalchemy import text
+from sqlalchemy import text, func
 from sqlalchemy.orm import Session
 import sys, inspect
 from pydantic import parse_obj_as
@@ -115,7 +115,7 @@ class SourceLinkTable(schemas.SourceLink, table=True):
     date_added: datetime.datetime = Field(primary_key=True)
 
 
-class RegisterTable(schemas.Register, table=True):
+class AssetRegisterTable(schemas.AssetRegister, table=True):
     __tablename__ = 'dict__register'
     osuked_id: int = Field(primary_key=True)
     date_added: datetime.datetime = Field(primary_key=True)
@@ -125,7 +125,7 @@ class RepdIdLinkTable(schemas.RepdIdLink, table=True):
     __tablename__ = 'dict__link_repd'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     repd_id: int = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class BmuIdLinkTable(schemas.BmuIdLink, table=True):
@@ -303,7 +303,7 @@ class DbClient:
             TokenRecordTable.__table__,
             SourceLinkTable.__table__,
             UserEventTable.__table__,
-            RegisterTable.__table__,
+            AssetRegisterTable.__table__,
             RepdIdLinkTable.__table__,
             BmuIdLinkTable.__table__,
             BmrsPhysicalDataTable.__table__
@@ -439,6 +439,24 @@ class DbClient:
                 for record
                 in records
             ]
+        
+    def add_new_asset(
+        self,
+        new_asset: schemas.NewAsset
+    ) -> schemas.AssetRegister:
+        with Session(self._engine) as session:
+            max_osuked_id = session.query(func.max(AssetRegisterTable.osuked_id)).first()[0]
+
+            new_asset_record = AssetRegisterTable.create_record(
+                session, 
+                schemas.AssetRegister(
+                    osuked_id = max_osuked_id + 1,
+                    asset_type = new_asset.asset_type,
+                    common_name = new_asset.common_name
+                )
+            )
+            
+            return new_asset_record
 
 
 ## Initialising the database client
@@ -446,6 +464,9 @@ def get_db_client(
     database_name: Optional[str] = None,
     dialect: Optional[str] = None,
 ):
+    # TODO should use the source-link table to identify the SQLModel classes that
+    # need constructing on the fly and adding to `DbClient.table_name_to_schema`
+
     load_dotenv()
 
     if database_name is None and 'DATABASE_NAME' in os.environ:

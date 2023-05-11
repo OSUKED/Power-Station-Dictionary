@@ -467,6 +467,14 @@ def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
     return sqlmodel_obj
 
 
+def create_tables_from_fd_resources(fd_resources) -> list[Type[SQLModel]]:
+    return [
+        create_table_from_fd_resource(fd_resource)
+        for fd_resource 
+        in fd_resources
+    ]
+
+
 def get_resource_table_schema(
     fd_resource: schemas.DataResource, 
     db_client: Optional[db.DbClient] = None

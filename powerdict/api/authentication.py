@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 from sqlalchemy.exc import NoResultFound
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from fastapi import Depends, APIRouter, HTTPException, status
+from fastapi import Depends, APIRouter, HTTPException, status, Response
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from powerdict import schemas, db
@@ -134,6 +134,7 @@ def create_user(
 # Routes
 router = APIRouter(tags=["Authentication"])
 
+
 @router.post("/token", response_model=schemas.Token, include_in_schema=False)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = get_user(form_data.username)
@@ -162,6 +163,39 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     _ = db_client.create_record(token_record, tablename='api__tokens')
 
     return {"access_token": access_token, "token_type": "bearer"}
+
+
+@router.post('/login')
+async def login(username: str, password: str, response: Response):
+    user = get_user(username)
+    authenticated = authenticate_user(user, password)
+
+    if not authenticated:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+
+    access_token = create_access_token(
+        data={"sub": user.username},
+        expires_delta=access_token_expires
+    )
+
+    token_record = db.TokenRecordTable(
+        username=user.username,
+        token=access_token,
+        expires=datetime.utcnow() + access_token_expires,
+    )
+
+    _ = db_client.create_record(token_record, tablename='api__tokens')
+    response.set_cookie(key="access_token", value=access_token)
+
+    return {"access_token": access_token, "token_type": "bearer"}
+
+
 
 @router.get("/users/me/", response_model=schemas.APIUser, include_in_schema=False)
 async def read_users_me(

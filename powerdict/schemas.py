@@ -1,4 +1,5 @@
 import logging
+from copy import copy
 import uuid
 import datetime
 import pathlib
@@ -131,14 +132,15 @@ class ExtendedSQLModel(SQLModel):
         source: Union[dict[Any, Any], SQLModel]
     ):
         if isinstance(source, SQLModel) or isinstance(source, dict):
-            obj = cls.parse_obj(source)
+            db_obj = cls.parse_obj(source)
+            return_dict = db_obj.dict()
         else:
             raise ValueError(f"The input type {type(source)} can not be processed")
 
-        session.add(obj)
+        session.add(db_obj)
         session.commit()
 
-        return obj
+        return return_dict
 
     @classmethod
     def create_records(
@@ -372,6 +374,15 @@ class UserEvent(ExtendedSQLModel):
     # could look at saving the full request body here
 
 
+class AssetIds(BaseModel):
+    osuked_id: int
+    linked_ids: dict[str, list[Any]]
+
+
+class AssetData(AssetIds):
+    linked_data: dict[str, dict[Any, dict[Any, Any]]]
+
+
 ## Dictionary Schemas
 class SourceLink(ExtendedSQLModel):
     data_resource_id: uuid.UUID
@@ -382,9 +393,14 @@ class SourceLink(ExtendedSQLModel):
     resource_table_name: str
 
 
-class Register(ExtendedSQLModel):
+class NewAsset(ExtendedSQLModel):
+    asset_type: AssetType = AssetType.power_station
+    common_name: Optional[str]
+
+
+class AssetRegister(ExtendedSQLModel):
     osuked_id: int
-    date_added: datetime.datetime
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
     date_removed: Optional[datetime.datetime]
     asset_type: AssetType = AssetType.power_station
     common_name: str
@@ -393,15 +409,120 @@ class Register(ExtendedSQLModel):
 class RepdIdLink(ExtendedSQLModel):
     osuked_id: int
     repd_id: int
-    date_added: datetime.datetime
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
     date_removed: Optional[datetime.datetime]
     # can later look at adding a 'relationship' field: PartOf, SameAs, etc
 
 
 class BmuIdLink(ExtendedSQLModel):
     osuked_id: int
-    bmu_id: int
-    date_added: datetime.datetime
+    bmu_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class WikidataIdLink(ExtendedSQLModel):
+    osuked_id: int
+    wikidata_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class WpnIdLink(ExtendedSQLModel):
+    osuked_id: int
+    windpowernet_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class FourCOffshoreIdLink(ExtendedSQLModel):
+    osuked_id: int
+    four_c_offshore_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class NgcBmuIdLink(ExtendedSQLModel):
+    osuked_id: int
+    ngc_bmu_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class GppdIdLink(ExtendedSQLModel):
+    osuked_id: int
+    gppd_idnr: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class WikipediaIdLink(ExtendedSQLModel):
+    osuked_id: int
+    wikipedia_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class PowerTechnologyIdLink(ExtendedSQLModel):
+    osuked_id: int
+    power_technology_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class EutlIdLink(ExtendedSQLModel):
+    osuked_id: int
+    eutl_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class EicIdLink(ExtendedSQLModel):
+    osuked_id: int
+    eic_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class CfdIdLink(ExtendedSQLModel):
+    osuked_id: int
+    cfd_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class JrcIdLink(ExtendedSQLModel):
+    osuked_id: int
+    jrc_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class IaeaIdLink(ExtendedSQLModel):
+    osuked_id: int
+    iaea_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class OldRepdIdLink(ExtendedSQLModel):
+    osuked_id: int
+    old_repd_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class OsmIdLink(ExtendedSQLModel):
+    osuked_id: int
+    osm_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
+class UkpnEcrIdLink(ExtendedSQLModel):
+    osuked_id: int
+    ukpn_ecr_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
     date_removed: Optional[datetime.datetime]
 
 

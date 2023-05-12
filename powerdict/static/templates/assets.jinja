@@ -1,0 +1,25 @@
+{% extends "base.jinja" %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block static_dir %}{{ static_dir }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="blog-post-container">
+            <h2>Assets</h2>
+            <br>
+            <a href="/assets/10221">10221</a>
+        </div>
+    </div>
+
+    <script src="../static/js/jquery-3.7.0.min.js"></script>
+    <script src="../static/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#extracted-features-table').DataTable({
+                autoWidth: false
+            });
+        });
+    </script>
+
+{% endblock %}

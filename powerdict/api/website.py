@@ -89,6 +89,7 @@ def load_blog_posts(
 
     return blog_posts
 
+
 @router.get("/blog")
 async def get_blog_home(request: Request):
     blog_posts = [
@@ -104,7 +105,7 @@ async def get_blog_home(request: Request):
 
 
 @router.get("/blog/{blog_id}")
-async def get_blog(
+async def get_single_blog(
     request: Request,
     blog_id: str
 ):
@@ -120,8 +121,13 @@ async def get_blog(
     return templates.TemplateResponse("blog.jinja", template_kwargs)
 
 
-@router.get("/asset/{asset_id}")
-async def get_asset(request: Request, asset_id: int):
+@router.get("/assets")
+async def get_assets_home(request: Request):
+    return templates.TemplateResponse("assets.jinja", {"request": request})
+
+
+@router.get("/assets/{asset_id}")
+async def get_single_asset(request: Request, asset_id: int):
     source_links = db_client.get_all('dict__source_link')
     asset = dictionary.load_site_data(asset_id, db_client, source_links)
     return templates.TemplateResponse("asset.jinja", {"request": request, "asset": asset})

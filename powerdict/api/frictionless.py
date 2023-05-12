@@ -1,12 +1,16 @@
+import os
 import uuid
 import json
 import logging
+from dotenv import load_dotenv
 from typing import Optional
 from fastapi import APIRouter, Depends, UploadFile, HTTPException
 from powerdict.api import authentication
 
-from powerdict import schemas, frictionless, db
+from powerdict import schemas, frictionless, db, files
 
+load_dotenv()
+bucket_name = os.environ['S3_BUCKET_FRICTIONLESS']
 
 db_client = db.get_db_client()
 
@@ -71,10 +75,14 @@ async def post_data_package_fp(
     data_package_fp: str,
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
 ):
+    bucket_name = os.environ['S3_BUCKET_FRICTIONLESS']
+
     try:
         data_package = frictionless.fd_fp_to_saved_metadata_and_resources(data_package_fp, db_client)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f'Could not find file at {data_package_fp}')
+    
+    files.upload_local_datapackage_to_s3(bucket_name, data_package_fp, data_package.data_package_id)
     
     return data_package.data_package_id
 

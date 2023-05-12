@@ -461,12 +461,14 @@ def rename_resource_keys(
 
 def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
     table_metadata = deepcopy(fd_resource)
-    table_metadata = schemas.DataResource.parse_obj(table_metadata)
-    table_metadata = json.loads(table_metadata.json(exclude_none=True))
+    
+    if 'data_resource_id' in table_metadata.keys():
+        table_metadata = schemas.DataResource.parse_obj(table_metadata)
+        table_metadata = json.loads(table_metadata.json(exclude_none=True))
+
     table_metadata = rename_resource_keys(table_metadata)
 
     table_name = table_metadata['name']
-
     fields = table_metadata['schema']['fields']
     [field.update({'name': rename_field(field['name'])}) for field in fields]
     [field.update({'type': json_schema_to_python_type(field)}) for field in fields]

@@ -8,7 +8,13 @@
         <div class="blog-post-container">
             <h1 class="my-4">Asset Details</h1>
 
-            <h2>Linked IDs</h2>
+            <!-- Asset Summary -->
+            <!-- should have #{id} - {common name} -->
+            <!-- then a table of summary stats about the plant -->
+            <!-- a geo-location -->
+            <!-- free-form text that's user contrib -->
+
+            <h2>Linked Data</h2>
 
             The asset has the following linked IDs and data sources
 
@@ -18,8 +24,8 @@
             <table id="linked-ids-table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>External ID</th>
-                        <th>External ID Type</th>
+                        <th>ID</th>
+                        <th>ID Type</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,8 +68,8 @@
             <table id="extracted-features-table" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>External ID</th>
-                        <th>External ID Type</th>
+                        <th>ID</th>
+                        <th>ID Type</th>
                         <th>Attribute Name</th>
                         <th>Attribute Value</th>
                         <th>Data Source</th>
@@ -95,7 +101,9 @@
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#extracted-features-table').DataTable();
+            $('#extracted-features-table').DataTable({
+                autoWidth: false
+            });
         });
     </script>
 

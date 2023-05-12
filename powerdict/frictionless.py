@@ -447,8 +447,23 @@ def construct_sqlmodel_obj(
     return sqlmodel_obj
 
 
+def rename_resource_keys(
+    resource: dict,
+    renaming_map: dict = {
+        'fd_schema': 'schema'
+    }):
+    for old_name, new_name in renaming_map.items():
+        if old_name in resource.keys():
+            resource[new_name] = resource.pop(old_name)
+            
+    return resource
+
+
 def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
     table_metadata = deepcopy(fd_resource)
+    table_metadata = schemas.DataResource.parse_obj(table_metadata)
+    table_metadata = json.loads(table_metadata.json(exclude_none=True))
+    table_metadata = rename_resource_keys(table_metadata)
 
     table_name = table_metadata['name']
 
@@ -457,8 +472,8 @@ def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
     [field.update({'type': json_schema_to_python_type(field)}) for field in fields]
     [field.update({'foreign_key': field['x-psd-foreign-key']}) for field in fields if 'x-psd-foreign-key' in field.keys()]
 
-    if 'primaryKey' in fd_resource['schema']:
-        pk = rename_field(fd_resource['schema']['primaryKey'])
+    if 'primaryKey' in table_metadata['schema']:
+        pk = rename_field(table_metadata['schema']['primaryKey'])
         [field.update({'primary_key': True}) for field in fields if field['name'] == pk]
 
     sqlmodel_obj = construct_sqlmodel_obj(table_name, fields)
@@ -534,8 +549,8 @@ def fd_fp_to_saved_metadata_and_resources(
         df_resource = pd.read_csv(resource_fp)
 
         resource_table = get_resource_table_schema(fd_resource, db_client)
-        repd_records = source_df_to_records(df_resource, resource_table)
-        db_client.create_records(repd_records, resource_table.__tablename__)
+        resource_records = source_df_to_records(df_resource, resource_table)
+        db_client.create_records(resource_records, resource_table.__tablename__)
 
         fks = {field['name']: field['x-psd-foreign-key'] for field in fd_resource['schema']['fields'] if 'x-psd-foreign-key' in field.keys()}
         assert len(fks) <= 1

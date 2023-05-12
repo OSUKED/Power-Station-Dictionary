@@ -402,6 +402,29 @@ class DbClient:
 
         return obj
 
+    def get_data_resource(
+        self, 
+        data_resource_id: str,
+        return_type: schemas.DataPackageReturnType = 'data_package'
+    ):
+        with Session(self._engine) as session:
+            data_resource = DataResourceTable.get_record(session, data_resource_id)
+
+            data_resource.fd_schema
+            data_resource.fd_schema.fields
+
+            if return_type == schemas.DataPackageReturnType.data_package:
+                return data_resource
+            elif return_type == schemas.DataPackageReturnType.dictionary:
+                resource = db_record_to_dict_repr(data_resource)
+                return resource
+            elif return_type == schemas.DataPackageReturnType.raw_dict:
+                resource = json.loads(data_resource.json(exclude_none=True))
+                return resource
+            else:
+                return None
+
+
     def get_data_package(
         self, 
         data_package_id: str,
@@ -419,11 +442,15 @@ class DbClient:
 
             if return_type == schemas.DataPackageReturnType.data_package:
                 return data_package
+            
             elif return_type == schemas.DataPackageReturnType.dictionary:
-                # data_package = schemas.DataPackage.parse_obj(data_package)
-                return db_record_to_dict_repr(data_package)
+                _dict = db_record_to_dict_repr(data_package)
+                return _dict
+            
             elif return_type == schemas.DataPackageReturnType.raw_dict:
-                return json.loads(data_package.json(exclude_none=True))
+                raw_dict = json.loads(data_package.json(exclude_none=True))
+                return raw_dict
+            
             else:
                 return None
 

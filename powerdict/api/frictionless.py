@@ -47,6 +47,7 @@ async def get_data_package_metadata(
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
 ):
     data_package = db_client.get_data_package(data_package_id, return_type='dict')
+
     return data_package
 
 @router.post(

@@ -66,6 +66,9 @@ def load_site_data(
     site_data = load_site_ids(osuked_id, db_client)
 
     site_data.update({
+
+        # add site name to the response
+        
         'linked_data': get_linked_data(source_links, site_data['linked_ids'], db_client)
     })
     

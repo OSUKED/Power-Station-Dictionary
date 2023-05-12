@@ -22,13 +22,6 @@ typer_app = typer.Typer()
 
 
 # General helpers
-def load_raw_fd_package(fd_fp):
-    with open(fd_fp, 'r') as f:
-        raw_fd_package = json.load(f)
-        
-    return raw_fd_package
-
-
 def filter_db_table_attrs(
     db_class: schemas.ExtendedSQLModel,
     public_only: bool = True,
@@ -532,10 +525,9 @@ def source_df_to_records(
 
 
 def fd_fp_to_saved_metadata_and_resources(
-    fd_fp: str, 
+    raw_package_metadata: dict, 
     db_client: db.DbClient
 ) -> schemas.DataPackage:
-    raw_package_metadata = load_raw_fd_package(fd_fp)
     fd_package = save_fd_package_to_db(deepcopy(raw_package_metadata), db_client)
 
     for i, fd_resource in enumerate(raw_package_metadata['resources']):

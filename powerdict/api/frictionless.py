@@ -4,6 +4,7 @@ import json
 import logging
 from dotenv import load_dotenv
 from typing import Optional
+from sqlalchemy.exc import IntegrityError
 from fastapi import APIRouter, Depends, UploadFile, HTTPException
 from powerdict.api import authentication
 
@@ -16,17 +17,6 @@ db_client = db.get_db_client()
 
 
 router = APIRouter(tags=["Frictionless"])
-
-@router.get(
-    '/hello',
-    response_model=dict[str, str],
-    status_code=200,
-    include_in_schema=False
-)
-async def hello(
-    current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
-):
-    return {'msg': f'hello {current_user.username}'}
 
 @router.get(
     '/data-packages/metadata',
@@ -76,13 +66,21 @@ async def post_data_package_fp(
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
 ):
     bucket_name = os.environ['S3_BUCKET_FRICTIONLESS']
+    
+    with open(data_package_fp, 'r') as f:
+        raw_data_package = json.load(f)
 
     try:
-        data_package = frictionless.fd_fp_to_saved_metadata_and_resources(data_package_fp, db_client)
+        data_package = frictionless.fd_fp_to_saved_metadata_and_resources(raw_data_package, db_client)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f'Could not find file at {data_package_fp}')
+    except IntegrityError:
+        raise HTTPException(status_code=400, detail=f'Could not save data package to database due to `IntegrityError`')
     
-    files.upload_local_datapackage_to_s3(bucket_name, data_package_fp, data_package.data_package_id)
+    # need to load the resource filepaths/urls here
+    # dont pass in `raw_data_package`
+
+    files.upload_local_datapackage_to_s3(bucket_name, '/'.join(data_package_fp.split('/')[:-1]), raw_data_package, data_package.data_package_id)
     
     return data_package.data_package_id
 

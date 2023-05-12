@@ -135,6 +135,18 @@ def create_user(
 router = APIRouter(tags=["Authentication"])
 
 
+@router.get(
+    '/hello',
+    response_model=dict[str, str],
+    status_code=200,
+    include_in_schema=False
+)
+async def hello(
+    current_user: schemas.SecureAPIUser = Depends(get_current_active_user),
+):
+    return {'msg': f'hello {current_user.username}'}
+
+
 @router.post("/token", response_model=schemas.Token, include_in_schema=False)
 async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     user = get_user(form_data.username)

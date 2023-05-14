@@ -33,7 +33,7 @@
                         {% for external_id in external_ids %}
                             <tr>
                                 <td>{{ external_id }}</td>
-                                <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                                <td>{{ external_id_type.lstrip("dict__").lstrip("link_") }}</td>
                             </tr>
                         {% endfor %}
                     {% endfor %}
@@ -54,7 +54,7 @@
                         {% for dataset_name in dataset_dict %}
                             <tr>
                                 <td>{{ dataset_name.replace("dict__source_", "").replace("_", " ") }}</td>
-                                <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                                <td>{{ external_id_type.lstrip("dict__").lstrip("link_") }}</td>
                             </tr>
                         {% endfor %}
                     {% endfor %}
@@ -82,7 +82,7 @@
                                 {% for attribute_name, attribute_value in attribute_dict.items() %}
                                     <tr>
                                         <td>{{ external_id }}</td>
-                                        <td>{{ external_id_type.replace("dict__link_", "") }}</td>
+                                        <td>{{ external_id_type.lstrip("dict__").lstrip("link_") }}</td>
                                         <td>{{ attribute_name.replace("_", " ") }}</td>
                                         <td>{{ attribute_value }}</td>
                                         <td>{{ dataset_name.replace("dict__source_", "").replace("_", " ") }}</td>

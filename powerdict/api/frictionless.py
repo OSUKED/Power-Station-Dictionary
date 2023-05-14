@@ -2,6 +2,7 @@ import os
 import uuid
 import json
 import logging
+from collections import OrderedDict
 from dotenv import load_dotenv
 from typing import Optional
 from sqlalchemy.exc import IntegrityError
@@ -18,6 +19,7 @@ db_client = db.get_db_client()
 
 router = APIRouter(tags=["Frictionless"])
 
+
 @router.get(
     '/data-packages/metadata',
     response_model=list[schemas.DataPackage],
@@ -29,6 +31,7 @@ async def get_data_package_metadata(
 ):
     data_packages = db_client.get_all_data_packages('dict')
     return data_packages
+
 
 @router.get(
     '/data-packages/metadata/{data_package_id}',
@@ -44,6 +47,7 @@ async def get_data_package_metadata(
 
     return data_package
 
+
 @router.post(
     '/data-packages/metadata',
     response_model=uuid.UUID,
@@ -56,6 +60,7 @@ async def post_data_package_metadata(
     data_package = frictionless.save_fd_package_to_db(data_package, db_client)
     return data_package.data_package_id
 
+
 @router.post(
     '/data-packages',
     response_model=uuid.UUID,
@@ -67,20 +72,45 @@ async def post_data_package_fp(
 ):
     bucket_name = os.environ['S3_BUCKET_FRICTIONLESS']
     
-    with open(data_package_fp, 'r') as f:
-        raw_data_package = json.load(f)
-
     try:
-        data_package = frictionless.fd_fp_to_saved_metadata_and_resources(raw_data_package, db_client)
+        with open(data_package_fp, 'r') as f:
+            raw_data_package = json.load(f)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f'Could not find file at {data_package_fp}')
+    except IsADirectoryError:
+        raise HTTPException(status_code=400, detail='Could not save data package resource as file is a directory')
+
+    data_package_dir = '/'.join(data_package_fp.split('/')[:-1])
+
+    try:
+        s3_filenames_to_resource_records = OrderedDict(
+            (
+                frictionless.resource_to_s3_filename(resource),
+                frictionless.get_resource_records(resource, data_package_dir)
+            )
+            for resource 
+            in raw_data_package['resources']
+        )
+    except frictionless.DuplicatedIndexError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    resource_filenames_to_fileobjs = OrderedDict(
+        (
+            frictionless.resource_to_s3_filename(resource),
+            frictionless.get_resource_fileobj(resource, data_package_dir)
+        )
+        for resource 
+        in raw_data_package['resources']
+    )
+
+    try:
+        data_package = frictionless.save_fd_metadata_and_resources_to_db(raw_data_package, s3_filenames_to_resource_records, db_client)
     except IntegrityError:
         raise HTTPException(status_code=400, detail=f'Could not save data package to database due to `IntegrityError`')
-    
-    # need to load the resource filepaths/urls here
-    # dont pass in `raw_data_package`
+    except frictionless.TableNotEmptyError:
+        raise HTTPException(status_code=400, detail=f'Could not save data package resource as table already exists')
 
-    files.upload_local_datapackage_to_s3(bucket_name, '/'.join(data_package_fp.split('/')[:-1]), raw_data_package, data_package.data_package_id)
+    files.upload_local_datapackage_to_s3(bucket_name, raw_data_package, resource_filenames_to_fileobjs, data_package.data_package_id)
     
     return data_package.data_package_id
 
@@ -117,3 +147,18 @@ async def post_data_package_fp(
 #     # print(type(files[0]))
     
 #     return {"filenames": datapackage}
+
+@router.get(
+    '/db-schema/{table_name}',
+    status_code=200
+)
+async def get_db_schema(
+    table_name: str,
+    current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user),
+):
+    if table_name not in db.table_name_to_schema:
+        raise HTTPException(status_code=404, detail=f'Could not find table {table_name} in database')
+    
+    table_schema = db.table_name_to_schema[table_name]
+    
+    return table_schema.schema()

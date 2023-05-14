@@ -526,6 +526,13 @@ class UkpnEcrIdLink(ExtendedSQLModel):
     date_removed: Optional[datetime.datetime]
 
 
+class GeoNuclearIdLink(ExtendedSQLModel):
+    osuked_id: int
+    geo_nuclear_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
 # BMRS Schemas
 class BmrsPhysicalData(ExtendedSQLModel):
     dataset: BmrsPhysicalType

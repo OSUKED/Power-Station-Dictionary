@@ -135,6 +135,55 @@ class BmuIdLinkTable(schemas.BmuIdLink, table=True):
     date_added: datetime.datetime = Field(primary_key=True)
 
 
+class NgcBmuIdLinkTable(schemas.NgcBmuIdLink, table=True):
+    __tablename__ = 'dict__link_ngc_bmu'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    ngc_bmu_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class CfdIdLinkTable(schemas.CfdIdLink, table=True):
+    __tablename__ = 'dict__link_cfd'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    cfd_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class GppdIdLinkTable(schemas.GppdIdLink, table=True):
+    __tablename__ = 'dict__link_gppd'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    gppd_idnr_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class JrcIdLinkTable(schemas.JrcIdLink, table=True):
+    __tablename__ = 'dict__link_jrc'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    jrc_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class IaeaIdLinkTable(schemas.IaeaIdLink, table=True):
+    __tablename__ = 'dict__link_iaea'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    iaea_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class EutlIdLinkTable(schemas.EutlIdLink, table=True):
+    __tablename__ = 'dict__link_eutl'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    eutl_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
+class GeoNuclearIdLinkTable(schemas.GeoNuclearIdLink, table=True):
+    __tablename__ = 'dict__link_geo_nuclear'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    geo_nuclear_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True)
+
+
 class BmrsPhysicalDataTable(schemas.BmrsPhysicalData, table=True):
     __tablename__ = 'bmrs__physical_data'
     dataset: schemas.BmrsPhysicalType = Field(primary_key=True)

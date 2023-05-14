@@ -1,0 +1,95 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "cfd-contract-portfolio-status",
+      "path": "cfd-contract-portfolio-status.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "primaryKey": "CFD_ID",
+        "fields": [
+          {
+            "name": "CFD_ID",
+            "type": "string",
+            "format": "default",
+            "title": "CfD ID",
+            "description": "ID which identifies each CfD generator",
+            "x-psd-foreign-key": "dict__link_cfd.cfd_id"
+          },
+          {
+            "name": "Name_of_CFD_Unit",
+            "type": "string",
+            "format": "default",
+            "description": "Name of a CfD Unit",
+            "title": "Name of CfD Unit"
+          },
+          {
+            "name": "Allocation_Round",
+            "type": "string",
+            "format": "default",
+            "description": "The associated CfD allocation round for the site",
+            "title": "Allocation Round"
+          },
+          {
+            "name": "Technology_Type",
+            "type": "string",
+            "format": "default",
+            "title": "Technology Type",
+            "description": "Technologies of CfD generators"
+          },
+          {
+            "name": "Transmission_or_Distribution_connection",
+            "type": "string",
+            "format": "default",
+            "title": "Transmission or Distribution Connection",
+            "description": "Connection type of the transmission or distribution network"
+          },
+          {
+            "name": "Status",
+            "type": "string",
+            "format": "default",
+            "description": "Different stages of CfD contracts. E.g: Pre-Start Date, Post-Start Date,Terminated",
+            "title": "Status"
+          },
+          {
+            "name": "Expected_Start_Date",
+            "type": "datetime",
+            "format": "%Y-%m-%d %H:%M:%S",
+            "title": "Estimated Start Date",
+            "description": "Estimated date on which the generator will start generating"
+          },
+          {
+            "name": "Maximum_Contract_Capacity_MW",
+            "type": "number",
+            "format": "default",
+            "description": "Generators submit an Initial Installed Capacity Estimate (IICE) at the time of application. The IICE is used as a reference point throughout the CfD. For a successful generator, Installed Capacity can only ever be altered lower than the IICE. The IICE can be adjusted downwards by up to 25% by the Milestone Delivery Date",
+            "title": "Maximum Contract Capacity (MW)"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "LCCC",
+    "CfD",
+    "Capacity"
+  ],
+  "title": "CfD Contract Portfolio Status",
+  "description": "This dataset includes each CfD Contract, its Maximum Contract Capacity and latest status of each project.\n\nStatus of each CfD project is determined based on the notices issued by LCCC when different milestones get past. Start date is the best estimate date on which the generator will start generating. Data was retrieved on 2021-10-01.",
+  "name": "cfd-contract-portfolio-status",
+  "homepage": "https://www.lowcarboncontracts.uk/data-portal/dataset/cfd-contract-portfolio-status",
+  "licenses": [
+    {
+      "name": "OGL-UK-3.0",
+      "title": "Open Government Licence 3.0 (United Kingdom)",
+      "path": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "LCCC",
+      "role": "author"
+    }
+  ],
+  "version": "0.1.0"
+}

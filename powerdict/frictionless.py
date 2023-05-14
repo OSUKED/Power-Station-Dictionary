@@ -7,6 +7,8 @@ import typer
 import datetime
 import numpy as np
 import pandas as pd
+import requests
+from io import BytesIO
 from enum import Enum
 from typing import Optional
 from copy import deepcopy
@@ -274,6 +276,10 @@ def parse_fd_package_obj(
         
     if 'contributors' in package.keys():
         package['contributors'] = parse_obj_list(package['contributors'], db.DataContributorTable, use_table_schemas)
+        
+    if 'keywords' in package.keys():
+        # need to rhandle this where keyword tags get saved to a separate table
+        package['keywords'] = str(package['keywords'])
 
     obj_schema = select_schema(db.DataPackageTable, use_table_schemas)
     parsed_package = obj_schema.parse_obj(package)
@@ -332,7 +338,7 @@ def save_fd_package_to_db(
 
 
 # FD raw resource data ingestion
-def rename_field(
+def sanitise_field_name(
     name: str,
     replace_dict: dict = {
         ' ': '_',
@@ -356,8 +362,11 @@ def json_schema_to_python_type(field):
     str_to_python_type = {
         'string': str,
         'date': datetime.date,
+        'datetime': datetime.datetime,
         'number': float,
         'integer': int,
+        'year': int,
+        'any': str
     }
 
     # should also use the `format` attribute here
@@ -372,7 +381,8 @@ def fields_to_columns(
         'type',
         'format',
         'rdfType',
-        'x-psd-foreign-key'
+        'x-psd-foreign-key',
+        'constraints' # should add hundling for e.g. non-null constraints
     ]
 ):
     return {
@@ -463,12 +473,12 @@ def create_table_from_fd_resource(fd_resource) -> Type[SQLModel]:
 
     table_name = table_metadata['name']
     fields = table_metadata['schema']['fields']
-    [field.update({'name': rename_field(field['name'])}) for field in fields]
+    [field.update({'name': sanitise_field_name(field['name'])}) for field in fields]
     [field.update({'type': json_schema_to_python_type(field)}) for field in fields]
     [field.update({'foreign_key': field['x-psd-foreign-key']}) for field in fields if 'x-psd-foreign-key' in field.keys()]
 
     if 'primaryKey' in table_metadata['schema']:
-        pk = rename_field(table_metadata['schema']['primaryKey'])
+        pk = sanitise_field_name(table_metadata['schema']['primaryKey'])
         [field.update({'primary_key': True}) for field in fields if field['name'] == pk]
 
     sqlmodel_obj = construct_sqlmodel_obj(table_name, fields)
@@ -506,26 +516,140 @@ def get_resource_table_schema(
 
     return table_schema
 
-def source_df_to_records(
-    df_resource: pd.DataFrame,
-    resource_table: schemas.ExtendedSQLModel
-    ):
-    db_records = parse_obj_as(list[resource_table], (
+def resource_df_to_records(df_resource: pd.DataFrame):
+    return (
         df_resource
         .rename(columns=dict(zip(
             df_resource.columns,
-            [rename_field(col) for col in df_resource.columns]
+            [sanitise_field_name(col) for col in df_resource.columns]
         )))
-        .loc[:, resource_table.__table__.columns.keys()]
         .replace(np.nan, None)
         .to_dict(orient='records')
-    ))
-
-    return db_records
+    )
 
 
-def fd_fp_to_saved_metadata_and_resources(
+def make_valid_s3_filename(filename):
+    valid_chars = (
+        "0123456789"
+        "abcdefghijklmnopqrstuvwxyz"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "!-_.()*'()"
+    )
+
+    valid_filename = ''.join(c for c in filename if c in valid_chars)
+    valid_filename = valid_filename[:255]
+
+    return valid_filename
+
+
+def resource_to_s3_filename(resource):
+    return make_valid_s3_filename(resource['name'] + '.' + resource['path'].split('.')[-1])
+
+
+def get_resource_fp(
+    fd_resource: dict,
+    data_package_dir: Optional[str] = None
+):
+    if fd_resource['path'][:4] == 'http':
+        resource_fp = fd_resource['path']
+
+    else:
+        if data_package_dir is None:
+            raise ValueError('A `data_package_dir` must be provided when the resource path is not a URL')
+        
+        resource_fp = data_package_dir + '/' + fd_resource['path']
+
+    return resource_fp
+
+
+class DuplicatedIndexError(ValueError):
+    pass
+
+
+def get_resource_records(
+    fd_resource: dict,
+    data_package_dir: Optional[str] = None
+):
+    resource_fp = get_resource_fp(fd_resource, data_package_dir)
+    file_ext = resource_fp.split('.')[-1]
+    
+    if file_ext == 'csv':
+        df = pd.read_csv(resource_fp)
+
+        if 'primaryKey' in fd_resource['schema'].keys():
+            pk_col = fd_resource['schema']['primaryKey']
+
+            if df[pk_col].duplicated().sum() > 0:
+                raise DuplicatedIndexError(f'Duplicates found in primary key index: {pk_col}')
+        
+        return df.pipe(resource_df_to_records)
+    
+    else:
+        raise ValueError('Currently we only support ingestion of CSV files')
+    
+
+def get_resource_fileobj(
+    fd_resource: dict,
+    data_package_dir: Optional[str] = None,
+    allowed_file_types: list[str] = ['csv', 'xlsx', 'xls', 'json', 'geojson']
+):
+    resource_fp = get_resource_fp(fd_resource, data_package_dir)
+    file_ext = resource_fp.split('.')[-1]
+    is_remote = resource_fp[:4] == 'http'
+
+    if file_ext not in allowed_file_types:
+        raise FileExistsError(f'Currently we only support ingestion of the following filetypes: {", ".join(allowed_file_types)}')
+
+    if is_remote:
+        r = requests.get(resource_fp)
+        r.raise_for_status()
+        return BytesIO(r.content)
+    
+    with open(resource_fp, 'rb') as f:
+        return BytesIO(f.read())
+    
+
+def add_psd_source_link_for_resource(
+    fd_resource: dict,
+    resource_id: str,
+    resource_table: SQLModel,
+    db_client: db.DbClient
+) -> None:
+    fks = {field['name']: field['x-psd-foreign-key'] for field in fd_resource['schema']['fields'] if 'x-psd-foreign-key' in field.keys()}
+    assert len(fks) <= 1
+
+    if len(fks) == 1:
+        linked_id_type = list(fks.values())[0].split('.')[0]
+        linked_id_column = list(fks.keys())[0]
+
+        db_client.create_record({
+            'data_resource_id': resource_id,
+            'linked_id_column': sanitise_field_name(linked_id_column),
+            'date_added': datetime.datetime.now(),
+            'date_removed': None,
+            'linked_id_type': linked_id_type,
+            'resource_table_name': resource_table.__tablename__
+        }, tablename='dict__source_link')
+
+    return
+
+
+class TableNotEmptyError(Exception):
+    pass
+
+
+def check_table_empty(table_name: str, db_client) -> None:
+    def query_results_checker(results):
+        if results.first() is not None:
+            raise TableNotEmptyError(f'Table `{table_name}` is not empty.')
+
+    query_str = f'SELECT * FROM {table_name} LIMIT 1'
+    _ = db_client.run_query(query_str, results_func=query_results_checker)
+
+
+def save_fd_metadata_and_resources_to_db(
     raw_package_metadata: dict, 
+    s3_filenames_to_resource_records: dict,
     db_client: db.DbClient
 ) -> schemas.DataPackage:
     fd_package = save_fd_package_to_db(deepcopy(raw_package_metadata), db_client)
@@ -533,34 +657,17 @@ def fd_fp_to_saved_metadata_and_resources(
     for i, fd_resource in enumerate(raw_package_metadata['resources']):
         assert fd_package.resources[i].path == fd_resource['path']
         resource_id = str(fd_package.resources[i].data_resource_id)
-
-        if fd_resource['path'][:5] == 'https':
-            resource_fp = fd_resource['path']
-        else:
-            resource_fp = '/'.join(fd_fp.split('/')[:-1]) + '/' +fd_resource['path']
         
-        assert resource_fp.split('.')[-1] == 'csv', 'Currently we only support ingestion of CSV files'
-        df_resource = pd.read_csv(resource_fp)
+        s3_filename = resource_to_s3_filename(fd_resource)
+        resource_records = s3_filenames_to_resource_records[s3_filename]
 
         resource_table = get_resource_table_schema(fd_resource, db_client)
-        resource_records = source_df_to_records(df_resource, resource_table)
-        db_client.create_records(resource_records, resource_table.__tablename__)
+        db_records = parse_obj_as(list[resource_table], resource_records)
 
-        fks = {field['name']: field['x-psd-foreign-key'] for field in fd_resource['schema']['fields'] if 'x-psd-foreign-key' in field.keys()}
-        assert len(fks) <= 1
+        check_table_empty(resource_table.__tablename__, db_client)
+        db_client.create_records(db_records, resource_table.__tablename__)
 
-        if len(fks) == 1:
-            linked_id_type = list(fks.values())[0].split('.')[0]
-            linked_id_column = list(fks.keys())[0]
-
-            db_client.create_record({
-                'data_resource_id': resource_id,
-                'linked_id_column': rename_field(linked_id_column),
-                'date_added': datetime.datetime.now(),
-                'date_removed': None,
-                'linked_id_type': linked_id_type,
-                'resource_table_name': resource_table.__tablename__
-            }, tablename='dict__source_link')
+        add_psd_source_link_for_resource(fd_resource, resource_id, resource_table, db_client)
 
     return fd_package
 

@@ -1,0 +1,58 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "capture-prices",
+      "path": "capture-prices.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "primaryKey": "ngc_bmu_id",
+        "fields": [
+          {
+            "name": "ngc_bmu_id",
+            "type": "string",
+            "format": "default",
+            "title": "NGC BMU ID",
+            "description": "The Balancing Mechanism Unit identifier used by the National Grid Company",
+            "x-psd-foreign-key": "dict__link_ngc_bmu.ngc_bmu_id"
+          },
+          {
+            "name": "year",
+            "type": "integer",
+            "format": "default",
+            "description": "The time period during which the capture price has been averaged",
+            "title": "Year"
+          },
+          {
+            "name": "capture_price",
+            "type": "number",
+            "format": "default",
+            "title": "Capture Price (£/MWh)",
+            "description": "The average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. "
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "Capture Prices",
+    "Day-Ahead Market"
+  ],
+  "name": "capture-prices",
+  "title": "Power Plant Capture Prices",
+  "description": "This dataset reports the average price weighted by output that would have been received by the balancing mechanisms unit if it had participated fully in the day-ahead market. The price data used was sourced from Electric Insights",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Ayrton Bourn",
+      "role": "author"
+    }
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,61 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "verified-emissions",
+      "path": "verified_emissions.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "primaryKey": "account_id",
+        "fields": [
+          {
+            "name": "account_id",
+            "type": "integer",
+            "format": "default",
+            "description": "The unique identifier for an EU Transaction Log contract",
+            "title": "EUTL ID",
+            "x-psd-foreign-key": "dict__link_eutl.eutl_id"
+          },
+          {
+            "name": "year",
+            "type": "year",
+            "format": "default",
+            "title": "Year",
+            "description": "The time period during which the output has been summed"
+          },
+          {
+            "name": "tonnes_co2",
+            "type": "integer",
+            "format": "default",
+            "description": "Tonnes of CO2 released in the specified year",
+            "title": "CO2 Emissions (Tonnes)"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "ets",
+    "emissions",
+    "co2",
+    "eutl"
+  ],
+  "title": "EUTL Verified Emissions",
+  "name": "verified-emissions",
+  "description": "This dataset reports verified emissions within the EUTL. The EU Emissions Trading System (ETS) is a central instrument of the EU's policy to fight climate change and achieve cost-efficient reductions of greenhouse gas emissions. It is the world's biggest carbon market.",
+  "homepage": "https://ec.europa.eu/clima/ets/welcome.do?languageCode=en",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "title": "European Commission",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ]
+}

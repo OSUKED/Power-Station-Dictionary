@@ -3,6 +3,8 @@ import boto3
 import uuid
 import json
 import shutil
+import logging
+from collections import OrderedDict
 from typing import Optional, Union
 from dotenv import load_dotenv
 from io import BytesIO
@@ -188,28 +190,22 @@ class S3FileStorage(FileStorage):
 
 def upload_local_datapackage_to_s3(
     bucket_name: str,
-    datapackage_dir: str,
     datapackage_dict: dict,
+    resource_filenames_to_fileobjs: OrderedDict,
     data_package_id: str = str(uuid.uuid4())
 ):
     datapackage_io = BytesIO(json.dumps(datapackage_dict).encode('utf-8'))
-    # could load the resources from json, then df, then to csv io
-    # should pass in fully formed fps or urls for the resources
-    # a handler should then convert them into io objects and names
-    # could generalise s3_client.upload_files to handle input urls ...
 
     s3_client = S3FileStorage(bucket_name)
     s3_client.create_folder(data_package_id)
     s3_client.upload_file(datapackage_io, 'datapackage.json', data_package_id)
 
     if 'resources' in datapackage_dict.keys():
-        resource_files = [
-            datapackage_dir + '/' + resource['path'] 
-            for resource 
-            in datapackage_dict['resources']
-        ]
-        
-        s3_client.upload_files(resource_files, folder_name=data_package_id)
+        s3_client.upload_files(
+            resource_filenames_to_fileobjs.values(), 
+            resource_filenames_to_fileobjs.keys(), 
+            folder_name=data_package_id
+        )
 
 
 def upload_remote_datapackage_to_s3(

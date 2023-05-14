@@ -1,0 +1,365 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "renewable-energy-planning-database",
+      "path": "repd-january-2023.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "primaryKey": "Ref ID",
+        "fields": [
+          {
+            "name": "Old Ref ID",
+            "type": "string",
+            "format": "default",
+            "description": "The old reference ID associated with a project in a previous version of the database",
+            "title": "Old Ref ID"
+          },
+          {
+            "name": "Ref ID",
+            "type": "integer",
+            "format": "default",
+            "title": "Ref ID",
+            "description": "Project reference ID number in REPD database",
+            "x-psd-foreign-key": "dict__link_repd.repd_id"
+          },
+          {
+            "name": "Record Last Updated (dd/mm/yyyy)",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Record Last Updated",
+            "description": "Date a project record was last updated or checked"
+          },
+          {
+            "name": "Operator (or Applicant)",
+            "type": "string",
+            "format": "default",
+            "description": "Name of operator or applicant",
+            "title": "Operator (or Applicant)"
+          },
+          {
+            "name": "Site Name",
+            "type": "string",
+            "format": "default",
+            "title": "Site Name",
+            "description": "Name of development site"
+          },
+          {
+            "name": "Technology Type",
+            "type": "string",
+            "format": "default",
+            "description": "Type of technology (e.g. solar photovoltaics, offshore wind etc.)",
+            "title": "Technology Type"
+          },
+          {
+            "name": "Storage Type",
+            "type": "string",
+            "format": "default",
+            "title": "Storage Type",
+            "description": "Describes whether the attached storage is co-located with RES/fossil-fuels or stand-alone"
+          },
+          {
+            "name": "Storage Co-location REPD Ref ID",
+            "type": "string",
+            "format": "default",
+            "title": "Storage Co-location REPD Ref ID",
+            "description": "The (new) REPD ID associated with the storage unit attached to the site"
+          },
+          {
+            "name": "Installed Capacity (MWelec)",
+            "type": "number",
+            "format": "default",
+            "title": "Installed Capacity (MWelec)",
+            "description": "Installed electrical capacity in megawatts (MW)",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00230003"
+          },
+          {
+            "name": "CHP Enabled",
+            "type": "string",
+            "format": "default",
+            "title": "CHP Enabled",
+            "description": "Is the project capable of combined heat and power output"
+          },
+          {
+            "name": "RO Banding (ROC/MWh)",
+            "type": "number",
+            "format": "default",
+            "title": "RO Banding (ROC/MWh)",
+            "description": "The banding levels for the RO subsidy, where each band represents a multiplier to the standard ROC price"
+          },
+          {
+            "name": "FiT Tariff (p/kWh)",
+            "type": "number",
+            "format": "default",
+            "title": "FiT Tariff (p/kWh)",
+            "description": "The price received by the site through the FiT scheme"
+          },
+          {
+            "name": "CfD Capacity (MW)",
+            "type": "number",
+            "format": "default",
+            "title": "CfD Capacity (MW)",
+            "description": "The maximum contracted capacity which can receive subsidies through the CfD scheme"
+          },
+          {
+            "name": "Turbine Capacity (MW)",
+            "type": "number",
+            "format": "default",
+            "title": "Turbine Capacity (MW)",
+            "description": "For windfarms, the individual capacity of each wind turbine in megawatts (MW)"
+          },
+          {
+            "name": "No. of Turbines",
+            "type": "number",
+            "format": "default",
+            "title": "No. of Turbines",
+            "description": "For windfarms, the number of wind turbines to be located on the development site"
+          },
+          {
+            "name": "Height of Turbines (m)",
+            "type": "number",
+            "format": "default",
+            "title": "Height of Turbines (m)",
+            "description": "For windfarms, the height of the wind turbines in metres (m)",
+            "rdfType": "http://openenergy-platform.org/ontology/oeo/OEO_00140000"
+          },
+          {
+            "name": "Mounting Type for Solar",
+            "type": "string",
+            "format": "default",
+            "title": "Mounting Type for Solar",
+            "description": "For solar PV developments, whether the PV panels are ground or roof mounted"
+          },
+          {
+            "name": "Development Status",
+            "type": "string",
+            "format": "default",
+            "title": "Development Status",
+            "description": "The full description of the current development status"
+          },
+          {
+            "name": "Development Status (short)",
+            "type": "string",
+            "format": "default",
+            "title": "Development Status (short)",
+            "description": "The short description of the current development status"
+          },
+          {
+            "name": "Address",
+            "type": "string",
+            "format": "default",
+            "title": "Address",
+            "description": "Site address of the development"
+          },
+          {
+            "name": "County",
+            "type": "string",
+            "format": "default",
+            "title": "County",
+            "description": "County the development site is located within"
+          },
+          {
+            "name": "Region",
+            "type": "string",
+            "format": "default",
+            "title": "Region",
+            "description": "Region the development site is located within"
+          },
+          {
+            "name": "Country",
+            "type": "string",
+            "format": "default",
+            "title": "Country",
+            "description": "Country the development site is located within"
+          },
+          {
+            "name": "Post Code",
+            "type": "string",
+            "format": "default",
+            "title": "Post Code",
+            "description": "Post code of the development site"
+          },
+          {
+            "name": "X-coordinate",
+            "type": "integer",
+            "format": "default",
+            "title": "X-coordinate",
+            "description": "X coordinate for development site in British National Grid (EPSG:27700)"
+          },
+          {
+            "name": "Y-coordinate",
+            "type": "integer",
+            "format": "default",
+            "title": "Y-coordinate",
+            "description": "Y coordinate for development site in British National Grid (EPSG:27700)"
+          },
+          {
+            "name": "Planning Authority",
+            "type": "string",
+            "format": "default",
+            "title": "Planning Authority",
+            "description": "The relevant local planning authority for the project"
+          },
+          {
+            "name": "Planning Application Reference",
+            "type": "string",
+            "format": "default",
+            "title": "Planning Application Reference",
+            "description": "The reference number associated with the planning application"
+          },
+          {
+            "name": "Appeal Reference",
+            "type": "string",
+            "format": "default",
+            "title": "Appeal Reference",
+            "description": "The reference number associated with an appeal"
+          },
+          {
+            "name": "Secretary of State Reference",
+            "type": "string",
+            "format": "default",
+            "title": "Secretary of State Reference",
+            "description": "The reference number associated with a Secretary of State Intervention"
+          },
+          {
+            "name": "Type of Secretary of State Intervention",
+            "type": "string",
+            "format": "default",
+            "title": "Type of Secretary of State Intervention",
+            "description": "The type of Secretary of State of Intervention. This can be one of three types: recovery, call-in, or holding direction"
+          },
+          {
+            "name": "Judicial Review",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Judicial Review",
+            "description": "The latest date of when a legal challenge has been launched to review the lawfulness of a planning application and/or appeal decision"
+          },
+          {
+            "name": "Offshore Wind Round",
+            "type": "string",
+            "format": "default",
+            "title": "Offshore Wind Round",
+            "description": "Leasing round in which an offshore wind project was established"
+          },
+          {
+            "name": "Planning Application Submitted",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Planning Application Submitted",
+            "description": "Date planning application was validated"
+          },
+          {
+            "name": "Planning Application Withdrawn",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Planning Application Withdrawn",
+            "description": "Date planning application was withdrawn"
+          },
+          {
+            "name": "Planning Permission Refused",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Planning Permission Refused",
+            "description": "Date planning permission was refused"
+          },
+          {
+            "name": "Appeal Lodged",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Appeal Lodged",
+            "description": "Date an appeal was lodged"
+          },
+          {
+            "name": "Appeal Withdrawn",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Appeal Withdrawn",
+            "description": "Date an appeal was withdrawn"
+          },
+          {
+            "name": "Appeal Refused",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Appeal Refused",
+            "description": "Date an appeal was refused (dismissed)"
+          },
+          {
+            "name": "Appeal Granted",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Appeal Granted",
+            "description": "Date an appeal was granted (upheld)"
+          },
+          {
+            "name": "Planning Permission Granted",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Planning Permission Granted",
+            "description": "Date planning permission was granted by the planning authority"
+          },
+          {
+            "name": "Secretary of State - Intervened",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Secretary of State - Intervened",
+            "description": "Date of a project that is 'Called In' by the Secretary of State"
+          },
+          {
+            "name": "Secretary of State - Refusal",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Secretary of State - Refusal",
+            "description": "Date planning permission was refused by the Secretary of State"
+          },
+          {
+            "name": "Secretary of State - Granted",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Secretary of State - Granted",
+            "description": "Date planning permission was granted by the Secretary of State"
+          },
+          {
+            "name": "Planning Permission Expired",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Planning Permission Expired",
+            "description": "Date a planning permission expires (as per the planning decision)"
+          },
+          {
+            "name": "Under Construction",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Under Construction",
+            "description": "Date construction on site has begun"
+          },
+          {
+            "name": "Operational",
+            "type": "date",
+            "format": "%d/%m/%Y",
+            "title": "Operational",
+            "description": "Date a project become operational"
+          },
+          {
+            "name": "Heat Network Ref",
+            "type": "integer",
+            "format": "default",
+            "title": "Heat Network Ref",
+            "description": "The reference ID for the associated heat-network within the Heat Networks Planning Database"
+          }
+        ]
+      }
+    }
+  ],
+  "name": "renewable-energy-planning-database",
+  "title": "Renewable Energy Planning Database",
+  "description": "The Renewable Energy Planning Database ('REPD') is managed by Barbour ABI on behalf of the Department of Business, Energy & Industrial Strategy ('BEIS’). The databases track the progress of renewable electricity projects (including those that could also be used for CHP), and electricity storage projects  from inception, through planning, construction, operation and decommissioning.\n\nThe REPD is updated on a quarterly basis, and contains information on all Renewable Electricity and CHP projects up to the end of the previous calendar month.",
+  "homepage": "https://www.gov.uk/government/publications/renewable-energy-planning-database-monthly-extract",
+  "version": "0.1.0",
+  "contributors": [
+    {
+      "title": "BEIS",
+      "role": "author"
+    }
+  ]
+}

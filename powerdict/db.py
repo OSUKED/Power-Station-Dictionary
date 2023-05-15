@@ -118,7 +118,7 @@ class SourceLinkTable(schemas.SourceLink, table=True):
 class AssetRegisterTable(schemas.AssetRegister, table=True):
     __tablename__ = 'dict__register'
     osuked_id: int = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class RepdIdLinkTable(schemas.RepdIdLink, table=True):
@@ -128,60 +128,67 @@ class RepdIdLinkTable(schemas.RepdIdLink, table=True):
     date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
+class OldRepdIdLinkTable(schemas.OldRepdIdLink, table=True):
+    __tablename__ = 'dict__link_old_repd'
+    osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
+    old_repd_id: str = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
+
+
 class BmuIdLinkTable(schemas.BmuIdLink, table=True):
     __tablename__ = 'dict__link_bmu'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     bmu_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class NgcBmuIdLinkTable(schemas.NgcBmuIdLink, table=True):
     __tablename__ = 'dict__link_ngc_bmu'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     ngc_bmu_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class CfdIdLinkTable(schemas.CfdIdLink, table=True):
     __tablename__ = 'dict__link_cfd'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     cfd_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class GppdIdLinkTable(schemas.GppdIdLink, table=True):
     __tablename__ = 'dict__link_gppd'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     gppd_idnr_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class JrcIdLinkTable(schemas.JrcIdLink, table=True):
     __tablename__ = 'dict__link_jrc'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     jrc_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class IaeaIdLinkTable(schemas.IaeaIdLink, table=True):
     __tablename__ = 'dict__link_iaea'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     iaea_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class EutlIdLinkTable(schemas.EutlIdLink, table=True):
     __tablename__ = 'dict__link_eutl'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     eutl_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class GeoNuclearIdLinkTable(schemas.GeoNuclearIdLink, table=True):
     __tablename__ = 'dict__link_geo_nuclear'
     osuked_id: int = Field(primary_key=True, foreign_key='dict__register.osuked_id')
     geo_nuclear_id: str = Field(primary_key=True)
-    date_added: datetime.datetime = Field(primary_key=True)
+    date_added: datetime.datetime = Field(primary_key=True, default_factory=datetime.datetime.now)
 
 
 class BmrsPhysicalDataTable(schemas.BmrsPhysicalData, table=True):
@@ -355,6 +362,14 @@ class DbClient:
             AssetRegisterTable.__table__,
             RepdIdLinkTable.__table__,
             BmuIdLinkTable.__table__,
+            OldRepdIdLinkTable.__table__,
+            NgcBmuIdLinkTable.__table__,
+            CfdIdLinkTable.__table__,
+            GppdIdLinkTable.__table__,  
+            JrcIdLinkTable.__table__,
+            IaeaIdLinkTable.__table__,
+            EutlIdLinkTable.__table__,
+            GeoNuclearIdLinkTable.__table__,
             BmrsPhysicalDataTable.__table__
         ]
     ):

@@ -1,4 +1,5 @@
 from typing import Any
+from loguru import logger
 from powerdict import db, schemas
 
 
@@ -8,12 +9,22 @@ def get_linked_ids(
     link_tables: list[str] = [
         'dict__link_repd',
         'dict__link_bmu',
+        'dict__link_old_repd',
+        'dict__link_ngc_bmu',
+        'dict__link_cfd',
+        'dict__link_gppd',
+        'dict__link_jrc',
+        'dict__link_iaea',
+        'dict__link_eutl',
+        'dict__link_geo_nuclear',
     ]
 ):
-    linked_ids = {}
+    linked_ids = {
+        'dict__register': [osuked_id],
+    }
 
     for link_table in link_tables:
-        linked_id_col = link_table.split('_')[-1] + '_id'
+        linked_id_col = link_table.split('link_')[-1] + '_id'
         linked_ids[link_table] = [record[linked_id_col] for record in db_client.get_all(link_table) if record['osuked_id'] == osuked_id]
 
     return linked_ids
@@ -31,19 +42,22 @@ def get_linked_data(
         if source_link['linked_id_type'] not in linked_data.keys():
             linked_data[source_link['linked_id_type']] = {}
 
+        linked_data[source_link['linked_id_type']][source_link['resource_table_name']] = {}
         records = db_client.get_all(source_link['resource_table_name'], flat_table=True)
 
-        linked_data[source_link['linked_id_type']][source_link['resource_table_name']] = {
-            record[source_link['linked_id_column']]: {
-                k: v
-                for k, v
-                in record.items()
-                if v is not None
-            }
-            for record 
-            in records
-            if record[source_link['linked_id_column']] in linked_ids[source_link['linked_id_type']]
-        }
+        for record in records:
+            if record[source_link['linked_id_column']] in linked_ids[source_link['linked_id_type']]:
+                (
+                    linked_data
+                    [source_link['linked_id_type']]
+                    [source_link['resource_table_name']]
+                    [record[source_link['linked_id_column']]]
+                ) = { 
+                    k: v
+                    for k, v
+                    in record.items()
+                    if v is not None
+                }
 
     return linked_data
 

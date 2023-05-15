@@ -50,7 +50,7 @@ async def post_new_asset(
 )
 async def post_new_linked_ids(
     osuked_id: int,
-    linked_ids: dict[str, list[Any]],
+    linked_ids: dict[str, list],
     current_user: schemas.SecureAPIUser = Depends(authentication.get_current_active_user)
 ) -> schemas.AssetIds:
     """Links associated IDs to an existing OSUKED asset

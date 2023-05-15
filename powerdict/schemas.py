@@ -414,6 +414,13 @@ class RepdIdLink(ExtendedSQLModel):
     # can later look at adding a 'relationship' field: PartOf, SameAs, etc
 
 
+class OldRepdIdLink(ExtendedSQLModel):
+    osuked_id: int
+    old_repd_id: str
+    date_added: datetime.datetime = Field(default_factory=datetime.datetime.now)
+    date_removed: Optional[datetime.datetime]
+
+
 class BmuIdLink(ExtendedSQLModel):
     osuked_id: int
     bmu_id: str

@@ -160,5 +160,5 @@ async def get_db_schema(
         raise HTTPException(status_code=404, detail=f'Could not find table {table_name} in database')
     
     table_schema = db.table_name_to_schema[table_name]
-    
+
     return table_schema.schema()

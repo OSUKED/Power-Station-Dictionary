@@ -1,0 +1,2631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMU Location Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+  body { background: #0b1120; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useCallback, useRef, useMemo, useEffect } = React;
+
+function parseCSV(text) {
+  const lines = text.trim().split("\n");
+  if (lines.length === 0) return { headers: [], rows: [] };
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    if (lines[i].trim()) {
+      const values = parseCSVLine(lines[i]);
+      const row = {};
+      headers.forEach((h, idx) => { row[h] = values[idx] || ""; });
+      rows.push(row);
+    }
+  }
+  return { headers, rows };
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (inQuotes) {
+      if (ch === '"' && line[i + 1] === '"') { current += '"'; i++; }
+      else if (ch === '"') inQuotes = false;
+      else current += ch;
+    } else {
+      if (ch === '"') inQuotes = true;
+      else if (ch === ",") { result.push(current); current = ""; }
+      else current += ch;
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function toCSVValue(val) {
+  if (val == null) return "";
+  const s = String(val);
+  if (s.includes(",") || s.includes('"') || s.includes("\n")) return '"' + s.replace(/"/g, '""') + '"';
+  return s;
+}
+
+function rowsToCSV(headers, rows) {
+  const lines = [headers.map(toCSVValue).join(",")];
+  rows.forEach((row) => lines.push(headers.map((h) => toCSVValue(row[h] || "")).join(",")));
+  return lines.join("\n");
+}
+
+function downloadFile(content, filename) {
+  const blob = new Blob([content], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ─── BNG to WGS84 conversion (Ordnance Survey approximation) ───────
+function bngToLatLon(e, n) {
+  const E0 = 400000, N0 = -100000, F0 = 0.9996012717;
+  const a = 6377563.396, b = 6356256.909;
+  const lat0 = 49 * Math.PI / 180, lon0 = -2 * Math.PI / 180;
+  const e2 = (a*a - b*b) / (a*a);
+  const n1 = (a - b) / (a + b);
+  let lat = lat0, M = 0;
+  do {
+    lat = (n - N0 - M) / (a * F0) + lat;
+    M = b * F0 * (
+      (1 + n1 + 5/4*n1*n1 + 5/4*n1*n1*n1) * (lat - lat0)
+      - (3*n1 + 3*n1*n1 + 21/8*n1*n1*n1) * Math.sin(lat - lat0) * Math.cos(lat + lat0)
+      + (15/8*n1*n1 + 15/8*n1*n1*n1) * Math.sin(2*(lat - lat0)) * Math.cos(2*(lat + lat0))
+      - (35/24*n1*n1*n1) * Math.sin(3*(lat - lat0)) * Math.cos(3*(lat + lat0))
+    );
+  } while (Math.abs(n - N0 - M) >= 0.00001);
+  const sinLat = Math.sin(lat), cosLat = Math.cos(lat), tanLat = Math.tan(lat);
+  const nu = a * F0 / Math.sqrt(1 - e2 * sinLat * sinLat);
+  const rho = a * F0 * (1 - e2) / Math.pow(1 - e2 * sinLat * sinLat, 1.5);
+  const eta2 = nu / rho - 1;
+  const VII = tanLat / (2 * rho * nu);
+  const VIII = tanLat / (24 * rho * nu*nu*nu) * (5 + 3*tanLat*tanLat + eta2 - 9*tanLat*tanLat*eta2);
+  const IX = tanLat / (720 * rho * Math.pow(nu, 5)) * (61 + 90*tanLat*tanLat + 45*Math.pow(tanLat, 4));
+  const X = 1 / (cosLat * nu);
+  const XI = 1 / (cosLat * 6 * nu*nu*nu) * (nu/rho + 2*tanLat*tanLat);
+  const XII = 1 / (cosLat * 120 * Math.pow(nu, 5)) * (5 + 28*tanLat*tanLat + 24*Math.pow(tanLat, 4));
+  const dE = e - E0;
+  const latR = lat - VII*dE*dE + VIII*Math.pow(dE,4) - IX*Math.pow(dE,6);
+  const lonR = lon0 + X*dE - XI*Math.pow(dE,3) + XII*Math.pow(dE,5);
+  return { lat: latR * 180 / Math.PI, lon: lonR * 180 / Math.PI };
+}
+
+// ─── Fuzzy string matching (bigram similarity) ────────────────────
+function bigrams(str) {
+  const s = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const b = new Set();
+  for (let i = 0; i < s.length - 1; i++) b.add(s.slice(i, i + 2));
+  return b;
+}
+function similarity(a, b) {
+  if (!a || !b) return 0;
+  const ba = bigrams(a), bb = bigrams(b);
+  if (ba.size === 0 || bb.size === 0) return 0;
+  let intersect = 0;
+  ba.forEach(x => { if (bb.has(x)) intersect++; });
+  return (2 * intersect) / (ba.size + bb.size);
+}
+// Strip parenthetical notes like "(was Creyke Beck A & B)" or "(formerly ...)"
+// These inflate bigram denominators and dilute similarity scores.
+function normalizeRepdName(name) {
+  return (name || '').replace(/\s*\(.*?\)/g, '').trim();
+}
+// Word-level recall: fraction of REPD name's key words found in the search query.
+// Recall-oriented (denominator = REPD name words) so short REPD names score high
+// when their identifying words all appear in longer search terms.
+const REPD_STOP_WORDS = new Set([
+  'was','the','and','of','in','an','at','to','for','on','by','with',
+  'formerly','former','limited','ltd','plc','uk',
+]);
+function wordRecall(queryText, targetName) {
+  const targetWords = new Set(
+    normalizeRepdName(targetName).toLowerCase()
+      .replace(/[^a-z0-9\s]/g, ' ').split(/\s+/)
+      .filter(w => w.length >= 2 && !REPD_STOP_WORDS.has(w))
+  );
+  if (targetWords.size === 0) return 0;
+  const qWords = new Set(
+    queryText.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length >= 2)
+  );
+  let matches = 0;
+  targetWords.forEach(w => { if (qWords.has(w)) matches++; });
+  return matches / targetWords.size;
+}
+// leadPartyTerms are passed separately so they only contribute a weak operator hint.
+// Unit name terms drive scoring; lead party alone is not enough to surface a result.
+// fuelTypeHint: when provided, +0.12 score boost for rows whose Technology Type maps to
+// the same fuel code — resolves ambiguity between same-named solar vs battery rows.
+function fuzzyMatchRepd(repdRows, searchTerms, leadPartyTerms = [], limit = 8, fuelTypeHint = null) {
+  if (!repdRows || searchTerms.length === 0) return [];
+  const combined = searchTerms.join(' '); // unit names only — no lead parties
+  const scored = repdRows.map(row => {
+    const name = row['Site Name'] || '';
+    const operator = row['Operator (or Applicant)'] || '';
+    const cleanName = normalizeRepdName(name);
+    // Bigram similarity against both full name and cleaned name (parentheticals stripped)
+    let bestScore = Math.max(
+      similarity(combined, name), similarity(combined, cleanName), similarity(combined, operator)
+    );
+    let bestCleanSim = 0;
+    searchTerms.forEach(term => {
+      const cs = Math.max(similarity(term, cleanName), similarity(term, name));
+      bestCleanSim = Math.max(bestCleanSim, cs);
+      bestScore = Math.max(bestScore, cs, similarity(term, operator));
+      const tl = term.toLowerCase();
+      if (name.toLowerCase().includes(tl) || cleanName.toLowerCase().includes(tl))
+        bestScore = Math.max(bestScore, 0.7);
+      if (operator.toLowerCase().includes(tl))
+        bestScore = Math.max(bestScore, 0.65);
+    });
+    // Lead party: weak operator-only hint (0.25 cap) — not enough to surface a result
+    // on its own, but gives a small nudge when unit name scores are already similar.
+    leadPartyTerms.forEach(lp => {
+      if (operator.toLowerCase().includes(lp.toLowerCase()))
+        bestScore = Math.max(bestScore, 0.25);
+    });
+    // Blended word-recall + clean-name bigram: rewards entries whose key words all
+    // appear in the search terms, weighted by how well the name itself matches.
+    // This lifts Dogger Bank above other Equinor farms when searching "Dogger Bank A".
+    const recall = wordRecall(combined, name);
+    if (recall > 0) bestScore = Math.max(bestScore, recall * 0.7 + bestCleanSim * 0.3);
+    // Fuel type boost: when the BMU group has a known fuel type and this REPD row's
+    // Technology Type maps to the same code, add a score bonus to prefer it over
+    // rows for other technologies at the same site (e.g. solar vs battery).
+    if (fuelTypeHint && repdTechToFuelType(row['Technology Type']) === fuelTypeHint) bestScore = Math.min(1.0, bestScore + 0.12);
+    return { row, score: bestScore };
+  });
+  return scored
+    .filter(s => s.score > 0.2)
+    .sort((a, b) => {
+      const aIrr = isRepdIrrelevant(a.row['Development Status (short)'] || '');
+      const bIrr = isRepdIrrelevant(b.row['Development Status (short)'] || '');
+      if (aIrr !== bIrr) return aIrr ? 1 : -1;
+      return b.score - a.score;
+    })
+    .slice(0, limit);
+}
+function isRepdIrrelevant(status) {
+  if (!status) return false;
+  const s = status.toLowerCase();
+  return s.includes('refused') || s.includes('withdrawn') || s.includes('abandoned') ||
+         s.includes('decommission') || s.includes('revised') || s.includes('old');
+}
+// Map REPD Technology Type → BMU fuel type code
+function repdTechToFuelType(techType) {
+  if (!techType) return null;
+  const t = techType.toLowerCase();
+  if (t.includes('wind')) return 'WIND';
+  if (t.includes('solar') || t.includes('photovoltaic')) return 'SOLAR';
+  if (t.includes('battery') || t.includes('bess') || t.includes('energy storage')) return 'BATTERY';
+  if (t.includes('pumped storage') || t.includes('pumped hydro')) return 'PS';
+  if (t.includes('hydro')) return 'NPSHYD';
+  if (t.includes('biomass') || t.includes('bioenergy') || t.includes('energy from waste') || t.includes('landfill gas') || t.includes('sewage')) return 'BIOMASS';
+  if (t.includes('nuclear')) return 'NUCLEAR';
+  if (t.includes('coal')) return 'COAL';
+  if (t.includes('gas') || t.includes('ccgt')) return 'CCGT';
+  if (t.includes('ocgt')) return 'OCGT';
+  return null;
+}
+// Infer fuel type from a BMU's ID string or unit name (keyword scan).
+// Returns a fuel type code or null if no recognisable keyword found.
+function bmuNameFuelHint(bmuId, bmUnitName) {
+  const s = ((bmuId || '') + ' ' + (bmUnitName || '')).toUpperCase();
+  if (/\bBATTERY\b|\bBESS\b|STOR(AGE)?\b/.test(s)) return 'BATTERY';
+  if (/\bWIND\b|WINDFARM|\bWF\b/.test(s)) return 'WIND';
+  if (/\bSOLAR\b|\bPV\b|PHOTOVOLTAIC/.test(s)) return 'SOLAR';
+  if (/\bPUMPED\b|\bPUMP\b/.test(s)) return 'PS';
+  if (/\bHYDRO\b|\bHYD\b/.test(s)) return 'NPSHYD';
+  if (/\bCCGT\b/.test(s)) return 'CCGT';
+  if (/\bOCGT\b/.test(s)) return 'OCGT';
+  if (/\bBIOMASS\b|\bBIO\b/.test(s)) return 'BIOMASS';
+  if (/\bNUCLEAR\b|\bNUCL\b/.test(s)) return 'NUCLEAR';
+  return null;
+}
+// Returns the first keyword (as a string) that caused bmuNameFuelHint to fire,
+// so the UI can display it in a tooltip to justify the suggestion.
+function bmuNameFuelHintKeyword(bmuId, bmUnitName) {
+  const s = ((bmuId || '') + ' ' + (bmUnitName || '')).toUpperCase();
+  const checks = [
+    [/\bBATTERY\b/, 'BATTERY'], [/\bBESS\b/, 'BESS'], [/\bSTORAGE\b/, 'STORAGE'], [/\bSTOR\b/, 'STOR'],
+    [/\bWINDFARM\b/, 'WINDFARM'], [/\bWIND\b/, 'WIND'], [/\bWF\b/, 'WF'],
+    [/\bPHOTOVOLTAIC\b/, 'PHOTOVOLTAIC'], [/\bSOLAR\b/, 'SOLAR'], [/\bPV\b/, 'PV'],
+    [/\bPUMPED\b/, 'PUMPED'], [/\bPUMP\b/, 'PUMP'],
+    [/\bHYDRO\b/, 'HYDRO'], [/\bHYD\b/, 'HYD'],
+    [/\bCCGT\b/, 'CCGT'], [/\bOCGT\b/, 'OCGT'],
+    [/\bBIOMASS\b/, 'BIOMASS'], [/\bBIO\b/, 'BIO'],
+    [/\bNUCLEAR\b/, 'NUCLEAR'], [/\bNUCL\b/, 'NUCL'],
+  ];
+  for (const [re, kw] of checks) { if (re.test(s)) return kw; }
+  return null;
+}
+function extractBmuRoot(id) {
+  if (!id) return null;
+  const s = id.trim();
+  // Require hyphen + digits suffix (e.g. ROOT-N or T_ROOT-N).
+  // Other forms like 2__AECOT003 or INTIFA2 cannot be reliably rooted.
+  if (!/^.+-\d+$/.test(s)) return null;
+  // Only strip a short prefix (1-3 chars) when it is immediately followed by
+  // a separator (- or _).  National-grid IDs like CRYRW-4 have no such prefix
+  // and must not have their leading characters eaten.
+  let root = s.replace(/^[A-Z0-9]{1,3}[_-](?=[A-Z])/i, ''); // strip prefix like T_, E_
+  root = root.replace(/-\d+$/, '');                            // strip -N suffix
+  return root.toUpperCase() || null;
+}
+// Fast top-match against a pre-built REPD index (avoids recomputing bigrams per call)
+// leadPartyTerms: only checked against operator at a low cap (0.25), never influence
+// word-recall or name scoring — same philosophy as fuzzyMatchRepd.
+// fuelTypeHint: when provided, +0.12 score bonus for rows whose pre-computed techFuelType
+// matches — resolves ties between same-named solar vs battery REPD entries.
+function fastTopMatch(searchTerms, repdIdx, rootHint, threshold, leadPartyTerms = [], fuelTypeHint = null) {
+  if (!repdIdx || repdIdx.length === 0 || searchTerms.length === 0) return null;
+  const termBigramsArr = searchTerms.map(t => bigrams(t));
+  const lowerTerms = searchTerms.map(t => t.toLowerCase());
+  const lowerLeadParties = leadPartyTerms.map(t => t.toLowerCase());
+  // Build query word set from unit name terms only (not lead parties)
+  const qWords = new Set(
+    searchTerms.join(' ').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length >= 2)
+  );
+  // Pre-filter prefixes: root prefix AND first-4-chars of each search term.
+  // The BMU root (e.g. "DOGBA") may not appear in the REPD name as a substring,
+  // but the actual BMU unit name (e.g. "Dogger Bank A") will via its "dogg" prefix.
+  const rootPrefix = (rootHint || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 4);
+  const termPrefixes = lowerTerms
+    .map(t => t.replace(/[^a-z0-9]/g, '').slice(0, 4))
+    .filter(p => p.length >= 3);
+  let best = null, bestScore = 0;
+  for (const entry of repdIdx) {
+    // Prefix pre-filter: skip entries where no prefix matches name or operator
+    if (rootPrefix.length >= 3 || termPrefixes.length > 0) {
+      const prefixes = rootPrefix.length >= 3 ? [rootPrefix, ...termPrefixes] : termPrefixes;
+      const passes = prefixes.some(p =>
+        entry.nameLower.includes(p) || entry.operatorLower.includes(p)
+      );
+      if (!passes) continue;
+    }
+    let rowScore = 0;
+    let bestCleanSim = 0;
+    for (let i = 0; i < searchTerms.length; i++) {
+      const bg = termBigramsArr[i];
+      let s = 0;
+      if (bg.size > 0) {
+        if (entry.nameBigrams.size > 0) {
+          let x = 0; bg.forEach(b => { if (entry.nameBigrams.has(b)) x++; });
+          s = Math.max(s, (2 * x) / (bg.size + entry.nameBigrams.size));
+        }
+        // Use cleaned name bigrams (parentheticals stripped) for better similarity
+        if (entry.cleanNameBigrams && entry.cleanNameBigrams.size > 0) {
+          let x = 0; bg.forEach(b => { if (entry.cleanNameBigrams.has(b)) x++; });
+          const cs = (2 * x) / (bg.size + entry.cleanNameBigrams.size);
+          s = Math.max(s, cs);
+          bestCleanSim = Math.max(bestCleanSim, cs);
+        }
+        if (entry.operatorBigrams.size > 0) {
+          let x = 0; bg.forEach(b => { if (entry.operatorBigrams.has(b)) x++; });
+          s = Math.max(s, (2 * x) / (bg.size + entry.operatorBigrams.size));
+        }
+      }
+      if (entry.nameLower.includes(lowerTerms[i])) s = Math.max(s, 0.7);
+      if (entry.cleanNameLower && entry.cleanNameLower.includes(lowerTerms[i])) s = Math.max(s, 0.7);
+      if (entry.operatorLower.includes(lowerTerms[i])) s = Math.max(s, 0.65);
+      rowScore = Math.max(rowScore, s);
+    }
+    // Word-recall boost: same blended signal as fuzzyMatchRepd
+    if (entry.nameWordTokens && entry.nameWordTokens.size > 0) {
+      let matches = 0;
+      entry.nameWordTokens.forEach(w => { if (qWords.has(w)) matches++; });
+      const recall = matches / entry.nameWordTokens.size;
+      if (recall > 0) rowScore = Math.max(rowScore, recall * 0.7 + bestCleanSim * 0.3);
+    }
+    // Lead party: weak operator-only hint, same cap as fuzzyMatchRepd
+    lowerLeadParties.forEach(lp => {
+      if (entry.operatorLower.includes(lp)) rowScore = Math.max(rowScore, 0.25);
+    });
+    // Fuel type boost: prefer rows whose Technology Type matches the BMU group's fuel type
+    if (fuelTypeHint && entry.techFuelType === fuelTypeHint) rowScore = Math.min(1.0, rowScore + 0.12);
+    if (rowScore > bestScore) { bestScore = rowScore; best = { row: entry.row, score: rowScore }; }
+  }
+  return (best && bestScore >= threshold) ? best : null;
+}
+
+const C = {
+  bg: "#0b1120", panel: "#111a2e", card: "#0f1628",
+  border: "#1c2844", borderFocus: "#e19f2c",
+  text: "#d8dfe9", dim: "#6a778a", faint: "#3e4d66",
+  amber: "#e19f2c", amberDim: "#c58a1f", amberGhost: "rgba(225,159,44,0.08)",
+  red: "#e05252", redGhost: "rgba(224,82,82,0.1)",
+  green: "#2dbe6e", greenGhost: "rgba(45,190,110,0.1)",
+  blue: "#4a8ef5", tag: "#151e34",
+};
+
+const FC = {
+  WIND: { bg: "#0d3320", fg: "#34d399" }, SOLAR: { bg: "#332b0d", fg: "#fbbf24" },
+  CCGT: { bg: "#0d1f33", fg: "#60a5fa" }, OCGT: { bg: "#1a1533", fg: "#a78bfa" },
+  NUCLEAR: { bg: "#33150d", fg: "#fb923c" }, COAL: { bg: "#1a1a1a", fg: "#9ca3af" },
+  BIOMASS: { bg: "#1a2e0d", fg: "#84cc16" }, NPSHYD: { bg: "#0d2933", fg: "#22d3ee" },
+  PS: { bg: "#0d2933", fg: "#22d3ee" }, OIL: { bg: "#2e1a0d", fg: "#d97706" },
+  BATTERY: { bg: "#1a1033", fg: "#818cf8" }, OTHER: { bg: "#1a1a22", fg: "#94a3b8" },
+};
+function fuelColor(ft) { return (ft && FC[ft]) || FC.OTHER; }
+// Interconnectors all get purple
+["INTEW","INTFR","INTIRL","INTNED","INTNEM","INTELEC","INTIFA2","INTNSL","INTVKL"].forEach(k => {
+  FC[k] = { bg: "#1a1533", fg: "#c084fc" };
+});
+
+const inputBase = {
+  width: "100%", padding: "9px 12px", borderRadius: 8,
+  background: C.bg, border: `1px solid ${C.border}`,
+  color: C.text, fontSize: 13, fontFamily: "'IBM Plex Sans', sans-serif",
+  boxSizing: "border-box", transition: "border-color 0.15s",
+};
+const monoInput = { ...inputBase, fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 };
+
+// ─── Small UI components ───────────────────────────────────────────
+
+function StatBadge({ color, n, label }) {
+  return (
+    <span style={{
+      fontSize: 11, fontWeight: 600, padding: "4px 10px", borderRadius: 20,
+      background: color + "14", color, border: `1px solid ${color}28`,
+      display: "inline-flex", alignItems: "center", gap: 4,
+    }}>
+      <span style={{ fontWeight: 700, fontSize: 13 }}>{n}</span> {label}
+    </span>
+  );
+}
+
+function SidebarSection({ title }) {
+  return <div style={{ fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: C.faint, margin: "10px 0 2px 4px" }}>{title}</div>;
+}
+
+function FileBtn({ label, ok, n, onClick }) {
+  return (
+    <button onClick={onClick} style={{
+      display: "flex", alignItems: "center", gap: 8,
+      padding: "8px 10px", borderRadius: 8, width: "100%",
+      background: ok ? C.greenGhost : C.panel, border: `1px solid ${ok ? C.green + "33" : C.border}`,
+      color: C.text, cursor: "pointer", textAlign: "left", fontSize: 12,
+    }}>
+      <span style={{ width: 7, height: 7, borderRadius: "50%", flexShrink: 0, background: ok ? C.green : C.faint }} />
+      <span style={{ flex: 1 }}>{label}{ok && <span style={{ color: C.green, fontSize: 10, marginLeft: 6 }}>{n} rows</span>}</span>
+    </button>
+  );
+}
+
+function NavBtn({ active, onClick, children }) {
+  return (
+    <button onClick={onClick} style={{
+      display: "flex", alignItems: "center", gap: 7,
+      padding: "7px 10px", borderRadius: 8, width: "100%",
+      background: active ? C.amberGhost : "transparent",
+      border: `1px solid ${active ? C.amber + "33" : "transparent"}`,
+      color: active ? C.amber : C.dim, cursor: "pointer",
+      textAlign: "left", fontSize: 12, fontWeight: active ? 600 : 400,
+    }}>{children}</button>
+  );
+}
+
+function SmallBtn({ onClick, children, accent }) {
+  return (
+    <button onClick={onClick} style={{
+      padding: "4px 10px", borderRadius: 6, fontSize: 11, fontWeight: 600,
+      background: accent ? C.amber : C.tag, border: `1px solid ${accent ? C.amberDim : C.border}`,
+      color: accent ? C.bg : C.dim, cursor: "pointer",
+    }}>{children}</button>
+  );
+}
+
+function HoverTooltip({ children, content }) {
+  const [pos, setPos] = React.useState(null);
+  const ref = React.useRef(null);
+  const timer = React.useRef(null);
+  const show = () => {
+    clearTimeout(timer.current);
+    if (ref.current) {
+      const r = ref.current.getBoundingClientRect();
+      setPos({ top: r.top, left: r.right + 10 });
+    }
+  };
+  const scheduleHide = () => { timer.current = setTimeout(() => setPos(null), 120); };
+  return (
+    <div ref={ref} style={{ width: "100%" }} onMouseEnter={show} onMouseLeave={scheduleHide}>
+      {children}
+      {pos && (
+        <div
+          onMouseEnter={() => clearTimeout(timer.current)}
+          onMouseLeave={scheduleHide}
+          style={{
+            position: "fixed", top: pos.top, left: pos.left,
+            width: 268, padding: "12px 14px", borderRadius: 9,
+            background: "#1a2540", border: `1px solid ${C.amber}44`,
+            boxShadow: "0 8px 28px rgba(0,0,0,0.55)",
+            zIndex: 9999, fontSize: 11, lineHeight: 1.65, color: C.text,
+          }}
+        >{content}</div>
+      )}
+    </div>
+  );
+}
+
+function Label({ text, sub }) {
+  return (
+    <div style={{ marginBottom: 3 }}>
+      <span style={{ fontSize: 11, fontWeight: 600, color: C.dim }}>{text}</span>
+      {sub && <span style={{ fontSize: 10, color: C.faint, marginLeft: 6 }}>{sub}</span>}
+    </div>
+  );
+}
+
+function FuelBadge({ fuelType }) {
+  const fc = fuelColor(fuelType);
+  if (!fuelType) return <span style={{ fontSize: 10, fontWeight: 600, padding: "2px 7px", borderRadius: 4, background: C.tag, color: C.faint, minWidth: 48, textAlign: "center", display: "inline-block" }}>—</span>;
+  return <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 4, background: fc.bg, color: fc.fg, letterSpacing: "0.03em", minWidth: 48, textAlign: "center", display: "inline-block" }}>{fuelType}</span>;
+}
+
+function BmuTag({ unit }) {
+  const fc = fuelColor(unit.fuelType);
+  return (
+    <span style={{ fontSize: 11, padding: "3px 8px", borderRadius: 5, background: fc.bg, color: fc.fg, fontFamily: "'IBM Plex Mono', monospace", border: `1px solid ${fc.fg}22` }}>
+      {unit.nationalGridBmUnit || unit.elexonBmUnit}
+      {unit.fuelType && <span style={{ opacity: 0.6, marginLeft: 4 }}>{unit.fuelType}</span>}
+    </span>
+  );
+}
+
+// ─── Assign Panel ──────────────────────────────────────────────────
+
+function AssignPanel({ form, setForm, target, setTarget, selectedBmuObjects, onSave, onCancel, allStations, locIndex, existingSearch, setExistingSearch, assignToExisting, nextId, repdData, fuelTypeOptions, resolveFuelType }) {
+  const [advancedFuel, setAdvancedFuel] = useState(false);
+  const [perBmuFuel, setPerBmuFuel] = useState({}); // { ngcBmuId: fuelType }
+
+  // Compute resolved fuel type per selected BMU
+  const resolvedPerBmu = useMemo(() => selectedBmuObjects.map(u => ({
+    ngcId: u.nationalGridBmUnit || '',
+    settId: u.elexonBmUnit || '',
+    label: u.nationalGridBmUnit || u.elexonBmUnit || '',
+    bmUnitName: u.bmUnitName || '',
+    elexonFuelType: u.fuelType || '',
+    resolvedFuelType: resolveFuelType ? resolveFuelType(u.nationalGridBmUnit, u.fuelType) : (u.fuelType || ''),
+  })), [selectedBmuObjects, resolveFuelType]);
+
+  const uniqueResolvedTypes = useMemo(() => new Set(resolvedPerBmu.map(x => x.resolvedFuelType).filter(Boolean)), [resolvedPerBmu]);
+  const hasMixed = uniqueResolvedTypes.size > 1;
+
+  // Auto-enable advanced mode and pre-fill perBmuFuel when mixed types detected
+  useEffect(() => {
+    if (hasMixed) {
+      setAdvancedFuel(true);
+      const init = {};
+      resolvedPerBmu.forEach(({ ngcId, resolvedFuelType }) => { if (ngcId) init[ngcId] = resolvedFuelType; });
+      setPerBmuFuel(init);
+    } else {
+      setAdvancedFuel(false);
+      setPerBmuFuel({});
+    }
+  }, [hasMixed]); // intentionally only react to hasMixed changing
+
+  // Auto-fill simple-mode fuel type from top REPD match when Elexon provides nothing or only "OTHER"
+  useEffect(() => {
+    if (advancedFuel) return; // advanced mode handles per-BMU types itself
+    if (!repdSuggestions.length || repdSuggestions[0].score < 0.82) return;
+    const rft = repdTechToFuelType(repdSuggestions[0].row['Technology Type']);
+    // Fill when empty, or override the vague "OTHER" classification with a more specific REPD type
+    if (rft) setForm(prev => (!prev.fuel_type || prev.fuel_type === 'OTHER') ? { ...prev, fuel_type: rft } : prev);
+  }, [repdSuggestions]); // intentionally only react to REPD suggestions changing
+
+  const setAllFuel = (ft) => {
+    const next = {};
+    resolvedPerBmu.forEach(({ ngcId }) => { if (ngcId) next[ngcId] = ft; });
+    setPerBmuFuel(next);
+  };
+
+  const filteredStations = allStations.filter((s) => {
+    if (!existingSearch) return true;
+    const q = existingSearch.toLowerCase();
+    return (s.name || "").toLowerCase().includes(q) || (s.dictionary_id || "").toLowerCase().includes(q) || (s.esail_id || "").toLowerCase().includes(q) || (s.sett_bmu_id || "").toLowerCase().includes(q);
+  });
+
+  const showForm = target === "new" || (target !== "new" && target !== "existing");
+
+  // REPD fuzzy matching based on selected BMU names
+  const repdSuggestions = useMemo(() => {
+    if (!repdData || selectedBmuObjects.length === 0) return [];
+    const searchTerms = selectedBmuObjects.map(u => u.bmUnitName || '').filter(Boolean);
+    const leadParties = selectedBmuObjects.map(u => u.leadPartyName || '').filter(Boolean);
+    // Compute group fuel type hint (majority vote, exclude vague "OTHER")
+    // Priority: resolved type (fuelTypesIndex/Elexon) → BMU name keyword scan fallback
+    const fuelCounts = new Map();
+    resolvedPerBmu.forEach(({ ngcId, bmUnitName, resolvedFuelType }) => {
+      const ft = (resolvedFuelType && resolvedFuelType !== 'OTHER')
+        ? resolvedFuelType
+        : (bmuNameFuelHint(ngcId, bmUnitName) || '');
+      if (ft) fuelCounts.set(ft, (fuelCounts.get(ft) || 0) + 1);
+    });
+    const fuelHint = fuelCounts.size > 0
+      ? [...fuelCounts.entries()].sort((a, b) => b[1] - a[1])[0][0]
+      : null;
+    return fuzzyMatchRepd(repdData, searchTerms, leadParties, 8, fuelHint);
+  }, [repdData, selectedBmuObjects, resolvedPerBmu]);
+
+  const [repdSearch, setRepdSearch] = useState("");
+  const repdManualResults = useMemo(() => {
+    if (!repdData || repdSearch.length < 2) return [];
+    const s = repdSearch.toLowerCase();
+    return repdData.filter(r =>
+      (r['Site Name'] || '').toLowerCase().includes(s) ||
+      (r['Operator (or Applicant)'] || '').toLowerCase().includes(s) ||
+      (r['Ref ID'] || '') === repdSearch ||
+      (r['Old Ref ID'] || '').toLowerCase().includes(s)
+    ).slice(0, 12);
+  }, [repdData, repdSearch]);
+
+  const applyRepd = (row) => {
+    const x = parseFloat(row['X-coordinate']), y = parseFloat(row['Y-coordinate']);
+    let lat = '', lon = '';
+    if (!isNaN(x) && !isNaN(y) && x > 0 && y > 0) {
+      const ll = bngToLatLon(x, y);
+      lat = ll.lat.toFixed(6);
+      lon = ll.lon.toFixed(6);
+    }
+    // Derive fuel type from this specific REPD row; update unless in advanced per-BMU mode
+    const derivedFt = repdTechToFuelType(row['Technology Type']);
+    setForm(prev => ({
+      ...prev,
+      name: row['Site Name'] || prev.name,
+      latitude: lat || prev.latitude,
+      longitude: lon || prev.longitude,
+      ...(!advancedFuel && derivedFt ? { fuel_type: derivedFt } : {}),
+    }));
+  };
+
+  return (
+    <div style={{ maxWidth: 780, animation: "fadeIn 0.2s" }}>
+      <button onClick={onCancel} style={{ background: "none", border: "none", color: C.dim, cursor: "pointer", fontSize: 12, padding: 0, marginBottom: 14 }}>← Back to unmatched</button>
+
+      <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 700 }}>Assign {selectedBmuObjects.length} BMU{selectedBmuObjects.length !== 1 ? "s" : ""} to a Power Station</h2>
+      <p style={{ margin: "0 0 16px", fontSize: 13, color: C.dim }}>Create a new station entry or merge into an existing one, then provide geolocation.</p>
+
+      {/* Selected BMUs summary */}
+      <div style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.border}`, marginBottom: 16 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: C.faint, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>
+          Selected BMU{selectedBmuObjects.length !== 1 ? "s" : ""} — Metadata
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          {selectedBmuObjects.map((u, i) => {
+            const fc = fuelColor(u.fuelType);
+            return (
+              <div key={i} style={{ borderRadius: 8, background: C.card, border: `1px solid ${fc.fg}22`, padding: "10px 12px" }}>
+                {/* IDs row */}
+                <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, color: C.amber, fontWeight: 700 }}>{u.nationalGridBmUnit || u.elexonBmUnit}</span>
+                  {u.fuelType && (
+                    <span style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: fc.bg, color: fc.fg, fontWeight: 700, letterSpacing: "0.04em" }}>{u.fuelType}</span>
+                  )}
+                  {u.generationCapacity && (
+                    <span style={{ fontSize: 10, color: C.dim, marginLeft: "auto" }}>{u.generationCapacity} MW</span>
+                  )}
+                </div>
+                {/* Detail grid */}
+                {(u.bmUnitName || u.leadPartyName || u.gspGroupName) ? (
+                  <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", columnGap: 10, rowGap: 3, fontSize: 11 }}>
+                    {u.bmUnitName && (
+                      <><span style={{ color: C.faint, whiteSpace: "nowrap" }}>Unit name</span>
+                      <span style={{ color: C.text }}>{u.bmUnitName}</span></>
+                    )}
+                    {u.leadPartyName && (
+                      <><span style={{ color: C.faint, whiteSpace: "nowrap" }}>Lead party</span>
+                      <span style={{ color: C.text }}>{u.leadPartyName}</span></>
+                    )}
+                    {u.gspGroupName && (
+                      <><span style={{ color: C.faint, whiteSpace: "nowrap" }}>GSP / region</span>
+                      <span style={{ color: C.text }}>{u.gspGroupName}</span></>
+                    )}
+                  </div>
+                ) : (
+                  <div style={{ fontSize: 11, color: C.faint, fontStyle: "italic" }}>No metadata found</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* REPD Suggestions */}
+      {repdData && (repdSuggestions.length > 0 || true) && (
+        <div style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.green}22`, marginBottom: 16 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: C.faint, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <span>REPD Matches</span>
+            <span style={{ fontSize: 10, fontWeight: 400, textTransform: "none", color: C.dim }}>Click to auto-fill name & coordinates</span>
+          </div>
+
+          {repdSuggestions.length > 0 && (
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontSize: 10, color: C.dim, marginBottom: 4 }}>Auto-matched from BMU names:</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                {repdSuggestions.map((s, i) => <RepdRow key={i} row={s.row} score={s.score} onApply={() => applyRepd(s.row)} />)}
+              </div>
+            </div>
+          )}
+
+          <div style={{ marginTop: 6 }}>
+            <input value={repdSearch} onChange={(e) => setRepdSearch(e.target.value)} style={{ ...inputBase, marginBottom: 6 }} placeholder="Manual search REPD by site name, operator, or ref ID..." />
+            {repdManualResults.length > 0 && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 3, maxHeight: 200, overflowY: "auto" }}>
+                {repdManualResults.map((r, i) => <RepdRow key={i} row={r} onApply={() => applyRepd(r)} />)}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Toggle */}
+      <div style={{ display: "flex", gap: 6, marginBottom: 16 }}>
+        <ToggleBtn active={target === "new"} onClick={() => {
+          setTarget("new");
+          const settIds = selectedBmuObjects.map((u) => u.elexonBmUnit).filter(Boolean);
+          const ngcIds = selectedBmuObjects.map((u) => u.nationalGridBmUnit).filter(Boolean);
+          setForm({ ...form, dictionary_id: nextId, latitude: "", longitude: "", sett_bmu_id: settIds.join(", "), ngc_bmu_id: ngcIds.join(", "), name: "", esail_id: "" });
+        }}>+ New Station</ToggleBtn>
+        <ToggleBtn active={target === "existing" || (target !== "new" && target !== "existing")} onClick={() => setTarget("existing")}>Existing Station</ToggleBtn>
+      </div>
+
+      {/* Existing station picker */}
+      {target === "existing" && (
+        <div style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.border}`, marginBottom: 16 }}>
+          <Label text="Search existing stations" />
+          <input value={existingSearch} onChange={(e) => setExistingSearch(e.target.value)} style={{ ...inputBase, marginBottom: 8 }} placeholder="Type station name, ID, or BMU..." />
+          <div style={{ maxHeight: 260, overflowY: "auto", display: "flex", flexDirection: "column", gap: 3 }}>
+            {filteredStations.slice(0, 40).map((s) => {
+              const loc = locIndex.get(s.dictionary_id);
+              return (
+                <button key={s.dictionary_id} onClick={() => assignToExisting(s)} style={{
+                  display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 6, width: "100%",
+                  background: C.card, border: `1px solid ${C.border}`, color: C.text, cursor: "pointer", textAlign: "left", fontSize: 12,
+                }}>
+                  <span style={{ width: 7, height: 7, borderRadius: "50%", background: loc ? C.green : C.red, flexShrink: 0 }} />
+                  <span style={{ fontWeight: 600, flex: 1 }}>{s.name || "Unnamed"}</span>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.dim }}>{s.dictionary_id}</span>
+                  {loc && <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.faint }}>{parseFloat(loc.latitude).toFixed(2)}, {parseFloat(loc.longitude).toFixed(2)}</span>}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Fuel Type Mode — shown when form is visible */}
+      {showForm && fuelTypeOptions && (
+        <div style={{ padding: "12px 14px", borderRadius: 10, background: C.panel, border: `1px solid ${C.border}`, marginBottom: 12 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: advancedFuel ? 12 : 0 }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: C.dim, flex: 1 }}>Fuel Type Assignment</span>
+            {hasMixed && (
+              <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 4, background: C.amberGhost, color: C.amber, fontWeight: 700, border: `1px solid ${C.amber}33` }}>⚡ Mixed types detected</span>
+            )}
+            <div style={{ display: "flex", borderRadius: 6, overflow: "hidden", border: `1px solid ${C.border}` }}>
+              <button onClick={() => setAdvancedFuel(false)} style={{ padding: "4px 12px", fontSize: 11, fontWeight: 600, cursor: "pointer", background: !advancedFuel ? C.amber : "transparent", color: !advancedFuel ? C.bg : C.dim, border: "none" }}>Simple</button>
+              <button onClick={() => {
+                setAdvancedFuel(true);
+                if (Object.keys(perBmuFuel).length === 0) {
+                  const init = {};
+                  resolvedPerBmu.forEach(({ ngcId, resolvedFuelType }) => { if (ngcId) init[ngcId] = resolvedFuelType; });
+                  setPerBmuFuel(init);
+                }
+              }} style={{ padding: "4px 12px", fontSize: 11, fontWeight: 600, cursor: "pointer", background: advancedFuel ? C.amber : "transparent", color: advancedFuel ? C.bg : C.dim, border: "none" }}>Advanced</button>
+            </div>
+          </div>
+
+          {advancedFuel && (
+            <div>
+              {/* Apply-all shortcut */}
+              <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 8 }}>
+                <span style={{ fontSize: 11, color: C.faint }}>Apply to all:</span>
+                {fuelTypeOptions.map(ft => {
+                  const fc = fuelColor(ft);
+                  return (
+                    <button key={ft} onClick={() => setAllFuel(ft)} style={{ padding: "2px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700, background: fc.bg, color: fc.fg, border: `1px solid ${fc.fg}33`, cursor: "pointer" }}>{ft}</button>
+                  );
+                })}
+              </div>
+              {/* Per-BMU rows */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {resolvedPerBmu.map(({ ngcId, settId, label, bmUnitName, elexonFuelType }) => {
+                  const currentFt = perBmuFuel[ngcId] ?? elexonFuelType ?? '';
+                  const fc = fuelColor(currentFt);
+                  const chevron = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a778a' d='M2 4l4 4 4-4'/%3E%3C/svg%3E")`;
+                  return (
+                    <div key={label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 7, background: C.card, border: `1px solid ${C.border}` }}>
+                      <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.amber, fontWeight: 700, minWidth: 120, flexShrink: 0 }}>{ngcId || settId}</span>
+                      {bmUnitName && <span style={{ fontSize: 11, color: C.dim, flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{bmUnitName}</span>}
+                      <select
+                        value={currentFt}
+                        onChange={e => setPerBmuFuel(prev => ({ ...prev, [ngcId]: e.target.value }))}
+                        style={{
+                          ...inputBase, width: "auto", minWidth: 120, fontSize: 11, cursor: "pointer", appearance: "none", flexShrink: 0,
+                          background: currentFt ? fc.bg : C.bg, color: currentFt ? fc.fg : C.dim,
+                          border: `1px solid ${currentFt ? fc.fg + "55" : C.border}`, fontWeight: currentFt ? 700 : 400,
+                          paddingRight: 24, backgroundImage: chevron, backgroundRepeat: "no-repeat", backgroundPosition: "right 8px center",
+                        }}
+                      >
+                        <option value="">— unset —</option>
+                        {fuelTypeOptions.map(ft => <option key={ft} value={ft}>{ft}</option>)}
+                      </select>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Form */}
+      {showForm && (
+        <StationForm form={form} setForm={setForm} isNew={target === "new"} onSave={() => onSave({ advancedFuel, perBmuFuel })} onCancel={target !== "new" ? () => setTarget("existing") : onCancel} saveLabel={target === "new" ? "Create Station & Save" : "Update Station & Save"} cancelLabel={target !== "new" ? "Pick Different Station" : "Cancel"} mergeLabel={target !== "new" ? `Merging into: ${form.name || form.dictionary_id}` : null} fuelTypeOptions={advancedFuel ? null : fuelTypeOptions} />
+      )}
+    </div>
+  );
+}
+
+function RepdRow({ row, score, onApply }) {
+  const x = parseFloat(row['X-coordinate']), y = parseFloat(row['Y-coordinate']);
+  let coords = null;
+  if (!isNaN(x) && !isNaN(y) && x > 0 && y > 0) {
+    const ll = bngToLatLon(x, y);
+    coords = `${ll.lat.toFixed(4)}, ${ll.lon.toFixed(4)}`;
+  }
+  const cap = row['Installed Capacity (MWelec)'];
+  const status = row['Development Status (short)'] || '';
+  const tech = row['Technology Type'] || '';
+  const irrelevant = isRepdIrrelevant(status);
+
+  return (
+    <button onClick={onApply} style={{
+      display: "flex", alignItems: "center", gap: 8, padding: "8px 10px", borderRadius: 6, width: "100%",
+      background: C.card, border: `1px solid ${C.border}`, color: C.text, cursor: "pointer", textAlign: "left", fontSize: 12,
+      transition: "all 0.1s", opacity: irrelevant ? 0.38 : 1,
+    }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+          <span style={{ fontWeight: 600 }}>{row['Site Name']}</span>
+          {score && <span style={{ fontSize: 9, padding: "1px 5px", borderRadius: 3, background: C.amberGhost, color: C.amber, fontWeight: 700 }}>{Math.round(score * 100)}%</span>}
+          {tech && <span style={{ fontSize: 9, padding: "1px 5px", borderRadius: 3, background: fuelColor(tech.includes('Wind') ? 'WIND' : tech.includes('Solar') ? 'SOLAR' : null).bg, color: fuelColor(tech.includes('Wind') ? 'WIND' : tech.includes('Solar') ? 'SOLAR' : null).fg }}>{tech}</span>}
+        </div>
+        <div style={{ fontSize: 10, color: C.dim, marginTop: 2 }}>
+          {row['Operator (or Applicant)']}{cap ? ` · ${cap} MW` : ''}{status ? ` · ${status}` : ''}{row['County'] ? ` · ${row['County']}` : ''}
+        </div>
+      </div>
+      {coords && <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.green, flexShrink: 0 }}>{coords}</span>}
+      {!irrelevant && <span style={{ fontSize: 10, color: C.amber, fontWeight: 600, flexShrink: 0 }}>Apply →</span>}
+    </button>
+  );
+}
+
+function ToggleBtn({ active, onClick, children }) {
+  return (
+    <button onClick={onClick} style={{
+      padding: "7px 16px", borderRadius: 8, fontSize: 12, fontWeight: 600,
+      background: active ? C.amberGhost : C.panel, border: `1px solid ${active ? C.amber + "55" : C.border}`,
+      color: active ? C.amber : C.dim, cursor: "pointer",
+    }}>{children}</button>
+  );
+}
+
+function StationForm({ form, setForm, isNew, onSave, onCancel, saveLabel, cancelLabel, mergeLabel, fuelTypeOptions }) {
+  const fc = fuelColor(form.fuel_type);
+  return (
+    <div style={{ padding: 18, borderRadius: 10, background: C.panel, border: `1px solid ${!isNew ? C.amber + "33" : C.border}`, marginBottom: 16 }}>
+      {mergeLabel && <div style={{ fontSize: 12, color: C.amber, fontWeight: 600, marginBottom: 10 }}>{mergeLabel}</div>}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+        <div><Label text="Dictionary ID" /><input value={form.dictionary_id} onChange={(e) => isNew && setForm({ ...form, dictionary_id: e.target.value })} style={{ ...monoInput, ...(isNew ? {} : { opacity: 0.6 }) }} readOnly={!isNew} /></div>
+        <div><Label text="ESAIL ID" /><input value={form.esail_id} onChange={(e) => setForm({ ...form, esail_id: e.target.value })} style={monoInput} placeholder="e.g. DRAXX" /></div>
+        <div><Label text="Station Name" /><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputBase} placeholder="e.g. Drax Power Station" /></div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 10 }}>
+        <div><Label text="Latitude" /><input value={form.latitude} onChange={(e) => setForm({ ...form, latitude: e.target.value })} style={monoInput} placeholder="e.g. 53.736634" type="number" step="any" /></div>
+        <div><Label text="Longitude" /><input value={form.longitude} onChange={(e) => setForm({ ...form, longitude: e.target.value })} style={monoInput} placeholder="e.g. -0.996631" type="number" step="any" /></div>
+      </div>
+      {fuelTypeOptions && (
+        <div style={{ marginTop: 10 }}>
+          <Label text="Fuel Type" sub="suggested from Elexon · override if needed" />
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <select
+              value={form.fuel_type || ''}
+              onChange={(e) => setForm({ ...form, fuel_type: e.target.value })}
+              style={{ ...inputBase, width: "auto", flex: 1, cursor: "pointer", appearance: "none",
+                background: form.fuel_type ? fc.bg : C.bg,
+                color: form.fuel_type ? fc.fg : C.dim,
+                border: `1px solid ${form.fuel_type ? fc.fg + "55" : C.border}`,
+                fontWeight: form.fuel_type ? 700 : 400,
+                paddingRight: 28,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a778a' d='M2 4l4 4 4-4'/%3E%3C/svg%3E")`,
+                backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center",
+              }}
+            >
+              <option value="">— select fuel type —</option>
+              {fuelTypeOptions.map(ft => <option key={ft} value={ft}>{ft}</option>)}
+            </select>
+            {form.fuel_type && (
+              <button onClick={() => setForm({ ...form, fuel_type: '' })} style={{ padding: "4px 8px", borderRadius: 5, fontSize: 11, background: "transparent", border: `1px solid ${C.border}`, color: C.faint, cursor: "pointer" }}>✕</button>
+            )}
+          </div>
+        </div>
+      )}
+      <div style={{ marginTop: 10 }}><Label text="Settlement BMU IDs" sub="comma-separated" /><textarea value={form.sett_bmu_id} onChange={(e) => setForm({ ...form, sett_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 50, resize: "vertical" }} /></div>
+      <div style={{ marginTop: 10 }}><Label text="NGC BMU IDs" sub="comma-separated" /><textarea value={form.ngc_bmu_id} onChange={(e) => setForm({ ...form, ngc_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 50, resize: "vertical" }} /></div>
+      <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+        <button onClick={onSave} style={{ padding: "9px 22px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>{saveLabel}</button>
+        <button onClick={onCancel} style={{ padding: "9px 22px", borderRadius: 8, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontWeight: 500, fontSize: 13, cursor: "pointer" }}>{cancelLabel}</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── All Stations View ─────────────────────────────────────────────
+
+function AllStationsView({ stations, search, setSearch, locIndex, onEdit, commonNamesIndex }) {
+  return (
+    <div style={{ animation: "fadeIn 0.2s" }}>
+      <div style={{ display: "flex", gap: 10, marginBottom: 14 }}>
+        <input placeholder="Search stations..." value={search} onChange={(e) => setSearch(e.target.value)} style={{ ...inputBase, flex: 1 }} />
+        <span style={{ fontSize: 12, color: C.dim, alignSelf: "center", whiteSpace: "nowrap" }}>{stations.length} stations</span>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {stations.map((s) => {
+          const loc = locIndex.get(s.dictionary_id);
+          const bmuCount = (s.sett_bmu_id || "").split(",").filter((x) => x.trim()).length;
+          const commonName = commonNamesIndex?.get(s.dictionary_id);
+          return (
+            <button key={s.dictionary_id} onClick={() => onEdit(s)} style={{
+              display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 8, width: "100%",
+              background: C.panel, border: `1px solid ${C.border}`, color: C.text, cursor: "pointer", textAlign: "left",
+            }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", flexShrink: 0, background: loc ? C.green : C.red }} />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontWeight: 600, fontSize: 13 }}>
+                  {s.name || <span style={{ color: C.dim, fontStyle: "italic" }}>Unnamed</span>}
+                  {commonName && commonName !== s.name && <span style={{ fontWeight: 400, fontSize: 11, color: C.dim, marginLeft: 8 }}>({commonName})</span>}
+                </div>
+                <div style={{ fontSize: 11, color: C.dim, display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", color: C.amber }}>{s.dictionary_id}</span>
+                  {s.esail_id && <span>{s.esail_id}</span>}
+                  <span>{bmuCount} BMU{bmuCount !== 1 ? "s" : ""}</span>
+                </div>
+              </div>
+              {loc && <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.dim }}>{parseFloat(loc.latitude).toFixed(3)}, {parseFloat(loc.longitude).toFixed(3)}</span>}
+              <span style={{ color: C.faint }}>→</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Edit Station Panel ────────────────────────────────────────────
+
+function EditStationPanel({ station, form, setForm, onSave, onCancel, locIndex, bmuJson, commonNamesIndex }) {
+  const hasLoc = locIndex.has(station.dictionary_id);
+  const [bmuSearch, setBmuSearch] = useState("");
+  const bmuResults = bmuJson && bmuSearch.length > 1
+    ? bmuJson.filter((u) => {
+        const s = bmuSearch.toLowerCase();
+        return (u.nationalGridBmUnit || "").toLowerCase().includes(s) || (u.elexonBmUnit || "").toLowerCase().includes(s) || (u.bmUnitName || "").toLowerCase().includes(s) || (u.leadPartyName || "").toLowerCase().includes(s);
+      }).slice(0, 15)
+    : [];
+
+  const addBmu = (unit) => {
+    const cs = form.sett_bmu_id ? form.sett_bmu_id.split(",").map((s) => s.trim()).filter(Boolean) : [];
+    const cn = form.ngc_bmu_id ? form.ngc_bmu_id.split(",").map((s) => s.trim()).filter(Boolean) : [];
+    if (unit.elexonBmUnit && !cs.includes(unit.elexonBmUnit)) cs.push(unit.elexonBmUnit);
+    if (unit.nationalGridBmUnit && !cn.includes(unit.nationalGridBmUnit)) cn.push(unit.nationalGridBmUnit);
+    setForm({ ...form, sett_bmu_id: cs.join(", "), ngc_bmu_id: cn.join(", ") });
+  };
+
+  return (
+    <div style={{ maxWidth: 720, animation: "fadeIn 0.2s" }}>
+      <button onClick={onCancel} style={{ background: "none", border: "none", color: C.dim, cursor: "pointer", fontSize: 12, padding: 0, marginBottom: 14 }}>← Back to stations</button>
+      <div style={{ padding: 18, borderRadius: 10, background: C.panel, border: `1px solid ${C.border}`, marginBottom: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: hasLoc ? C.green : C.red }} />
+          <h2 style={{ margin: 0, fontSize: 17, fontWeight: 700 }}>{station.name || "Unnamed"}</h2>
+          <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, color: C.amber }}>{station.dictionary_id}</span>
+          {commonNamesIndex?.get(station.dictionary_id) && (
+            <span style={{ fontSize: 12, color: C.dim }}>common: {commonNamesIndex.get(station.dictionary_id)}</span>
+          )}
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+          <div><Label text="Station Name" /><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputBase} /></div>
+          <div><Label text="ESAIL ID" /><input value={form.esail_id} onChange={(e) => setForm({ ...form, esail_id: e.target.value })} style={monoInput} /></div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginTop: 10 }}>
+          <div><Label text="Latitude" /><input value={form.latitude} onChange={(e) => setForm({ ...form, latitude: e.target.value })} style={monoInput} type="number" step="any" /></div>
+          <div><Label text="Longitude" /><input value={form.longitude} onChange={(e) => setForm({ ...form, longitude: e.target.value })} style={monoInput} type="number" step="any" /></div>
+        </div>
+        <div style={{ marginTop: 10 }}><Label text="Settlement BMU IDs" sub="comma-separated" /><textarea value={form.sett_bmu_id} onChange={(e) => setForm({ ...form, sett_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 50, resize: "vertical" }} /></div>
+        <div style={{ marginTop: 10 }}><Label text="NGC BMU IDs" sub="comma-separated" /><textarea value={form.ngc_bmu_id} onChange={(e) => setForm({ ...form, ngc_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 50, resize: "vertical" }} /></div>
+        <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+          <button onClick={onSave} style={{ padding: "9px 22px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>Save Changes</button>
+          <button onClick={onCancel} style={{ padding: "9px 22px", borderRadius: 8, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontWeight: 500, fontSize: 13, cursor: "pointer" }}>Cancel</button>
+        </div>
+      </div>
+
+      {bmuJson && (
+        <div style={{ padding: 16, borderRadius: 10, background: C.panel, border: `1px solid ${C.border}` }}>
+          <Label text="Search BMU JSON to add units" />
+          <input value={bmuSearch} onChange={(e) => setBmuSearch(e.target.value)} style={{ ...inputBase, marginBottom: 8 }} placeholder="Type unit name, ID, or lead party..." />
+          {bmuResults.map((u, i) => {
+            const fc = fuelColor(u.fuelType);
+            return (
+              <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "7px 10px", borderRadius: 6, marginBottom: 3, background: C.card, border: `1px solid ${C.border}` }}>
+                <div>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.amber }}>{u.nationalGridBmUnit}</span>
+                  <span style={{ fontSize: 10, color: C.faint, margin: "0 4px" }}>→</span>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.blue }}>{u.elexonBmUnit}</span>
+                  {u.fuelType && <span style={{ fontSize: 9, marginLeft: 6, padding: "1px 5px", borderRadius: 3, background: fc.bg, color: fc.fg, fontWeight: 700 }}>{u.fuelType}</span>}
+                  <span style={{ fontSize: 10, color: C.dim, marginLeft: 6 }}>{u.bmUnitName}</span>
+                </div>
+                <button onClick={() => addBmu(u)} style={{ padding: "3px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700, background: C.amberGhost, border: `1px solid ${C.amber}33`, color: C.amber, cursor: "pointer" }}>+ Add</button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── BMU Fuel Type Tab ─────────────────────────────────────────────
+
+function BMUFuelTypeTab({ idsData, bmuIndex, bmuNameIndex, fuelTypesIndex, fuelTypeOptions, onSaveBmuFuelType }) {
+  const [search, setSearch] = React.useState("");
+  const [fuelFilter, setFuelFilter] = React.useState("ALL");
+  const [pendingEdits, setPendingEdits] = React.useState({}); // { ngcBmuId: fuelType }
+  const [hoveredId, setHoveredId] = React.useState(null);
+
+  // Build one row per NGC BMU ID, linked to its parent station
+  const rows = React.useMemo(() => {
+    if (!idsData) return [];
+    const result = [];
+    idsData.rows.forEach(station => {
+      const ngcIds = (station.ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+      ngcIds.forEach(ngcId => {
+        const detail = bmuNameIndex?.get(ngcId) || {};
+        const { bmUnitName = '', leadPartyName = '', gspGroupName = '', generationCapacity = '' } = detail;
+        const stationName = station.name || station.dictionary_id;
+        // Combine all available name sources so the hint works even when Elexon
+        // has no entry for this BMU — the station name from ids.csv is a valid signal.
+        const nameHintSrc = [bmUnitName, stationName].filter(Boolean).join(' ');
+        result.push({
+          ngcId,
+          stationName,
+          dictId: station.dictionary_id,
+          elexonFuelType: bmuIndex?.get(ngcId) || '',
+          overrideFuelType: fuelTypesIndex.get(ngcId) || '',
+          bmUnitName,
+          leadPartyName,
+          gspGroupName,
+          generationCapacity,
+          nameSuggestion: bmuNameFuelHint(ngcId, nameHintSrc),
+          hintKeyword: bmuNameFuelHintKeyword(ngcId, nameHintSrc),
+        });
+      });
+    });
+    return result;
+  }, [idsData, bmuIndex, bmuNameIndex, fuelTypesIndex]);
+
+  // Detect stations with mixed fuel types across their BMU IDs
+  const mixedStations = React.useMemo(() => {
+    const stationTypes = new Map();
+    rows.forEach(row => {
+      const resolved = pendingEdits[row.ngcId] !== undefined ? pendingEdits[row.ngcId] : (row.overrideFuelType || row.elexonFuelType);
+      if (!resolved) return;
+      if (!stationTypes.has(row.dictId)) stationTypes.set(row.dictId, new Set());
+      stationTypes.get(row.dictId).add(resolved);
+    });
+    const mixed = new Set();
+    stationTypes.forEach((types, dictId) => { if (types.size > 1) mixed.add(dictId); });
+    return mixed;
+  }, [rows, pendingEdits]);
+
+  // Fuel type filter options (unique resolved types from rows)
+  const filterOptions = React.useMemo(() => {
+    const types = new Set();
+    rows.forEach(r => {
+      const ft = r.overrideFuelType || r.elexonFuelType;
+      if (ft) types.add(ft);
+    });
+    return Array.from(types).sort();
+  }, [rows]);
+
+  const getValue = (row) => pendingEdits[row.ngcId] !== undefined ? pendingEdits[row.ngcId] : (row.overrideFuelType || row.elexonFuelType || '');
+
+  const filteredRows = React.useMemo(() => {
+    let list = rows;
+    if (search) {
+      const q = search.toLowerCase();
+      list = list.filter(r =>
+        r.ngcId.toLowerCase().includes(q) ||
+        (r.stationName || '').toLowerCase().includes(q) ||
+        r.dictId.toLowerCase().includes(q)
+      );
+    }
+    if (fuelFilter === "MIXED") {
+      list = list.filter(r => mixedStations.has(r.dictId));
+    } else if (fuelFilter === "NO_OVERRIDE") {
+      list = list.filter(r => !r.overrideFuelType);
+    } else if (fuelFilter === "SUGGESTED") {
+      list = list.filter(r => {
+        if (!r.nameSuggestion) return false;
+        const cur = getValue(r);
+        return !cur || cur !== r.nameSuggestion;
+      });
+    } else if (fuelFilter !== "ALL") {
+      list = list.filter(r => getValue(r) === fuelFilter);
+    }
+    return list;
+  }, [rows, search, fuelFilter, mixedStations, pendingEdits]);
+
+  const chevron = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a778a' d='M2 4l4 4 4-4'/%3E%3C/svg%3E")`;
+
+  if (!idsData) {
+    return <p style={{ color: C.dim, fontSize: 13 }}>Load ids.csv to view BMU fuel types.</p>;
+  }
+
+  return (
+    <div>
+      {/* Mixed type notice */}
+      {mixedStations.size > 0 && (
+        <div style={{ padding: "9px 14px", borderRadius: 8, background: C.amberGhost, border: `1px solid ${C.amber}44`, marginBottom: 14, fontSize: 12, display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ color: C.amber, fontWeight: 700 }}>⚡ {mixedStations.size} station{mixedStations.size !== 1 ? "s" : ""}</span>
+          <span style={{ color: C.dim }}>with mixed fuel types across BMU IDs</span>
+          <button onClick={() => setFuelFilter("MIXED")} style={{ marginLeft: "auto", padding: "3px 10px", borderRadius: 5, fontSize: 11, fontWeight: 600, background: C.amber, border: "none", color: C.bg, cursor: "pointer" }}>View</button>
+        </div>
+      )}
+
+      {/* Search + Filter */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap", alignItems: "center" }}>
+        <input
+          placeholder="Search by BMU ID or station name…"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          style={{ ...inputBase, flex: 1, minWidth: 200 }}
+        />
+        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+          {["ALL", ...filterOptions, ...(mixedStations.size > 0 ? ["MIXED"] : [])].map(ft => (
+            <button key={ft} onClick={() => setFuelFilter(ft)} style={{
+              padding: "4px 10px", borderRadius: 6, fontSize: 11, fontWeight: 600, cursor: "pointer",
+              border: `1px solid ${fuelFilter === ft ? C.amber : C.border}`,
+              background: fuelFilter === ft ? C.amberGhost : "transparent",
+              color: fuelFilter === ft ? C.amber : C.dim,
+            }}>{ft}</button>
+          ))}
+        </div>
+      </div>
+
+      {/* Count + quick-filter stat chips */}
+      {(() => {
+        const noOverride = rows.filter(r => !r.overrideFuelType).length;
+        const suggestedCount = rows.filter(r => {
+          if (!r.nameSuggestion) return false;
+          const cur = getValue(r);
+          return !cur || cur !== r.nameSuggestion;
+        }).length;
+        return (
+          <div style={{ fontSize: 11, color: C.faint, marginBottom: 8, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <span>{filteredRows.length} BMU{filteredRows.length !== 1 ? "s" : ""}{fuelFilter !== "ALL" ? ` · filtered by ${fuelFilter}` : ""}</span>
+            {noOverride > 0 && (
+              <button onClick={() => setFuelFilter(fuelFilter === "NO_OVERRIDE" ? "ALL" : "NO_OVERRIDE")} style={{
+                padding: "2px 8px", borderRadius: 4, fontSize: 10, fontWeight: 600, cursor: "pointer",
+                border: `1px solid ${fuelFilter === "NO_OVERRIDE" ? C.amber : C.border}`,
+                background: fuelFilter === "NO_OVERRIDE" ? C.amberGhost : "transparent",
+                color: fuelFilter === "NO_OVERRIDE" ? C.amber : C.dim,
+              }}>{noOverride} showing Elexon default only</button>
+            )}
+            {suggestedCount > 0 && (
+              <button onClick={() => setFuelFilter(fuelFilter === "SUGGESTED" ? "ALL" : "SUGGESTED")} style={{
+                padding: "2px 8px", borderRadius: 4, fontSize: 10, fontWeight: 600, cursor: "pointer",
+                border: `1px solid ${fuelFilter === "SUGGESTED" ? C.blue : C.border}`,
+                background: fuelFilter === "SUGGESTED" ? "#0d1f3380" : "transparent",
+                color: fuelFilter === "SUGGESTED" ? C.blue : C.dim,
+              }}>💡 {suggestedCount} with name-based suggestion</button>
+            )}
+          </div>
+        );
+      })()}
+
+      {/* Rows */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+        {filteredRows.map((row) => {
+          const currentVal = getValue(row);
+          const isDirty = pendingEdits[row.ngcId] !== undefined && pendingEdits[row.ngcId] !== row.overrideFuelType;
+          const isMixed = mixedStations.has(row.dictId);
+          const currentFc = fuelColor(currentVal);
+          const elexonFc = fuelColor(row.elexonFuelType);
+          // Source of the displayed value (pending edit > saved override > Elexon fallback)
+          const sourceLabel = isDirty ? "unsaved" : row.overrideFuelType ? "saved" : row.elexonFuelType ? "elexon default" : null;
+          // Show suggestion when BMU name implies a type different from current value (or no value set)
+          const showSuggestion = row.nameSuggestion && (!currentVal || currentVal !== row.nameSuggestion);
+          const sugFc = fuelColor(row.nameSuggestion);
+
+          return (
+            <div key={row.ngcId} style={{
+              display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 8,
+              background: C.panel, border: `1px solid ${isDirty ? C.amber + "55" : C.border}`,
+              transition: "border-color 0.15s",
+            }}>
+              {/* NGC BMU ID + hover tooltip */}
+              <div style={{ position: "relative", flexShrink: 0 }}
+                onMouseEnter={() => setHoveredId(row.ngcId)}
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, fontWeight: 700, color: C.amber, minWidth: 130, display: "inline-block", cursor: "default", borderBottom: `1px dashed ${C.amber}55` }}>{row.ngcId}</span>
+                {hoveredId === row.ngcId && (
+                  <div style={{
+                    position: "absolute", left: 0, top: "calc(100% + 6px)", zIndex: 200,
+                    background: C.card, border: `1px solid ${C.border}`, borderRadius: 10,
+                    padding: "12px 14px", minWidth: 280, maxWidth: 360,
+                    boxShadow: "0 6px 24px #00000066", pointerEvents: "none",
+                  }}>
+                    {/* Unit name */}
+                    {row.bmUnitName && (
+                      <div style={{ fontSize: 12, fontWeight: 700, color: C.text, marginBottom: 8, lineHeight: 1.4 }}>{row.bmUnitName}</div>
+                    )}
+                    {/* Metadata rows */}
+                    <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                      {row.leadPartyName && (
+                        <div style={{ fontSize: 11, color: C.dim }}><span style={{ color: C.faint, minWidth: 80, display: "inline-block" }}>Operator</span>{row.leadPartyName}</div>
+                      )}
+                      {row.gspGroupName && (
+                        <div style={{ fontSize: 11, color: C.dim }}><span style={{ color: C.faint, minWidth: 80, display: "inline-block" }}>GSP Group</span>{row.gspGroupName}</div>
+                      )}
+                      {row.generationCapacity !== '' && (
+                        <div style={{ fontSize: 11, color: C.dim }}><span style={{ color: C.faint, minWidth: 80, display: "inline-block" }}>Capacity</span>{row.generationCapacity} MW</div>
+                      )}
+                    </div>
+                    {/* Suggestion justification */}
+                    {row.hintKeyword && (
+                      <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px solid ${C.border}`, display: "flex", alignItems: "center", gap: 6 }}>
+                        <span style={{ fontSize: 10, color: C.faint }}>Keyword matched:</span>
+                        <span style={{ fontSize: 11, fontWeight: 700, fontFamily: "'IBM Plex Mono', monospace", padding: "1px 6px", borderRadius: 4, background: sugFc.bg, color: sugFc.fg }}>{row.hintKeyword}</span>
+                        {row.nameSuggestion && <span style={{ fontSize: 10, color: C.faint }}>→ {row.nameSuggestion}</span>}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              {/* Station info */}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 12, fontWeight: 600, color: C.text, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{row.stationName}</div>
+                <div style={{ display: "flex", gap: 5, alignItems: "center", marginTop: 2 }}>
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.dim }}>{row.dictId}</span>
+                  {isMixed && (
+                    <span style={{ fontSize: 9, padding: "1px 5px", borderRadius: 3, background: C.amberGhost, color: C.amber, fontWeight: 700, border: `1px solid ${C.amber}33` }}>Mixed</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Elexon fuel type (read-only reference) */}
+              <div style={{ flexShrink: 0, textAlign: "center", minWidth: 64 }}>
+                <div style={{ fontSize: 9, color: C.faint, marginBottom: 3 }}>Elexon</div>
+                {row.elexonFuelType ? (
+                  <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 6px", borderRadius: 3, background: elexonFc.bg, color: elexonFc.fg }}>{row.elexonFuelType}</span>
+                ) : (
+                  <span style={{ fontSize: 10, color: C.faint }}>—</span>
+                )}
+              </div>
+
+              {/* Name-based suggestion chip */}
+              {showSuggestion && (
+                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                  <div style={{ fontSize: 9, color: C.faint, marginBottom: 1 }}>suggested</div>
+                  <button
+                    onClick={() => setPendingEdits(prev => ({ ...prev, [row.ngcId]: row.nameSuggestion }))}
+                    title="Apply name-based suggestion"
+                    style={{
+                      fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 4,
+                      background: sugFc.bg, color: sugFc.fg, border: `1px solid ${sugFc.fg}55`,
+                      cursor: "pointer", whiteSpace: "nowrap",
+                    }}
+                  >{row.nameSuggestion} ↑</button>
+                </div>
+              )}
+
+              {/* Override dropdown + source label */}
+              <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 3 }}>
+                <select
+                  value={currentVal}
+                  onChange={e => setPendingEdits(prev => ({ ...prev, [row.ngcId]: e.target.value }))}
+                  style={{
+                    ...inputBase, width: "auto", minWidth: 130, fontSize: 11, cursor: "pointer", appearance: "none",
+                    background: currentVal ? currentFc.bg : C.bg,
+                    color: currentVal ? currentFc.fg : C.dim,
+                    border: `1px solid ${isDirty ? C.amber : row.overrideFuelType ? currentFc.fg + "55" : C.border}`,
+                    fontWeight: currentVal ? 700 : 400, paddingRight: 24,
+                    backgroundImage: chevron, backgroundRepeat: "no-repeat", backgroundPosition: "right 8px center",
+                    opacity: (!row.overrideFuelType && !isDirty) ? 0.65 : 1,
+                  }}
+                >
+                  <option value="">— unset —</option>
+                  {(fuelTypeOptions || []).map(ft => <option key={ft} value={ft}>{ft}</option>)}
+                </select>
+                {sourceLabel && (
+                  <span style={{
+                    fontSize: 9, fontWeight: 600, letterSpacing: "0.03em",
+                    color: sourceLabel === "saved" ? C.green : sourceLabel === "unsaved" ? C.amber : C.faint,
+                  }}>
+                    {sourceLabel === "saved" ? "✓ saved" : sourceLabel === "unsaved" ? "● unsaved" : "elexon default"}
+                  </span>
+                )}
+              </div>
+
+              {/* Save / placeholder */}
+              {isDirty ? (
+                <button onClick={() => {
+                  onSaveBmuFuelType(row.ngcId, pendingEdits[row.ngcId]);
+                  setPendingEdits(prev => { const n = { ...prev }; delete n[row.ngcId]; return n; });
+                }} style={{
+                  padding: "5px 14px", borderRadius: 6, background: C.amber, border: "none",
+                  color: C.bg, fontWeight: 700, fontSize: 11, cursor: "pointer", flexShrink: 0,
+                }}>Save</button>
+              ) : (
+                <div style={{ width: 54, flexShrink: 0 }} />
+              )}
+            </div>
+          );
+        })}
+        {filteredRows.length === 0 && (
+          <p style={{ color: C.dim, fontSize: 13 }}>No BMU IDs found{search ? " matching your search" : ""}.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Data Editor View ──────────────────────────────────────────────
+
+function DataEditorView({ idsData, locData, onSaveStation, onDeleteStation, onSaveLocation, onDeleteLocation, commonNamesIndex, fuelTypesIndex, fuelTypeOptions, bmuIndex, bmuNameIndex, onSaveBmuFuelType }) {
+  const [tab, setTab] = React.useState("stations");
+  const [search, setSearch] = React.useState("");
+  const [filter, setFilter] = React.useState("all");
+  const [editId, setEditId] = React.useState(null);
+  const [editForm, setEditForm] = React.useState({});
+  const [confirmDelete, setConfirmDelete] = React.useState(null);
+  const [locSearch, setLocSearch] = React.useState("");
+  const [locEditId, setLocEditId] = React.useState(null);
+  const [locEditForm, setLocEditForm] = React.useState({ latitude: "", longitude: "" });
+  const [locConfirmDelete, setLocConfirmDelete] = React.useState(null);
+
+  const locIndex = React.useMemo(() => {
+    if (!locData) return new Map();
+    return new Map(locData.rows.map(r => [r.dictionary_id, r]));
+  }, [locData]);
+
+  const idsSet = React.useMemo(() => {
+    if (!idsData) return new Set();
+    return new Set(idsData.rows.map(r => r.dictionary_id));
+  }, [idsData]);
+
+  const stations = React.useMemo(() => {
+    if (!idsData) return [];
+    let list = idsData.rows;
+    if (search) {
+      const q = search.toLowerCase();
+      list = list.filter(r =>
+        (r.name || "").toLowerCase().includes(q) ||
+        (r.dictionary_id || "").toLowerCase().includes(q) ||
+        (r.esail_id || "").toLowerCase().includes(q) ||
+        (r.sett_bmu_id || "").toLowerCase().includes(q) ||
+        (r.ngc_bmu_id || "").toLowerCase().includes(q)
+      );
+    }
+    if (filter === "no_loc") list = list.filter(r => !locIndex.has(r.dictionary_id));
+    if (filter === "no_esail") list = list.filter(r => !(r.esail_id || "").trim());
+    return list;
+  }, [idsData, search, filter, locIndex]);
+
+  const filteredLocs = React.useMemo(() => {
+    if (!locData) return [];
+    let list = locData.rows;
+    if (locSearch) {
+      const q = locSearch.toLowerCase();
+      list = list.filter(r => (r.dictionary_id || "").toLowerCase().includes(q));
+    }
+    return list;
+  }, [locData, locSearch]);
+
+  const orphanCount = React.useMemo(() =>
+    locData ? locData.rows.filter(r => !idsSet.has(r.dictionary_id)).length : 0,
+    [locData, idsSet]);
+
+  const noLocCount = React.useMemo(() =>
+    idsData ? idsData.rows.filter(r => !locIndex.has(r.dictionary_id)).length : 0,
+    [idsData, locIndex]);
+
+  const startEdit = (station) => {
+    const loc = locIndex.get(station.dictionary_id);
+    const commonName = commonNamesIndex?.get(station.dictionary_id) || "";
+    const firstNgcId = (station.ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean)[0] || '';
+    const fuelType = fuelTypesIndex?.get(firstNgcId) || '';
+    setEditId(station.dictionary_id);
+    setEditForm({ name: station.name || "", esail_id: station.esail_id || "", sett_bmu_id: station.sett_bmu_id || "", ngc_bmu_id: station.ngc_bmu_id || "", latitude: loc?.latitude || "", longitude: loc?.longitude || "", common_name: commonName, fuel_type: fuelType });
+    setConfirmDelete(null);
+  };
+
+  const tabBtn = (key, label, badge) => (
+    <button onClick={() => setTab(key)} style={{ padding: "7px 16px", borderRadius: 7, border: `1px solid ${tab === key ? C.amber : C.border}`, background: tab === key ? C.amberGhost : "transparent", color: tab === key ? C.amber : C.dim, fontWeight: 600, fontSize: 12, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+      {label}
+      {badge > 0 && <span style={{ padding: "1px 6px", borderRadius: 10, background: tab === key ? C.amber : C.tag, color: tab === key ? C.bg : C.dim, fontSize: 10, fontWeight: 700 }}>{badge}</span>}
+    </button>
+  );
+
+  const filterPill = (key, label) => (
+    <button onClick={() => setFilter(key)} style={{ padding: "4px 10px", borderRadius: 6, border: `1px solid ${filter === key ? C.amber : C.border}`, background: filter === key ? C.amberGhost : "transparent", color: filter === key ? C.amber : C.dim, fontSize: 11, fontWeight: 600, cursor: "pointer" }}>{label}</button>
+  );
+
+  return (
+    <div style={{ animation: "fadeIn 0.2s", maxWidth: 860 }}>
+      <div style={{ marginBottom: 16 }}>
+        <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 700 }}>Data Editor</h2>
+        <p style={{ margin: 0, fontSize: 13, color: C.dim }}>Edit station records and coordinates directly.</p>
+      </div>
+
+      <div style={{ display: "flex", gap: 6, marginBottom: 18, flexWrap: "wrap" }}>
+        {tabBtn("stations", "Stations", idsData?.rows.length)}
+        {tabBtn("locations", "Locations", locData?.rows.length)}
+        {tabBtn("bmu_types", "BMU Fuel Types", idsData ? idsData.rows.reduce((n, r) => n + (r.ngc_bmu_id || '').split(',').filter(s => s.trim()).length, 0) : 0)}
+      </div>
+
+      {tab === "stations" && (
+        !idsData ? (
+          <p style={{ color: C.dim, fontSize: 13 }}>Load ids.csv to edit stations.</p>
+        ) : (
+          <>
+            <div style={{ display: "flex", gap: 8, marginBottom: 10, flexWrap: "wrap", alignItems: "center" }}>
+              <input placeholder="Search by name, ID, ESAIL, BMU..." value={search} onChange={e => setSearch(e.target.value)} style={{ ...inputBase, flex: 1, minWidth: 180 }} />
+              <div style={{ display: "flex", gap: 4 }}>
+                {filterPill("all", "All")}
+                {filterPill("no_loc", `No Location${noLocCount > 0 ? ` (${noLocCount})` : ""}`)}
+                {filterPill("no_esail", "No ESAIL")}
+              </div>
+              <span style={{ fontSize: 11, color: C.dim, whiteSpace: "nowrap" }}>{stations.length} stations</span>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              {stations.map(s => {
+                const loc = locIndex.get(s.dictionary_id);
+                const isEditing = editId === s.dictionary_id;
+                const bmuIds = [...new Set([(s.sett_bmu_id || ""), (s.ngc_bmu_id || "")].join(",").split(",").filter(x => x.trim()))];
+                return (
+                  <div key={s.dictionary_id} style={{ borderRadius: 8, background: C.panel, border: `1px solid ${isEditing ? C.amber + "55" : C.border}`, overflow: "hidden" }}>
+                    <div onClick={() => isEditing ? (setEditId(null), setEditForm({})) : startEdit(s)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", cursor: "pointer" }}>
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", flexShrink: 0, background: loc ? C.green : C.red }} />
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontWeight: 600, fontSize: 13 }}>
+                          {s.name || <span style={{ color: C.dim, fontStyle: "italic" }}>Unnamed</span>}
+                          {commonNamesIndex?.get(s.dictionary_id) && commonNamesIndex.get(s.dictionary_id) !== s.name && (
+                            <span style={{ fontWeight: 400, fontSize: 11, color: C.dim, marginLeft: 8 }}>({commonNamesIndex.get(s.dictionary_id)})</span>
+                          )}
+                        </div>
+                        <div style={{ fontSize: 11, color: C.dim, display: "flex", gap: 8, flexWrap: "wrap", marginTop: 2 }}>
+                          <span style={{ fontFamily: "'IBM Plex Mono', monospace", color: C.amber }}>{s.dictionary_id}</span>
+                          {s.esail_id && <span style={{ fontFamily: "'IBM Plex Mono', monospace" }}>{s.esail_id}</span>}
+                          <span>{bmuIds.length} BMU{bmuIds.length !== 1 ? "s" : ""}</span>
+                          {loc ? <span style={{ color: C.green }}>📍 {parseFloat(loc.latitude).toFixed(3)}, {parseFloat(loc.longitude).toFixed(3)}</span> : <span style={{ color: C.red }}>No location</span>}
+                        </div>
+                      </div>
+                      <span style={{ fontSize: 11, color: C.faint }}>{isEditing ? "▲" : "▼"}</span>
+                    </div>
+                    {isEditing && (
+                      <div style={{ padding: "0 14px 14px", borderTop: `1px solid ${C.border}` }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr auto", gap: 8, marginTop: 12 }}>
+                          <div><Label text="Station Name" /><input value={editForm.name} onChange={e => setEditForm({ ...editForm, name: e.target.value })} style={inputBase} /></div>
+                          <div><Label text="ESAIL ID" /><input value={editForm.esail_id} onChange={e => setEditForm({ ...editForm, esail_id: e.target.value })} style={monoInput} /></div>
+                          <div><Label text="Dictionary ID" /><input value={s.dictionary_id} readOnly style={{ ...monoInput, opacity: 0.45, width: 80 }} /></div>
+                        </div>
+                        {commonNamesIndex && (
+                          <div style={{ marginTop: 8 }}>
+                            <Label text="Common Name" sub="from common-names.csv" />
+                            <input value={editForm.common_name || ''} onChange={e => setEditForm({ ...editForm, common_name: e.target.value })} style={inputBase} placeholder="e.g. Drax" />
+                          </div>
+                        )}
+                        {fuelTypeOptions && (() => { const fc = fuelColor(editForm.fuel_type); return (
+                          <div style={{ marginTop: 8 }}>
+                            <Label text="Fuel Type" sub="from fuel_types.csv" />
+                            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                              <select value={editForm.fuel_type || ''} onChange={e => setEditForm({ ...editForm, fuel_type: e.target.value })} style={{ ...inputBase, flex: 1, cursor: "pointer", appearance: "none", background: editForm.fuel_type ? fc.bg : C.bg, color: editForm.fuel_type ? fc.fg : C.dim, border: `1px solid ${editForm.fuel_type ? fc.fg + "55" : C.border}`, fontWeight: editForm.fuel_type ? 700 : 400 }}>
+                                <option value="">— select fuel type —</option>
+                                {fuelTypeOptions.map(ft => <option key={ft} value={ft}>{ft}</option>)}
+                              </select>
+                              {editForm.fuel_type && <button onClick={() => setEditForm({ ...editForm, fuel_type: '' })} style={{ padding: "5px 8px", borderRadius: 5, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontSize: 11, cursor: "pointer" }}>✕</button>}
+                            </div>
+                          </div>
+                        ); })()}
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 8 }}>
+                          <div><Label text="Latitude" /><input value={editForm.latitude} onChange={e => setEditForm({ ...editForm, latitude: e.target.value })} style={monoInput} type="number" step="any" placeholder="e.g. 55.8730" /></div>
+                          <div><Label text="Longitude" /><input value={editForm.longitude} onChange={e => setEditForm({ ...editForm, longitude: e.target.value })} style={monoInput} type="number" step="any" placeholder="e.g. -2.5059" /></div>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 8 }}>
+                          <div><Label text="Settlement BMU IDs" sub="comma-separated" /><textarea value={editForm.sett_bmu_id} onChange={e => setEditForm({ ...editForm, sett_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 48, resize: "vertical" }} /></div>
+                          <div><Label text="NGC BMU IDs" sub="comma-separated" /><textarea value={editForm.ngc_bmu_id} onChange={e => setEditForm({ ...editForm, ngc_bmu_id: e.target.value })} style={{ ...monoInput, minHeight: 48, resize: "vertical" }} /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: 8, marginTop: 12, alignItems: "center" }}>
+                          <button onClick={() => { onSaveStation(s.dictionary_id, editForm); setEditId(null); setEditForm({}); }} style={{ padding: "7px 18px", borderRadius: 7, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 12, cursor: "pointer" }}>Save</button>
+                          <button onClick={() => { setEditId(null); setEditForm({}); }} style={{ padding: "7px 14px", borderRadius: 7, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontWeight: 500, fontSize: 12, cursor: "pointer" }}>Cancel</button>
+                          <div style={{ marginLeft: "auto" }}>
+                            {confirmDelete === s.dictionary_id ? (
+                              <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                                <span style={{ fontSize: 11, color: C.red }}>Permanently delete this station?</span>
+                                <button onClick={() => { onDeleteStation(s.dictionary_id); setEditId(null); setEditForm({}); setConfirmDelete(null); }} style={{ padding: "4px 10px", borderRadius: 5, background: C.red, border: "none", color: "#fff", fontWeight: 700, fontSize: 11, cursor: "pointer" }}>Yes, delete</button>
+                                <button onClick={() => setConfirmDelete(null)} style={{ padding: "4px 8px", borderRadius: 5, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontSize: 11, cursor: "pointer" }}>No</button>
+                              </div>
+                            ) : (
+                              <button onClick={() => setConfirmDelete(s.dictionary_id)} style={{ padding: "5px 10px", borderRadius: 6, background: C.redGhost, border: `1px solid ${C.red}33`, color: C.red, fontWeight: 600, fontSize: 11, cursor: "pointer" }}>🗑 Delete</button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              {stations.length === 0 && <p style={{ color: C.dim, fontSize: 13, textAlign: "center", padding: "24px 0" }}>No stations match the current filter.</p>}
+            </div>
+          </>
+        )
+      )}
+
+      {tab === "locations" && (
+        !locData ? (
+          <p style={{ color: C.dim, fontSize: 13 }}>Load plant-locations.csv to edit locations.</p>
+        ) : (
+          <>
+            <div style={{ display: "flex", gap: 8, marginBottom: 12, alignItems: "center" }}>
+              <input placeholder="Search by dictionary ID..." value={locSearch} onChange={e => setLocSearch(e.target.value)} style={{ ...inputBase, flex: 1 }} />
+              <span style={{ fontSize: 11, color: C.dim, whiteSpace: "nowrap" }}>{filteredLocs.length} locations</span>
+            </div>
+            {orphanCount > 0 && (
+              <div style={{ marginBottom: 12, padding: "8px 12px", borderRadius: 8, background: C.redGhost, border: `1px solid ${C.red}33`, fontSize: 12, color: C.red }}>
+                ⚠ {orphanCount} orphaned location{orphanCount !== 1 ? "s" : ""} — dictionary IDs not found in ids.csv
+              </div>
+            )}
+            <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              {filteredLocs.map(r => {
+                const isOrphaned = !idsSet.has(r.dictionary_id);
+                const isEditing = locEditId === r.dictionary_id;
+                const station = idsData?.rows.find(s => s.dictionary_id === r.dictionary_id);
+                return (
+                  <div key={r.dictionary_id} style={{ borderRadius: 8, background: C.panel, border: `1px solid ${isEditing ? C.amber + "55" : isOrphaned ? C.red + "33" : C.border}`, overflow: "hidden" }}>
+                    <div onClick={() => { if (isEditing) { setLocEditId(null); setLocEditForm({}); } else { setLocEditId(r.dictionary_id); setLocEditForm({ latitude: r.latitude || "", longitude: r.longitude || "" }); setLocConfirmDelete(null); } }} style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 14px", cursor: "pointer" }}>
+                      <span style={{ width: 7, height: 7, borderRadius: "50%", flexShrink: 0, background: isOrphaned ? C.red : C.green }} />
+                      <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, color: C.amber, fontWeight: 700 }}>{r.dictionary_id}</span>
+                      {station && <span style={{ fontSize: 12, color: C.text, flex: 1 }}>{station.name}</span>}
+                      {!station && <span style={{ fontSize: 11, color: C.red, flex: 1, fontStyle: "italic" }}>orphaned — no ids.csv match</span>}
+                      <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.dim }}>{parseFloat(r.latitude).toFixed(5)}, {parseFloat(r.longitude).toFixed(5)}</span>
+                      <span style={{ fontSize: 11, color: C.faint, marginLeft: 4 }}>{isEditing ? "▲" : "▼"}</span>
+                    </div>
+                    {isEditing && (
+                      <div style={{ padding: "0 14px 12px", borderTop: `1px solid ${C.border}` }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginTop: 10 }}>
+                          <div><Label text="Latitude" /><input value={locEditForm.latitude} onChange={e => setLocEditForm({ ...locEditForm, latitude: e.target.value })} style={monoInput} type="number" step="any" /></div>
+                          <div><Label text="Longitude" /><input value={locEditForm.longitude} onChange={e => setLocEditForm({ ...locEditForm, longitude: e.target.value })} style={monoInput} type="number" step="any" /></div>
+                        </div>
+                        <div style={{ display: "flex", gap: 8, marginTop: 10, alignItems: "center" }}>
+                          <button onClick={() => { onSaveLocation(r.dictionary_id, locEditForm); setLocEditId(null); setLocEditForm({}); }} style={{ padding: "7px 18px", borderRadius: 7, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 12, cursor: "pointer" }}>Save</button>
+                          <button onClick={() => { setLocEditId(null); setLocEditForm({}); }} style={{ padding: "7px 14px", borderRadius: 7, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontWeight: 500, fontSize: 12, cursor: "pointer" }}>Cancel</button>
+                          <div style={{ marginLeft: "auto" }}>
+                            {locConfirmDelete === r.dictionary_id ? (
+                              <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                                <span style={{ fontSize: 11, color: C.red }}>Delete this location row?</span>
+                                <button onClick={() => { onDeleteLocation(r.dictionary_id); setLocEditId(null); setLocConfirmDelete(null); }} style={{ padding: "4px 10px", borderRadius: 5, background: C.red, border: "none", color: "#fff", fontWeight: 700, fontSize: 11, cursor: "pointer" }}>Yes</button>
+                                <button onClick={() => setLocConfirmDelete(null)} style={{ padding: "4px 8px", borderRadius: 5, background: "transparent", border: `1px solid ${C.border}`, color: C.dim, fontSize: 11, cursor: "pointer" }}>No</button>
+                              </div>
+                            ) : (
+                              <button onClick={() => setLocConfirmDelete(r.dictionary_id)} style={{ padding: "5px 10px", borderRadius: 6, background: C.redGhost, border: `1px solid ${C.red}33`, color: C.red, fontWeight: 600, fontSize: 11, cursor: "pointer" }}>🗑 Delete</button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+              {filteredLocs.length === 0 && <p style={{ color: C.dim, fontSize: 13, textAlign: "center", padding: "24px 0" }}>No location rows match.</p>}
+            </div>
+          </>
+        )
+      )}
+
+      {tab === "bmu_types" && (
+        <BMUFuelTypeTab
+          idsData={idsData}
+          bmuIndex={bmuIndex}
+          bmuNameIndex={bmuNameIndex}
+          fuelTypesIndex={fuelTypesIndex}
+          fuelTypeOptions={fuelTypeOptions}
+          onSaveBmuFuelType={onSaveBmuFuelType}
+        />
+      )}
+    </div>
+  );
+}
+
+// ─── ESAIL Fill Panel ──────────────────────────────────────────────
+
+function EsailFillPanel({ suggestions, onApply, onApplyAll, onCancel }) {
+  const [edits, setEdits] = useState(() => {
+    const m = {};
+    suggestions.forEach(({ station, suggested }) => { m[station.dictionary_id] = suggested; });
+    return m;
+  });
+
+  return (
+    <div style={{ maxWidth: 720, animation: "fadeIn 0.2s" }}>
+      <button onClick={onCancel} style={{ background: "none", border: "none", color: C.dim, cursor: "pointer", fontSize: 12, padding: 0, marginBottom: 14 }}>← Back</button>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <div>
+          <h2 style={{ margin: "0 0 4px", fontSize: 18, fontWeight: 700 }}>Fill Missing ESAIL IDs</h2>
+          <p style={{ margin: 0, fontSize: 13, color: C.dim }}>{suggestions.length} station{suggestions.length !== 1 ? "s" : ""} where all BMUs share the same root</p>
+        </div>
+        <button onClick={() => onApplyAll(suggestions.map(({ station }) => ({ dictId: station.dictionary_id, value: edits[station.dictionary_id] })))} style={{ padding: "9px 22px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 13, cursor: "pointer" }}>Apply All ({suggestions.length})</button>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {suggestions.map(({ station }) => {
+          const dictId = station.dictionary_id;
+          const ngcIds = (station.ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+          const settIds = (station.sett_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+          const displayIds = ngcIds.length > 0 ? ngcIds : settIds;
+          return (
+            <div key={dictId} style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.border}` }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 8 }}>
+                <span style={{ fontWeight: 600, fontSize: 13, flex: 1 }}>{station.name || <span style={{ color: C.dim, fontStyle: "italic" }}>Unnamed</span>}</span>
+                <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, color: C.amber }}>{dictId}</span>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 10 }}>
+                {displayIds.map((id, i) => (
+                  <span key={i} style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 11, padding: "2px 8px", borderRadius: 4, background: C.tag, color: C.dim, border: `1px solid ${C.border}` }}>{id}</span>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 8, alignItems: "flex-end" }}>
+                <div style={{ flex: 1 }}>
+                  <Label text="Suggested ESAIL ID" />
+                  <input value={edits[dictId] || ''} onChange={e => setEdits(prev => ({ ...prev, [dictId]: e.target.value.toUpperCase() }))} style={monoInput} />
+                </div>
+                <button onClick={() => onApply(dictId, edits[dictId])} style={{ padding: "9px 16px", borderRadius: 8, background: C.amberGhost, border: `1px solid ${C.amber}44`, color: C.amber, fontWeight: 600, fontSize: 12, cursor: "pointer", flexShrink: 0 }}>Apply</button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Main Component ────────────────────────────────────────────────
+
+function BMULocationTool() {
+  const [idsData, setIdsData] = useState(null);
+  const [locData, setLocData] = useState(null);
+  const [bmuJson, setBmuJson] = useState(null);
+  const [loaded, setLoaded] = useState({ ids: false, loc: false, bmu: false, repd: false, commonNames: false, fuelTypes: false });
+  const [bmuFetchStatus, setBmuFetchStatus] = useState("loading"); // "loading" | "loaded" | "error"
+  const [repdData, setRepdData] = useState(null);
+  const [commonNamesData, setCommonNamesData] = useState(null);
+  const [fuelTypesData, setFuelTypesData] = useState(null);
+
+  const [view, setView] = useState("unmatched");
+  const [search, setSearch] = useState("");
+  const [fuelFilter, setFuelFilter] = useState("ALL");
+  const [selectedBmus, setSelectedBmus] = useState(new Set());
+  const [assignTarget, setAssignTarget] = useState("new");
+  const [existingStationSearch, setExistingStationSearch] = useState("");
+  const [assignForm, setAssignForm] = useState({ dictionary_id: "", esail_id: "", name: "", latitude: "", longitude: "", sett_bmu_id: "", ngc_bmu_id: "", fuel_type: "" });
+  const [changeLog, setChangeLog] = useState([]);
+  const [toast, setToast] = useState(null);
+  const [stationSearch, setStationSearch] = useState("");
+  const [groupsOpen, setGroupsOpen] = useState(true);
+  const [editStation, setEditStation] = useState(null);
+  const [editForm, setEditForm] = useState({ name: "", latitude: "", longitude: "", sett_bmu_id: "", ngc_bmu_id: "", esail_id: "" });
+
+  const refIds = useRef(null);
+  const refLoc = useRef(null);
+  const refBmu = useRef(null);
+  const refRepd = useRef(null);
+  const refCommonNames = useRef(null);
+  const refFuelTypes = useRef(null);
+
+  const showToast = useCallback((msg, type = "success") => {
+    setToast({ msg, type });
+    setTimeout(() => setToast(null), 3500);
+  }, []);
+
+  useEffect(() => {
+    fetch("https://data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all")
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        const arr = Array.isArray(data) ? data : (data.data || []);
+        setBmuJson(arr);
+        setLoaded(l => ({ ...l, bmu: true }));
+        setBmuFetchStatus("loaded");
+      })
+      .catch(() => setBmuFetchStatus("error"));
+  }, []);
+
+  const handleFile = useCallback((type) => (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const text = ev.target.result.replace(/^\uFEFF/, ''); // strip BOM
+      if (type === "ids") { const p = parseCSV(text); setIdsData(p); setLoaded((l) => ({ ...l, ids: true })); showToast(`Loaded ${p.rows.length} stations from ids.csv`); }
+      else if (type === "loc") { const p = parseCSV(text); setLocData(p); setLoaded((l) => ({ ...l, loc: true })); showToast(`Loaded ${p.rows.length} locations`); }
+      else if (type === "bmu") {
+        try { const json = JSON.parse(text); const arr = Array.isArray(json) ? json : [json]; setBmuJson(arr); setLoaded((l) => ({ ...l, bmu: true })); showToast(`Loaded ${arr.length} BMU records`); }
+        catch { showToast("Invalid JSON", "error"); }
+      }
+      else if (type === "repd") {
+        const p = parseCSV(text);
+        setRepdData(p.rows);
+        setLoaded((l) => ({ ...l, repd: true }));
+        showToast(`Loaded ${p.rows.length} REPD entries`);
+      }
+      else if (type === "commonNames") {
+        const p = parseCSV(text);
+        setCommonNamesData(p);
+        setLoaded((l) => ({ ...l, commonNames: true }));
+        showToast(`Loaded ${p.rows.length} common names`);
+      }
+      else if (type === "fuelTypes") {
+        const p = parseCSV(text);
+        setFuelTypesData(p);
+        setLoaded((l) => ({ ...l, fuelTypes: true }));
+        showToast(`Loaded ${p.rows.length} fuel type entries`);
+      }
+    };
+    reader.readAsText(file);
+  }, [showToast]);
+
+  // Derived data
+  const mappedBmuIds = useMemo(() => {
+    if (!idsData) return new Set();
+    const s = new Set();
+    idsData.rows.forEach((row) => {
+      (row.sett_bmu_id || "").split(",").forEach((id) => { if (id.trim()) s.add(id.trim()); });
+      (row.ngc_bmu_id || "").split(",").forEach((id) => { if (id.trim()) s.add(id.trim()); });
+    });
+    return s;
+  }, [idsData]);
+
+  const unmatchedBmus = useMemo(() => {
+    if (!bmuJson) return [];
+    return bmuJson.filter((u) => !mappedBmuIds.has(u.elexonBmUnit || "") && !mappedBmuIds.has(u.nationalGridBmUnit || ""));
+  }, [bmuJson, mappedBmuIds]);
+
+  const fuelTypes = useMemo(() => {
+    const types = new Set();
+    unmatchedBmus.forEach((u) => types.add(u.fuelType || "null"));
+    return ["ALL", ...Array.from(types).sort()];
+  }, [unmatchedBmus]);
+
+  const filteredBmus = useMemo(() => {
+    let list = unmatchedBmus;
+    if (fuelFilter !== "ALL") list = list.filter((u) => (fuelFilter === "null" ? !u.fuelType : u.fuelType === fuelFilter));
+    if (search) { const s = search.toLowerCase(); list = list.filter((u) => (u.nationalGridBmUnit || "").toLowerCase().includes(s) || (u.elexonBmUnit || "").toLowerCase().includes(s) || (u.bmUnitName || "").toLowerCase().includes(s) || (u.leadPartyName || "").toLowerCase().includes(s) || (u.gspGroupName || "").toLowerCase().includes(s)); }
+    return list;
+  }, [unmatchedBmus, fuelFilter, search]);
+
+  const locIndex = useMemo(() => { if (!locData) return new Map(); return new Map(locData.rows.map((r) => [r.dictionary_id, r])); }, [locData]);
+
+  const allStations = useMemo(() => {
+    if (!idsData) return [];
+    let list = idsData.rows;
+    if (stationSearch) { const s = stationSearch.toLowerCase(); list = list.filter((r) => (r.name || "").toLowerCase().includes(s) || (r.dictionary_id || "").toLowerCase().includes(s) || (r.sett_bmu_id || "").toLowerCase().includes(s) || (r.ngc_bmu_id || "").toLowerCase().includes(s) || (r.esail_id || "").toLowerCase().includes(s)); }
+    return list;
+  }, [idsData, stationSearch]);
+
+  const missingLocCount = useMemo(() => { if (!idsData || !locData) return 0; return idsData.rows.filter((r) => !locIndex.has(r.dictionary_id)).length; }, [idsData, locData, locIndex]);
+  const nextId = useMemo(() => { if (!idsData) return "10000"; return String(Math.max(0, ...idsData.rows.map((r) => parseInt(r.dictionary_id) || 0)) + 1); }, [idsData]);
+
+  const selectedBmuObjects = useMemo(() => { if (!bmuJson) return []; return bmuJson.filter((u) => selectedBmus.has(u.elexonBmUnit) || selectedBmus.has(u.nationalGridBmUnit)); }, [bmuJson, selectedBmus]);
+
+  const esailSuggestions = useMemo(() => {
+    if (!idsData) return [];
+    return idsData.rows
+      .filter(row => !(row.esail_id || '').trim())
+      .map(row => {
+        const ngcIds = (row.ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+        const bmuIds = ngcIds.length > 0 ? ngcIds : (row.sett_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+        if (bmuIds.length === 0) return null;
+        const roots = bmuIds.map(extractBmuRoot).filter(Boolean);
+        if (roots.length === 0 || roots.length !== bmuIds.length) return null;
+        const unique = new Set(roots);
+        if (unique.size !== 1) return null;
+        return { station: row, suggested: [...unique][0] };
+      })
+      .filter(Boolean);
+  }, [idsData]);
+
+  // Pre-build REPD index once: filter irrelevant rows and pre-compute bigrams
+  const repdIndex = useMemo(() => {
+    if (!repdData) return null;
+    return repdData
+      .filter(row => !isRepdIrrelevant(row['Development Status (short)'] || ''))
+      .map(row => {
+        const name = row['Site Name'] || '';
+        const cleanName = normalizeRepdName(name);
+        const operator = row['Operator (or Applicant)'] || '';
+        // Pre-compute word tokens for recall scoring (length >= 2, no stop words)
+        const nameWordTokens = new Set(
+          cleanName.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/)
+            .filter(w => w.length >= 2 && !REPD_STOP_WORDS.has(w))
+        );
+        return {
+          row,
+          nameBigrams: bigrams(name),
+          cleanNameBigrams: bigrams(cleanName),
+          operatorBigrams: bigrams(operator),
+          nameLower: name.toLowerCase(),
+          cleanNameLower: cleanName.toLowerCase(),
+          operatorLower: operator.toLowerCase(),
+          nameWordTokens,
+          techFuelType: repdTechToFuelType(row['Technology Type']),
+        };
+      });
+  }, [repdData]);
+
+  const commonNamesIndex = useMemo(() => {
+    if (!commonNamesData) return new Map();
+    return new Map(commonNamesData.rows.map(r => [r.dictionary_id, r.common_name]));
+  }, [commonNamesData]);
+
+  const fuelTypesIndex = useMemo(() => {
+    if (!fuelTypesData) return new Map();
+    return new Map(fuelTypesData.rows.map(r => [(r.ngc_bmu_id || '').trim(), (r.fuel_type || '').trim()]).filter(([k, v]) => k && v));
+  }, [fuelTypesData]);
+
+  // Map ngcBmuId → elexonFuelType (from Elexon registry)
+  const bmuIndex = useMemo(() => {
+    if (!bmuJson) return new Map();
+    return new Map(
+      bmuJson.map(u => [(u.nationalGridBmUnit || '').trim(), u.fuelType || ''])
+             .filter(([k]) => k)
+    );
+  }, [bmuJson]);
+
+  // Map ngcBmuId → detail object (for name-keyword fuel suggestions and hover tooltips)
+  const bmuNameIndex = useMemo(() => {
+    if (!bmuJson) return new Map();
+    return new Map(
+      bmuJson.map(u => [(u.nationalGridBmUnit || '').trim(), {
+        bmUnitName: u.bmUnitName || '',
+        leadPartyName: u.leadPartyName || '',
+        gspGroupName: u.gspGroupName || '',
+        generationCapacity: u.generationCapacity != null ? u.generationCapacity : '',
+      }]).filter(([k]) => k)
+    );
+  }, [bmuJson]);
+
+  // All unique fuel types from either source, sorted. BATTERY is always included
+  // since REPD auto-detection can suggest it even before the user's fuel_types.csv has it.
+  const allFuelTypeOptions = useMemo(() => {
+    const types = new Set(['BATTERY']);
+    if (bmuJson) bmuJson.forEach(u => { if (u.fuelType) types.add(u.fuelType); });
+    if (fuelTypesData) fuelTypesData.rows.forEach(r => { if ((r.fuel_type || '').trim()) types.add(r.fuel_type.trim()); });
+    return Array.from(types).sort();
+  }, [bmuJson, fuelTypesData]);
+
+  // Resolve fuel type for a BMU: fuelTypesIndex first, Elexon fallback
+  const resolveFuelType = useCallback((ngcBmuId, elexonFuelType) => {
+    return fuelTypesIndex.get((ngcBmuId || '').trim()) || elexonFuelType || '';
+  }, [fuelTypesIndex]);
+
+  // Suggest a fuel type for a group of BMU objects (majority vote, fuelTypesIndex priority)
+  const suggestGroupFuelType = useCallback((bmuObjects) => {
+    const counts = new Map();
+    bmuObjects.forEach(u => {
+      const ft = resolveFuelType(u.nationalGridBmUnit, u.fuelType);
+      if (ft) counts.set(ft, (counts.get(ft) || 0) + 1);
+    });
+    if (counts.size === 0) return '';
+    return [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
+  }, [resolveFuelType]);
+
+  const repdAutoSuggestions = useMemo(() => {
+    if (!repdIndex || repdIndex.length === 0 || unmatchedBmus.length === 0 || !idsData) return [];
+    // Group unmatched BMUs by their ESAIL root
+    const groups = new Map();
+    unmatchedBmus.forEach(bmu => {
+      // Try national-grid ID first (no prefix), fall back to Elexon ID (T_/E_ prefix)
+      const root = extractBmuRoot(bmu.nationalGridBmUnit) || extractBmuRoot(bmu.elexonBmUnit);
+      if (!root) return;
+      if (!groups.has(root)) groups.set(root, []);
+      groups.get(root).push(bmu);
+    });
+    // Collect existing ESAIL IDs for duplicate check
+    const existingEsailIds = new Set(
+      idsData.rows.map(r => (r.esail_id || '').trim().toUpperCase()).filter(Boolean)
+    );
+    const suggestions = [];
+    groups.forEach((bmus, root) => {
+      const searchTerms = [
+        root,
+        ...bmus.map(u => u.bmUnitName || '').filter(Boolean),
+      ].filter(Boolean);
+      const leadPartyTerms = bmus.map(u => u.leadPartyName || '').filter(Boolean);
+      // Compute group fuel type hint (majority vote, exclude vague "OTHER")
+      // Priority: fuelTypesIndex override → Elexon fuelType → BMU name keyword scan
+      const fuelCounts = new Map();
+      bmus.forEach(u => {
+        const ft = (fuelTypesIndex.get((u.nationalGridBmUnit || '').trim()) || u.fuelType || '').trim();
+        const resolved = (ft && ft !== 'OTHER') ? ft : (bmuNameFuelHint(u.nationalGridBmUnit, u.bmUnitName) || '');
+        if (resolved) fuelCounts.set(resolved, (fuelCounts.get(resolved) || 0) + 1);
+      });
+      const fuelHint = fuelCounts.size > 0
+        ? [...fuelCounts.entries()].sort((a, b) => b[1] - a[1])[0][0]
+        : null;
+      const topMatch = fastTopMatch(searchTerms, repdIndex, root, 0.82, leadPartyTerms, fuelHint);
+      if (!topMatch) return;
+      const rx = parseFloat(topMatch.row['X-coordinate']), ry = parseFloat(topMatch.row['Y-coordinate']);
+      if (isNaN(rx) || isNaN(ry) || rx <= 0 || ry <= 0) return;
+      suggestions.push({ root, bmus, topMatch, isDuplicate: existingEsailIds.has(root) });
+    });
+    suggestions.sort((a, b) => b.topMatch.score - a.topMatch.score);
+    return suggestions;
+  }, [repdIndex, unmatchedBmus, idsData, fuelTypesIndex]);
+
+  const unmatchedBmuGroups = useMemo(() => {
+    if (!unmatchedBmus.length) return [];
+    const suggestedRoots = new Set(repdAutoSuggestions.map(s => s.root));
+    const groups = new Map();
+    unmatchedBmus.forEach(bmu => {
+      // Try national-grid ID first (no prefix), fall back to Elexon ID (T_/E_ prefix)
+      const root = extractBmuRoot(bmu.nationalGridBmUnit) || extractBmuRoot(bmu.elexonBmUnit);
+      if (!root || root.length < 2) return;
+      if (!groups.has(root)) groups.set(root, []);
+      groups.get(root).push(bmu);
+    });
+    return Array.from(groups.entries())
+      .filter(([root, bmus]) => bmus.length >= 2 && !suggestedRoots.has(root))
+      .map(([root, bmus]) => ({ root, bmus }))
+      .sort((a, b) => b.bmus.length - a.bmus.length);
+  }, [unmatchedBmus, repdAutoSuggestions]);
+
+  // Actions
+  const toggleBmu = (id) => { setSelectedBmus((prev) => { const next = new Set(prev); if (next.has(id)) next.delete(id); else next.add(id); return next; }); };
+  const selectAllFiltered = () => { setSelectedBmus((prev) => { const next = new Set(prev); filteredBmus.forEach((u) => next.add(u.elexonBmUnit || u.nationalGridBmUnit)); return next; }); };
+  const deselectAll = () => setSelectedBmus(new Set());
+
+  const applyEsailSuggestion = useCallback((dictId, value) => {
+    if (!value) return;
+    setIdsData(prev => {
+      const idx = prev.rows.findIndex(r => r.dictionary_id === dictId);
+      if (idx < 0) return prev;
+      const nr = [...prev.rows];
+      nr[idx] = { ...nr[idx], esail_id: value };
+      return { ...prev, rows: nr };
+    });
+    showToast(`Set ESAIL ID → ${value}`);
+  }, [showToast]);
+
+  const applyAllEsailSuggestions = useCallback((items) => {
+    setIdsData(prev => {
+      const nr = [...prev.rows];
+      items.forEach(({ dictId, value }) => {
+        if (!value) return;
+        const idx = nr.findIndex(r => r.dictionary_id === dictId);
+        if (idx >= 0) nr[idx] = { ...nr[idx], esail_id: value };
+      });
+      return { ...prev, rows: nr };
+    });
+    showToast(`Applied ${items.length} ESAIL IDs`);
+    setView('unmatched');
+  }, [showToast]);
+
+  const startAssign = () => {
+    if (selectedBmus.size === 0) { showToast("Select at least one BMU", "error"); return; }
+    const settIds = selectedBmuObjects.map((u) => u.elexonBmUnit).filter(Boolean);
+    const ngcIds = selectedBmuObjects.map((u) => u.nationalGridBmUnit).filter(Boolean);
+    const names = [...new Set(selectedBmuObjects.map((u) => u.bmUnitName).filter(Boolean))];
+    const roots = [...new Set([...settIds, ...ngcIds].map(extractBmuRoot).filter(Boolean))];
+    const matchingStation = roots.length === 1 && idsData?.rows.find(r => (r.esail_id || '').trim().toUpperCase() === roots[0].toUpperCase());
+    const suggestedFuelType = suggestGroupFuelType(selectedBmuObjects);
+    if (matchingStation) {
+      const es = (matchingStation.sett_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const en = (matchingStation.ngc_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const loc = locIndex.get(matchingStation.dictionary_id);
+      setAssignForm({ dictionary_id: matchingStation.dictionary_id, esail_id: matchingStation.esail_id || "", name: matchingStation.name || "", latitude: loc?.latitude || "", longitude: loc?.longitude || "", sett_bmu_id: [...new Set([...es, ...settIds])].join(", "), ngc_bmu_id: [...new Set([...en, ...ngcIds])].join(", "), fuel_type: suggestedFuelType });
+      setAssignTarget(matchingStation.dictionary_id);
+    } else {
+      setAssignForm({ dictionary_id: nextId, esail_id: "", name: names.length === 1 ? names[0] : "", latitude: "", longitude: "", sett_bmu_id: settIds.join(", "), ngc_bmu_id: ngcIds.join(", "), fuel_type: suggestedFuelType });
+      setAssignTarget("new");
+    }
+    setExistingStationSearch("");
+    setView("assign");
+  };
+
+  const startAssignGroup = useCallback((groupBmus, root, repdRow) => {
+    const ids = groupBmus.map(u => u.elexonBmUnit || u.nationalGridBmUnit).filter(Boolean);
+    setSelectedBmus(new Set(ids));
+    const settIds = groupBmus.map(u => u.elexonBmUnit).filter(Boolean);
+    const ngcIds = groupBmus.map(u => u.nationalGridBmUnit).filter(Boolean);
+    const matchingStation = idsData?.rows.find(r => (r.esail_id || '').trim().toUpperCase() === root.toUpperCase());
+    const elexonFt = suggestGroupFuelType(groupBmus);
+    const repdFt = repdRow ? repdTechToFuelType(repdRow['Technology Type']) : '';
+    // Prefer REPD when Elexon gives nothing or only a generic "OTHER" classification
+    const suggestedFuelType = (elexonFt && elexonFt !== 'OTHER') ? elexonFt : (repdFt || elexonFt || '');
+    if (matchingStation) {
+      const es = (matchingStation.sett_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const en = (matchingStation.ngc_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const loc = locIndex.get(matchingStation.dictionary_id);
+      setAssignForm({ dictionary_id: matchingStation.dictionary_id, esail_id: matchingStation.esail_id || "", name: matchingStation.name || "", latitude: loc?.latitude || "", longitude: loc?.longitude || "", sett_bmu_id: [...new Set([...es, ...settIds])].join(', '), ngc_bmu_id: [...new Set([...en, ...ngcIds])].join(', '), fuel_type: suggestedFuelType });
+      setAssignTarget(matchingStation.dictionary_id);
+    } else {
+      let lat = '', lon = '';
+      if (repdRow) {
+        const x = parseFloat(repdRow['X-coordinate']), y = parseFloat(repdRow['Y-coordinate']);
+        if (!isNaN(x) && !isNaN(y) && x > 0 && y > 0) {
+          const ll = bngToLatLon(x, y);
+          lat = ll.lat.toFixed(6);
+          lon = ll.lon.toFixed(6);
+        }
+      }
+      setAssignForm({ dictionary_id: nextId, esail_id: root, name: repdRow ? (repdRow['Site Name'] || '') : '', latitude: lat, longitude: lon, sett_bmu_id: settIds.join(', '), ngc_bmu_id: ngcIds.join(', '), fuel_type: suggestedFuelType });
+      setAssignTarget("new");
+    }
+    setExistingStationSearch("");
+    setView("assign");
+  }, [nextId, idsData, locIndex, suggestGroupFuelType]);
+
+  const quickAssign = useCallback((bmus, root, repdRow) => {
+    const x = parseFloat(repdRow['X-coordinate']), y = parseFloat(repdRow['Y-coordinate']);
+    const ll = bngToLatLon(x, y);
+    const lat = ll.lat.toFixed(6), lon = ll.lon.toFixed(6);
+    const settIds = bmus.map(u => u.elexonBmUnit).filter(Boolean);
+    const ngcIds = bmus.map(u => u.nationalGridBmUnit).filter(Boolean);
+    // REPD-derived type used as fallback for BMUs where Elexon provides no type
+    const repdFuelFallback = repdTechToFuelType(repdRow['Technology Type']) || '';
+    // Build per-BMU fuel type map — Elexon/override first, REPD tech type as fallback
+    const perBmuFuelMap = {};
+    bmus.forEach(u => {
+      const ft = resolveFuelType(u.nationalGridBmUnit, u.fuelType) || repdFuelFallback;
+      if (ft && u.nationalGridBmUnit) perBmuFuelMap[u.nationalGridBmUnit] = ft;
+    });
+    const matchingStation = idsData?.rows.find(r => (r.esail_id || '').trim().toUpperCase() === root.toUpperCase());
+    if (matchingStation) {
+      const es = (matchingStation.sett_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const en = (matchingStation.ngc_bmu_id || "").split(",").map(s => s.trim()).filter(Boolean);
+      const newSett = [...new Set([...es, ...settIds])].join(", ");
+      const newNgc = [...new Set([...en, ...ngcIds])].join(", ");
+      setIdsData(prev => { const idx = prev.rows.findIndex(r => r.dictionary_id === matchingStation.dictionary_id); if (idx < 0) return prev; const nr = [...prev.rows]; nr[idx] = { ...nr[idx], sett_bmu_id: newSett, ngc_bmu_id: newNgc }; return { ...prev, rows: nr }; });
+      setLocData(prev => { const nl = { dictionary_id: matchingStation.dictionary_id, latitude: lat, longitude: lon }; const idx = prev.rows.findIndex(r => r.dictionary_id === matchingStation.dictionary_id); const nr = [...prev.rows]; if (idx >= 0) nr[idx] = nl; else nr.push(nl); return { ...prev, rows: nr }; });
+      setChangeLog(prev => [...prev, { time: new Date().toLocaleTimeString(), station: matchingStation.name || matchingStation.dictionary_id, dictId: matchingStation.dictionary_id, lat: parseFloat(lat), lng: parseFloat(lon), bmuCount: bmus.length, isNew: false }]);
+      showToast(`Updated "${matchingStation.name || root}" with ${bmus.length} BMU${bmus.length !== 1 ? "s" : ""}`);
+    } else {
+      const dictId = nextId;
+      const name = repdRow['Site Name'] || root;
+      const newRow = {}; idsData.headers.forEach(h => { newRow[h] = ""; });
+      newRow.dictionary_id = dictId; newRow.name = name; newRow.esail_id = root;
+      newRow.sett_bmu_id = settIds.join(", "); newRow.ngc_bmu_id = ngcIds.join(", ");
+      setIdsData(prev => ({ ...prev, rows: [...prev.rows, newRow] }));
+      setLocData(prev => ({ ...prev, rows: [...prev.rows, { dictionary_id: dictId, latitude: lat, longitude: lon }] }));
+      setChangeLog(prev => [...prev, { time: new Date().toLocaleTimeString(), station: name, dictId, lat: parseFloat(lat), lng: parseFloat(lon), bmuCount: bmus.length, isNew: true }]);
+      showToast(`Created "${name}" with ${bmus.length} BMU${bmus.length !== 1 ? "s" : ""}`);
+    }
+    // Write per-BMU resolved fuel types (handles mixed-type stations correctly)
+    if (Object.keys(perBmuFuelMap).length > 0) {
+      setFuelTypesData(prev => {
+        const headers = prev?.headers || ['ngc_bmu_id', 'fuel_type', 'comments'];
+        const map = new Map((prev?.rows || []).map(r => [(r.ngc_bmu_id || '').trim(), r]));
+        Object.entries(perBmuFuelMap).forEach(([id, ft]) => {
+          map.set(id, { ...(map.get(id) || { ngc_bmu_id: id, comments: '' }), fuel_type: ft });
+        });
+        return { headers, rows: Array.from(map.values()) };
+      });
+      setLoaded(l => ({ ...l, fuelTypes: true }));
+    }
+  }, [idsData, nextId, showToast, resolveFuelType]);
+
+  const assignToExisting = (station) => {
+    const es = (station.sett_bmu_id || "").split(",").map((s) => s.trim()).filter(Boolean);
+    const en = (station.ngc_bmu_id || "").split(",").map((s) => s.trim()).filter(Boolean);
+    const ns = selectedBmuObjects.map((u) => u.elexonBmUnit).filter(Boolean);
+    const nn = selectedBmuObjects.map((u) => u.nationalGridBmUnit).filter(Boolean);
+    const loc = locIndex.get(station.dictionary_id);
+    setAssignForm(prev => ({ dictionary_id: station.dictionary_id, esail_id: station.esail_id || "", name: station.name || "", latitude: loc?.latitude || "", longitude: loc?.longitude || "", sett_bmu_id: [...new Set([...es, ...ns])].join(", "), ngc_bmu_id: [...new Set([...en, ...nn])].join(", "), fuel_type: prev.fuel_type || "" }));
+    setAssignTarget(station.dictionary_id);
+  };
+
+  const saveAssignment = ({ advancedFuel, perBmuFuel } = {}) => {
+    const { dictionary_id, latitude, longitude, name, sett_bmu_id, ngc_bmu_id, esail_id, fuel_type } = assignForm;
+    if (!dictionary_id) { showToast("Dictionary ID is required", "error"); return; }
+    if (!latitude || !longitude) { showToast("Coordinates are required", "error"); return; }
+    const lat = parseFloat(latitude), lng = parseFloat(longitude);
+    if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) { showToast("Invalid coordinates", "error"); return; }
+
+    if (assignTarget === "new") {
+      const newRow = {}; idsData.headers.forEach((h) => { newRow[h] = ""; });
+      newRow.dictionary_id = dictionary_id; newRow.name = name; newRow.sett_bmu_id = sett_bmu_id; newRow.ngc_bmu_id = ngc_bmu_id; newRow.esail_id = esail_id;
+      setIdsData((prev) => ({ ...prev, rows: [...prev.rows, newRow] }));
+    } else {
+      setIdsData((prev) => { const idx = prev.rows.findIndex((r) => r.dictionary_id === dictionary_id); if (idx < 0) return prev; const nr = [...prev.rows]; nr[idx] = { ...nr[idx], name, sett_bmu_id, ngc_bmu_id, esail_id }; return { ...prev, rows: nr }; });
+    }
+    setLocData((prev) => { const nl = { dictionary_id, latitude: String(lat), longitude: String(lng) }; const idx = prev.rows.findIndex((r) => r.dictionary_id === dictionary_id); const nr = [...prev.rows]; if (idx >= 0) nr[idx] = nl; else nr.push(nl); return { ...prev, rows: nr }; });
+
+    // Write fuel_type back to fuelTypesData for each NGC BMU ID
+    const ngcIds = (ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+    const hasAdvancedEntries = advancedFuel && perBmuFuel && Object.keys(perBmuFuel).length > 0;
+    const hasSingleFuel = !advancedFuel && fuel_type;
+    if ((hasAdvancedEntries || hasSingleFuel) && fuelTypesData) {
+      setFuelTypesData(prev => {
+        const map = new Map(prev.rows.map(r => [(r.ngc_bmu_id || '').trim(), r]));
+        ngcIds.forEach(id => {
+          const ft = hasAdvancedEntries ? (perBmuFuel[id] ?? '') : fuel_type;
+          if (ft) map.set(id, { ...(map.get(id) || { ngc_bmu_id: id, comments: '' }), fuel_type: ft });
+        });
+        return { ...prev, rows: Array.from(map.values()) };
+      });
+    }
+
+    setChangeLog((prev) => [...prev, { time: new Date().toLocaleTimeString(), station: name || dictionary_id, dictId: dictionary_id, lat, lng, bmuCount: selectedBmus.size, isNew: assignTarget === "new" }]);
+    showToast(`${assignTarget === "new" ? "Created" : "Updated"} "${name || dictionary_id}" with ${selectedBmus.size} BMUs`);
+    setSelectedBmus(new Set());
+    setView("unmatched");
+  };
+
+  const openEditStation = (station) => {
+    const loc = locIndex.get(station.dictionary_id);
+    setEditForm({ name: station.name || "", latitude: loc?.latitude || "", longitude: loc?.longitude || "", sett_bmu_id: station.sett_bmu_id || "", ngc_bmu_id: station.ngc_bmu_id || "", esail_id: station.esail_id || "" });
+    setEditStation(station);
+  };
+
+  const saveEditStation = () => {
+    const dictId = editStation.dictionary_id;
+    const lat = parseFloat(editForm.latitude), lng = parseFloat(editForm.longitude);
+    if (editForm.latitude && editForm.longitude) {
+      if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) { showToast("Invalid coordinates", "error"); return; }
+      setLocData((prev) => { const nl = { dictionary_id: dictId, latitude: String(lat), longitude: String(lng) }; const idx = prev.rows.findIndex((r) => r.dictionary_id === dictId); const nr = [...prev.rows]; if (idx >= 0) nr[idx] = nl; else nr.push(nl); return { ...prev, rows: nr }; });
+    }
+    setIdsData((prev) => { const idx = prev.rows.findIndex((r) => r.dictionary_id === dictId); if (idx < 0) return prev; const nr = [...prev.rows]; nr[idx] = { ...nr[idx], name: editForm.name, sett_bmu_id: editForm.sett_bmu_id, ngc_bmu_id: editForm.ngc_bmu_id, esail_id: editForm.esail_id }; return { ...prev, rows: nr }; });
+    setChangeLog((prev) => [...prev, { time: new Date().toLocaleTimeString(), station: editForm.name || dictId, dictId, lat: lat || "–", lng: lng || "–", bmuCount: 0, isNew: false }]);
+    showToast(`Updated ${editForm.name || dictId}`);
+    setEditStation(null);
+  };
+
+  const saveDataEditorStation = useCallback((dict_id, form) => {
+    const lat = parseFloat(form.latitude), lng = parseFloat(form.longitude);
+    if (form.latitude || form.longitude) {
+      if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) { showToast("Invalid coordinates", "error"); return; }
+      setLocData(prev => { const nl = { dictionary_id: dict_id, latitude: String(lat), longitude: String(lng) }; const idx = prev.rows.findIndex(r => r.dictionary_id === dict_id); const nr = [...prev.rows]; if (idx >= 0) nr[idx] = nl; else nr.push(nl); return { ...prev, rows: nr }; });
+    }
+    setIdsData(prev => { const idx = prev.rows.findIndex(r => r.dictionary_id === dict_id); if (idx < 0) return prev; const nr = [...prev.rows]; nr[idx] = { ...nr[idx], name: form.name, esail_id: form.esail_id, sett_bmu_id: form.sett_bmu_id, ngc_bmu_id: form.ngc_bmu_id }; return { ...prev, rows: nr }; });
+    if (form.common_name !== undefined && commonNamesData) {
+      setCommonNamesData(prev => {
+        const idx = prev.rows.findIndex(r => r.dictionary_id === dict_id);
+        const nr = [...prev.rows];
+        if (idx >= 0) nr[idx] = { ...nr[idx], common_name: form.common_name };
+        else if (form.common_name) nr.push({ dictionary_id: dict_id, common_name: form.common_name });
+        return { ...prev, rows: nr };
+      });
+    }
+    if (form.fuel_type !== undefined && fuelTypesData) {
+      const ngcIds = (form.ngc_bmu_id || '').split(',').map(s => s.trim()).filter(Boolean);
+      setFuelTypesData(prev => {
+        const map = new Map(prev.rows.map(r => [(r.ngc_bmu_id || '').trim(), r]));
+        ngcIds.forEach(id => { map.set(id, { ...(map.get(id) || { ngc_bmu_id: id, comments: '' }), fuel_type: form.fuel_type }); });
+        return { ...prev, rows: Array.from(map.values()) };
+      });
+    }
+    setChangeLog(prev => [...prev, { time: new Date().toLocaleTimeString(), station: form.name || dict_id, dictId: dict_id, lat: lat || "–", lng: lng || "–", bmuCount: 0, isNew: false }]);
+    showToast(`Updated ${form.name || dict_id}`);
+  }, [showToast, commonNamesData, fuelTypesData]);
+
+  const deleteDataEditorStation = useCallback((dict_id) => {
+    setIdsData(prev => ({ ...prev, rows: prev.rows.filter(r => r.dictionary_id !== dict_id) }));
+    setLocData(prev => ({ ...prev, rows: prev.rows.filter(r => r.dictionary_id !== dict_id) }));
+    showToast(`Deleted station ${dict_id}`);
+  }, [showToast]);
+
+  const saveDataEditorLocation = useCallback((dict_id, form) => {
+    const lat = parseFloat(form.latitude), lng = parseFloat(form.longitude);
+    if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) { showToast("Invalid coordinates", "error"); return; }
+    setLocData(prev => { const nl = { dictionary_id: dict_id, latitude: String(lat), longitude: String(lng) }; const idx = prev.rows.findIndex(r => r.dictionary_id === dict_id); const nr = [...prev.rows]; if (idx >= 0) nr[idx] = nl; else nr.push(nl); return { ...prev, rows: nr }; });
+    showToast(`Updated location for ${dict_id}`);
+  }, [showToast]);
+
+  const deleteDataEditorLocation = useCallback((dict_id) => {
+    setLocData(prev => ({ ...prev, rows: prev.rows.filter(r => r.dictionary_id !== dict_id) }));
+    showToast(`Deleted location ${dict_id}`);
+  }, [showToast]);
+
+  const exportIds = () => {
+    if (idsData) { downloadFile(rowsToCSV(idsData.headers, idsData.rows), "ids.csv"); showToast("Exported ids.csv"); }
+  };
+  const exportLoc = () => {
+    if (locData) { downloadFile(rowsToCSV(locData.headers, locData.rows), "plant-locations.csv"); showToast("Exported plant-locations.csv"); }
+  };
+  const exportCommonNames = () => {
+    if (commonNamesData) { downloadFile(rowsToCSV(commonNamesData.headers, commonNamesData.rows), "common-names.csv"); showToast("Exported common-names.csv"); }
+  };
+  const exportFuelTypes = () => {
+    if (fuelTypesData) { downloadFile(rowsToCSV(fuelTypesData.headers, fuelTypesData.rows), "fuel_types.csv"); showToast("Exported fuel_types.csv"); }
+  };
+
+  const saveBmuFuelType = useCallback((ngcBmuId, fuelType) => {
+    setFuelTypesData(prev => {
+      const headers = prev?.headers || ['ngc_bmu_id', 'fuel_type', 'comments'];
+      const map = new Map((prev?.rows || []).map(r => [(r.ngc_bmu_id || '').trim(), r]));
+      if (fuelType) {
+        map.set(ngcBmuId, { ...(map.get(ngcBmuId) || { ngc_bmu_id: ngcBmuId, comments: '' }), fuel_type: fuelType });
+      } else {
+        // Clearing: keep the row but blank the fuel_type
+        if (map.has(ngcBmuId)) map.set(ngcBmuId, { ...map.get(ngcBmuId), fuel_type: '' });
+      }
+      return { headers, rows: Array.from(map.values()) };
+    });
+    setLoaded(l => ({ ...l, fuelTypes: true }));
+    showToast(fuelType ? `${ngcBmuId} → ${fuelType}` : `Cleared fuel type for ${ngcBmuId}`);
+  }, [showToast]);
+
+  const fillFuelTypesFromElexon = useCallback(() => {
+    if (!idsData || !bmuJson) return;
+    const bmuFuelMap = new Map();
+    bmuJson.forEach(u => { if (u.nationalGridBmUnit && u.fuelType) bmuFuelMap.set(u.nationalGridBmUnit.trim(), u.fuelType); });
+
+    // Collect all ngc_bmu_ids from ids.csv
+    const allNgcIds = [];
+    idsData.rows.forEach(row => {
+      (row.ngc_bmu_id || '').split(',').forEach(id => { const t = id.trim(); if (t) allNgcIds.push(t); });
+    });
+
+    // Start from existing rows if file was already loaded
+    const existingMap = new Map();
+    if (fuelTypesData) fuelTypesData.rows.forEach(r => existingMap.set((r.ngc_bmu_id || '').trim(), r));
+
+    const SKIP_TYPES = new Set(['OTHER', 'INTNEM', '']);
+    let added = 0, updated = 0;
+    allNgcIds.forEach(id => {
+      const ft = (bmuFuelMap.get(id) || '').trim();
+      if (!ft || SKIP_TYPES.has(ft)) return;
+      const existing = existingMap.get(id);
+      if (!existing) { existingMap.set(id, { ngc_bmu_id: id, fuel_type: ft, comments: '' }); added++; }
+      else if (!(existing.fuel_type || '').trim()) { existingMap.set(id, { ...existing, fuel_type: ft }); updated++; }
+    });
+
+    const headers = fuelTypesData?.headers || ['ngc_bmu_id', 'fuel_type', 'comments'];
+    setFuelTypesData({ headers, rows: Array.from(existingMap.values()) });
+    setLoaded(l => ({ ...l, fuelTypes: true }));
+    showToast(`Fuel types: ${added} new rows created, ${updated} existing rows updated`);
+  }, [idsData, fuelTypesData, bmuJson, showToast]);
+
+  const fillCommonNamesFromIds = useCallback(() => {
+    if (!idsData) return;
+
+    const existingMap = new Map();
+    if (commonNamesData) commonNamesData.rows.forEach(r => existingMap.set(r.dictionary_id, r));
+
+    let added = 0;
+    idsData.rows.forEach(row => {
+      const dictId = row.dictionary_id;
+      if (!dictId || !(row.name || '').trim()) return;
+      if (existingMap.get(dictId)?.common_name) return; // skip if already set
+      existingMap.set(dictId, { dictionary_id: dictId, common_name: row.name.trim() });
+      added++;
+    });
+
+    const headers = commonNamesData?.headers || ['dictionary_id', 'common_name'];
+    setCommonNamesData({ headers, rows: Array.from(existingMap.values()) });
+    setLoaded(l => ({ ...l, commonNames: true }));
+    showToast(`Common names: ${added} filled from ids.csv`);
+  }, [idsData, commonNamesData]);
+
+  const isReady = loaded.ids && loaded.loc && loaded.bmu && loaded.fuelTypes;
+
+  return (
+    <div style={{ minHeight: "100vh", background: C.bg, color: C.text, fontFamily: "'IBM Plex Sans', sans-serif" }}>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      <style>{`
+        @keyframes slideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: ${C.borderFocus} !important; box-shadow: 0 0 0 2px rgba(225,159,44,0.15); }
+        ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: ${C.border}; border-radius: 3px; }
+        button { font-family: inherit; }
+      `}</style>
+
+      {toast && <div style={{ position: "fixed", top: 16, right: 16, zIndex: 999, padding: "10px 18px", borderRadius: 8, background: toast.type === "error" ? C.red : C.green, color: "#fff", fontWeight: 600, fontSize: 13, boxShadow: "0 8px 24px rgba(0,0,0,0.5)", animation: "slideIn 0.25s ease" }}>{toast.msg}</div>}
+
+      {/* Header */}
+      <div style={{ borderBottom: `1px solid ${C.border}`, padding: "16px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ width: 34, height: 34, borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", background: C.amberGhost, border: `1px solid ${C.amber}33`, fontSize: 17 }}>⚡</div>
+          <div>
+            <h1 style={{ margin: 0, fontSize: 17, fontWeight: 700 }}>BMU Location Manager</h1>
+            <p style={{ margin: 0, fontSize: 12, color: C.dim }}>Find unmatched BMUs → assign to power stations → geolocate</p>
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {isReady && <>
+            <StatBadge color={C.red} n={unmatchedBmus.length} label="unmatched" />
+            <StatBadge color={C.amber} n={missingLocCount} label="no loc" />
+            <StatBadge color={C.green} n={changeLog.length} label="edits" />
+            {esailSuggestions.length > 0 && <button onClick={() => setView('esail_fill')} style={{ padding: "7px 12px", borderRadius: 8, background: C.amberGhost, border: `1px solid ${C.amber}55`, color: C.amber, fontWeight: 700, fontSize: 11, cursor: "pointer" }}>◆ {esailSuggestions.length} ESAIL IDs</button>}
+            <button onClick={exportIds} style={{ padding: "7px 12px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 11, cursor: "pointer", marginLeft: 8 }}>↓ ids.csv</button>
+            <button onClick={exportLoc} style={{ padding: "7px 12px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 11, cursor: "pointer" }}>↓ locations.csv</button>
+            <button onClick={exportFuelTypes} style={{ padding: "7px 12px", borderRadius: 8, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 11, cursor: "pointer" }}>↓ fuel_types.csv</button>
+            {loaded.commonNames && <button onClick={exportCommonNames} style={{ padding: "7px 12px", borderRadius: 8, background: C.panel, border: `1px solid ${C.border}`, color: C.dim, fontWeight: 600, fontSize: 11, cursor: "pointer" }}>↓ common-names.csv</button>}
+          </>}
+        </div>
+      </div>
+
+      <div style={{ display: "flex", minHeight: "calc(100vh - 65px)" }}>
+        {/* Sidebar */}
+        <div style={{ width: 256, borderRight: `1px solid ${C.border}`, padding: "16px 12px", display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, overflowY: "auto" }}>
+          <SidebarSection title="Data Files" />
+          <FileBtn label="ids.csv" ok={loaded.ids} n={idsData?.rows.length} onClick={() => refIds.current?.click()} />
+          <input ref={refIds} type="file" accept=".csv" style={{ display: "none" }} onChange={handleFile("ids")} />
+          <FileBtn label="plant-locations.csv" ok={loaded.loc} n={locData?.rows.length} onClick={() => refLoc.current?.click()} />
+          <input ref={refLoc} type="file" accept=".csv" style={{ display: "none" }} onChange={handleFile("loc")} />
+          <HoverTooltip content={<>
+            <div style={{ fontWeight: 700, color: C.amber, marginBottom: 5 }}>Elexon BMU Data</div>
+            <div>Auto-fetched from the <strong>Elexon Insights API</strong> on load.</div>
+            <div style={{ marginTop: 6 }}>If auto-fetch fails, download manually:</div>
+            <div style={{ marginTop: 4, fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.amber, wordBreak: "break-all" }}>data.elexon.co.uk/bmrs/api/v1/reference/bmunits/all</div>
+            <div style={{ marginTop: 2, color: C.dim }}>Open the URL above and save the JSON response as a file, then upload it here.</div>
+          </>}>
+            <div style={{
+              display: "flex", alignItems: "center", gap: 8,
+              padding: "8px 10px", borderRadius: 8, width: "100%",
+              background: bmuFetchStatus === "loaded" ? C.greenGhost : bmuFetchStatus === "error" ? C.redGhost : C.panel,
+              border: `1px solid ${bmuFetchStatus === "loaded" ? C.green + "33" : bmuFetchStatus === "error" ? C.red + "33" : C.border}`,
+              fontSize: 12, color: C.text, boxSizing: "border-box",
+            }}>
+              <span style={{
+                width: 7, height: 7, borderRadius: "50%", flexShrink: 0,
+                background: bmuFetchStatus === "loaded" ? C.green : bmuFetchStatus === "error" ? C.red : C.amber,
+              }} />
+              <span style={{ flex: 1 }}>
+                Elexon BMU Data
+                {bmuFetchStatus === "loading" && <span style={{ color: C.amber, fontSize: 10, marginLeft: 6 }}>Fetching…</span>}
+                {bmuFetchStatus === "loaded" && <span style={{ color: C.green, fontSize: 10, marginLeft: 6 }}>{bmuJson?.length} rows</span>}
+                {bmuFetchStatus === "error" && <span style={{ color: C.red, fontSize: 10, marginLeft: 6 }}>fetch failed</span>}
+              </span>
+              {bmuFetchStatus === "error" && (
+                <button onClick={() => refBmu.current?.click()} style={{
+                  padding: "2px 8px", borderRadius: 4, fontSize: 10, fontWeight: 600,
+                  background: C.tag, border: `1px solid ${C.border}`, color: C.dim, cursor: "pointer",
+                }}>Upload</button>
+              )}
+            </div>
+          </HoverTooltip>
+          <input ref={refBmu} type="file" accept=".json" style={{ display: "none" }} onChange={handleFile("bmu")} />
+          <HoverTooltip content={<>
+            <div style={{ fontWeight: 700, color: C.amber, marginBottom: 5 }}>REPD — Renewable Energy Planning Database</div>
+            <div>Published <strong>quarterly</strong> by <strong>DESNZ</strong>. Used for fuzzy-matching station names and auto-filling BNG coordinates.</div>
+            <div style={{ marginTop: 6 }}>Download from GOV.UK:</div>
+            <div style={{ marginTop: 4, color: C.dim }}>Search <span style={{ fontFamily: "'IBM Plex Mono', monospace", color: C.amber }}>"Renewable Energy Planning Database"</span> on gov.uk → Quarterly extract → Download the CSV</div>
+          </>}>
+            <FileBtn label="REPD Planning Database" ok={loaded.repd} n={repdData?.length} onClick={() => refRepd.current?.click()} />
+          </HoverTooltip>
+          <input ref={refRepd} type="file" accept=".csv" style={{ display: "none" }} onChange={handleFile("repd")} />
+          <div>
+            <FileBtn label="fuel_types.csv" ok={loaded.fuelTypes} n={fuelTypesData?.rows.length} onClick={() => refFuelTypes.current?.click()} />
+            {loaded.fuelTypes && loaded.ids && loaded.bmu && (
+              <button onClick={fillFuelTypesFromElexon} style={{
+                display: "flex", alignItems: "center", gap: 6,
+                padding: "6px 10px", borderRadius: 7, width: "100%", marginTop: 4,
+                background: C.amberGhost, border: `1px solid ${C.amber}44`,
+                color: C.amber, cursor: "pointer", fontSize: 11, fontWeight: 600,
+              }}>⚡ Fill from Elexon</button>
+            )}
+          </div>
+          <input ref={refFuelTypes} type="file" accept=".csv" style={{ display: "none" }} onChange={handleFile("fuelTypes")} />
+
+          <SidebarSection title="Optional Datasets" />
+          <div>
+            <FileBtn label="common-names.csv" ok={loaded.commonNames} n={commonNamesData?.rows.length} onClick={() => refCommonNames.current?.click()} />
+            {loaded.commonNames && loaded.ids && (
+              <button onClick={fillCommonNamesFromIds} style={{
+                display: "flex", alignItems: "center", gap: 6,
+                padding: "6px 10px", borderRadius: 7, width: "100%", marginTop: 4,
+                background: C.amberGhost, border: `1px solid ${C.amber}44`,
+                color: C.amber, cursor: "pointer", fontSize: 11, fontWeight: 600,
+              }}>⚡ Fill from ids.csv</button>
+            )}
+          </div>
+          <input ref={refCommonNames} type="file" accept=".csv" style={{ display: "none" }} onChange={handleFile("commonNames")} />
+
+          {(loaded.ids || loaded.loc) && <>
+            <SidebarSection title="Views" />
+            <NavBtn active={view === "data_editor"} onClick={() => { setView("data_editor"); setEditStation(null); }}><span style={{ color: C.amber }}>✏</span> Data Editor</NavBtn>
+          </>}
+          {isReady && <>
+            <NavBtn active={view === "unmatched"} onClick={() => { setView("unmatched"); setEditStation(null); }}><span style={{ color: C.red }}>●</span> Unmatched BMUs ({unmatchedBmus.length})</NavBtn>
+            <NavBtn active={view === "all_stations"} onClick={() => { setView("all_stations"); setEditStation(null); }}><span style={{ color: C.blue }}>●</span> All Stations ({idsData?.rows.length})</NavBtn>
+            {esailSuggestions.length > 0 && <NavBtn active={view === "esail_fill"} onClick={() => setView("esail_fill")}><span style={{ color: C.amber }}>◆</span> ESAIL Suggestions ({esailSuggestions.length})</NavBtn>}
+          </>}
+
+          {changeLog.length > 0 && <>
+            <SidebarSection title="Change Log" />
+            <div style={{ maxHeight: 240, overflowY: "auto" }}>
+              {[...changeLog].reverse().map((c, i) => (
+                <div key={i} style={{ fontSize: 11, padding: "6px 8px", marginBottom: 3, background: C.tag, borderRadius: 6, color: C.dim }}>
+                  <span style={{ color: c.isNew ? C.blue : C.green, fontWeight: 700 }}>{c.isNew ? "NEW" : "UPD"}</span>{" "}
+                  <span style={{ color: C.text }}>{c.station}</span>
+                  {c.bmuCount > 0 && <span> · {c.bmuCount} BMUs</span>}<br />
+                  <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10 }}>{c.lat}, {c.lng} · {c.time}</span>
+                </div>
+              ))}
+            </div>
+          </>}
+        </div>
+
+        {/* Main */}
+        <div style={{ flex: 1, padding: "20px 28px", overflowY: "auto" }}>
+          {view === "data_editor" ? (
+            <DataEditorView idsData={idsData} locData={locData} onSaveStation={saveDataEditorStation} onDeleteStation={deleteDataEditorStation} onSaveLocation={saveDataEditorLocation} onDeleteLocation={deleteDataEditorLocation} commonNamesIndex={commonNamesIndex} fuelTypesIndex={fuelTypesIndex} fuelTypeOptions={loaded.fuelTypes || loaded.bmu ? allFuelTypeOptions : null} bmuIndex={bmuIndex} bmuNameIndex={bmuNameIndex} onSaveBmuFuelType={saveBmuFuelType} />
+          ) : !isReady ? (
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "60vh", gap: 12 }}>
+              <div style={{ fontSize: 44, opacity: 0.25 }}>⚡</div>
+              <p style={{ color: C.dim, fontSize: 14, textAlign: "center", maxWidth: 380 }}>
+                {bmuFetchStatus === "loading"
+                  ? <><span style={{ color: C.amber }}>Fetching BMU data from Elexon…</span><br /><span style={{ fontSize: 12 }}>Then load <strong>ids.csv</strong>, <strong>plant-locations.csv</strong> and <strong>fuel_types.csv</strong> to begin</span></>
+                  : <>Load files to begin:<br /><strong>ids.csv</strong>, <strong>plant-locations.csv</strong> and <strong>fuel_types.csv</strong>
+                    {bmuFetchStatus === "error" && <><br /><span style={{ color: C.red, fontSize: 12 }}>BMU fetch failed — upload the Elexon BMU JSON manually</span></>}
+                    <br /><span style={{ fontSize: 12 }}>Optionally load the <strong>REPD Planning Database</strong> CSV for fuzzy location matching</span></>
+                }
+              </p>
+            </div>
+          ) : view === "assign" ? (
+            <AssignPanel form={assignForm} setForm={setAssignForm} target={assignTarget} setTarget={setAssignTarget} selectedBmuObjects={selectedBmuObjects} onSave={saveAssignment} onCancel={() => setView("unmatched")} allStations={idsData.rows} locIndex={locIndex} existingSearch={existingStationSearch} setExistingSearch={setExistingStationSearch} assignToExisting={assignToExisting} nextId={nextId} repdData={repdData} fuelTypeOptions={allFuelTypeOptions} resolveFuelType={resolveFuelType} />
+          ) : view === "all_stations" ? (
+            editStation ? (
+              <EditStationPanel station={editStation} form={editForm} setForm={setEditForm} onSave={saveEditStation} onCancel={() => setEditStation(null)} locIndex={locIndex} bmuJson={bmuJson} commonNamesIndex={commonNamesIndex} />
+            ) : (
+              <AllStationsView stations={allStations} search={stationSearch} setSearch={setStationSearch} locIndex={locIndex} onEdit={openEditStation} commonNamesIndex={commonNamesIndex} />
+            )
+          ) : view === "esail_fill" ? (
+            <EsailFillPanel suggestions={esailSuggestions} onApply={applyEsailSuggestion} onApplyAll={applyAllEsailSuggestions} onCancel={() => setView("unmatched")} />
+          ) : (
+            <div style={{ animation: "fadeIn 0.2s" }}>
+
+              <div style={{ display: "flex", gap: 10, marginBottom: 20, flexWrap: "wrap", alignItems: "center" }}>
+                <input placeholder="Search BMUs by name, ID, lead party, GSP group..." value={search} onChange={(e) => setSearch(e.target.value)} style={{ ...inputBase, flex: 1, minWidth: 200 }} />
+                <select value={fuelFilter} onChange={(e) => setFuelFilter(e.target.value)} style={{ ...inputBase, width: "auto", cursor: "pointer", appearance: "none", paddingRight: 28, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236a778a' d='M2 4l4 4 4-4'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center" }}>
+                  {fuelTypes.map((ft) => <option key={ft} value={ft}>{ft === "ALL" ? "All fuel types" : ft === "null" ? "No fuel type" : ft}</option>)}
+                </select>
+              </div>
+
+              {(() => {
+                const sq = search.toLowerCase();
+                const filteredSuggestions = repdAutoSuggestions.filter(({ root, bmus }) => {
+                  if (fuelFilter !== "ALL") {
+                    const fuelMatch = fuelFilter === "null" ? bmus.some(u => !u.fuelType) : bmus.some(u => u.fuelType === fuelFilter);
+                    if (!fuelMatch) return false;
+                  }
+                  if (!sq) return true;
+                  return root.toLowerCase().includes(sq) || bmus.some(u =>
+                    (u.nationalGridBmUnit || "").toLowerCase().includes(sq) ||
+                    (u.elexonBmUnit || "").toLowerCase().includes(sq) ||
+                    (u.bmUnitName || "").toLowerCase().includes(sq) ||
+                    (u.leadPartyName || "").toLowerCase().includes(sq) ||
+                    (u.gspGroupName || "").toLowerCase().includes(sq)
+                  );
+                });
+                if (filteredSuggestions.length === 0) return null;
+                return (
+                <div style={{ marginBottom: 20 }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: C.amber, marginBottom: 8, display: "flex", alignItems: "center", gap: 8 }}>
+                    <span>Suggested Assignments</span>
+                    <span style={{ fontSize: 10, fontWeight: 400, textTransform: "none", color: C.dim }}>{filteredSuggestions.length} strong REPD match{filteredSuggestions.length !== 1 ? "es" : ""} found</span>
+                  </div>
+                  {filteredSuggestions.map(({ root, bmus, topMatch, isDuplicate }) => {
+                    const x = parseFloat(topMatch.row['X-coordinate']), y = parseFloat(topMatch.row['Y-coordinate']);
+                    let coords = null;
+                    if (!isNaN(x) && !isNaN(y) && x > 0 && y > 0) {
+                      const ll = bngToLatLon(x, y);
+                      coords = `${ll.lat.toFixed(4)}, ${ll.lon.toFixed(4)}`;
+                    }
+                    return (
+                      <div key={root} style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.amber}33`, marginBottom: 8 }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+                            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 13, fontWeight: 700, color: C.amber }}>{root}</span>
+                            <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 4, background: C.greenGhost, color: C.green, fontWeight: 700, border: `1px solid ${C.green}33` }}>{Math.round(topMatch.score * 100)}% match</span>
+                            {isDuplicate && <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 4, background: C.redGhost, color: C.red, fontWeight: 700, border: `1px solid ${C.red}33` }}>⚠ ESAIL already exists</span>}
+                            {(() => {
+                              const repdFt = repdTechToFuelType(topMatch.row['Technology Type']);
+                              if (!repdFt) return null;
+                              // Check each BMU's ID/name for a keyword-based fuel type hint
+                              const conflicts = bmus
+                                .map(u => ({ id: u.nationalGridBmUnit || u.elexonBmUnit, hint: bmuNameFuelHint(u.nationalGridBmUnit, u.bmUnitName) }))
+                                .filter(({ hint }) => hint && hint !== repdFt);
+                              if (conflicts.length === 0) return null;
+                              return (
+                                <span style={{ fontSize: 10, padding: "2px 7px", borderRadius: 4, background: "#2e1a0d", color: "#f97316", fontWeight: 700, border: "1px solid #f9731633" }}>
+                                  ⚠ name hints {[...new Set(conflicts.map(c => c.hint))].join('/')} vs REPD {repdFt}
+                                </span>
+                              );
+                            })()}
+                          </div>
+                          {(() => {
+                            const repdFallback = repdTechToFuelType(topMatch.row['Technology Type']) || '';
+                            const willAssign = [...new Set(bmus.map(u => resolveFuelType(u.nationalGridBmUnit, u.fuelType) || repdFallback).filter(Boolean))];
+                            return (
+                              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 5, flexShrink: 0 }}>
+                                <div style={{ display: "flex", gap: 6 }}>
+                                  <button onClick={() => quickAssign(bmus, root, topMatch.row)} style={{ padding: "6px 14px", borderRadius: 7, background: C.green, border: "none", color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>⚡ Quick Assign</button>
+                                  <button onClick={() => startAssignGroup(bmus, root, topMatch.row)} style={{ padding: "6px 14px", borderRadius: 7, background: C.amber, border: "none", color: C.bg, fontWeight: 700, fontSize: 12, cursor: "pointer" }}>Review →</button>
+                                </div>
+                                {willAssign.length > 0 && (
+                                  <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+                                    <span style={{ fontSize: 9, color: C.faint }}>will set:</span>
+                                    {willAssign.map(ft => <FuelBadge key={ft} fuelType={ft} />)}
+                                    {willAssign.length > 1 && <span style={{ fontSize: 9, color: C.amber, fontWeight: 700 }}>per-BMU</span>}
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })()}
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 4, marginBottom: 8 }}>
+                          {bmus.map((u, i) => <BmuTag key={i} unit={u} />)}
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                          <div style={{ padding: "10px 12px", borderRadius: 6, background: C.card, border: `1px solid ${C.blue}33` }}>
+                            <div style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: C.blue, marginBottom: 7 }}>Elexon BMU Data</div>
+                            {[...new Set(bmus.map(u => u.bmUnitName).filter(Boolean))].map((name, i) => (
+                              <div key={i} style={{ fontWeight: 600, fontSize: 12, marginBottom: 1 }}>{name}</div>
+                            ))}
+                            {[...new Set(bmus.map(u => u.leadPartyName).filter(Boolean))].map((party, i) => (
+                              <div key={i} style={{ fontSize: 11, color: C.dim, marginTop: 3 }}>{party}</div>
+                            ))}
+                            {(() => {
+                              const uniqueElexonFuels = [...new Set(bmus.map(u => resolveFuelType(u.nationalGridBmUnit, u.fuelType)).filter(Boolean))];
+                              if (uniqueElexonFuels.length === 0) return null;
+                              return (
+                                <div style={{ display: "flex", gap: 4, flexWrap: "wrap", marginTop: 5, alignItems: "center" }}>
+                                  {uniqueElexonFuels.map(ft => <FuelBadge key={ft} fuelType={ft} />)}
+                                  {uniqueElexonFuels.length > 1 && <span style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: C.amberGhost, color: C.amber, fontWeight: 700, border: `1px solid ${C.amber}33` }}>mixed</span>}
+                                </div>
+                              );
+                            })()}
+                            {bmus[0]?.gspGroupName && <div style={{ fontSize: 10, color: C.faint, marginTop: 4 }}>{bmus[0].gspGroupName}</div>}
+                          </div>
+                          <div style={{ padding: "10px 12px", borderRadius: 6, background: C.card, border: `1px solid ${C.amber}33` }}>
+                            <div style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: C.amber, marginBottom: 7 }}>REPD Match</div>
+                            <div style={{ fontWeight: 600, fontSize: 12, marginBottom: 1 }}>{topMatch.row['Site Name']}</div>
+                            {topMatch.row['Operator (or Applicant)'] && <div style={{ fontSize: 11, color: C.dim, marginTop: 3 }}>{topMatch.row['Operator (or Applicant)']}</div>}
+                            <div style={{ display: "flex", gap: 4, flexWrap: "wrap", marginTop: 5, alignItems: "center" }}>
+                              {topMatch.row['Technology Type'] && <span style={{ fontSize: 9, padding: "1px 5px", borderRadius: 3, background: C.tag, color: C.dim }}>{topMatch.row['Technology Type']}</span>}
+                              {topMatch.row['Development Status (short)'] && <span style={{ fontSize: 9, padding: "1px 5px", borderRadius: 3, background: C.tag, color: C.dim }}>{topMatch.row['Development Status (short)']}</span>}
+                              {(() => { const rft = repdTechToFuelType(topMatch.row['Technology Type']); if (!rft) return null; const rfc = fuelColor(rft); return <span style={{ fontSize: 9, padding: "2px 6px", borderRadius: 3, background: rfc.bg, color: rfc.fg, fontWeight: 700 }}>{rft}</span>; })()}
+                            </div>
+                            {(topMatch.row['Installed Capacity (MWelec)'] || topMatch.row['County']) && (
+                              <div style={{ fontSize: 10, color: C.dim, marginTop: 4 }}>
+                                {topMatch.row['Installed Capacity (MWelec)'] ? `${topMatch.row['Installed Capacity (MWelec)']} MW` : ''}
+                                {topMatch.row['Installed Capacity (MWelec)'] && topMatch.row['County'] ? ' · ' : ''}
+                                {topMatch.row['County'] || ''}
+                              </div>
+                            )}
+                            {coords && <div style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 10, color: C.green, marginTop: 5 }}>📍 {coords}</div>}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+                );
+              })()}
+
+              {(() => {
+                const sq = search.toLowerCase();
+                const visibleGroups = unmatchedBmuGroups.filter(({ root, bmus }) => {
+                  if (fuelFilter !== "ALL") {
+                    const fuelMatch = fuelFilter === "null" ? bmus.some(u => !u.fuelType) : bmus.some(u => u.fuelType === fuelFilter);
+                    if (!fuelMatch) return false;
+                  }
+                  if (!sq) return true;
+                  return root.toLowerCase().includes(sq) || bmus.some(u =>
+                    (u.nationalGridBmUnit || "").toLowerCase().includes(sq) ||
+                    (u.elexonBmUnit || "").toLowerCase().includes(sq) ||
+                    (u.bmUnitName || "").toLowerCase().includes(sq) ||
+                    (u.leadPartyName || "").toLowerCase().includes(sq) ||
+                    (u.gspGroupName || "").toLowerCase().includes(sq)
+                  );
+                });
+                if (visibleGroups.length === 0) return null;
+                return (
+                  <div style={{ marginBottom: 20 }}>
+                    <button onClick={() => setGroupsOpen(o => !o)} style={{ display: "flex", alignItems: "center", gap: 8, background: "none", border: "none", cursor: "pointer", padding: 0, marginBottom: groupsOpen ? 8 : 0 }}>
+                      <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: C.blue }}>Groups</span>
+                      <span style={{ fontSize: 10, fontWeight: 400, color: C.dim }}>{visibleGroups.length} group{visibleGroups.length !== 1 ? "s" : ""} of related unmatched BMUs</span>
+                      <span style={{ fontSize: 10, color: C.faint, marginLeft: 2 }}>{groupsOpen ? "▲" : "▼"}</span>
+                    </button>
+                    {groupsOpen && visibleGroups.map(({ root, bmus }) => (
+                      <div key={root} style={{ padding: 14, borderRadius: 10, background: C.panel, border: `1px solid ${C.blue}33`, marginBottom: 8, display: "flex", alignItems: "center", gap: 12 }}>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}>
+                            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 13, fontWeight: 700, color: C.blue }}>{root}</span>
+                            <span style={{ fontSize: 10, color: C.dim }}>{bmus.length} BMU{bmus.length !== 1 ? "s" : ""}</span>
+                          </div>
+                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                            {bmus.map((u, i) => <BmuTag key={i} unit={u} />)}
+                          </div>
+                        </div>
+                        <button onClick={() => startAssignGroup(bmus, root, null)} style={{ padding: "6px 14px", borderRadius: 7, background: C.blue, border: "none", color: "#fff", fontWeight: 700, fontSize: 12, cursor: "pointer", flexShrink: 0 }}>Assign →</button>
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, padding: "8px 12px", borderRadius: 8, background: selectedBmus.size > 0 ? C.amberGhost : C.panel, border: `1px solid ${selectedBmus.size > 0 ? C.amber + "33" : C.border}` }}>
+                <div style={{ fontSize: 13, color: C.dim }}>
+                  <span style={{ color: C.text, fontWeight: 600 }}>{filteredBmus.length}</span> unmatched
+                  {selectedBmus.size > 0 && <span> · <span style={{ color: C.amber, fontWeight: 600 }}>{selectedBmus.size} selected</span></span>}
+                </div>
+                <div style={{ display: "flex", gap: 6 }}>
+                  <SmallBtn onClick={selectAllFiltered}>Select all visible</SmallBtn>
+                  {selectedBmus.size > 0 && <>
+                    <SmallBtn onClick={deselectAll}>Clear</SmallBtn>
+                    <SmallBtn accent onClick={startAssign}>Assign {selectedBmus.size} BMU{selectedBmus.size !== 1 ? "s" : ""} →</SmallBtn>
+                  </>}
+                </div>
+              </div>
+
+              {filteredBmus.length === 0 ? (
+                <div style={{ textAlign: "center", padding: 48, color: C.dim }}>{unmatchedBmus.length === 0 ? "🎉 All BMUs are mapped!" : "No BMUs match your filters."}</div>
+              ) : (
+                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  {filteredBmus.map((unit) => {
+                    const uid = unit.elexonBmUnit || unit.nationalGridBmUnit;
+                    const selected = selectedBmus.has(uid);
+                    const fc = fuelColor(unit.fuelType);
+                    return (
+                      <button key={uid} onClick={() => toggleBmu(uid)} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 8, width: "100%", background: selected ? C.amberGhost : C.panel, border: `1px solid ${selected ? C.amber + "55" : C.border}`, color: C.text, cursor: "pointer", textAlign: "left" }}>
+                        <div style={{ width: 18, height: 18, borderRadius: 4, flexShrink: 0, border: `2px solid ${selected ? C.amber : C.faint}`, background: selected ? C.amber : "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          {selected && <span style={{ color: C.bg, fontSize: 12, fontWeight: 700 }}>✓</span>}
+                        </div>
+                        <FuelBadge fuelType={unit.fuelType} />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+                            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: 12, fontWeight: 500, color: C.amber }}>{unit.nationalGridBmUnit || unit.elexonBmUnit}</span>
+                          </div>
+                          <div style={{ fontSize: 11, color: C.dim, marginTop: 2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{unit.bmUnitName}{unit.leadPartyName ? ` · ${unit.leadPartyName}` : ""}{unit.gspGroupName ? ` · ${unit.gspGroupName}` : ""}</div>
+                        </div>
+                        {unit.generationCapacity && parseFloat(unit.generationCapacity) > 0 && <span style={{ fontSize: 11, color: C.dim, fontFamily: "'IBM Plex Mono', monospace", flexShrink: 0 }}>{unit.generationCapacity} MW</span>}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(BMULocationTool));
+</script>
+</body>
+</html>
